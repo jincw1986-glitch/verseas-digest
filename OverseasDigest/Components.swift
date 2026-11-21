@@ -181,57 +181,388 @@ struct SafariSheet: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
 }
 
+enum PhotoFraming {
+    /// 通栏大图：尽量铺满，并用脸的位置决定裁切，保证每张脸都完整。
+    case hero
+    /// 整张图放在模糊放大的背景上，不裁切。
+    case full
+}
+
 struct DigestPhoto: View {
     let picture: DigestPicture?
     var accent: Color = Color(red: 0.22, green: 0.30, blue: 0.42)
     var symbol: String = "photo"
     var fillsFrame: Bool = false
-    @State private var uiImage: UIImage?
+    var framing: PhotoFraming = .hero
+    @State private var phase: Phase = .idle
+    @State private var showViewer = false
+    @State private var loadToken = LoadToken()
+
+    private enum Phase {
+        case idle
+        case loading
+        case loaded(UIImage, [CGRect])
+        case failed
+    }
+
+    private var hasPicture: Bool {
+        guard let picture else { return false }
+        return !(picture.path ?? "").isEmpty || !(picture.url ?? "").isEmpty
+    }
 
     var body: some View {
         Group {
             if fillsFrame {
-                framed
+                photoStack
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 Color.clear
                     .aspectRatio(16.0 / 9.0, contentMode: .fit)
-                    .overlay { framed }
+                    .overlay { photoStack }
             }
         }
         .clipped()
+        .contentShape(Rectangle())
+        .simultaneousGesture(TapGesture().onEnded { handleTap() })
+        .onAppear { beginLoad(force: false) }
+        .onChange(of: picture?.cacheKey) { _, _ in
+            phase = .idle
+            beginLoad(force: true)
+        }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(picture?.credit ?? "图片暂时无法显示")
-        .task(id: picture?.cacheKey ?? "missing") {
-            uiImage = nil
-            guard let picture else { return }
-            guard let data = await DigestRepository.shared.imageData(for: picture) else { return }
-            uiImage = UIImage(data: data)
+        .accessibilityLabel(accessibilityText)
+        .accessibilityAddTraits(hasPicture ? .isButton : AccessibilityTraits())
+        .fullScreenCover(isPresented: $showViewer) {
+            if case .loaded(let image, _) = phase {
+                ImageViewer(image: image, credit: picture?.credit ?? "")
+            }
+        }
+    }
+
+    private var accessibilityText: String {
+        switch phase {
+        case .failed:
+            return "图片没有载入，轻点重试"
+        case .loaded:
+            return "查看大图。\(picture?.credit ?? "")"
+        case .loading:
+            return "正在载入图片"
+        case .idle:
+            return picture?.credit ?? "图片"
         }
     }
 
     @ViewBuilder
-    private var framed: some View {
-        if let uiImage {
-            Image(uiImage: uiImage)
-                .resizable()
-                .scaledToFill()
-        } else {
-            ZStack {
-                LinearGradient(
-                    colors: [accent.opacity(0.95), accent.opacity(0.55)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                VStack(spacing: 8) {
-                    Image(systemName: symbol)
-                        .font(.system(size: 36, weight: .light))
-                    Text("图片暂时无法显示")
-                        .font(.footnote.weight(.medium))
+    private var photoStack: some View {
+        switch phase {
+        case .loaded(let image, let faces):
+            FittedPhoto(image: image, faces: faces, framing: framing)
+        case .failed:
+            statusFill(title: "图片没有载入", detail: "轻点重试", spinning: false)
+        case .loading where hasPicture:
+            statusFill(title: "正在载入图片", detail: nil, spinning: true)
+        default:
+            accentFill
+        }
+    }
+
+    private var accentFill: some View {
+        ZStack {
+            LinearGradient(
+                colors: [accent.opacity(0.95), accent.opacity(0.55)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            Image(systemName: symbol)
+                .font(.system(size: 40, weight: .light))
+                .foregroundStyle(.white.opacity(0.9))
+        }
+    }
+
+    private func statusFill(title: String, detail: String?, spinning: Bool) -> some View {
+        ZStack {
+            accentFill
+            VStack(spacing: 8) {
+                if spinning {
+                    ProgressView()
+                        .tint(.white)
                 }
-                .foregroundStyle(.white.opacity(0.92))
+                Text(title)
+                    .font(.footnote.weight(.semibold))
+                if let detail {
+                    Text(detail)
+                        .font(.caption.weight(.medium))
+                }
+            }
+            .foregroundStyle(.white)
+            .padding(12)
+            .background(.black.opacity(0.28), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+        }
+    }
+
+    private func beginLoad(force: Bool) {
+        guard hasPicture, let picture else { return }
+        if !force {
+            if case .loading = phase { return }
+            if case .loaded = phase { return }
+        }
+        phase = .loading
+        loadToken.value += 1
+        let token = loadToken.value
+        let gate = loadToken
+        let requested = picture
+        Task {
+            do {
+                let loaded = try await DigestRepository.shared.loadPicture(requested)
+                guard token == gate.value else { return }
+                phase = .loaded(loaded.image, loaded.faces)
+            } catch {
+                guard token == gate.value else { return }
+                phase = .failed
             }
         }
+    }
+
+    private func handleTap() {
+        switch phase {
+        case .failed:
+            beginLoad(force: true)
+        case .loaded:
+            showViewer = true
+        default:
+            break
+        }
+    }
+}
+
+private final class LoadToken {
+    var value = 0
+}
+
+private struct FittedPhoto: View {
+    let image: UIImage
+    let faces: [CGRect]
+    let framing: PhotoFraming
+
+    var body: some View {
+        GeometryReader { geo in
+            let layout = PhotoLayout.resolve(
+                imageSize: image.size,
+                faces: faces,
+                framing: framing,
+                container: geo.size
+            )
+            if layout.letterbox {
+                ZStack {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .blur(radius: 18)
+                        .overlay(Color.black.opacity(0.25))
+                        .clipped()
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geo.size.width, height: geo.size.height)
+                }
+            } else {
+                Image(uiImage: image)
+                    .resizable()
+                    .frame(width: layout.drawSize.width, height: layout.drawSize.height)
+                    .offset(layout.offset)
+                    .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
+                    .clipped()
+            }
+        }
+    }
+}
+
+private struct PhotoLayout {
+    var letterbox: Bool
+    var drawSize: CGSize
+    var offset: CGSize
+
+    static func resolve(imageSize: CGSize, faces: [CGRect], framing: PhotoFraming, container: CGSize) -> PhotoLayout {
+        let imgW = imageSize.width
+        let imgH = imageSize.height
+        guard imgW > 1, imgH > 1, container.width > 1, container.height > 1 else {
+            return PhotoLayout(letterbox: true, drawSize: container, offset: .zero)
+        }
+        if framing == .full {
+            return PhotoLayout(letterbox: true, drawSize: container, offset: .zero)
+        }
+        let portrait = imgH >= imgW
+        if portrait && !faces.isEmpty {
+            return PhotoLayout(letterbox: true, drawSize: container, offset: .zero)
+        }
+        let scale = max(container.width / imgW, container.height / imgH)
+        let visW = container.width / scale
+        let visH = container.height / scale
+        let drawSize = CGSize(width: imgW * scale, height: imgH * scale)
+        let origin: CGPoint
+        if faces.isEmpty {
+            origin = CGPoint(x: max((imgW - visW) / 2, 0), y: portrait ? 0 : max((imgH - visH) / 2, 0))
+        } else if let fitted = originContainingFaces(
+            faces,
+            imageWidth: imgW,
+            imageHeight: imgH,
+            visibleWidth: visW,
+            visibleHeight: visH
+        ) {
+            origin = fitted
+        } else {
+            return PhotoLayout(letterbox: true, drawSize: container, offset: .zero)
+        }
+        return PhotoLayout(
+            letterbox: false,
+            drawSize: drawSize,
+            offset: CGSize(width: -origin.x * scale, height: -origin.y * scale)
+        )
+    }
+
+    /// 返回能装下所有脸的可见窗口左上角。装不下时返回 nil，调用方改为完整显示。
+    private static func originContainingFaces(
+        _ faces: [CGRect],
+        imageWidth: CGFloat,
+        imageHeight: CGFloat,
+        visibleWidth: CGFloat,
+        visibleHeight: CGFloat
+    ) -> CGPoint? {
+        let raw = union(faces, imageWidth: imageWidth, imageHeight: imageHeight, pad: 0)
+        let padded = union(faces, imageWidth: imageWidth, imageHeight: imageHeight, pad: 0.28)
+        let target = padded.width <= visibleWidth && padded.height <= visibleHeight ? padded : raw
+        guard target.width <= visibleWidth + 0.5, target.height <= visibleHeight + 0.5 else { return nil }
+        let maxX = max(imageWidth - visibleWidth, 0)
+        let maxY = max(imageHeight - visibleHeight, 0)
+        var x = min(max(target.midX - visibleWidth / 2, 0), maxX)
+        var y = min(max(target.midY - visibleHeight / 2, 0), maxY)
+        if x > target.minX { x = min(max(target.minX, 0), maxX) }
+        if x + visibleWidth < target.maxX { x = min(max(target.maxX - visibleWidth, 0), maxX) }
+        if y > target.minY { y = min(max(target.minY, 0), maxY) }
+        if y + visibleHeight < target.maxY { y = min(max(target.maxY - visibleHeight, 0), maxY) }
+        guard x <= target.minX + 0.5, x + visibleWidth + 0.5 >= target.maxX else { return nil }
+        guard y <= target.minY + 0.5, y + visibleHeight + 0.5 >= target.maxY else { return nil }
+        return CGPoint(x: x, y: y)
+    }
+
+    private static func union(_ faces: [CGRect], imageWidth: CGFloat, imageHeight: CGFloat, pad: CGFloat) -> CGRect {
+        var rect = CGRect.null
+        guard !faces.isEmpty else { return .zero }
+        for face in faces {
+            var box = CGRect(
+                x: face.minX * imageWidth,
+                y: face.minY * imageHeight,
+                width: face.width * imageWidth,
+                height: face.height * imageHeight
+            )
+            box = box.insetBy(dx: -box.width * pad, dy: -box.height * pad)
+            box.origin.y -= box.height * 0.12
+            box.size.height += box.height * 0.12
+            rect = rect.union(box)
+        }
+        let clipped = rect.intersection(CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
+        return clipped.isNull ? .zero : clipped
+    }
+}
+
+private struct ImageViewer: View {
+    let image: UIImage
+    let credit: String
+    @Environment(\.dismiss) private var dismiss
+    @State private var scale: CGFloat = 1
+    @State private var baseScale: CGFloat = 1
+    @State private var offset: CGSize = .zero
+    @State private var baseOffset: CGSize = .zero
+
+    var body: some View {
+        ZStack {
+            Color.black.ignoresSafeArea()
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
+                .scaleEffect(scale)
+                .offset(offset)
+                .gesture(zoomGesture)
+                .simultaneousGesture(panGesture)
+                .onTapGesture(count: 2) {
+                    if scale > 1.05 {
+                        scale = 1
+                        baseScale = 1
+                        offset = .zero
+                        baseOffset = .zero
+                    } else {
+                        scale = 2
+                        baseScale = 2
+                    }
+                }
+        }
+        .overlay(alignment: .topTrailing) {
+            Button("关闭") { dismiss() }
+                .font(.subheadline.weight(.semibold))
+                .padding(.horizontal, 14)
+                .padding(.vertical, 8)
+                .background(.ultraThinMaterial, in: Capsule())
+                .padding()
+        }
+        .overlay(alignment: .bottom) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(credit)
+                    .font(.footnote)
+                    .foregroundStyle(.white)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text("双指缩放，下拉关闭")
+                    .font(.caption2)
+                    .foregroundStyle(.white.opacity(0.75))
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(16)
+            .background(.black.opacity(0.55))
+        }
+        .statusBarHidden(true)
+    }
+
+    private var zoomGesture: some Gesture {
+        MagnifyGesture()
+            .onChanged { value in
+                scale = min(max(baseScale * value.magnification, 0.85), 4)
+            }
+            .onEnded { _ in
+                if scale < 1 {
+                    scale = 1
+                    baseScale = 1
+                    offset = .zero
+                    baseOffset = .zero
+                } else {
+                    baseScale = scale
+                }
+            }
+    }
+
+    private var panGesture: some Gesture {
+        DragGesture(minimumDistance: 8)
+            .onChanged { value in
+                if scale <= 1.02 {
+                    offset = CGSize(width: 0, height: max(value.translation.height, -12))
+                } else {
+                    offset = CGSize(
+                        width: baseOffset.width + value.translation.width,
+                        height: baseOffset.height + value.translation.height
+                    )
+                }
+            }
+            .onEnded { value in
+                if scale <= 1.02 {
+                    if value.translation.height > 90 {
+                        dismiss()
+                    } else {
+                        offset = .zero
+                        baseOffset = .zero
+                    }
+                } else {
+                    baseOffset = offset
+                }
+            }
     }
 }
 

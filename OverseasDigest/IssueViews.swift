@@ -312,7 +312,7 @@ private struct SectionPager: View {
                     .textSelection(.enabled)
             }
             ForEach(Array(place.photos.dropFirst())) { photo in
-                DigestPhoto(picture: photo.picture, accent: accent, symbol: "map")
+                DigestPhoto(picture: photo.picture, accent: accent, symbol: "map", framing: .full)
                     .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                 if let caption = photo.caption {
                     Text(caption)
@@ -332,7 +332,8 @@ private struct SectionPager: View {
             picture: item.image,
             accent: accent,
             symbol: item.kind == "animal" ? "pawprint" : "person",
-            pageLabel: label
+            pageLabel: label,
+            framing: .full
         ) {
             creditLine(item.image.credit)
             if let source = item.source, let url = source.webURL {
@@ -418,53 +419,60 @@ private struct MagazineCard<Content: View>: View {
     let accent: Color
     let symbol: String
     let pageLabel: String
+    var framing: PhotoFraming = .hero
     var jokeStyle: Bool = false
     @ViewBuilder var content: () -> Content
 
     var body: some View {
         GeometryReader { geo in
             let cardHeight = max(geo.size.height - 36, 320)
-            let hero = min(cardHeight * 0.52, 460)
+            let hero = min(cardHeight * (framing == .full ? 0.64 : 0.52), 520)
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack(alignment: .center, spacing: 8) {
-                            Text(kicker)
-                                .font(.caption.weight(.bold))
-                                .foregroundStyle(.white)
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 5)
-                                .background(accent, in: Capsule())
-                            Text(dateLine)
-                                .font(.caption.weight(.semibold))
-                                .foregroundStyle(.white.opacity(0.88))
-                                .lineLimit(1)
-                            Spacer(minLength: 8)
-                            Text(pageLabel)
-                                .font(.caption.weight(.bold).monospacedDigit())
-                                .foregroundStyle(.white.opacity(0.92))
-                        }
-                        Text(title)
-                            .font(.title.weight(.bold))
-                            .foregroundStyle(.white)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .shadow(color: .black.opacity(0.35), radius: 8, y: 2)
-                    }
-                    .padding(18)
-                    .frame(maxWidth: .infinity, minHeight: hero, alignment: .bottomLeading)
-                    .background {
-                        DigestPhoto(picture: picture, accent: accent, symbol: symbol, fillsFrame: true)
-                            .overlay(alignment: .bottom) {
-                                LinearGradient(
-                                    colors: [.clear, .black.opacity(0.18), .black.opacity(0.82)],
-                                    startPoint: .top,
-                                    endPoint: .bottom
-                                )
-                                .frame(height: hero * 0.72)
-                                .frame(maxHeight: .infinity, alignment: .bottom)
-                                .allowsHitTesting(false)
+                    ZStack(alignment: .bottomLeading) {
+                        DigestPhoto(
+                            picture: picture,
+                            accent: accent,
+                            symbol: symbol,
+                            fillsFrame: true,
+                            framing: framing
+                        )
+                        LinearGradient(
+                            colors: [.clear, .black.opacity(0.15), .black.opacity(0.78)],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                        .frame(height: hero * 0.62)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                        .allowsHitTesting(false)
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(alignment: .center, spacing: 8) {
+                                Text(kicker)
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(.white)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 5)
+                                    .background(accent, in: Capsule())
+                                Text(dateLine)
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(.white.opacity(0.88))
+                                    .lineLimit(1)
+                                Spacer(minLength: 8)
+                                Text(pageLabel)
+                                    .font(.caption.weight(.bold).monospacedDigit())
+                                    .foregroundStyle(.white.opacity(0.92))
                             }
+                            Text(title)
+                                .font(.title.weight(.bold))
+                                .foregroundStyle(.white)
+                                .minimumScaleFactor(0.65)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .shadow(color: .black.opacity(0.35), radius: 8, y: 2)
+                        }
+                        .padding(18)
+                        .allowsHitTesting(false)
                     }
+                    .frame(height: hero)
                     .clipped()
 
                     VStack(alignment: .leading, spacing: 16) {
@@ -506,7 +514,7 @@ struct ItemDetailView: View {
                     .font(.largeTitle.weight(.bold))
                     .fixedSize(horizontal: false, vertical: true)
                 if let picture = item.image {
-                    DigestPhoto(picture: picture)
+                    DigestPhoto(picture: picture, framing: .full)
                         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                     Text(picture.credit)
                         .font(.caption)
