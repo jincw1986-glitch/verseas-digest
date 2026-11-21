@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/jincw1986-glitch/verseas-digest/main/data/schema.json",
+  "title": "海外资讯简报数据",
+  "description": "data/index.json 与 data/issues/YYYY-MM-DD.json 的契约。根模式用 oneOf 同时接受索引和单期；scripts/validate.py 会按文件名选用对应定义，并额外检查栏目顺序、句子数量、日期排序和本地图片是否存在。",
+  "$defs": {
+    "isoDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "httpsURL": {
+      "type": "string",
+      "pattern": "^https://[^\\s]+$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "$ref": "#/$defs/httpsURL" }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["credit"],
+      "anyOf": [
+        { "required": ["path"] },
+        { "required": ["url"] }
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "相对 data/ 目录的路径，例如 images/2026-11-21/voyager-1.jpg。与 url 至少填一个。"
+        },
+        "url": {
+          "$ref": "#/$defs/httpsURL",
+          "description": "可直接访问的 https 图片地址。与 path 至少填一个。"
+        },
+        "credit": { "type": "string", "minLength": 1 }
+      }
+    },
+    "glossaryEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["term", "type", "explanation"],
+      "properties": {
+        "term": { "type": "string", "minLength": 1 },
+        "type": {
+          "enum": ["person", "term", "concept", "award", "org"],
+          "description": "person 人物，term 术语或专名，concept 概念，award 奖项，org 机构或组织。"
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1,
+          "description": "2 到 4 个句子。校验脚本按句号计数，不在 JSON Schema 里表达。"
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["headline", "summary", "sources", "glossary"],
+      "properties": {
+        "headline": { "type": "string", "minLength": 1 },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "1 到 2 个句子。"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/source" }
+        },
+        "image": { "$ref": "#/$defs/image" },
+        "glossary": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": { "$ref": "#/$defs/glossaryEntry" }
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "items"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/item" }
+        }
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "title", "sections"],
+      "properties": {
+        "date": { "$ref": "#/$defs/isoDate" },
+        "title": { "type": "string", "minLength": 1 },
+        "sections": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "prefixItems": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/section" },
+                { "properties": { "name": { "const": "国际政治与时事" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/section" },
+                { "properties": { "name": { "const": "经济与市场" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/section" },
+                { "properties": { "name": { "const": "科技与人工智能" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/section" },
+                { "properties": { "name": { "const": "科学与体育" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/section" },
+                { "properties": { "name": { "const": "书籍与作家" } } }
+              ]
+            }
+          ],
+          "items": false
+        }
+      }
+    },
+    "indexEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "title", "path"],
+      "properties": {
+        "date": { "$ref": "#/$defs/isoDate" },
+        "title": { "type": "string", "minLength": 1 },
+        "path": {
+          "type": "string",
+          "pattern": "^issues/[0-9]{4}-[0-9]{2}-[0-9]{2}\\.json$"
+        }
+      }
+    },
+    "index": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["issues"],
+      "properties": {
+        "issues": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/indexEntry" }
+        }
+      }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/$defs/index" },
+    { "$ref": "#/$defs/issue" }
+  ]
+}
