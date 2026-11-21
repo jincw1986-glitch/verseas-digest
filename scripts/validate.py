@@ -25,14 +25,27 @@ INDEX_PATH = DATA / "index.json"
 ISSUES_DIR = DATA / "issues"
 
 SECTION_ORDER = [
+    "每日一图",
     "国际政治与时事",
     "经济与市场",
     "科技与人工智能",
     "社会资讯",
     "科学与体育",
+    "影视与明星",
     "书籍与作家",
+    "天涯海角",
+    "美女与野兽",
     "笑话",
 ]
+NEWS_SECTIONS = {
+    "国际政治与时事",
+    "经济与市场",
+    "科技与人工智能",
+    "社会资讯",
+    "科学与体育",
+    "影视与明星",
+    "书籍与作家",
+}
 JOKE_SECTION = "笑话"
 JOKE_URL_RE = re.compile(r"^https://x\.com/([A-Za-z0-9_]{1,15})/status/[0-9]+$")
 HANDLE_RE = re.compile(r"^@[A-Za-z0-9_]{1,15}$")
@@ -217,6 +230,89 @@ def check_joke(joke: object, where: str) -> None:
         error(f"{where}: note 不能是空字符串")
 
 
+def check_photo(photo: object, where: str) -> None:
+    if not isinstance(photo, dict):
+        error(f"{where}: photo 必须是对象")
+        return
+    check_no_extra(photo, {"title", "interpretation", "image", "sources"}, where)
+    require_string(photo, "title", where)
+    text = require_string(photo, "interpretation", where)
+    if text is not None:
+        paragraphs = [part.strip() for part in text.split("\n\n") if part.strip()]
+        if len(paragraphs) < 3 or count_sentences(text) < 6:
+            error(f"{where}: 每日一图的解读至少三段、六句")
+    image = photo.get("image")
+    if not isinstance(image, dict):
+        error(f"{where}: 每日一图必须有 image")
+    else:
+        check_image(image, f"{where} 图片")
+    sources = photo.get("sources")
+    if not isinstance(sources, list) or not sources:
+        error(f"{where}: 每日一图至少要有一条来源")
+    else:
+        for index, source in enumerate(sources, start=1):
+            if not isinstance(source, dict) or not is_https_url(source.get("url")):
+                error(f"{where} 来源{index}: url 必须是 https 地址")
+            else:
+                require_string(source, "name", f"{where} 来源{index}")
+
+
+def check_place(place: object, where: str) -> None:
+    if not isinstance(place, dict):
+        error(f"{where}: place 必须是对象")
+        return
+    check_no_extra(place, {"name", "paragraphs", "photos"}, where)
+    require_string(place, "name", where)
+    paragraphs = place.get("paragraphs")
+    if not isinstance(paragraphs, list) or len(paragraphs) < 3:
+        error(f"{where}: 天涯海角至少三段")
+    elif any(not isinstance(part, str) or len(part.strip()) < 40 for part in paragraphs):
+        error(f"{where}: 每一段都要写成完整的散文，不能是宣传短句")
+    photos = place.get("photos")
+    if not isinstance(photos, list) or not (1 <= len(photos) <= 3):
+        error(f"{where}: 配图要 1 到 3 张")
+        return
+    for index, photo in enumerate(photos, start=1):
+        if not isinstance(photo, dict):
+            error(f"{where} 配图{index}: 必须是对象")
+            continue
+        check_no_extra(photo, {"path", "url", "credit", "caption"}, f"{where} 配图{index}")
+        check_image(
+            {key: photo[key] for key in ("path", "url", "credit") if key in photo},
+            f"{where} 配图{index}",
+        )
+
+
+def check_gallery(gallery: object, where: str) -> None:
+    if not isinstance(gallery, list) or len(gallery) < 4:
+        error(f"{where}: 美女与野兽至少 4 张图")
+        return
+    kinds = set()
+    for index, item in enumerate(gallery, start=1):
+        item_where = f"{where} 图{index}"
+        if not isinstance(item, dict):
+            error(f"{item_where}: 必须是对象")
+            continue
+        check_no_extra(item, {"kind", "caption", "image", "source"}, item_where)
+        kind = item.get("kind")
+        if kind not in {"person", "animal"}:
+            error(f"{item_where}: kind 只能是 person 或 animal")
+        else:
+            kinds.add(kind)
+        require_string(item, "caption", item_where)
+        image = item.get("image")
+        if not isinstance(image, dict):
+            error(f"{item_where}: 必须有 image")
+        else:
+            check_image(image, item_where)
+        source = item.get("source")
+        if source is not None:
+            if not isinstance(source, dict) or not is_https_url(source.get("url")):
+                error(f"{item_where}: source.url 必须是 https 地址")
+    if kinds != {"person", "animal"}:
+        error(f"{where}: 图集要同时有人物和动物")
+
+
 def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
     where = str(path.relative_to(ROOT))
     check_no_extra(issue, {"date", "title", "sections"}, where)
@@ -245,21 +341,40 @@ def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
             error(f"{where}: 栏目必须是对象")
             continue
         section_where = f"{where} [{expected}]"
+        if expected == "每日一图":
+            check_no_extra(section, {"name", "photo"}, section_where)
+            check_photo(section.get("photo"), section_where)
+            continue
+        if expected == "天涯海角":
+            check_no_extra(section, {"name", "place"}, section_where)
+            check_place(section.get("place"), section_where)
+            continue
+        if expected == "美女与野兽":
+            check_no_extra(section, {"name", "gallery"}, section_where)
+            check_gallery(section.get("gallery"), section_where)
+            continue
         check_no_extra(section, {"name", "items"}, section_where)
         items = section.get("items")
         if not isinstance(items, list) or not items:
             error(f"{section_where}: items 至少要有一条")
             continue
-        if expected == JOKE_SECTION and len(items) < 10:
-            error(f"{section_where}: 笑话至少 10 条，实际 {len(items)} 条")
-        for index, item in enumerate(items, start=1):
-            if expected == JOKE_SECTION:
-                label = item.get("handle") if isinstance(item, dict) else None
-                check_joke(item, f"{section_where} / {label or f'第{index}条'}")
+        if expected == JOKE_SECTION:
+            if not isinstance(items, list) or len(items) < 10:
+                error(f"{section_where}: 笑话至少 10 条")
             else:
-                headline = item.get("headline") if isinstance(item, dict) else None
-                label = headline if isinstance(headline, str) and headline else f"第{index}条"
-                check_item(item, f"{section_where} / {label}")
+                for index, item in enumerate(items, start=1):
+                    label = item.get("handle") if isinstance(item, dict) else None
+                    check_joke(item, f"{section_where} / {label or f'第{index}条'}")
+            continue
+        if not isinstance(items, list) or not (4 <= len(items) <= 7):
+            error(f"{section_where}: 新闻栏目大约 5 则，允许 4 到 7 则")
+            continue
+        for index, item in enumerate(items, start=1):
+            headline = item.get("headline") if isinstance(item, dict) else None
+            label = headline if isinstance(headline, str) and headline else f"第{index}条"
+            check_item(item, f"{section_where} / {label}")
+            if expected == "影视与明星" and isinstance(item, dict) and "image" not in item:
+                error(f"{section_where} / {label}: 影视与明星的每一则都要有图")
 
 
 def check_index(index: dict) -> list[tuple[str, str, Path]]:

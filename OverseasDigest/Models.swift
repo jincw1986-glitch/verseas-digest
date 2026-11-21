@@ -23,35 +23,97 @@ struct DigestSection: Codable, Equatable, Identifiable {
     var name: String
     var items: [DigestItem]
     var jokes: [JokeItem]
+    var photo: PhotoOfDay?
+    var place: PlaceEssay?
+    var gallery: [GalleryItem]
 
-    var entryCount: Int { name == "笑话" ? jokes.count : items.count }
+    var entryCount: Int {
+        switch name {
+        case "笑话": return jokes.count
+        case "每日一图": return photo == nil ? 0 : 1
+        case "天涯海角": return place == nil ? 0 : 1
+        case "美女与野兽": return gallery.count
+        default: return items.count
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
-        case name
-        case items
+        case name, items, photo, place, gallery
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
-        if name == "笑话" {
+        items = []
+        jokes = []
+        photo = nil
+        place = nil
+        gallery = []
+        switch name {
+        case "笑话":
             jokes = try container.decode([JokeItem].self, forKey: .items)
-            items = []
-        } else {
+        case "每日一图":
+            photo = try container.decode(PhotoOfDay.self, forKey: .photo)
+        case "天涯海角":
+            place = try container.decode(PlaceEssay.self, forKey: .place)
+        case "美女与野兽":
+            gallery = try container.decode([GalleryItem].self, forKey: .gallery)
+        default:
             items = try container.decode([DigestItem].self, forKey: .items)
-            jokes = []
         }
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        if name == "笑话" {
+        switch name {
+        case "笑话":
             try container.encode(jokes, forKey: .items)
-        } else {
+        case "每日一图":
+            try container.encode(photo, forKey: .photo)
+        case "天涯海角":
+            try container.encode(place, forKey: .place)
+        case "美女与野兽":
+            try container.encode(gallery, forKey: .gallery)
+        default:
             try container.encode(items, forKey: .items)
         }
     }
+}
+
+struct PhotoOfDay: Codable, Equatable {
+    var title: String
+    var interpretation: String
+    var image: DigestPicture
+    var sources: [SourceLink]
+}
+
+struct PlacePhoto: Codable, Equatable, Identifiable {
+    var id: String { path ?? url ?? credit }
+    var path: String?
+    var url: String?
+    var credit: String
+    var caption: String?
+
+    var picture: DigestPicture {
+        DigestPicture(path: path, url: url, credit: credit)
+    }
+}
+
+struct PlaceEssay: Codable, Equatable {
+    var name: String
+    var paragraphs: [String]
+    var photos: [PlacePhoto]
+}
+
+struct GalleryItem: Codable, Equatable, Identifiable {
+    var id: String { caption }
+    var kind: String
+    var caption: String
+    var image: DigestPicture
+    var source: SourceLink?
+
+    var kindLabel: String { kind == "animal" ? "动物" : "人物" }
 }
 
 struct JokeItem: Codable, Equatable, Identifiable {

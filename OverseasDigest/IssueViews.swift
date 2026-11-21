@@ -161,12 +161,101 @@ struct IssueBody: View {
                         sheet = .web(WebLink(url: url))
                     }
                 }
+            } else if let photo = section.photo {
+                photoOfDay(photo)
+            } else if let place = section.place {
+                placeEssay(place)
+            } else if section.name == "美女与野兽" {
+                ForEach(section.gallery) { item in
+                    galleryCard(item)
+                }
             } else {
                 ForEach(Array(section.items.enumerated()), id: \.offset) { _, item in
                     itemCard(item, sectionName: section.name)
                 }
             }
         }
+    }
+
+    private func photoOfDay(_ photo: PhotoOfDay) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(photo.title)
+                .font(.title.weight(.bold))
+                .fixedSize(horizontal: false, vertical: true)
+            DigestPhoto(picture: photo.image)
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            Text(photo.image.credit)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+            ForEach(Array(photo.interpretation.components(separatedBy: "\n\n").enumerated()), id: \.offset) { _, paragraph in
+                Text(paragraph)
+                    .font(.body)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .textSelection(.enabled)
+            }
+            SourceButtons(sources: photo.sources) { url in
+                sheet = .web(WebLink(url: url))
+            }
+        }
+    }
+
+    private func placeEssay(_ place: PlaceEssay) -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text(place.name)
+                .font(.title.weight(.bold))
+            ForEach(place.photos) { photo in
+                VStack(alignment: .leading, spacing: 6) {
+                    DigestPhoto(picture: photo.picture)
+                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    if let caption = photo.caption {
+                        Text(caption)
+                            .font(.subheadline)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    Text(photo.credit)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            ForEach(Array(place.paragraphs.enumerated()), id: \.offset) { _, paragraph in
+                Text(paragraph)
+                    .font(.body)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .textSelection(.enabled)
+            }
+        }
+    }
+
+    private func galleryCard(_ item: GalleryItem) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(item.kindLabel)
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(Color.accentColor)
+            DigestPhoto(picture: item.image)
+                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            Text(item.caption)
+                .font(.body)
+                .fixedSize(horizontal: false, vertical: true)
+            Text(item.image.credit)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+            if let source = item.source, let url = source.webURL {
+                Button {
+                    sheet = .web(WebLink(url: url))
+                } label: {
+                    Label(source.name, systemImage: "safari")
+                        .font(.subheadline.weight(.medium))
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.small)
+            }
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 
     private func itemCard(_ item: DigestItem, sectionName: String) -> some View {
