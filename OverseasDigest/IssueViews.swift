@@ -111,6 +111,12 @@ struct IssueBody: View {
                                     RoundedRectangle(cornerRadius: 2, style: .continuous)
                                         .fill(tint)
                                         .frame(width: 4, height: 22)
+                                    if section.name == "维基漫游" {
+                                        Image(systemName: SectionAccent.symbol(for: section.name))
+                                            .font(.body)
+                                            .foregroundStyle(tint)
+                                            .frame(width: 22)
+                                    }
                                     Text(section.name)
                                         .font(.body.weight(selected ? .semibold : .regular))
                                         .foregroundStyle(.primary)
@@ -170,6 +176,8 @@ private enum SectionAccent {
             return Color(red: 0.14, green: 0.38, blue: 0.44)
         case "美女与野兽":
             return Color(red: 0.50, green: 0.20, blue: 0.28)
+        case "维基漫游":
+            return Color(red: 0.16, green: 0.34, blue: 0.46)
         case "笑话":
             return Color(red: 0.72, green: 0.42, blue: 0.10)
         default:
@@ -199,6 +207,8 @@ private enum SectionAccent {
             return "map"
         case "美女与野兽":
             return "pawprint"
+        case "维基漫游":
+            return "book.closed"
         case "笑话":
             return "quote.opening"
         default:
@@ -238,6 +248,8 @@ private struct SectionPager: View {
             placePage(place, label: label)
         } else if section.name == "美女与野兽", section.gallery.indices.contains(index) {
             galleryPage(section.gallery[index], label: label)
+        } else if let wiki = section.wiki {
+            wikiPage(wiki, label: label)
         } else if section.items.indices.contains(index) {
             newsPage(section.items[index], label: label)
         }
@@ -345,6 +357,50 @@ private struct SectionPager: View {
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.small)
+            }
+        }
+    }
+
+    private func wikiPage(_ wiki: WikiArticle, label: String) -> some View {
+        MagazineCard(
+            kicker: section.name,
+            title: wiki.title,
+            dateLine: dateLine,
+            picture: wiki.images.first,
+            accent: accent,
+            symbol: SectionAccent.symbol(for: section.name),
+            pageLabel: label,
+            framing: .hero
+        ) {
+            Text(wiki.originalTitle)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+            Text(wiki.tagline)
+                .font(.title3.weight(.semibold))
+                .fixedSize(horizontal: false, vertical: true)
+            ForEach(paragraphs(wiki.body), id: \.offset) { _, paragraph in
+                Text(paragraph)
+                    .font(.body)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .textSelection(.enabled)
+            }
+            if let credit = wiki.images.first?.credit {
+                creditLine(credit)
+            }
+            ForEach(Array(wiki.images.dropFirst().enumerated()), id: \.offset) { _, picture in
+                DigestPhoto(picture: picture, accent: accent, symbol: "book.closed", framing: .hero)
+                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                creditLine(picture.credit)
+            }
+            if let url = wiki.webURL {
+                Button {
+                    onWeb(url)
+                } label: {
+                    Label("阅读维基原文", systemImage: "safari")
+                        .font(.subheadline.weight(.medium))
+                }
+                .buttonStyle(.bordered)
             }
         }
     }

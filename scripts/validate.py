@@ -47,6 +47,7 @@ NEWS_SECTIONS = {
     "书籍与作家",
 }
 JOKE_SECTION = "笑话"
+WIKI_SECTION = "维基漫游"
 JOKE_URL_RE = re.compile(r"^https://x\.com/([A-Za-z0-9_]{1,15})/status/[0-9]+$")
 HANDLE_RE = re.compile(r"^@[A-Za-z0-9_]{1,15}$")
 CJK_RE = re.compile(r"[\u4e00-\u9fff]")
@@ -312,6 +313,66 @@ def check_gallery(gallery: object, where: str) -> None:
         error(f"{where}: 图集要同时有人物和动物")
 
 
+def order_with_wiki() -> list[str]:
+    order = list(SECTION_ORDER)
+    order.insert(order.index(JOKE_SECTION), WIKI_SECTION)
+    return order
+
+
+def matching_order(names: list) -> list[str] | None:
+    if names == SECTION_ORDER:
+        return list(SECTION_ORDER)
+    with_wiki = order_with_wiki()
+    if names == with_wiki:
+        return with_wiki
+    return None
+
+
+def cjk_count(text: str) -> int:
+    return len(CJK_RE.findall(text))
+
+
+def check_wiki(wiki: object, where: str) -> None:
+    if not isinstance(wiki, dict):
+        error(f"{where}: 维基漫游必须是对象")
+        return
+    check_no_extra(
+        wiki,
+        {"title", "originalTitle", "tagline", "body", "images", "sourceUrl"},
+        where,
+    )
+    require_string(wiki, "title", where)
+    require_string(wiki, "originalTitle", where)
+    tagline = require_string(wiki, "tagline", where)
+    if tagline is not None and count_sentences(tagline) != 1:
+        error(f"{where}: tagline 须为 1 句，实际 {count_sentences(tagline)} 句：{tagline}")
+    body = require_string(wiki, "body", where)
+    if body is not None:
+        count = cjk_count(body)
+        if count < 300 or count > 500:
+            error(f"{where}: body 须为 300 到 500 个汉字，实际 {count} 个")
+    images = wiki.get("images")
+    if not isinstance(images, list) or not (1 <= len(images) <= 2):
+        error(f"{where}: images 须为 1 到 2 张")
+    else:
+        for index, image in enumerate(images, start=1):
+            image_where = f"{where} 图片{index}"
+            if not isinstance(image, dict):
+                error(f"{image_where}: 必须是对象")
+                continue
+            check_no_extra(image, {"url", "credit"}, image_where)
+            if not is_https_url(image.get("url")):
+                error(f"{image_where}: url 必须是 https 地址")
+            require_string(image, "credit", image_where)
+    source = wiki.get("sourceUrl")
+    if not is_https_url(source):
+        error(f"{where}: sourceUrl 必须是 https 地址")
+        return
+    host = (urlparse(source).hostname or "").lower()
+    if host != "wikipedia.org" and not host.endswith(".wikipedia.org"):
+        error(f"{where}: sourceUrl 必须指向维基百科")
+
+
 def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
     where = str(path.relative_to(ROOT))
     check_no_extra(issue, {"date", "title", "sections"}, where)
@@ -333,9 +394,14 @@ def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
             names.append(section["name"])
         else:
             names.append(None)
-    if names != SECTION_ORDER:
-        error(f"{where}: 栏目必须按此顺序各出现一次：{'、'.join(SECTION_ORDER)}；实际为 {names}")
-    for section, expected in zip(sections, SECTION_ORDER):
+    order = matching_order(names)
+    if order is None:
+        error(
+            f"{where}: 栏目必须按此顺序各出现一次：{'、'.join(SECTION_ORDER)}。"
+            f"「{WIKI_SECTION}」可以省略；若有，必须紧挨在笑话之前。实际为 {names}"
+        )
+        order = []
+    for section, expected in zip(sections, order):
         if not isinstance(section, dict):
             error(f"{where}: 栏目必须是对象")
             continue
@@ -351,6 +417,10 @@ def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
         if expected == "美女与野兽":
             check_no_extra(section, {"name", "gallery"}, section_where)
             check_gallery(section.get("gallery"), section_where)
+            continue
+        if expected == WIKI_SECTION:
+            check_no_extra(section, {"name", "wiki"}, section_where)
+            check_wiki(section.get("wiki"), section_where)
             continue
         check_no_extra(section, {"name", "items"}, section_where)
         items = section.get("items")
@@ -431,22 +501,27 @@ def check_schema_file() -> None:
     defs = schema.get("$defs")
     if not isinstance(defs, dict) or "issue" not in defs or "index" not in defs:
         error("data/schema.json 需要同时定义 issue 和 index")
-    prefix = (
-        defs.get("issue", {})
-        .get("properties", {})
-        .get("sections", {})
-        .get("prefixItems", [])
+    sections_schema = (
+        defs.get("issue", {}).get("properties", {}).get("sections", {})
         if isinstance(defs, dict)
-        else []
+        else {}
     )
+    variants = sections_schema.get("oneOf")
+    if not isinstance(variants, list):
+        variants = [sections_schema]
     declared = []
-    if isinstance(prefix, list):
-        for item in prefix:
-            try:
-                declared.append(item["allOf"][1]["properties"]["name"]["const"])
-            except (KeyError, IndexError, TypeError):
-                declared.append(None)
-    if declared != SECTION_ORDER:
+    for variant in variants:
+        prefix = variant.get("prefixItems", []) if isinstance(variant, dict) else []
+        names = []
+        if isinstance(prefix, list):
+            for item in prefix:
+                try:
+                    names.append(item["allOf"][1]["properties"]["name"]["const"])
+                except (KeyError, IndexError, TypeError):
+                    names.append(None)
+        declared.append(names)
+    expected = [list(SECTION_ORDER), order_with_wiki()]
+    if declared != expected:
         error("data/schema.json 的栏目顺序与校验脚本不一致")
 
 
@@ -455,6 +530,9 @@ def self_test() -> None:
     assert count_sentences("标普跌3.70%，纳指跌5.28%。第二句。") == 2
     assert count_sentences("M. 约翰生于1945年。他获奖。") == 2
     assert count_sentences("只有一句没有句号") == 1
+    assert matching_order(list(SECTION_ORDER)) == list(SECTION_ORDER)
+    assert matching_order(order_with_wiki()) == order_with_wiki()
+    assert matching_order(list(SECTION_ORDER) + [WIKI_SECTION]) is None
     assert count_sentences("甲。乙。丙。丁。戊。") == 5
 
 

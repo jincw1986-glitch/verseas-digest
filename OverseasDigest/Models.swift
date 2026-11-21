@@ -26,6 +26,7 @@ struct DigestSection: Codable, Equatable, Identifiable {
     var photo: PhotoOfDay?
     var place: PlaceEssay?
     var gallery: [GalleryItem]
+    var wiki: WikiArticle?
 
     var entryCount: Int {
         switch name {
@@ -33,12 +34,13 @@ struct DigestSection: Codable, Equatable, Identifiable {
         case "每日一图": return photo == nil ? 0 : 1
         case "天涯海角": return place == nil ? 0 : 1
         case "美女与野兽": return gallery.count
+        case "维基漫游": return wiki == nil ? 0 : 1
         default: return items.count
         }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case name, items, photo, place, gallery
+        case name, items, photo, place, gallery, wiki
     }
 
     init(from decoder: Decoder) throws {
@@ -49,6 +51,7 @@ struct DigestSection: Codable, Equatable, Identifiable {
         photo = nil
         place = nil
         gallery = []
+        wiki = nil
         switch name {
         case "笑话":
             jokes = try container.decode([JokeItem].self, forKey: .items)
@@ -58,6 +61,8 @@ struct DigestSection: Codable, Equatable, Identifiable {
             place = try container.decode(PlaceEssay.self, forKey: .place)
         case "美女与野兽":
             gallery = try container.decode([GalleryItem].self, forKey: .gallery)
+        case "维基漫游":
+            wiki = try container.decode(WikiArticle.self, forKey: .wiki)
         default:
             items = try container.decode([DigestItem].self, forKey: .items)
         }
@@ -75,9 +80,25 @@ struct DigestSection: Codable, Equatable, Identifiable {
             try container.encode(place, forKey: .place)
         case "美女与野兽":
             try container.encode(gallery, forKey: .gallery)
+        case "维基漫游":
+            try container.encode(wiki, forKey: .wiki)
         default:
             try container.encode(items, forKey: .items)
         }
+    }
+}
+
+struct WikiArticle: Codable, Equatable {
+    var title: String
+    var originalTitle: String
+    var tagline: String
+    var body: String
+    var images: [DigestPicture]
+    var sourceUrl: String
+
+    var webURL: URL? {
+        guard let url = URL(string: sourceUrl), url.scheme == "https" else { return nil }
+        return url
     }
 }
 
