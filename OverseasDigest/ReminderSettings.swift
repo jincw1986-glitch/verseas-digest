@@ -53,7 +53,11 @@ final class ReminderSettings: ObservableObject {
         isOn = true
         var settings = await center.notificationSettings()
         if settings.authorizationStatus == .notDetermined {
-            _ = try? await center.requestAuthorization(options: [.alert, .sound])
+            do {
+                _ = try await center.requestAuthorization(options: [.alert, .sound])
+            } catch {
+                // 拒绝或失败时继续看系统设置，和原先吞掉错误一样。
+            }
             settings = await center.notificationSettings()
         }
         guard Self.isAllowed(settings.authorizationStatus) else {
@@ -84,7 +88,11 @@ final class ReminderSettings: ObservableObject {
         content.sound = .default
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let request = UNNotificationRequest(identifier: Self.requestID, content: content, trigger: trigger)
-        try? await center.add(request)
+        do {
+            try await center.add(request)
+        } catch {
+            // 添加失败时保持静默，调用方仍会检查待发送列表。
+        }
     }
 
     private func nextDate(in requests: [UNNotificationRequest]) -> Date? {

@@ -70,7 +70,13 @@ final class DigestModel: ObservableObject {
         if issues[date] == nil, let local = repository.loadIssue(entry) {
             issues[date] = local
         }
-        if let fresh = try? await repository.fetchIssue(entry) {
+        let fresh: DigestIssue?
+        do {
+            fresh = try await repository.fetchIssue(entry)
+        } catch {
+            fresh = nil
+        }
+        if let fresh {
             issues[date] = fresh
         }
     }

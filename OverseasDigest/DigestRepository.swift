@@ -102,7 +102,14 @@ final class DigestRepository: @unchecked Sendable {
         }
         if let urlString = picture.url, let remote = URL(string: urlString), remote.scheme == "https" {
             let cacheURL = remoteImageCacheURL(for: urlString)
-            if let image = imageFromDisk(cacheURL) ?? await downloadImage(from: remote, cacheURL: cacheURL) {
+            let cached = imageFromDisk(cacheURL)
+            let image: UIImage?
+            if let cached {
+                image = cached
+            } else {
+                image = await downloadImage(from: remote, cacheURL: cacheURL)
+            }
+            if let image {
                 return makePicture(image)
             }
         }
@@ -113,12 +120,22 @@ final class DigestRepository: @unchecked Sendable {
         if let image = await fetchImage(from: url, savingTo: cacheURL) {
             return image
         }
-        try? await Task.sleep(nanoseconds: 350_000_000)
+        do {
+            try await Task.sleep(nanoseconds: 350_000_000)
+        } catch {
+            // 睡眠被取消时仍再试一次下载。
+        }
         return await fetchImage(from: url, savingTo: cacheURL)
     }
 
     private func fetchImage(from url: URL, savingTo cacheURL: URL? = nil) async -> UIImage? {
-        guard let data = try? await fetchImageData(from: url), let image = decodeImage(data) else { return nil }
+        let data: Data
+        do {
+            data = try await fetchImageData(from: url)
+        } catch {
+            return nil
+        }
+        guard let image = decodeImage(data) else { return nil }
         if let cacheURL {
             try? store(data, to: cacheURL)
         }
