@@ -1023,14 +1023,38 @@
       "gallery": [
         {
           "kind": "person",
-          "caption": "海伦·米伦2014年出席公开颁奖活动。黑蕾丝礼服，短发，耳环垂到锁骨。这是红毯上的一张正脸，不是摆拍的广告。",
+          "caption": "赞达亚出席《马戏之王》澳大利亚首映，单肩礼服，侧过脸笑。",
           "image": {
-            "path": "images/2026-11-21/helen-mirren.jpg",
-            "credit": "See Li，伦敦，CC BY 2.0，维基共享资源"
+            "path": "images/2026-11-21/zendaya.jpg",
+            "credit": "KidsOn7，CC BY 3.0，维基共享资源"
           },
           "source": {
             "name": "维基共享资源",
-            "url": "https://commons.wikimedia.org/wiki/File:Helen_Mirren_2014.jpg"
+            "url": "https://commons.wikimedia.org/wiki/File:Zendaya_at_The_Greatest_Showman_Australian_premiere.jpg"
+          }
+        },
+        {
+          "kind": "person",
+          "caption": "弗洛伦斯·皮尤在2022年伦敦电影节《奇迹》首映上，粉色吊带，大耳环。",
+          "image": {
+            "path": "images/2026-11-21/florence-pugh.jpg",
+            "credit": "Raph_PH，2022年10月，CC BY 2.0，维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Florence_Pugh_-_The_Wonder_BFI_London_Film_Festival_Premiere,_October_2022_(cropped).jpg"
+          }
+        },
+        {
+          "kind": "person",
+          "caption": "珍娜·奥尔特加2022年接受电视采访，齐刘海，浅笑。",
+          "image": {
+            "path": "images/2026-11-21/jenna-ortega.jpg",
+            "credit": "StayTunedNBC，2022年，CC BY 3.0，维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Jenna_Ortega_2022_(cropped).jpg"
           }
         },
         {
