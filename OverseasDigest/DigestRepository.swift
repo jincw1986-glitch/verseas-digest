@@ -3,9 +3,18 @@ import ImageIO
 import UIKit
 import Vision
 
-enum DigestError: Error {
+enum DigestError: Error, LocalizedError {
     case badStatus(Int)
     case undecodable
+
+    var errorDescription: String? {
+        switch self {
+        case .badStatus:
+            return "网络没有返回有效内容。"
+        case .undecodable:
+            return "这份数据无法读取。"
+        }
+    }
 }
 
 struct LoadedPicture: @unchecked Sendable {
@@ -23,11 +32,15 @@ final class DigestRepository: @unchecked Sendable {
     private let fileManager = FileManager.default
     private let cacheRoot: URL
     private let imageMemory = ImageMemory()
+    private let library: ImageLibrary
 
     private init() {
         let support = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
         cacheRoot = support.appendingPathComponent("DigestCache", isDirectory: true)
+        let libraryRoot = support.appendingPathComponent("DigestLibrary", isDirectory: true)
         try? fileManager.createDirectory(at: cacheRoot, withIntermediateDirectories: true)
+        try? fileManager.createDirectory(at: libraryRoot, withIntermediateDirectories: true)
+        library = ImageLibrary(root: libraryRoot)
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 25
         configuration.waitsForConnectivity = false
@@ -91,55 +104,155 @@ final class DigestRepository: @unchecked Sendable {
     }
 
     private func fetchAndDecode(_ picture: DigestPicture) async throws -> LoadedPicture {
+        guard let data = await acquireImageData(for: picture), let image = decodeImage(data) else {
+            throw ImageLoadFailure()
+        }
+        return makePicture(image)
+    }
+
+    /// 先读本机永久图库，再读缓存和安装包，最后才下载。成功的图会写入图库。
+    func acquireImageData(for picture: DigestPicture) async -> Data? {
+        let keys = sourceKeys(for: picture)
+        if let stored = library.data(matching: keys), decodeImage(stored) != nil {
+            return stored
+        }
         if let path = picture.path, !path.isEmpty {
-            if let image = imageFromBundle(relativePath: path) ?? imageFromDisk(imageCacheURL(relativePath: path)) {
-                return makePicture(image)
+            if let bundled = readBundleData(relativePath: path), decodeImage(bundled) != nil {
+                library.store(bundled, keys: keys, ext: fileExtension(of: path))
+                return bundled
+            }
+            let cachedURL = imageCacheURL(relativePath: path)
+            if let cached = readValidImage(at: cachedURL) {
+                library.store(cached, keys: keys, ext: fileExtension(of: path))
+                return cached
             }
             let remote = DigestConfig.remoteURL(relativePath: path)
-            if let image = await downloadImage(from: remote, cacheURL: imageCacheURL(relativePath: path)) {
-                return makePicture(image)
+            if let downloaded = await downloadWithRetry(remote) {
+                try? store(downloaded, to: cachedURL)
+                var savedKeys = keys
+                savedKeys.append(remote.absoluteString)
+                library.store(downloaded, keys: savedKeys, ext: fileExtension(of: path))
+                return downloaded
             }
         }
         if let urlString = picture.url, let remote = URL(string: urlString), remote.scheme == "https" {
-            let cacheURL = remoteImageCacheURL(for: urlString)
-            let cached = imageFromDisk(cacheURL)
-            let image: UIImage?
-            if let cached {
-                image = cached
-            } else {
-                image = await downloadImage(from: remote, cacheURL: cacheURL)
+            let disk = remoteImageCacheURL(for: urlString)
+            if let cached = readValidImage(at: disk) {
+                library.store(cached, keys: keys + [urlString], ext: fileExtension(of: urlString))
+                return cached
             }
-            if let image {
-                return makePicture(image)
+            if let downloaded = await downloadWithRetry(remote) {
+                try? store(downloaded, to: disk)
+                library.store(downloaded, keys: keys + [urlString], ext: fileExtension(of: urlString))
+                return downloaded
             }
         }
-        throw ImageLoadFailure()
+        return nil
     }
 
-    private func downloadImage(from url: URL, cacheURL: URL) async -> UIImage? {
-        if let image = await fetchImage(from: url, savingTo: cacheURL) {
-            return image
+    func sourceKeys(for picture: DigestPicture) -> [String] {
+        var keys: [String] = []
+        if let path = picture.path, !path.isEmpty {
+            keys.append(path)
+            keys.append(DigestConfig.remoteURL(relativePath: path).absoluteString)
         }
-        do {
-            try await Task.sleep(nanoseconds: 350_000_000)
-        } catch {
-            // 睡眠被取消时仍再试一次下载。
+        if let url = picture.url, !url.isEmpty {
+            keys.append(url)
         }
-        return await fetchImage(from: url, savingTo: cacheURL)
+        return keys
     }
 
-    private func fetchImage(from url: URL, savingTo cacheURL: URL? = nil) async -> UIImage? {
-        let data: Data
+    func fileExtension(of name: String) -> String {
+        let ext = URL(string: name)?.pathExtension.lowercased() ?? ""
+        if ["jpg", "jpeg", "png", "webp"].contains(ext) { return ext }
+        let fallback = (name as NSString).pathExtension.lowercased()
+        if ["jpg", "jpeg", "png", "webp"].contains(fallback) { return fallback }
+        return "jpg"
+    }
+
+    func clearPictureMemory() {
+        imageMemory.removeAll()
+    }
+
+    func cachedIndexData() -> Data? {
+        let url = cacheRoot.appendingPathComponent("index.json")
+        if let data = try? Data(contentsOf: url) { return data }
+        guard let bundled = bundledFileURL(relativePath: "index.json") else { return nil }
+        return try? Data(contentsOf: bundled)
+    }
+
+    func cachedIssueData(for entry: IndexEntry) -> Data? {
+        let cached = issueCacheURL(date: entry.date)
+        if let data = try? Data(contentsOf: cached) { return data }
+        guard let bundled = bundledFileURL(relativePath: entry.path) else { return nil }
+        return try? Data(contentsOf: bundled)
+    }
+
+    func mergeImportedIssues(_ imported: IssueIndex, payloads: [String: Data]) throws -> Int {
+        var byDate: [String: IndexEntry] = [:]
+        if let current = loadIndex() {
+            for entry in current.issues {
+                byDate[entry.date] = entry
+            }
+        }
+        var added = 0
+        for entry in imported.issues {
+            if byDate[entry.date] != nil { continue }
+            let key = entry.path
+            let payload = payloads[key] ?? payloads["issues/\(entry.date).json"]
+            guard let payload else { continue }
+            let issue = try decode(DigestIssue.self, from: payload)
+            guard issue.date == entry.date else { continue }
+            try store(payload, to: issueCacheURL(date: entry.date))
+            byDate[entry.date] = entry
+            added += 1
+        }
+        let merged = IssueIndex(issues: byDate.values.sorted { $0.date > $1.date })
+        let encoded = try JSONEncoder().encode(merged)
+        try store(encoded, to: cacheRoot.appendingPathComponent("index.json"))
+        return added
+    }
+
+    func storeImportedImages(_ groups: [(keys: [String], data: Data)]) -> Int {
+        var stored = 0
+        for group in groups {
+            let keys = group.keys.filter { !$0.isEmpty }
+            guard !keys.isEmpty, decodeImage(group.data) != nil else { continue }
+            let already = library.data(matching: keys) != nil && keys.allSatisfy { library.contains($0) }
+            if already { continue }
+            library.store(group.data, keys: keys, ext: fileExtension(of: keys[0]))
+            stored += 1
+        }
+        return stored
+    }
+
+    private func downloadWithRetry(_ url: URL) async -> Data? {
         do {
-            data = try await fetchImageData(from: url)
+            return try await fetchImageData(from: url)
         } catch {
-            return nil
+            do {
+                try await Task.sleep(nanoseconds: 350_000_000)
+            } catch {
+                return nil
+            }
+            do {
+                return try await fetchImageData(from: url)
+            } catch {
+                return nil
+            }
         }
-        guard let image = decodeImage(data) else { return nil }
-        if let cacheURL {
-            try? store(data, to: cacheURL)
-        }
-        return image
+    }
+
+    private func readBundleData(relativePath: String) -> Data? {
+        guard let url = bundledFileURL(relativePath: relativePath) else { return nil }
+        return try? Data(contentsOf: url)
+    }
+
+    private func readValidImage(at url: URL) -> Data? {
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        if decodeImage(data) != nil { return data }
+        try? fileManager.removeItem(at: url)
+        return nil
     }
 
     private func fetchImageData(from url: URL) async throws -> Data {
@@ -158,19 +271,6 @@ final class DigestRepository: @unchecked Sendable {
         }
         guard data.count > 32, decodeImage(data) != nil else { throw ImageLoadFailure() }
         return data
-    }
-
-    private func imageFromBundle(relativePath: String) -> UIImage? {
-        guard let url = bundledFileURL(relativePath: relativePath),
-              let data = try? Data(contentsOf: url) else { return nil }
-        return decodeImage(data)
-    }
-
-    private func imageFromDisk(_ url: URL) -> UIImage? {
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        if let image = decodeImage(data) { return image }
-        try? fileManager.removeItem(at: url)
-        return nil
     }
 
     private func makePicture(_ image: UIImage) -> LoadedPicture {
@@ -344,6 +444,99 @@ private final class ImageMemory: @unchecked Sendable {
         lock.lock()
         defer { lock.unlock() }
         inflight[key] = nil
+    }
+
+    func removeAll() {
+        lock.lock()
+        defer { lock.unlock() }
+        images.removeAll()
+    }
+}
+
+private final class ImageLibrary: @unchecked Sendable {
+    private struct IndexFile: Codable {
+        var files: [String: String] = [:]
+    }
+
+    private let root: URL
+    private let indexURL: URL
+    private let lock = NSLock()
+    private var files: [String: String] = [:]
+    private var loaded = false
+
+    init(root: URL) {
+        self.root = root
+        indexURL = root.appendingPathComponent("files.json")
+    }
+
+    func contains(_ key: String) -> Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        loadIfNeeded()
+        return files[key] != nil
+    }
+
+    func data(matching keys: [String]) -> Data? {
+        lock.lock()
+        defer { lock.unlock() }
+        loadIfNeeded()
+        for key in keys {
+            guard let name = files[key] else { continue }
+            let url = root.appendingPathComponent(name)
+            if let data = try? Data(contentsOf: url), !data.isEmpty {
+                return data
+            }
+        }
+        return nil
+    }
+
+    func store(_ data: Data, keys: [String], ext: String) {
+        let usable = keys.filter { !$0.isEmpty }
+        guard !usable.isEmpty, !data.isEmpty else { return }
+        lock.lock()
+        defer { lock.unlock() }
+        loadIfNeeded()
+        var filename: String?
+        for key in usable {
+            if let existing = files[key] {
+                filename = existing
+                break
+            }
+        }
+        if filename == nil {
+            let safeExt = ["jpg", "jpeg", "png", "webp"].contains(ext) ? ext : "jpg"
+            filename = "images/\(Self.stableName(usable[0])).\(safeExt)"
+            let url = root.appendingPathComponent(filename!)
+            try? FileManager.default.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+            try? data.write(to: url, options: .atomic)
+        }
+        guard let filename else { return }
+        var changed = false
+        for key in usable where files[key] != filename {
+            files[key] = filename
+            changed = true
+        }
+        if changed {
+            let encoded = (try? JSONEncoder().encode(IndexFile(files: files))) ?? Data()
+            try? encoded.write(to: indexURL, options: .atomic)
+        }
+    }
+
+    private func loadIfNeeded() {
+        if loaded { return }
+        loaded = true
+        guard let data = try? Data(contentsOf: indexURL),
+              let decoded = try? JSONDecoder().decode(IndexFile.self, from: data) else { return }
+        files = decoded.files
+    }
+
+    private static func stableName(_ string: String) -> String {
+        var hash: UInt64 = 14_695_981_039_346_656_037
+        for byte in string.utf8 {
+            hash ^= UInt64(byte)
+            hash &*= 1_099_511_628_211
+        }
+        return String(hash)
     }
 }
 
