@@ -172,7 +172,7 @@ struct SourceLink: Codable, Equatable, Identifiable {
     }
 }
 
-struct DigestPicture: Codable, Equatable {
+struct DigestPicture: Codable, Equatable, Sendable {
     var path: String?
     var url: String?
     var credit: String

@@ -111,12 +111,6 @@ struct IssueBody: View {
                                     RoundedRectangle(cornerRadius: 2, style: .continuous)
                                         .fill(tint)
                                         .frame(width: 4, height: 22)
-                                    if section.name == "维基漫游" {
-                                        Image(systemName: SectionAccent.symbol(for: section.name))
-                                            .font(.body)
-                                            .foregroundStyle(tint)
-                                            .frame(width: 22)
-                                    }
                                     Text(section.name)
                                         .font(.body.weight(selected ? .semibold : .regular))
                                         .foregroundStyle(.primary)
@@ -389,7 +383,7 @@ private struct SectionPager: View {
                 creditLine(credit)
             }
             ForEach(Array(wiki.images.dropFirst().enumerated()), id: \.offset) { _, picture in
-                DigestPhoto(picture: picture, accent: accent, symbol: "book.closed", framing: .hero)
+                DigestPhoto(picture: picture, accent: accent, symbol: SectionAccent.symbol(for: section.name), framing: .hero)
                     .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                 creditLine(picture.credit)
             }

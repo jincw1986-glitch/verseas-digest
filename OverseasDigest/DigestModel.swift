@@ -65,6 +65,21 @@ final class DigestModel: ObservableObject {
         }
     }
 
+    func reloadFromDisk() {
+        repository.clearPictureMemory()
+        let loaded = repository.loadIndex()
+        index = loaded
+        var next: [String: DigestIssue] = [:]
+        if let loaded {
+            for entry in loaded.issues {
+                if let issue = repository.loadIssue(entry) {
+                    next[entry.date] = issue
+                }
+            }
+        }
+        issues = next
+    }
+
     func openIssue(date: String) async {
         guard let entry = index?.issues.first(where: { $0.date == date }) else { return }
         if issues[date] == nil, let local = repository.loadIssue(entry) {

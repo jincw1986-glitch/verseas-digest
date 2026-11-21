@@ -18,6 +18,7 @@
 		C10000000000000000000009 /* IssueViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000009 /* IssueViews.swift */; };
 		C1000000000000000000000A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* SettingsView.swift */; };
 		C1000000000000000000000B /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000B /* Components.swift */; };
+		C1000000000000000000000F /* BackupArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000F /* BackupArchive.swift */; };
 		C1000000000000000000000C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* Assets.xcassets */; };
 		C1000000000000000000000D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000D /* PrivacyInfo.xcprivacy */; };
 		C1000000000000000000000E /* data in Resources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000E /* data */; };
@@ -36,6 +37,7 @@
 		B10000000000000000000009 /* IssueViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueViews.swift; sourceTree = "<group>"; };
 		B1000000000000000000000A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B1000000000000000000000B /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		B1000000000000000000000F /* BackupArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupArchive.swift; sourceTree = "<group>"; };
 		B1000000000000000000000C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1000000000000000000000D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		B1000000000000000000000E /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				B10000000000000000000009 /* IssueViews.swift */,
 				B1000000000000000000000A /* SettingsView.swift */,
 				B1000000000000000000000B /* Components.swift */,
+				B1000000000000000000000F /* BackupArchive.swift */,
 				B1000000000000000000000C /* Assets.xcassets */,
 				B1000000000000000000000D /* PrivacyInfo.xcprivacy */,
 			);
@@ -172,6 +175,7 @@
 				C10000000000000000000009 /* IssueViews.swift in Sources */,
 				C1000000000000000000000A /* SettingsView.swift in Sources */,
 				C1000000000000000000000B /* Components.swift in Sources */,
+				C1000000000000000000000F /* BackupArchive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

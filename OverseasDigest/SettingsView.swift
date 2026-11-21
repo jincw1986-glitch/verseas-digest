@@ -1,8 +1,11 @@
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
 
 struct SettingsView: View {
+    @EnvironmentObject private var model: DigestModel
     @EnvironmentObject private var reminders: ReminderSettings
+    @StateObject private var backup = BackupSession()
     @State private var dataLink: WebLink?
 
     private var version: String {
@@ -42,6 +45,36 @@ struct SettingsView: View {
             }
 
             Section {
+                Button("导出备份") {
+                    Task { await backup.export() }
+                }
+                .disabled(backup.isWorking)
+                Button("导入备份") {
+                    backup.showImporter = true
+                }
+                .disabled(backup.isWorking)
+                if backup.isWorking {
+                    if backup.total > 0 {
+                        ProgressView(value: Double(backup.completed), total: Double(backup.total))
+                    } else {
+                        ProgressView()
+                    }
+                    Text(backup.phase)
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+                if !backup.status.isEmpty {
+                    Text(backup.status)
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+            } header: {
+                Text("备份")
+            } footer: {
+                Text("导出会下载各期文字和全部图片，打成一个 zip，保存到文件或 iCloud 云盘。没下到的图片会单独计数。导入把备份并进这台手机，已有的期数不会重复。图片存在本机，之后断网也能看。")
+            }
+
+            Section {
                 LabeledContent("版本", value: version)
                 LabeledContent("Bundle ID", value: Bundle.main.bundleIdentifier ?? "com.jincw.overseasdigest")
                 Button("查看数据目录") {
@@ -57,6 +90,17 @@ struct SettingsView: View {
         .sheet(item: $dataLink) { link in
             SafariSheet(url: link.url)
                 .ignoresSafeArea()
+        }
+        .fileExporter(
+            isPresented: $backup.showExporter,
+            document: backup.exportFile,
+            contentType: .zip,
+            defaultFilename: "猫头鹰备份"
+        ) { result in
+            backup.noteExport(result)
+        }
+        .fileImporter(isPresented: $backup.showImporter, allowedContentTypes: [.zip]) { result in
+            Task { await backup.importFile(result, model: model) }
         }
         .task { await reminders.sync() }
     }
