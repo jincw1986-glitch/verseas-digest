@@ -1,16 +1,28 @@
 import Foundation
+import ImageIO
+import UIKit
+import Vision
 
 enum DigestError: Error {
     case badStatus(Int)
     case undecodable
 }
 
-final class DigestRepository {
+struct LoadedPicture: @unchecked Sendable {
+    let image: UIImage
+    /// 归一化矩形，原点在左上角，y 向下。
+    let faces: [CGRect]
+}
+
+struct ImageLoadFailure: Error {}
+
+final class DigestRepository: @unchecked Sendable {
     static let shared = DigestRepository()
 
     private let session: URLSession
     private let fileManager = FileManager.default
     private let cacheRoot: URL
+    private let imageMemory = ImageMemory()
 
     private init() {
         let support = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
@@ -57,32 +69,146 @@ final class DigestRepository {
         return issue
     }
 
-    func imageData(for picture: DigestPicture) async -> Data? {
+    /// 安装包里的副本优先，其次是已经下载过的磁盘缓存，最后才请求网络。
+    /// 下载放在不会被界面取消的任务里：分页容器会取消视图上的 `.task`，不能因此把图丢掉。
+    func loadPicture(_ picture: DigestPicture) async throws -> LoadedPicture {
+        let key = picture.cacheKey
+        guard !key.isEmpty else { throw ImageLoadFailure() }
+        if let cached = imageMemory.cached(key) { return cached }
+        let task = imageMemory.task(for: key) {
+            Task.detached(priority: .userInitiated) { () async throws -> LoadedPicture in
+                do {
+                    let loaded = try await self.fetchAndDecode(picture)
+                    self.imageMemory.finish(key, loaded)
+                    return loaded
+                } catch {
+                    self.imageMemory.fail(key)
+                    throw error
+                }
+            }
+        }
+        return try await task.value
+    }
+
+    private func fetchAndDecode(_ picture: DigestPicture) async throws -> LoadedPicture {
         if let path = picture.path, !path.isEmpty {
-            let cached = imageCacheURL(relativePath: path)
-            if let data = try? Data(contentsOf: cached), !data.isEmpty {
-                return data
+            if let image = imageFromBundle(relativePath: path) ?? imageFromDisk(imageCacheURL(relativePath: path)) {
+                return makePicture(image)
             }
-            if let bundled = bundledFileURL(relativePath: path),
-               let data = try? Data(contentsOf: bundled), !data.isEmpty {
-                return data
-            }
-            if let data = try? await fetchData(from: DigestConfig.remoteURL(relativePath: path)), !data.isEmpty {
-                try? store(data, to: cached)
-                return data
+            let remote = DigestConfig.remoteURL(relativePath: path)
+            if let image = await downloadImage(from: remote, cacheURL: imageCacheURL(relativePath: path)) {
+                return makePicture(image)
             }
         }
         if let urlString = picture.url, let remote = URL(string: urlString), remote.scheme == "https" {
-            let cached = remoteImageCacheURL(for: urlString)
-            if let data = try? Data(contentsOf: cached), !data.isEmpty {
-                return data
-            }
-            if let data = try? await fetchData(from: remote), !data.isEmpty {
-                try? store(data, to: cached)
-                return data
+            let cacheURL = remoteImageCacheURL(for: urlString)
+            if let image = imageFromDisk(cacheURL) ?? await downloadImage(from: remote, cacheURL: cacheURL) {
+                return makePicture(image)
             }
         }
+        throw ImageLoadFailure()
+    }
+
+    private func downloadImage(from url: URL, cacheURL: URL) async -> UIImage? {
+        if let image = await fetchImage(from: url, savingTo: cacheURL) {
+            return image
+        }
+        try? await Task.sleep(nanoseconds: 350_000_000)
+        return await fetchImage(from: url, savingTo: cacheURL)
+    }
+
+    private func fetchImage(from url: URL, savingTo cacheURL: URL? = nil) async -> UIImage? {
+        guard let data = try? await fetchImageData(from: url), let image = decodeImage(data) else { return nil }
+        if let cacheURL {
+            try? store(data, to: cacheURL)
+        }
+        return image
+    }
+
+    private func fetchImageData(from url: URL) async throws -> Data {
+        var request = URLRequest(url: url)
+        request.cachePolicy = .useProtocolCachePolicy
+        request.timeoutInterval = 30
+        request.setValue("verseas-digest/1.0", forHTTPHeaderField: "User-Agent")
+        request.setValue("image/jpeg,image/png,image/*;q=0.8,*/*;q=0.5", forHTTPHeaderField: "Accept")
+        let (data, response) = try await session.data(for: request)
+        guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
+            throw ImageLoadFailure()
+        }
+        if let type = http.value(forHTTPHeaderField: "Content-Type")?.lowercased(),
+           type.contains("text/html") || type.contains("application/json") {
+            throw ImageLoadFailure()
+        }
+        guard data.count > 32, decodeImage(data) != nil else { throw ImageLoadFailure() }
+        return data
+    }
+
+    private func imageFromBundle(relativePath: String) -> UIImage? {
+        guard let url = bundledFileURL(relativePath: relativePath),
+              let data = try? Data(contentsOf: url) else { return nil }
+        return decodeImage(data)
+    }
+
+    private func imageFromDisk(_ url: URL) -> UIImage? {
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        if let image = decodeImage(data) { return image }
+        try? fileManager.removeItem(at: url)
         return nil
+    }
+
+    private func makePicture(_ image: UIImage) -> LoadedPicture {
+        LoadedPicture(image: image, faces: detectFaces(in: image))
+    }
+
+    private func decodeImage(_ data: Data) -> UIImage? {
+        if let image = UIImage(data: data), image.size.width > 1, image.size.height > 1 {
+            return image
+        }
+        guard let source = CGImageSourceCreateWithData(data as CFData, [kCGImageSourceShouldCache: false] as CFDictionary),
+              let cgImage = CGImageSourceCreateImageAtIndex(source, 0, nil) else { return nil }
+        return UIImage(cgImage: cgImage, scale: 1, orientation: imageOrientation(from: source))
+    }
+
+    private func imageOrientation(from source: CGImageSource) -> UIImage.Orientation {
+        guard let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any],
+              let raw = properties[kCGImagePropertyOrientation] as? UInt32,
+              let cgOrientation = CGImagePropertyOrientation(rawValue: raw) else { return .up }
+        switch cgOrientation {
+        case .up: return .up
+        case .down: return .down
+        case .left: return .left
+        case .right: return .right
+        case .upMirrored: return .upMirrored
+        case .downMirrored: return .downMirrored
+        case .leftMirrored: return .leftMirrored
+        case .rightMirrored: return .rightMirrored
+        @unknown default: return .up
+        }
+    }
+
+    private func detectFaces(in image: UIImage) -> [CGRect] {
+        guard let cgImage = image.cgImage else { return [] }
+        let request = VNDetectFaceRectanglesRequest()
+        let handler = VNImageRequestHandler(
+            cgImage: cgImage,
+            orientation: CGImagePropertyOrientation(image.imageOrientation),
+            options: [:]
+        )
+        do {
+            try handler.perform([request])
+        } catch {
+            return []
+        }
+        let observations = (request.results ?? []).compactMap { $0 as VNFaceObservation? }
+        return observations.map { observation in
+            let box = observation.boundingBox
+            return CGRect(
+                x: box.origin.x,
+                y: 1 - box.origin.y - box.height,
+                width: box.size.width,
+                height: box.size.height
+            )
+        }
     }
 
     private func fetchData(from url: URL) async throws -> Data {
@@ -130,11 +256,32 @@ final class DigestRepository {
     }
 
     private func bundledFileURL(relativePath: String) -> URL? {
-        let root = Bundle.main.bundleURL.appendingPathComponent("data", isDirectory: true)
-        let full = relativePath.split(separator: "/").map(String.init).reduce(root) { url, part in
-            url.appendingPathComponent(part)
+        let parts = relativePath.split(separator: "/").map(String.init).filter { !$0.isEmpty && $0 != "." && $0 != ".." }
+        guard let file = parts.last else { return nil }
+        let name = (file as NSString).deletingPathExtension
+        let ext = (file as NSString).pathExtension
+        let directories = [
+            (["data"] + parts.dropLast()).joined(separator: "/"),
+            parts.dropLast().joined(separator: "/")
+        ]
+        for directory in directories where !directory.isEmpty {
+            if let url = Bundle.main.url(forResource: name, withExtension: ext.isEmpty ? nil : ext, subdirectory: directory) {
+                return url
+            }
         }
-        return fileManager.fileExists(atPath: full.path) ? full : nil
+        let roots = [Bundle.main.bundleURL, Bundle.main.resourceURL].compactMap { $0 }
+        for root in roots {
+            let withData = parts.reduce(root.appendingPathComponent("data", isDirectory: true)) { url, part in
+                url.appendingPathComponent(part)
+            }
+            let direct = parts.reduce(root) { url, part in
+                url.appendingPathComponent(part)
+            }
+            for candidate in [withData, direct] where fileManager.fileExists(atPath: candidate.path) {
+                return candidate
+            }
+        }
+        return nil
     }
 
     private func stableFilename(for string: String) -> String {
@@ -146,5 +293,55 @@ final class DigestRepository {
         let ext = URL(string: string)?.pathExtension.lowercased() ?? ""
         let safe = ["jpg", "jpeg", "png", "webp"].contains(ext) ? ext : "img"
         return "\(hash).\(safe)"
+    }
+}
+
+private final class ImageMemory: @unchecked Sendable {
+    private let lock = NSLock()
+    private var images: [String: LoadedPicture] = [:]
+    private var inflight: [String: Task<LoadedPicture, Error>] = [:]
+
+    func cached(_ key: String) -> LoadedPicture? {
+        lock.lock()
+        defer { lock.unlock() }
+        return images[key]
+    }
+
+    func task(for key: String, create: () -> Task<LoadedPicture, Error>) -> Task<LoadedPicture, Error> {
+        lock.lock()
+        defer { lock.unlock() }
+        if let existing = inflight[key] { return existing }
+        let created = create()
+        inflight[key] = created
+        return created
+    }
+
+    func finish(_ key: String, _ picture: LoadedPicture) {
+        lock.lock()
+        defer { lock.unlock() }
+        images[key] = picture
+        inflight[key] = nil
+    }
+
+    func fail(_ key: String) {
+        lock.lock()
+        defer { lock.unlock() }
+        inflight[key] = nil
+    }
+}
+
+private extension CGImagePropertyOrientation {
+    init(_ orientation: UIImage.Orientation) {
+        switch orientation {
+        case .up: self = .up
+        case .down: self = .down
+        case .left: self = .left
+        case .right: self = .right
+        case .upMirrored: self = .upMirrored
+        case .downMirrored: self = .downMirrored
+        case .leftMirrored: self = .leftMirrored
+        case .rightMirrored: self = .rightMirrored
+        @unknown default: self = .up
+        }
     }
 }
