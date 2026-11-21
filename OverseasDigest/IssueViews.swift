@@ -158,7 +158,7 @@ private enum SectionAccent {
             return Color(red: 0.09, green: 0.42, blue: 0.34)
         case "科技与人工智能":
             return Color(red: 0.30, green: 0.22, blue: 0.62)
-        case "社会资讯":
+        case "社会资讯", "社会与荒诞":
             return Color(red: 0.62, green: 0.26, blue: 0.30)
         case "科学与体育":
             return Color(red: 0.08, green: 0.40, blue: 0.52)
@@ -189,7 +189,7 @@ private enum SectionAccent {
             return "chart.line.uptrend.xyaxis"
         case "科技与人工智能":
             return "cpu"
-        case "社会资讯":
+        case "社会资讯", "社会与荒诞":
             return "person.2"
         case "科学与体育":
             return "sportscourt"

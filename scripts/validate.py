@@ -29,6 +29,19 @@ SECTION_ORDER = [
     "国际政治与时事",
     "经济与市场",
     "科技与人工智能",
+    "社会与荒诞",
+    "科学与体育",
+    "影视与明星",
+    "书籍与作家",
+    "美女与野兽",
+    "天涯海角",
+    "笑话",
+]
+LEGACY_ORDER = [
+    "每日一图",
+    "国际政治与时事",
+    "经济与市场",
+    "科技与人工智能",
     "社会资讯",
     "科学与体育",
     "影视与明星",
@@ -42,6 +55,7 @@ NEWS_SECTIONS = {
     "经济与市场",
     "科技与人工智能",
     "社会资讯",
+    "社会与荒诞",
     "科学与体育",
     "影视与明星",
     "书籍与作家",
@@ -313,18 +327,25 @@ def check_gallery(gallery: object, where: str) -> None:
         error(f"{where}: 图集要同时有人物和动物")
 
 
-def order_with_wiki() -> list[str]:
-    order = list(SECTION_ORDER)
-    order.insert(order.index(JOKE_SECTION), WIKI_SECTION)
-    return order
+def insert_wiki(order: list[str]) -> list[str]:
+    updated = list(order)
+    updated.insert(updated.index(JOKE_SECTION), WIKI_SECTION)
+    return updated
+
+
+def accepted_orders() -> list[list[str]]:
+    return [
+        list(SECTION_ORDER),
+        insert_wiki(SECTION_ORDER),
+        list(LEGACY_ORDER),
+        insert_wiki(LEGACY_ORDER),
+    ]
 
 
 def matching_order(names: list) -> list[str] | None:
-    if names == SECTION_ORDER:
-        return list(SECTION_ORDER)
-    with_wiki = order_with_wiki()
-    if names == with_wiki:
-        return with_wiki
+    for order in accepted_orders():
+        if names == order:
+            return list(order)
     return None
 
 
@@ -397,8 +418,11 @@ def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
     order = matching_order(names)
     if order is None:
         error(
-            f"{where}: 栏目必须按此顺序各出现一次：{'、'.join(SECTION_ORDER)}。"
-            f"「{WIKI_SECTION}」可以省略；若有，必须紧挨在笑话之前。实际为 {names}"
+            f"{where}: 新的一天请按此顺序：{'、'.join(SECTION_ORDER)}。"
+            f"社会栏名为「社会与荒诞」。"
+            f"「{WIKI_SECTION}」可以省略；若有，必须紧挨在笑话之前。"
+            f"旧期若仍叫「社会资讯」，且天涯海角在美女与野兽之前，也接受。"
+            f"实际为 {names}"
         )
         order = []
     for section, expected in zip(sections, order):
@@ -520,8 +544,7 @@ def check_schema_file() -> None:
                 except (KeyError, IndexError, TypeError):
                     names.append(None)
         declared.append(names)
-    expected = [list(SECTION_ORDER), order_with_wiki()]
-    if declared != expected:
+    if declared != accepted_orders():
         error("data/schema.json 的栏目顺序与校验脚本不一致")
 
 
@@ -531,7 +554,9 @@ def self_test() -> None:
     assert count_sentences("M. 约翰生于1945年。他获奖。") == 2
     assert count_sentences("只有一句没有句号") == 1
     assert matching_order(list(SECTION_ORDER)) == list(SECTION_ORDER)
-    assert matching_order(order_with_wiki()) == order_with_wiki()
+    assert matching_order(insert_wiki(SECTION_ORDER)) == insert_wiki(SECTION_ORDER)
+    assert matching_order(list(LEGACY_ORDER)) == list(LEGACY_ORDER)
+    assert matching_order(insert_wiki(LEGACY_ORDER)) == insert_wiki(LEGACY_ORDER)
     assert matching_order(list(SECTION_ORDER) + [WIKI_SECTION]) is None
     assert count_sentences("甲。乙。丙。丁。戊。") == 5
 

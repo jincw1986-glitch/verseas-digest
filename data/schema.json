@@ -233,8 +233,344 @@
         },
         "sections": {
           "type": "array",
-          "description": "固定栏目按顺序出现。维基漫游可以省略；若出现，必须紧挨在笑话之前。",
+          "description": "新的一天按新顺序，社会栏名为社会与荒诞。维基漫游可省略，若有则紧挨笑话之前。旧期若社会栏仍为社会资讯，且天涯海角在美女与野兽之前，也合法。",
           "oneOf": [
+            {
+              "minItems": 11,
+              "maxItems": 11,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/photoSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "每日一图"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "国际政治与时事"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "经济与市场"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "科技与人工智能"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "社会与荒诞"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "科学与体育"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "影视与明星"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "书籍与作家"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/gallerySection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "美女与野兽"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/placeSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "天涯海角"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/jokeSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "笑话"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "items": false
+            },
+            {
+              "minItems": 12,
+              "maxItems": 12,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/photoSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "每日一图"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "国际政治与时事"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "经济与市场"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "科技与人工智能"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "社会与荒诞"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "科学与体育"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "影视与明星"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/newsSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "书籍与作家"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/gallerySection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "美女与野兽"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/placeSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "天涯海角"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/wikiSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "维基漫游"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "#/$defs/jokeSection"
+                    },
+                    {
+                      "properties": {
+                        "name": {
+                          "const": "笑话"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "items": false
+            },
             {
               "minItems": 11,
               "maxItems": 11,
