@@ -28,9 +28,15 @@ SECTION_ORDER = [
     "国际政治与时事",
     "经济与市场",
     "科技与人工智能",
+    "社会资讯",
     "科学与体育",
     "书籍与作家",
+    "笑话",
 ]
+JOKE_SECTION = "笑话"
+JOKE_URL_RE = re.compile(r"^https://x\.com/([A-Za-z0-9_]{1,15})/status/[0-9]+$")
+HANDLE_RE = re.compile(r"^@[A-Za-z0-9_]{1,15}$")
+CJK_RE = re.compile(r"[\u4e00-\u9fff]")
 GLOSSARY_TYPES = {"person", "term", "concept", "award", "org"}
 IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp"}
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -183,6 +189,34 @@ def check_item(item: object, where: str) -> None:
         return
 
 
+def check_joke(joke: object, where: str) -> None:
+    if not isinstance(joke, dict):
+        error(f"{where}: 笑话必须是对象")
+        return
+    check_no_extra(joke, {"text", "translation", "authorName", "handle", "url", "note"}, where)
+    text = require_string(joke, "text", where)
+    require_string(joke, "authorName", where)
+    handle = require_string(joke, "handle", where)
+    url = require_string(joke, "url", where)
+    if handle is not None and not HANDLE_RE.match(handle):
+        error(f"{where}: handle 须形如 @name")
+    if url is not None:
+        match = JOKE_URL_RE.match(url)
+        if not match:
+            error(f"{where}: url 须形如 https://x.com/<handle>/status/<id>")
+        elif handle is not None and match.group(1) != handle[1:]:
+            error(f"{where}: url 里的用户名与 handle 不一致")
+    translation = joke.get("translation")
+    if text is not None and not CJK_RE.search(text):
+        if not isinstance(translation, str) or not translation.strip():
+            error(f"{where}: 原文不是中文，必须提供 translation")
+    elif translation is not None and (not isinstance(translation, str) or not translation.strip()):
+        error(f"{where}: translation 不能是空字符串")
+    note = joke.get("note")
+    if note is not None and (not isinstance(note, str) or not note.strip()):
+        error(f"{where}: note 不能是空字符串")
+
+
 def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
     where = str(path.relative_to(ROOT))
     check_no_extra(issue, {"date", "title", "sections"}, where)
@@ -216,10 +250,16 @@ def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
         if not isinstance(items, list) or not items:
             error(f"{section_where}: items 至少要有一条")
             continue
+        if expected == JOKE_SECTION and len(items) < 10:
+            error(f"{section_where}: 笑话至少 10 条，实际 {len(items)} 条")
         for index, item in enumerate(items, start=1):
-            headline = item.get("headline") if isinstance(item, dict) else None
-            label = headline if isinstance(headline, str) and headline else f"第{index}条"
-            check_item(item, f"{section_where} / {label}")
+            if expected == JOKE_SECTION:
+                label = item.get("handle") if isinstance(item, dict) else None
+                check_joke(item, f"{section_where} / {label or f'第{index}条'}")
+            else:
+                headline = item.get("headline") if isinstance(item, dict) else None
+                label = headline if isinstance(headline, str) and headline else f"第{index}条"
+                check_item(item, f"{section_where} / {label}")
 
 
 def check_index(index: dict) -> list[tuple[str, str, Path]]:

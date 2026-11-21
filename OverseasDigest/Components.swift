@@ -3,6 +3,13 @@ import SwiftUI
 import UIKit
 
 extension Color {
+    static let jokePaper = Color(uiColor: UIColor { traits in
+        if traits.userInterfaceStyle == .dark {
+            return UIColor(red: 0.28, green: 0.22, blue: 0.12, alpha: 1)
+        }
+        return UIColor(red: 1.0, green: 0.97, blue: 0.90, alpha: 1)
+    })
+
     static let glossaryBlue = Color(uiColor: UIColor { traits in
         if traits.userInterfaceStyle == .dark {
             return UIColor(red: 0.18, green: 0.42, blue: 0.86, alpha: 1)
@@ -234,6 +241,57 @@ struct SheetContent: View {
                 .ignoresSafeArea()
         case .glossary(let entry):
             GlossarySheet(entry: entry)
+        }
+    }
+}
+
+struct JokeCard: View {
+    let joke: JokeItem
+    let onOpen: (URL) -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("“")
+                .font(.system(size: 42, weight: .bold, design: .serif))
+                .foregroundStyle(Color.orange)
+                .frame(height: 28, alignment: .top)
+                .accessibilityHidden(true)
+            Text(joke.text)
+                .font(.system(.title3, design: .serif))
+                .foregroundStyle(.primary)
+                .fixedSize(horizontal: false, vertical: true)
+                .textSelection(.enabled)
+            if let translation = joke.translation, !translation.isEmpty {
+                Text(translation)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .textSelection(.enabled)
+            }
+            if let note = joke.note, !note.isEmpty {
+                Text(note)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            if let url = joke.postURL {
+                Button {
+                    onOpen(url)
+                } label: {
+                    Text("\(joke.authorName)  \(joke.handle)")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(Color.accentColor)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("打开 \(joke.authorName) 的帖子")
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.jokePaper, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .strokeBorder(Color.orange.opacity(0.55), style: StrokeStyle(lineWidth: 1.5, dash: [7, 5]))
         }
     }
 }

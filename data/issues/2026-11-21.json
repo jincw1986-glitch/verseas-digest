@@ -269,6 +269,119 @@
       ]
     },
     {
+      "name": "社会资讯",
+      "items": [
+        {
+          "headline": "布拉德福德女子用乌尔都语开频道，向家人解释自闭症",
+          "summary": "英国巴基斯坦裔的希娜·谢赫42岁才确诊自闭症，发现几乎没有乌尔都语的成人讲解，于是自己开了YouTube频道。她想让南亚社区看见，自闭症并不妨碍一个人过普通的生活。",
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.com/news/articles/ckz6ql639x0qo"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "希娜·谢赫",
+              "type": "person",
+              "explanation": "希娜·谢赫（Hina Shaikh）住在英格兰布拉德福德，在英巴家庭长大。四十多岁做汽车销售时，一位做神经多样性工作的社工顾客建议她去做评估。国民保健服务的等候太长，她自费看了私人诊所，42岁得到诊断。"
+            },
+            {
+              "term": "自闭症",
+              "type": "term",
+              "explanation": "自闭症是一种神经发育差异，会影响感官、社交和日常节奏，表现差别很大，并不等于不会说话。谢赫说，面粉沾在手上会让她过度刺激，小时候这些差异被当成古怪。她的频道专门讲给还不熟悉这个诊断的长辈听。"
+            },
+            {
+              "term": "乌尔都语",
+              "type": "term",
+              "explanation": "乌尔都语是巴基斯坦和印度部分地区的主要语言，也是许多英国南亚家庭在家里说的语言。谢赫说，确诊后她想找片子给母亲解释，却几乎找不到乌尔都语内容。所以她决定自己拍，并说受过教育的一代已经比较愿意查资料，但上一代仍然觉得这件事很新。"
+            }
+          ]
+        },
+        {
+          "headline": "诺丁汉街头歌手见到森林队，街坊的声援把他送进训练场",
+          "summary": "唐氏综合征歌手迈尔斯·格林在格德林街角唱了八年，上月一次警方福利检查让他以为不能再唱，街坊为此组织了大合唱。诺丁汉森林周四请他去看训练、见球员，他当场说自己又兴奋又想哭。",
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.com/news/articles/c69w9pnlzrylo"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "迈尔斯·格林",
+              "type": "person",
+              "explanation": "迈尔斯·格林（Miles Green）28岁，住在诺丁汉郡卡尔顿一带，有唐氏综合征。他几乎每天都在格德林一家便利店附近的街角唱歌，已经唱了八年，居民和店主常停下来跟他说话。上月有人报警担心他的安全，警察确认他平安后离开，他却因此难过，觉得自己不能再唱。"
+            },
+            {
+              "term": "唐氏综合征",
+              "type": "term",
+              "explanation": "唐氏综合征是一种染色体差异，常伴随学习和发育上的特点，并不决定一个人能不能工作或表演。格林在街角唱歌八年，街坊认识他，也在他受挫时组织了大合唱。那次合唱唱的是他喜欢的艾尔顿·约翰的歌。"
+            },
+            {
+              "term": "诺丁汉森林",
+              "type": "org",
+              "explanation": "诺丁汉森林是英格兰足球俱乐部，主场在诺丁汉。格林的朋友把这件事告诉俱乐部后，球队请他周四去见球员并看训练。主教练奥利弗·格拉斯纳说，这次见面给了球队很多能量。"
+            }
+          ]
+        },
+        {
+          "headline": "当年的“气泡男孩”靠基因治疗长大，现在在度假村做舞台工作",
+          "summary": "威尔士人里斯·埃文斯出生时没有正常免疫系统，本可能一辈子待在隔离环境里。伦敦大奥蒙德街医院在他幼年做了基因治疗，如今26岁的他在萨默塞特的布特林度假村做舞台工作人员。",
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.co.uk/news/articles/crl79nldrlxo"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "里斯·埃文斯",
+              "type": "person",
+              "explanation": "里斯·埃文斯（Rhys Evans）来自威尔士凯尔菲利郡的纳尔逊，现在26岁。他出生时患有一种让免疫系统无法工作的遗传病，家人一度以为他得永远待在保护环境里。他说自己是当年的试验对象，治疗奏效后，同样的办法才用到了更多人身上。"
+            },
+            {
+              "term": "X连锁重症联合免疫缺陷",
+              "type": "term",
+              "explanation": "这是一种遗传性免疫缺陷，患病婴儿几乎没有可用的免疫系统，普通感染就可能致命，旧报道里常称为“气泡男孩”。埃文斯接受的做法，是把一段新的基因送进骨髓，让身体自己长出免疫细胞。主持治疗的阿德里安·斯拉舍教授说，2001年以来已有130多人接受过这种治疗。"
+            },
+            {
+              "term": "大奥蒙德街医院",
+              "type": "org",
+              "explanation": "大奥蒙德街医院在伦敦，是英国主要的儿童医院，也是这次基因治疗的发生地。埃文斯在那里做完治疗后，免疫力足以让他上学、上大学，并两次挺过新冠。他现在的工作是布特林迈恩黑德度假村的舞台工作人员。"
+            }
+          ]
+        },
+        {
+          "headline": "脑瘫少年伊兹入选BBC慈善合唱，说音乐能把自己带到别处",
+          "summary": "威尔特郡16岁的伊兹有脑瘫和脊柱问题，有些日子疼得走不了路，但弹吉他和唱歌时他说自己会逃到歌里的地方。他入选了2026年BBC儿童急需合唱，也在青年俱乐部里帮更小的孩子。",
+          "sources": [
+            {
+              "name": "BBC",
+              "url": "https://www.bbc.com/news/articles/cx1l36mn09vyo"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "伊兹",
+              "type": "person",
+              "explanation": "伊兹（Izzy）住在威尔特郡西拉文顿，早产九周，两岁半被诊断为脑瘫，另外还有骨头互相摩擦的脊柱问题。朋友和家人叫他“世界上最快乐的人”。母亲蕾切尔说，他喜欢说话、参与和帮忙，这次上电视对家里像一场不真实的梦。"
+            },
+            {
+              "term": "脑瘫",
+              "type": "term",
+              "explanation": "脑瘫是一组影响运动和姿势的状况，原因在早期大脑发育，疼痛和疲劳会让同一个人今天走得动、明天走不动。伊兹说，音乐会把他带到歌词描述的地方，那就是他的出口。青年俱乐部经理乔什·牛顿说，身体上的限制并没有拦住他帮忙。"
+            },
+            {
+              "term": "儿童急需",
+              "type": "org",
+              "explanation": "儿童急需（Children in Need）是BBC的年度慈善项目，为英国的儿童和青年项目筹款。2026年的合唱在11月13日的全国转播里演出。伊兹去了五年的西拉文顿青年俱乐部，过去也拿过这个项目的资助。"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "科学与体育",
       "items": [
         {
@@ -484,6 +597,107 @@
               "explanation": "基兰·德赛是印度裔小说家，2006年以《The Inheritance of Loss》获得布克奖和国家图书评论圈奖。她的《The Loneliness of Sonia and Sunny》进入布克奖决选，并被《纽约时报》列为2025年十佳图书之一。国家图书基金会请她在第77届国家图书奖典礼上把奖章颁给拉什迪。"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "笑话",
+      "items": [
+        {
+          "text": "when I see the bodega cat creep out from under the snacks marked “not for individual sale”",
+          "translation": "当我看见便利店的猫，从标着“不单卖”的零食底下爬出来。",
+          "authorName": "Desus Nice",
+          "handle": "@desusnice",
+          "url": "https://x.com/desusnice/status/2123948488845049883",
+          "note": "猫像把一整包不该拆开的零食偷偷拆了。"
+        },
+        {
+          "text": "Tried the new GTA, but don't like doing crime. GTA 6 requires marine salvaging without a permit. Just couldn't do it.",
+          "translation": "试了新的《侠盗猎车手》，可我不喜欢犯法。《侠盗猎车手6》要求无证打捞沉船。我实在下不去手。",
+          "authorName": "Desus Nice",
+          "handle": "@desusnice",
+          "url": "https://x.com/desusnice/status/2123459393559675342",
+          "note": "这款游戏的主业就是犯罪，他却卡在一张打捞许可证上。"
+        },
+        {
+          "text": "It's Friday. Avoid the bookings beloved.",
+          "translation": "周五了。亲爱的，别把自己送进局里。",
+          "authorName": "Desus Nice",
+          "handle": "@desusnice",
+          "url": "https://x.com/desusnice/status/2123889126785339482",
+          "note": "bookings 在这里是被警察登记，不是订餐厅。"
+        },
+        {
+          "text": "dude at my bodega no longer refers to me as “my friend”. we have upgraded to “boss”. big day for all who celebrate",
+          "translation": "便利店那哥们儿不再叫我“朋友”了。我们已经升级成“老板”。今天是所有庆祝的人的大日子。",
+          "authorName": "Desus Nice",
+          "handle": "@desusnice",
+          "url": "https://x.com/desusnice/status/2122052151098630590",
+          "note": "称呼从朋友变成老板，被他写成一场升职典礼。"
+        },
+        {
+          "text": "just got the red ring of death, terrible timing smh",
+          "translation": "刚得到死亡红圈，时机太差了，摇头。",
+          "authorName": "Desus Nice",
+          "handle": "@desusnice",
+          "url": "https://x.com/desusnice/status/2123230654506922041",
+          "note": "死亡红圈原指 Xbox 360 坏掉时亮起的红灯，他拿来形容自己倒霉的时刻。"
+        },
+        {
+          "text": "Can someone give the fruit fly brain a rotting banana",
+          "translation": "谁能给那只果蝇的大脑一根烂香蕉。",
+          "authorName": "jaboukie",
+          "handle": "@jaboukie",
+          "url": "https://x.com/jaboukie/status/2097574471888781798",
+          "note": "果蝇爱烂香蕉，他把一只果蝇的大脑写成一个会点餐的客人。"
+        },
+        {
+          "text": "R.I.P. 2025 (2025 - 2025)",
+          "translation": "2025年安息（2025–2025）。",
+          "authorName": "Megan Amram",
+          "handle": "@meganamram",
+          "url": "https://x.com/meganamram/status/2006456721368289353",
+          "note": "她每年除夕都发同一格式的讣告，把刚结束的一年写成只活了一年的人。"
+        },
+        {
+          "text": "You wouldn’t last an hour in the asylum where they raised me.",
+          "translation": "你在把我养大的那座疯人院里，一个小时都待不住。",
+          "authorName": "Ken Jennings",
+          "handle": "@KenJennings",
+          "url": "https://x.com/KenJennings/status/1783674500825157839",
+          "note": "这句原是泰勒·斯威夫特的歌词，他拿来当自嘲配文。"
+        },
+        {
+          "text": "Not really political but I am excited to cancel out my wife’s boyfriend’s vote",
+          "translation": "其实不太政治，但我很期待抵消掉我妻子男友的那一票。",
+          "authorName": "rob delaney",
+          "handle": "@robdelaney",
+          "url": "https://x.com/robdelaney/status/1853395314905928072",
+          "note": "投票日前一天，他把出轨梗说成一张互相抵消的选票。"
+        },
+        {
+          "text": "Donald Trump is really letting Elon Musk try to dismantle the entire social safety net just so he’d be too busy to hang out.",
+          "translation": "特朗普真是让马斯克去拆整个社会保障网，好让他忙到没时间一起玩。",
+          "authorName": "Josh Gondelman",
+          "handle": "@joshgondelman",
+          "url": "https://x.com/joshgondelman/status/1886493910249480415",
+          "note": "他把一场政策合作写成两个朋友互相躲清静。"
+        },
+        {
+          "text": "Currently wandering the streets looking for someone to talk to about this trade in person.",
+          "translation": "此刻正在街上乱走，想找个人当面聊聊这笔交易。",
+          "authorName": "Josh Gondelman",
+          "handle": "@joshgondelman",
+          "url": "https://x.com/joshgondelman/status/1885933001105912042",
+          "note": "当天卢卡·东契奇被交易到湖人，他急得要拉住路人。"
+        },
+        {
+          "text": "If you’re ever feeling down, just introduce @taylorswift13 at a major Hollywood gala and you’ll be happy for six weeks.",
+          "translation": "要是哪天心情不好，就在一场好莱坞大型晚宴上介绍泰勒·斯威夫特出场，能高兴六个星期。",
+          "authorName": "Conan O'Brien",
+          "handle": "@ConanOBrien",
+          "url": "https://x.com/ConanOBrien/status/2111887459638509811",
+          "note": "他刚在晚宴上介绍过斯威夫特，把这件事写成一张长期有效的处方。"
         }
       ]
     }

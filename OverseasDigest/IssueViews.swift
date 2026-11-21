@@ -4,14 +4,12 @@ struct IssueBody: View {
     let issue: DigestIssue
     @EnvironmentObject private var model: DigestModel
     @State private var selectedSection = ""
+    @State private var showDirectory = false
     @State private var sheet: PresentedSheet?
 
     var body: some View {
         ScrollViewReader { proxy in
-            VStack(spacing: 0) {
-                sectionChips(proxy: proxy)
-                Divider()
-                ScrollView {
+            ScrollView {
                     VStack(alignment: .leading, spacing: 22) {
                         masthead
                         if let banner = model.banner {
@@ -25,7 +23,7 @@ struct IssueBody: View {
                             sectionView(section)
                                 .id(section.name)
                         }
-                        Text("摘要据公开报道整理，点开来源可阅读原文。名词解释是为阅读准备的背景，不是新闻原文。")
+                        Text("新闻摘要据公开报道整理，点开来源可阅读原文。笑话是 X 上的原帖，点作者名字可打开帖子。")
                             .font(.footnote)
                             .foregroundStyle(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
@@ -34,14 +32,92 @@ struct IssueBody: View {
                     .padding(.bottom, 28)
                     .frame(maxWidth: 760)
                     .frame(maxWidth: .infinity)
-                }
-                .refreshable { await model.refresh() }
             }
+            .refreshable { await model.refresh() }
+            .background(Color(.systemGroupedBackground))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showDirectory = true
+                    } label: {
+                        Label("栏目", systemImage: "line.3.horizontal")
+                    }
+                }
+            }
+            .overlay {
+                if showDirectory {
+                    sectionDirectory(proxy: proxy)
+                }
+            }
+            .animation(.easeInOut(duration: 0.28), value: showDirectory)
         }
-        .background(Color(.systemGroupedBackground))
         .sheet(item: $sheet) { presented in
             SheetContent(presented: presented)
         }
+    }
+
+    private func sectionDirectory(proxy: ScrollViewProxy) -> some View {
+        ZStack(alignment: .leading) {
+            Color.black.opacity(0.35)
+                .ignoresSafeArea()
+                .onTapGesture { showDirectory = false }
+                .accessibilityLabel("关闭栏目目录")
+                .accessibilityAddTraits(.isButton)
+            VStack(alignment: .leading, spacing: 0) {
+                Text("栏目目录")
+                    .font(.title2.weight(.bold))
+                    .padding(.horizontal, 20)
+                    .padding(.top, 24)
+                    .padding(.bottom, 12)
+                ScrollView {
+                    VStack(spacing: 4) {
+                        ForEach(issue.sections) { section in
+                            Button {
+                                selectedSection = section.name
+                                showDirectory = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                                    withAnimation(.easeInOut(duration: 0.25)) {
+                                        proxy.scrollTo(section.name, anchor: .top)
+                                    }
+                                }
+                            } label: {
+                                HStack {
+                                    Text(section.name)
+                                        .font(.body.weight(activeSection == section.name ? .semibold : .regular))
+                                        .foregroundStyle(.primary)
+                                        .multilineTextAlignment(.leading)
+                                    Spacer(minLength: 8)
+                                    Text("\(section.entryCount)")
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundStyle(activeSection == section.name ? Color.white : Color.secondary)
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 2)
+                                        .background(
+                                            activeSection == section.name ? Color.accentColor : Color.secondary.opacity(0.15),
+                                            in: Capsule()
+                                        )
+                                }
+                                .padding(.horizontal, 16)
+                                .frame(minHeight: 48)
+                                .background(
+                                    activeSection == section.name ? Color.accentColor.opacity(0.12) : Color.clear,
+                                    in: RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                )
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityHint("跳转到该栏目")
+                        }
+                    }
+                    .padding(.horizontal, 8)
+                }
+            }
+            .frame(maxWidth: 320, maxHeight: .infinity, alignment: .top)
+            .frame(width: 300)
+            .background(.regularMaterial)
+            .ignoresSafeArea(edges: .bottom)
+            .accessibilityAddTraits(.isModal)
+        }
+        .transition(.opacity)
     }
 
     private var activeSection: String {
@@ -68,50 +144,27 @@ struct IssueBody: View {
         .padding(.top, 12)
     }
 
-    private func sectionChips(proxy: ScrollViewProxy) -> some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ForEach(issue.sections) { section in
-                    Button {
-                        selectedSection = section.name
-                        withAnimation(.easeInOut(duration: 0.25)) {
-                            proxy.scrollTo(section.name, anchor: .top)
-                        }
-                    } label: {
-                        Text(section.name)
-                            .font(.subheadline.weight(.semibold))
-                            .padding(.horizontal, 12)
-                            .frame(minHeight: 44)
-                            .foregroundStyle(activeSection == section.name ? Color.white : Color.primary)
-                            .background(
-                                activeSection == section.name ? Color.accentColor : Color.secondary.opacity(0.15),
-                                in: Capsule()
-                            )
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityAddTraits(activeSection == section.name ? .isSelected : AccessibilityTraits())
-                    .accessibilityHint("跳转到该栏目")
-                }
-            }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
-        }
-        .background(.bar)
-    }
-
     private func sectionView(_ section: DigestSection) -> some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(alignment: .firstTextBaseline) {
                 Text(section.name)
                     .font(.title2.weight(.bold))
                 Spacer(minLength: 8)
-                Text("\(section.items.count)则")
+                Text("\(section.entryCount)则")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
             .accessibilityElement(children: .combine)
-            ForEach(Array(section.items.enumerated()), id: \.offset) { _, item in
-                itemCard(item, sectionName: section.name)
+            if section.name == "笑话" {
+                ForEach(section.jokes) { joke in
+                    JokeCard(joke: joke) { url in
+                        sheet = .web(WebLink(url: url))
+                    }
+                }
+            } else {
+                ForEach(Array(section.items.enumerated()), id: \.offset) { _, item in
+                    itemCard(item, sectionName: section.name)
+                }
             }
         }
     }

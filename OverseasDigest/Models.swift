@@ -22,6 +22,51 @@ struct DigestSection: Codable, Equatable, Identifiable {
     var id: String { name }
     var name: String
     var items: [DigestItem]
+    var jokes: [JokeItem]
+
+    var entryCount: Int { name == "笑话" ? jokes.count : items.count }
+
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case items
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        if name == "笑话" {
+            jokes = try container.decode([JokeItem].self, forKey: .items)
+            items = []
+        } else {
+            items = try container.decode([DigestItem].self, forKey: .items)
+            jokes = []
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        if name == "笑话" {
+            try container.encode(jokes, forKey: .items)
+        } else {
+            try container.encode(items, forKey: .items)
+        }
+    }
+}
+
+struct JokeItem: Codable, Equatable, Identifiable {
+    var id: String { url }
+    var text: String
+    var translation: String?
+    var authorName: String
+    var handle: String
+    var url: String
+    var note: String?
+
+    var postURL: URL? {
+        guard let url = URL(string: url), url.scheme == "https" else { return nil }
+        return url
+    }
 }
 
 struct DigestItem: Codable, Equatable, Identifiable {

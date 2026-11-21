@@ -84,7 +84,38 @@
         }
       }
     },
-    "section": {
+    "joke": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "authorName", "handle", "url"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "帖子原文，保留原来的语言。"
+        },
+        "translation": {
+          "type": "string",
+          "minLength": 1,
+          "description": "原文不是中文时必填。校验脚本会检查。"
+        },
+        "authorName": { "type": "string", "minLength": 1 },
+        "handle": {
+          "type": "string",
+          "pattern": "^@[A-Za-z0-9_]{1,15}$"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://x\\.com/[A-Za-z0-9_]{1,15}/status/[0-9]+$"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "description": "可选的短注，解释笑点。不必凑满两句。"
+        }
+      }
+    },
+    "newsSection": {
       "type": "object",
       "additionalProperties": false,
       "required": ["name", "items"],
@@ -97,6 +128,19 @@
         }
       }
     },
+    "jokeSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "items"],
+      "properties": {
+        "name": { "const": "笑话" },
+        "items": {
+          "type": "array",
+          "minItems": 10,
+          "items": { "$ref": "#/$defs/joke" }
+        }
+      }
+    },
     "issue": {
       "type": "object",
       "additionalProperties": false,
@@ -106,37 +150,49 @@
         "title": { "type": "string", "minLength": 1 },
         "sections": {
           "type": "array",
-          "minItems": 5,
-          "maxItems": 5,
+          "minItems": 7,
+          "maxItems": 7,
           "prefixItems": [
             {
               "allOf": [
-                { "$ref": "#/$defs/section" },
+                { "$ref": "#/$defs/newsSection" },
                 { "properties": { "name": { "const": "国际政治与时事" } } }
               ]
             },
             {
               "allOf": [
-                { "$ref": "#/$defs/section" },
+                { "$ref": "#/$defs/newsSection" },
                 { "properties": { "name": { "const": "经济与市场" } } }
               ]
             },
             {
               "allOf": [
-                { "$ref": "#/$defs/section" },
+                { "$ref": "#/$defs/newsSection" },
                 { "properties": { "name": { "const": "科技与人工智能" } } }
               ]
             },
             {
               "allOf": [
-                { "$ref": "#/$defs/section" },
+                { "$ref": "#/$defs/newsSection" },
+                { "properties": { "name": { "const": "社会资讯" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/newsSection" },
                 { "properties": { "name": { "const": "科学与体育" } } }
               ]
             },
             {
               "allOf": [
-                { "$ref": "#/$defs/section" },
+                { "$ref": "#/$defs/newsSection" },
                 { "properties": { "name": { "const": "书籍与作家" } } }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/jokeSection" },
+                { "properties": { "name": { "const": "笑话" } } }
               ]
             }
           ],
