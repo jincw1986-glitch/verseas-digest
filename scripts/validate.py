@@ -168,12 +168,11 @@ def check_item(item: object, where: str) -> None:
             url = source.get("url")
             if not is_https_url(url):
                 error(f"{source_where}: url 必须是 https 地址")
-    if "image" in item:
-        image = item["image"]
-        if not isinstance(image, dict):
-            error(f"{where}: image 必须是对象")
-        else:
-            check_image(image, f"{where} 图片")
+    image = item.get("image")
+    if not isinstance(image, dict):
+        error(f"{where}: 新闻条目必须有 image")
+    else:
+        check_image(image, f"{where} 图片")
     glossary = item.get("glossary")
     if not isinstance(glossary, list) or not (1 <= len(glossary) <= 3):
         error(f"{where}: glossary 须为 1 到 3 条")
@@ -373,8 +372,6 @@ def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
             headline = item.get("headline") if isinstance(item, dict) else None
             label = headline if isinstance(headline, str) and headline else f"第{index}条"
             check_item(item, f"{section_where} / {label}")
-            if expected == "影视与明星" and isinstance(item, dict) and "image" not in item:
-                error(f"{section_where} / {label}: 影视与明星的每一则都要有图")
 
 
 def check_index(index: dict) -> list[tuple[str, str, Path]]:

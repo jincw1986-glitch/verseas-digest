@@ -5,107 +5,133 @@ struct IssueBody: View {
     @EnvironmentObject private var model: DigestModel
     @State private var selectedSection = ""
     @State private var showDirectory = false
+    @State private var page = 0
     @State private var sheet: PresentedSheet?
 
-    var body: some View {
-        ScrollViewReader { proxy in
-            ScrollView {
-                    VStack(alignment: .leading, spacing: 22) {
-                        masthead
-                        if let banner = model.banner {
-                            Text(banner)
-                                .font(.footnote)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(12)
-                                .background(Color.orange.opacity(0.18), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                        }
-                        ForEach(issue.sections) { section in
-                            sectionView(section)
-                                .id(section.name)
-                        }
-                        Text("新闻摘要据公开报道整理，点开来源可阅读原文。笑话是 X 上的原帖，点作者名字可打开帖子。")
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 28)
-                    .frame(maxWidth: 760)
-                    .frame(maxWidth: .infinity)
-            }
-            .refreshable { await model.refresh() }
-            .background(Color(.systemGroupedBackground))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        showDirectory = true
-                    } label: {
-                        Label("栏目", systemImage: "line.3.horizontal")
-                    }
-                }
-            }
-            .overlay {
-                if showDirectory {
-                    sectionDirectory(proxy: proxy)
-                }
-            }
-            .animation(.easeInOut(duration: 0.28), value: showDirectory)
+    private var activeSection: String {
+        if issue.sections.contains(where: { $0.name == selectedSection }) {
+            return selectedSection
         }
+        return issue.sections.first?.name ?? ""
+    }
+
+    private var current: DigestSection? {
+        issue.sections.first { $0.name == activeSection }
+    }
+
+    var body: some View {
+        VStack(spacing: 0) {
+            if let banner = model.banner {
+                Text(banner)
+                    .font(.footnote)
+                    .foregroundStyle(.primary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(Color.orange.opacity(0.18))
+            }
+            if let section = current {
+                SectionPager(
+                    section: section,
+                    dateLine: ChineseDate.string(from: issue.date),
+                    page: pageBinding(for: section),
+                    accent: SectionAccent.color(for: section.name),
+                    onWeb: { url in
+                        sheet = .web(WebLink(url: url))
+                    },
+                    onGlossary: { entry in
+                        sheet = .glossary(entry)
+                    }
+                )
+                .id(section.name)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.systemGroupedBackground))
+        .navigationTitle(current?.name ?? "今日")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    showDirectory = true
+                } label: {
+                    Label("栏目", systemImage: "line.3.horizontal")
+                }
+            }
+        }
+        .refreshable { await model.refresh() }
+        .overlay {
+            if showDirectory {
+                sectionDirectory
+            }
+        }
+        .animation(.easeInOut(duration: 0.28), value: showDirectory)
         .sheet(item: $sheet) { presented in
             SheetContent(presented: presented)
         }
     }
 
-    private func sectionDirectory(proxy: ScrollViewProxy) -> some View {
-        ZStack(alignment: .leading) {
-            Color.black.opacity(0.35)
+    private func pageBinding(for section: DigestSection) -> Binding<Int> {
+        Binding(
+            get: { min(page, max(section.entryCount - 1, 0)) },
+            set: { page = $0 }
+        )
+    }
+
+    private var sectionDirectory: some View {
+        let accent = SectionAccent.color(for: activeSection)
+        return ZStack(alignment: .leading) {
+            Color.black.opacity(0.38)
                 .ignoresSafeArea()
                 .onTapGesture { showDirectory = false }
                 .accessibilityLabel("关闭栏目目录")
                 .accessibilityAddTraits(.isButton)
             VStack(alignment: .leading, spacing: 0) {
+                Text(ChineseDate.string(from: issue.date))
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(accent)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 28)
                 Text("栏目目录")
                     .font(.title2.weight(.bold))
                     .padding(.horizontal, 20)
-                    .padding(.top, 24)
+                    .padding(.top, 4)
                     .padding(.bottom, 12)
                 ScrollView {
                     VStack(spacing: 4) {
                         ForEach(issue.sections) { section in
+                            let selected = activeSection == section.name
+                            let tint = SectionAccent.color(for: section.name)
                             Button {
+                                page = 0
                                 selectedSection = section.name
                                 showDirectory = false
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                                    withAnimation(.easeInOut(duration: 0.25)) {
-                                        proxy.scrollTo(section.name, anchor: .top)
-                                    }
-                                }
                             } label: {
-                                HStack {
+                                HStack(spacing: 10) {
+                                    RoundedRectangle(cornerRadius: 2, style: .continuous)
+                                        .fill(tint)
+                                        .frame(width: 4, height: 22)
                                     Text(section.name)
-                                        .font(.body.weight(activeSection == section.name ? .semibold : .regular))
+                                        .font(.body.weight(selected ? .semibold : .regular))
                                         .foregroundStyle(.primary)
                                         .multilineTextAlignment(.leading)
                                     Spacer(minLength: 8)
                                     Text("\(section.entryCount)")
                                         .font(.subheadline.weight(.semibold))
-                                        .foregroundStyle(activeSection == section.name ? Color.white : Color.secondary)
+                                        .foregroundStyle(selected ? Color.white : Color.secondary)
                                         .padding(.horizontal, 8)
                                         .padding(.vertical, 2)
-                                        .background(
-                                            activeSection == section.name ? Color.accentColor : Color.secondary.opacity(0.15),
-                                            in: Capsule()
-                                        )
+                                        .background(selected ? tint : Color.secondary.opacity(0.15), in: Capsule())
                                 }
-                                .padding(.horizontal, 16)
+                                .padding(.horizontal, 12)
                                 .frame(minHeight: 48)
                                 .background(
-                                    activeSection == section.name ? Color.accentColor.opacity(0.12) : Color.clear,
+                                    selected ? tint.opacity(0.14) : Color.clear,
                                     in: RoundedRectangle(cornerRadius: 12, style: .continuous)
                                 )
                             }
                             .buttonStyle(.plain)
-                            .accessibilityHint("跳转到该栏目")
+                            .accessibilityHint("只显示这一栏")
                         }
                     }
                     .padding(.horizontal, 8)
@@ -119,105 +145,165 @@ struct IssueBody: View {
         }
         .transition(.opacity)
     }
+}
 
-    private var activeSection: String {
-        if selectedSection.isEmpty {
-            return issue.sections.first?.name ?? ""
+private enum SectionAccent {
+    static func color(for name: String) -> Color {
+        switch name {
+        case "每日一图":
+            return Color(red: 0.72, green: 0.40, blue: 0.16)
+        case "国际政治与时事":
+            return Color(red: 0.13, green: 0.28, blue: 0.55)
+        case "经济与市场":
+            return Color(red: 0.09, green: 0.42, blue: 0.34)
+        case "科技与人工智能":
+            return Color(red: 0.30, green: 0.22, blue: 0.62)
+        case "社会资讯":
+            return Color(red: 0.62, green: 0.26, blue: 0.30)
+        case "科学与体育":
+            return Color(red: 0.08, green: 0.40, blue: 0.52)
+        case "影视与明星":
+            return Color(red: 0.55, green: 0.16, blue: 0.36)
+        case "书籍与作家":
+            return Color(red: 0.45, green: 0.28, blue: 0.14)
+        case "天涯海角":
+            return Color(red: 0.14, green: 0.38, blue: 0.44)
+        case "美女与野兽":
+            return Color(red: 0.50, green: 0.20, blue: 0.28)
+        case "笑话":
+            return Color(red: 0.72, green: 0.42, blue: 0.10)
+        default:
+            return Color(red: 0.22, green: 0.30, blue: 0.42)
         }
-        return selectedSection
     }
 
-    private var masthead: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("海外资讯简报")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(Color.accentColor)
-            Text(ChineseDate.string(from: issue.date))
-                .font(.largeTitle.weight(.bold))
-                .fixedSize(horizontal: false, vertical: true)
-            Text(issue.title)
-                .font(.title3)
-                .foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
+    static func symbol(for name: String) -> String {
+        switch name {
+        case "每日一图":
+            return "sun.max"
+        case "国际政治与时事":
+            return "globe.asia.australia"
+        case "经济与市场":
+            return "chart.line.uptrend.xyaxis"
+        case "科技与人工智能":
+            return "cpu"
+        case "社会资讯":
+            return "person.2"
+        case "科学与体育":
+            return "sportscourt"
+        case "影视与明星":
+            return "film"
+        case "书籍与作家":
+            return "book"
+        case "天涯海角":
+            return "map"
+        case "美女与野兽":
+            return "pawprint"
+        case "笑话":
+            return "quote.opening"
+        default:
+            return "photo"
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.top, 12)
     }
+}
 
-    private func sectionView(_ section: DigestSection) -> some View {
-        VStack(alignment: .leading, spacing: 14) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(section.name)
-                    .font(.title2.weight(.bold))
-                Spacer(minLength: 8)
-                Text("\(section.entryCount)则")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+private struct SectionPager: View {
+    let section: DigestSection
+    let dateLine: String
+    @Binding var page: Int
+    let accent: Color
+    let onWeb: (URL) -> Void
+    let onGlossary: (GlossaryEntry) -> Void
+
+    var body: some View {
+        TabView(selection: $page) {
+            ForEach(0..<section.entryCount, id: \.self) { index in
+                pageView(at: index)
+                    .tag(index)
             }
-            .accessibilityElement(children: .combine)
-            if section.name == "笑话" {
-                ForEach(section.jokes) { joke in
-                    JokeCard(joke: joke) { url in
-                        sheet = .web(WebLink(url: url))
-                    }
-                }
-            } else if let photo = section.photo {
-                photoOfDay(photo)
-            } else if let place = section.place {
-                placeEssay(place)
-            } else if section.name == "美女与野兽" {
-                ForEach(section.gallery) { item in
-                    galleryCard(item)
-                }
-            } else {
-                ForEach(Array(section.items.enumerated()), id: \.offset) { _, item in
-                    itemCard(item, sectionName: section.name)
-                }
-            }
+        }
+        .tabViewStyle(.page(indexDisplayMode: .always))
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    @ViewBuilder
+    private func pageView(at index: Int) -> some View {
+        let label = "\(index + 1) / \(max(section.entryCount, 1))"
+        if section.name == "笑话", section.jokes.indices.contains(index) {
+            jokePage(section.jokes[index], label: label)
+        } else if let photo = section.photo {
+            photoPage(photo, label: label)
+        } else if let place = section.place {
+            placePage(place, label: label)
+        } else if section.name == "美女与野兽", section.gallery.indices.contains(index) {
+            galleryPage(section.gallery[index], label: label)
+        } else if section.items.indices.contains(index) {
+            newsPage(section.items[index], label: label)
         }
     }
 
-    private func photoOfDay(_ photo: PhotoOfDay) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(photo.title)
-                .font(.title.weight(.bold))
+    private func newsPage(_ item: DigestItem, label: String) -> some View {
+        MagazineCard(
+            kicker: section.name,
+            title: item.headline,
+            dateLine: dateLine,
+            picture: item.image,
+            accent: accent,
+            symbol: SectionAccent.symbol(for: section.name),
+            pageLabel: label
+        ) {
+            Text(item.summary)
+                .font(.body)
                 .fixedSize(horizontal: false, vertical: true)
-            DigestPhoto(picture: photo.image)
-                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            Text(photo.image.credit)
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
-            ForEach(Array(photo.interpretation.components(separatedBy: "\n\n").enumerated()), id: \.offset) { _, paragraph in
+                .textSelection(.enabled)
+            SourceButtons(sources: item.sources, onOpen: onWeb)
+            GlossaryBlock(entries: item.glossary, onSelect: onGlossary)
+            if let credit = item.image?.credit {
+                creditLine(credit)
+            }
+            footnote("新闻摘要据公开报道整理。点来源阅读原文，点蓝色名词查看解释。")
+        }
+    }
+
+    private func photoPage(_ photo: PhotoOfDay, label: String) -> some View {
+        MagazineCard(
+            kicker: section.name,
+            title: photo.title,
+            dateLine: dateLine,
+            picture: photo.image,
+            accent: accent,
+            symbol: SectionAccent.symbol(for: section.name),
+            pageLabel: label
+        ) {
+            ForEach(paragraphs(photo.interpretation), id: \.offset) { _, paragraph in
                 Text(paragraph)
                     .font(.body)
                     .fixedSize(horizontal: false, vertical: true)
                     .textSelection(.enabled)
             }
-            SourceButtons(sources: photo.sources) { url in
-                sheet = .web(WebLink(url: url))
-            }
+            SourceButtons(sources: photo.sources, onOpen: onWeb)
+            creditLine(photo.image.credit)
         }
     }
 
-    private func placeEssay(_ place: PlaceEssay) -> some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Text(place.name)
-                .font(.title.weight(.bold))
-            ForEach(place.photos) { photo in
-                VStack(alignment: .leading, spacing: 6) {
-                    DigestPhoto(picture: photo.picture)
-                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    if let caption = photo.caption {
-                        Text(caption)
-                            .font(.subheadline)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    Text(photo.credit)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+    private func placePage(_ place: PlaceEssay, label: String) -> some View {
+        MagazineCard(
+            kicker: section.name,
+            title: place.name,
+            dateLine: dateLine,
+            picture: place.photos.first?.picture,
+            accent: accent,
+            symbol: SectionAccent.symbol(for: section.name),
+            pageLabel: label
+        ) {
+            if let first = place.photos.first {
+                if let caption = first.caption {
+                    Text(caption)
+                        .font(.subheadline.weight(.medium))
                         .fixedSize(horizontal: false, vertical: true)
                 }
+                creditLine(first.credit)
             }
             ForEach(Array(place.paragraphs.enumerated()), id: \.offset) { _, paragraph in
                 Text(paragraph)
@@ -225,26 +311,33 @@ struct IssueBody: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .textSelection(.enabled)
             }
+            ForEach(Array(place.photos.dropFirst())) { photo in
+                DigestPhoto(picture: photo.picture, accent: accent, symbol: "map")
+                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                if let caption = photo.caption {
+                    Text(caption)
+                        .font(.subheadline)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                creditLine(photo.credit)
+            }
         }
     }
 
-    private func galleryCard(_ item: GalleryItem) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(item.kindLabel)
-                .font(.caption.weight(.semibold))
-                .foregroundStyle(Color.accentColor)
-            DigestPhoto(picture: item.image)
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-            Text(item.caption)
-                .font(.body)
-                .fixedSize(horizontal: false, vertical: true)
-            Text(item.image.credit)
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
+    private func galleryPage(_ item: GalleryItem, label: String) -> some View {
+        MagazineCard(
+            kicker: item.kindLabel,
+            title: item.caption,
+            dateLine: dateLine,
+            picture: item.image,
+            accent: accent,
+            symbol: item.kind == "animal" ? "pawprint" : "person",
+            pageLabel: label
+        ) {
+            creditLine(item.image.credit)
             if let source = item.source, let url = source.webURL {
                 Button {
-                    sheet = .web(WebLink(url: url))
+                    onWeb(url)
                 } label: {
                     Label(source.name, systemImage: "safari")
                         .font(.subheadline.weight(.medium))
@@ -253,56 +346,147 @@ struct IssueBody: View {
                 .controlSize(.small)
             }
         }
-        .padding(12)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 
-    private func itemCard(_ item: DigestItem, sectionName: String) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            NavigationLink {
-                ItemDetailView(sectionName: sectionName, item: item)
-            } label: {
-                VStack(alignment: .leading, spacing: 10) {
-                    if let picture = item.image {
-                        DigestPhoto(picture: picture)
-                            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                        Text(picture.credit)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    Text(sectionName)
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(Color.accentColor)
-                    Text(item.headline)
-                        .font(.title3.weight(.semibold))
-                        .foregroundStyle(.primary)
-                        .fixedSize(horizontal: false, vertical: true)
-                    Text(item.summary)
-                        .font(.body)
-                        .foregroundStyle(.primary)
-                        .fixedSize(horizontal: false, vertical: true)
+    private func jokePage(_ joke: JokeItem, label: String) -> some View {
+        MagazineCard(
+            kicker: section.name,
+            title: joke.authorName,
+            dateLine: dateLine,
+            picture: nil,
+            accent: accent,
+            symbol: "quote.opening",
+            pageLabel: label,
+            jokeStyle: true
+        ) {
+            Text(joke.text)
+                .font(.system(.title3, design: .serif))
+                .fixedSize(horizontal: false, vertical: true)
+                .textSelection(.enabled)
+            if let translation = joke.translation, !translation.isEmpty {
+                Text(translation)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .textSelection(.enabled)
+            }
+            if let note = joke.note, !note.isEmpty {
+                Text(note)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            if let url = joke.postURL {
+                Button {
+                    onWeb(url)
+                } label: {
+                    Text("\(joke.authorName)  \(joke.handle)")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(accent)
                 }
+                .buttonStyle(.plain)
+                .accessibilityLabel("打开 \(joke.authorName) 的帖子")
             }
-            .buttonStyle(.plain)
-            SourceButtons(sources: item.sources) { url in
-                sheet = .web(WebLink(url: url))
-            }
-            DisclosureGroup("名词解释") {
-                GlossaryBlock(entries: item.glossary) { entry in
-                    sheet = .glossary(entry)
-                }
-                .padding(.top, 8)
-            }
-            .font(.body.weight(.semibold))
+            footnote("笑话是 X 上的原帖。点作者名字可打开帖子。")
         }
-        .padding(14)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .strokeBorder(Color.primary.opacity(0.06))
+    }
+
+    private func creditLine(_ credit: String) -> some View {
+        Text(credit)
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+
+    private func footnote(_ text: String) -> some View {
+        Text(text)
+            .font(.footnote)
+            .foregroundStyle(.tertiary)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+
+    private func paragraphs(_ text: String) -> [(offset: Int, element: String)] {
+        Array(text.components(separatedBy: "\n\n").enumerated())
+    }
+}
+
+private struct MagazineCard<Content: View>: View {
+    let kicker: String
+    let title: String
+    let dateLine: String
+    let picture: DigestPicture?
+    let accent: Color
+    let symbol: String
+    let pageLabel: String
+    var jokeStyle: Bool = false
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        GeometryReader { geo in
+            let cardHeight = max(geo.size.height - 36, 320)
+            let hero = min(cardHeight * 0.52, 460)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack(alignment: .center, spacing: 8) {
+                            Text(kicker)
+                                .font(.caption.weight(.bold))
+                                .foregroundStyle(.white)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 5)
+                                .background(accent, in: Capsule())
+                            Text(dateLine)
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(.white.opacity(0.88))
+                                .lineLimit(1)
+                            Spacer(minLength: 8)
+                            Text(pageLabel)
+                                .font(.caption.weight(.bold).monospacedDigit())
+                                .foregroundStyle(.white.opacity(0.92))
+                        }
+                        Text(title)
+                            .font(.title.weight(.bold))
+                            .foregroundStyle(.white)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .shadow(color: .black.opacity(0.35), radius: 8, y: 2)
+                    }
+                    .padding(18)
+                    .frame(maxWidth: .infinity, minHeight: hero, alignment: .bottomLeading)
+                    .background {
+                        DigestPhoto(picture: picture, accent: accent, symbol: symbol, fillsFrame: true)
+                            .overlay(alignment: .bottom) {
+                                LinearGradient(
+                                    colors: [.clear, .black.opacity(0.18), .black.opacity(0.82)],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                                .frame(height: hero * 0.72)
+                                .frame(maxHeight: .infinity, alignment: .bottom)
+                                .allowsHitTesting(false)
+                            }
+                    }
+                    .clipped()
+
+                    VStack(alignment: .leading, spacing: 16) {
+                        content()
+                    }
+                    .padding(18)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+            .scrollBounceBehavior(.basedOnSize)
+            .background(jokeStyle ? Color.jokePaper : Color(.secondarySystemGroupedBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+            .overlay {
+                if jokeStyle {
+                    RoundedRectangle(cornerRadius: 22, style: .continuous)
+                        .strokeBorder(Color.orange.opacity(0.7), style: StrokeStyle(lineWidth: 1.5, dash: [7, 5]))
+                }
+            }
+            .shadow(color: .black.opacity(0.18), radius: 18, y: 8)
+            .frame(width: min(geo.size.width - 24, 760), height: cardHeight)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .padding(.top, 8)
         }
     }
 }

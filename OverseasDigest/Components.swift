@@ -182,33 +182,56 @@ struct SafariSheet: UIViewControllerRepresentable {
 }
 
 struct DigestPhoto: View {
-    let picture: DigestPicture
+    let picture: DigestPicture?
+    var accent: Color = Color(red: 0.22, green: 0.30, blue: 0.42)
+    var symbol: String = "photo"
+    var fillsFrame: Bool = false
     @State private var uiImage: UIImage?
 
     var body: some View {
-        Color.clear
-            .aspectRatio(16.0 / 9.0, contentMode: .fit)
-            .overlay {
-                if let uiImage {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFill()
-                } else {
-                    ZStack {
-                        Color.secondary.opacity(0.12)
-                        Image(systemName: "photo")
-                            .font(.title2)
-                            .foregroundStyle(.secondary)
-                    }
+        Group {
+            if fillsFrame {
+                framed
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                Color.clear
+                    .aspectRatio(16.0 / 9.0, contentMode: .fit)
+                    .overlay { framed }
+            }
+        }
+        .clipped()
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(picture?.credit ?? "图片暂时无法显示")
+        .task(id: picture?.cacheKey ?? "missing") {
+            uiImage = nil
+            guard let picture else { return }
+            guard let data = await DigestRepository.shared.imageData(for: picture) else { return }
+            uiImage = UIImage(data: data)
+        }
+    }
+
+    @ViewBuilder
+    private var framed: some View {
+        if let uiImage {
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFill()
+        } else {
+            ZStack {
+                LinearGradient(
+                    colors: [accent.opacity(0.95), accent.opacity(0.55)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                VStack(spacing: 8) {
+                    Image(systemName: symbol)
+                        .font(.system(size: 36, weight: .light))
+                    Text("图片暂时无法显示")
+                        .font(.footnote.weight(.medium))
                 }
+                .foregroundStyle(.white.opacity(0.92))
             }
-            .clipped()
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel(picture.credit)
-            .task(id: picture.cacheKey) {
-                guard let data = await DigestRepository.shared.imageData(for: picture) else { return }
-                uiImage = UIImage(data: data)
-            }
+        }
     }
 }
 

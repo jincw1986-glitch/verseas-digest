@@ -31,6 +31,10 @@
               "url": "https://www.bbc.co.uk/news/articles/cxnv4zvmdy0jo"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/zelensky.jpg",
+            "credit": "泽连斯基官方肖像，乌克兰总统府 president.gov.ua，CC BY 4.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "泽连斯基",
@@ -58,6 +62,10 @@
               "url": "https://www.bbc.com/news/articles/cmde1lj4yjxno"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/nyhavn.jpg",
+            "credit": "哥本哈根新港，Dietmar Rabich，2017年，CC BY-SA 4.0，维基共享资源。画面是城市，不是事件现场"
+          },
           "glossary": [
             {
               "term": "Kyivstoner",
@@ -85,6 +93,10 @@
               "url": "https://www.straitstimes.com/world/middle-east/araqchi-says-iran-wants-diplomacy-to-end-war-trump-says-terms-unacceptable"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/araghchi.jpg",
+            "credit": "塞义德·阿巴斯·阿拉格齐，IAEA Imagebank，CC BY 2.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "阿巴斯·阿拉格齐",
@@ -112,6 +124,10 @@
               "url": "https://www.straitstimes.com/world/middle-east/houthi-attacks-add-to-worries-over-trump-saudi-nuclear-power-pact"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/riyadh.jpg",
+            "credit": "利雅得天际线，B.alotaby，CC BY-SA 4.0，维基共享资源。画面是城市，不是袭击现场"
+          },
           "glossary": [
             {
               "term": "胡塞武装",
@@ -139,6 +155,10 @@
               "url": "https://www.bbc.com/news/articles/c6ly5w40eg07o"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/antalya.jpg",
+            "credit": "安塔利亚海岸，Dosseman，2013年，CC BY-SA 4.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "COP",
@@ -166,6 +186,10 @@
               "url": "https://www.aljazeera.com/news/2026/11/21/russia-says-kaliningrad-bound-ship-struck-by-drones-in-gulf-of-finland"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/ship.jpg",
+            "credit": "集装箱船 MSC Harmony III 停靠科佩尔港，Petar Milošević，2024年，CC BY-SA 4.0，维基共享资源。此图不是遇袭的那艘货轮"
+          },
           "glossary": [
             {
               "term": "芬兰湾",
@@ -202,6 +226,10 @@
               "url": "https://asia.nikkei.com/business/markets/equities/us-stocks-end-sharply-lower-on-ai-selloff-s-p-500-dow-in-correction"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/nyse.jpg",
+            "credit": "纽约证券交易所，Arild Vågen，2017年，CC BY-SA 4.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "技术性调整",
@@ -229,6 +257,10 @@
               "url": "https://www.investing.com/news/economy-news/feds-cook-says-rate-hikes-needed-to-lower-high-inflation-5042321"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/fed.jpg",
+            "credit": "美联储埃克尔斯大楼，Federal Reserve，公有领域，维基共享资源"
+          },
           "glossary": [
             {
               "term": "丽莎·库克",
@@ -251,6 +283,10 @@
               "url": "https://www.investing.com/news/commodities-news/oil-prices-edge-higher-as-houthi-attacks-on-riyadh-raise-supply-concerns-5040518"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/oil.jpg",
+            "credit": "美国科罗拉多州抽油机，Greg Goebel，CC BY-SA 2.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "布伦特原油",
@@ -273,6 +309,10 @@
               "url": "https://www.investing.com/news/economy-news/bessent-advocates-lower-fed-rate-hike-cites-energy-shock-5042202"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/treasury.jpg",
+            "credit": "美国财政部大楼，MeanieHyaena，CC BY 4.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "斯科特·贝森特",
@@ -295,6 +335,10 @@
               "url": "https://www.investing.com/news/economy-news/the-snowballing-selloff-in-global-markets-5042143"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/taipei.jpg",
+            "credit": "台北101，CEphoto, Uwe Aranas，CC BY-SA 3.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "美元指数",
@@ -326,6 +370,10 @@
               "url": "https://deepmind.google/models/model-cards/gemini-4-neon/"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/google.jpg",
+            "credit": "谷歌总部 Googleplex，The Pancake of Heaven!，CC BY-SA 4.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "Gemini 4 Neon",
@@ -353,6 +401,10 @@
               "url": "https://www.cnbc.com/2026/11/21/countries-agree-to-un-talks-aiming-to-regulate-killer-robots-by-2028.html"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/geneva.jpg",
+            "credit": "日内瓦联合国理事会大厅，Nacaru，CC BY-SA 4.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "致命自主武器系统",
@@ -380,6 +432,10 @@
               "url": "https://openai.com/index/advancing-chip-design-with-our-models/"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/wafer.jpg",
+            "credit": "硅晶圆，Sangitiana Fararano，CC BY-SA 2.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "Jalapeño",
@@ -402,6 +458,10 @@
               "url": "https://news.microsoft.com/source/2026/11/18/microsoft-and-intel-deepen-collaboration-to-deliver-differentiated-azure-infrastructure/"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/microsoft.jpg",
+            "credit": "微软92号楼，Coolcaesar，CC BY-SA 4.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "EMIB",
@@ -424,6 +484,10 @@
               "url": "https://news.leverageai.io/reports/2026-11-18-daily"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/apple.jpg",
+            "credit": "苹果园区航拍，Daniel L. Lu，CC BY-SA 4.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "FastFrames",
@@ -451,6 +515,10 @@
               "url": "https://www.bbc.com/news/articles/ckz6ql639x0qo"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/bradford.jpg",
+            "credit": "布拉德福德市政厅，John Illingworth，CC BY-SA 2.0，维基共享资源。不是报道中的人物"
+          },
           "glossary": [
             {
               "term": "希娜·谢赫",
@@ -478,6 +546,10 @@
               "url": "https://www.bbc.com/news/articles/c69w9pnlzrylo"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/forest.jpg",
+            "credit": "诺丁汉森林城球场，Arne Müseler，CC BY-SA 3.0 de，维基共享资源"
+          },
           "glossary": [
             {
               "term": "迈尔斯·格林",
@@ -505,6 +577,10 @@
               "url": "https://www.bbc.co.uk/news/articles/crl79nldrlxo"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/gosh.jpg",
+            "credit": "伦敦大奥蒙德街医院圣克里斯托弗小教堂，Diliff，CC BY-SA 3.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "里斯·埃文斯",
@@ -532,6 +608,10 @@
               "url": "https://www.bbc.com/news/articles/cx1l36mn09vyo"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/guitar.jpg",
+            "credit": "巴西累西腓广场上的街头吉他手，Wilfredor，CC0，维基共享资源。不是伊兹本人"
+          },
           "glossary": [
             {
               "term": "伊兹",
@@ -559,6 +639,10 @@
               "url": "https://www.bbc.com/news/articles/c52e90jx92npo"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/horse.jpg",
+            "credit": "马匹，Alvesgaspar，CC BY-SA 4.0，维基共享资源。不是报道中的那匹马"
+          },
           "glossary": [
             {
               "term": "菲利普·豪厄尔斯",
@@ -617,6 +701,10 @@
               "url": "https://www.bbc.com/sport/football/articles/cvze7d4w5g49o"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/kane.jpg",
+            "credit": "哈里·凯恩，Number 10，2023年，CC BY 2.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "哈里·凯恩",
@@ -644,6 +732,10 @@
               "url": "https://www.bbc.com/sport/football/articles/c6e9le7l9m75o"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/womens-football.jpg",
+            "credit": "青年奥运会女子足球赛，مانفی，CC BY 2.5，维基共享资源"
+          },
           "glossary": [
             {
               "term": "前交叉韧带",
@@ -666,6 +758,10 @@
               "url": "https://www.bbc.com/sport/football/articles/cm1ewpjyy3dzo"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/football.jpg",
+            "credit": "曼彻斯特城市球场看台，AGilhooley，CC BY-SA 3.0，维基共享资源。画面是比赛观众，不是头球训练"
+          },
           "glossary": [
             {
               "term": "格雷厄姆·莫里斯",
@@ -688,6 +784,10 @@
               "url": "https://www.dailymail.com/sport/football/article-16259559/Arsenal-NASA-injuries-Arteta.html"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/emirates.jpg",
+            "credit": "阿森纳酋长球场东看台，Ed g2s，CC BY-SA 3.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "太空生理学",
@@ -854,6 +954,10 @@
               "url": "https://thebookerprizes.com/media-centre/press-releases/the-end-of-everything-by-m-john-harrison-wins-the-booker-prize-2026"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/billingsgate.jpg",
+            "credit": "伦敦老比林斯门市场，Arild Vågen，2014年，CC BY-SA 3.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "M·约翰·哈里森",
@@ -885,6 +989,10 @@
               "url": "https://apnews.com/article/national-book-awards-rushdie-visas-d09c9d989d5f58264230edeb445898d8"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/nypl.jpg",
+            "credit": "纽约公共图书馆总馆立面，bryansjs，CC BY-SA 2.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "汉娜·莉莉丝·阿萨迪",
@@ -916,6 +1024,10 @@
               "url": "https://www.nouvelobs.com/bibliobs/20261103.OBS119824/philippe-jaenada-prix-goncourt-2026-10-choses-que-vous-ne-savez-peut-etre-pas-sur-l-auteur-de-l-inconnue-du-quai-de-javel.html"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/seine.jpg",
+            "credit": "巴黎塞纳河畔 MK2 影院，Patrick Nouhailler，2011年，CC BY-SA 3.0，维基共享资源。不是雅韦尔码头现场"
+          },
           "glossary": [
             {
               "term": "菲利普·雅纳达",
@@ -943,6 +1055,10 @@
               "url": "https://www.nytimes.com/books/best-sellers/hardcover-fiction/"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/library.jpg",
+            "credit": "奥地利格特魏格修道院图书馆，Jorge Royan，2015年，CC BY-SA 3.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "莎拉·J·马斯",
@@ -974,6 +1090,10 @@
               "url": "https://www.nationalbook.org/awards2026/winners/"
             }
           ],
+          "image": {
+            "path": "images/2026-11-21/rushdie.jpg",
+            "credit": "萨尔曼·拉什迪，Elena Ternovaja，2023年10月，CC BY-SA 3.0，维基共享资源"
+          },
           "glossary": [
             {
               "term": "萨尔曼·拉什迪",
