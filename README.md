@@ -91,7 +91,7 @@
 
 ## 怎样加一天
 
-1. 新建 `data/issues/YYYY-MM-DD.json`，五个栏目按上面的顺序写完。
+1. 新建 `data/issues/YYYY-MM-DD.json`，栏目按上面的顺序写完。
 2. 如果有图，放到 `data/images/YYYY-MM-DD/`，在对应条目里用 `path` 指向它，并写 `credit`。也可以只填一个 `https` 图片地址。
 3. 打开 `data/index.json`，把这一天插到 `issues` 数组的**最前面**。`path` 写成 `issues/YYYY-MM-DD.json`。
 4. 在仓库根目录运行：
@@ -105,19 +105,23 @@
 
 改过图片或想让安装包里的离线副本一起更新时，需要重新用 Xcode 编译安装。只改文字的话，应用下次联网刷新就会拿到新 JSON，不必重装。
 
-## 在 Mac 上打开并装到 iPhone
+## 用 Mac 数据线装到 iPhone 17 Pro Max
 
-准备：一台 Mac，从 App Store 安装 Xcode 15 或更新版本（能编译 iOS 17）。iPhone 系统需为 iOS 17 或更高。用数据线连接，并在手机上点「信任」。
+这一路用你已经付费的 Apple Developer Program 账号，把应用直接装进那台 iPhone 17 Pro Max。不经过 TestFlight。
 
-1. 把这个仓库克隆到 Mac。
-2. 双击打开根目录的 `OverseasDigest.xcodeproj`。
-3. 菜单 Xcode → Settings → Accounts，登录你的 Apple ID。
-4. 左侧点工程，选中 target **OverseasDigest**，打开 **Signing & Capabilities**。
-5. 勾上 Automatically manage signing。Team 选你自己的个人团队或公司团队。
-6. Bundle Identifier 目前是 `com.jincw.overseasdigest`。如果提示已被占用，改成只有你在用的一串，例如 `com.你的名字.overseasdigest`。后面如果走 TestFlight，App Store Connect 里要填同一个。
-7. 窗口顶部的运行目标选你的 iPhone，不要选模拟器，然后按运行（▶）。
-8. 第一次用免费 Apple ID 安装时，手机可能提示开发者不受信任。打开 iPhone 的「设置 → 通用 → VPN 与设备管理」（有的系统写成「设备管理」），信任你的开发者证书，再回到主屏幕打开「海外简报」。
-9. 免费个人账号的签名大约 7 天后失效，过期后用 Xcode 再运行一次即可。付费开发者账号的直接安装时间更长。
+准备：一台 Mac；从 Mac App Store 安装 Xcode 15 或更新版本；一根能传输数据的 USB-C 线；手机已登录、屏幕已解锁。
+
+1. 在 iPhone 17 Pro Max 上打开「设置 → 隐私与安全性 → 开发者模式」，打开开关。手机会要求重启。重启后再次确认开发者模式已开启。
+2. 用数据线把这台 iPhone 17 Pro Max 接到 Mac。若手机弹出「要信任此电脑吗」，点「信任」，并输入手机锁屏密码。
+3. 在 Mac 上克隆本仓库，双击根目录的 `OverseasDigest.xcodeproj`。
+4. 菜单 Xcode → Settings → Accounts，用付费开发者账号的 Apple ID 登录。登录后应能看到你的付费团队，而不是只有 Personal Team。
+5. 左侧点蓝色工程图标，选中 target **OverseasDigest**，打开 **Signing & Capabilities**。
+6. 勾上 Automatically manage signing。Team 选那个付费团队。Bundle Identifier 保持 `com.jincw.overseasdigest`。如果提示已被别人占用，改成只属于你的一串，例如 `com.你的名字.overseasdigest`。后面 TestFlight 必须用同一个。
+7. Xcode 窗口顶部的运行目标不要选模拟器。在设备列表里点你的 **iPhone 17 Pro Max**。
+8. 按运行按钮（▶），或菜单 Product → Run。第一次编译会久一点。
+9. 装好后若打不开，并提示不受信任的开发者：在手机上打开「设置 → 通用 → VPN 与设备管理」，点你的开发者证书，再点信任。然后回到主屏幕打开「海外简报」。
+
+付费账号的描述文件按年更新。只要团队和 Bundle ID 不变，以后改完代码再按一次运行即可。
 
 应用有三个页签：
 
@@ -127,20 +131,60 @@
 
 下拉可以刷新。成功读过的期数保存在手机上，没有网络时仍能打开。界面跟随系统深色模式，文字跟随系统字体大小（Dynamic Type）。
 
-## TestFlight 内部测试
+## 没有 Mac：用 GitHub Actions 上传到 TestFlight
 
-内部测试需要加入 **Apple Developer Program**（付费）。只靠免费 Apple ID 不能上传 TestFlight。
+电脑上不必安装 Xcode。仓库里的 `.github/workflows/testflight.yml` 会在 GitHub 的 macOS 虚拟机上编译、签名，并上传到 App Store Connect。你只在浏览器里准备账号、密钥和描述文件。工程已把 `ITSAppUsesNonExemptEncryption` 设为 NO，一般不用再填出口合规问卷。
 
-1. 用上面的步骤配好 Team 和 Bundle Identifier，并确认手机上直接运行是成功的。
-2. 顶部运行目标可以选 Any iOS Device（arm64）。菜单 **Product → Archive**。
-3. 归档完成后 Organizer 会打开。选中这条归档，点 **Distribute App**。
-4. 选 **App Store Connect** → **Upload**，按提示传上去。工程里已经把 `ITSAppUsesNonExemptEncryption` 设为 NO（只用系统自带的 HTTPS，没有自己加的加密），一般不会每传一次都问出口合规。如果仍然问到，选不使用非豁免加密。
-5. 打开 [App Store Connect](https://appstoreconnect.apple.com)，新建 App。平台选 iOS，名称可以用「海外简报」，Bundle ID 与 Xcode 里完全一致，SKU 自己起一个不会重复的即可。这一步是为了内部测试，不必填写公开上架用的截图和审核说明，也不必提交审核。
-6. 等构建版本处理完（通常要等一会儿，处理中时 TestFlight 里还看不到）。
-7. 进入该 App 的 **TestFlight**。内部测试组会包含你的 App Store Connect 用户。你自己的 Apple ID 若已是 Admin、Developer 或 Marketing，装好手机上的 TestFlight App 后就能看到这一版，内部测试不需要 Beta 审核。
-8. 若要给同团队的其他人：在 App Store Connect 的「用户和访问」里加入他们，角色不要选成只能看账务的那种，然后他们用那个 Apple ID 登录 TestFlight 接受安装。内部测试最多 100 人。
+先在浏览器里建好 App，否则上传没有地方可去。
 
-外部测试要填 Beta 审核信息，这个个人用途不需要。
+1. 打开 [Apple Developer](https://developer.apple.com/account/resources/identifiers/list) → Identifiers → 加号。选 App IDs → App，Bundle ID 选 Explicit，填 `com.jincw.overseasdigest`。若你改过工程里的 Bundle ID，这里必须改成同一个。
+2. 打开 [App Store Connect](https://appstoreconnect.apple.com/apps) → 加号 → 新建 App。平台 iOS，名称可用「海外简报」，套装 ID 选上一步的 Bundle ID，SKU 自己起一个不重复的字符串。不必填上架截图，也不必提交审核。
+
+然后在本仓库准备 7 个 Actions 密钥。打开 GitHub 仓库 → Settings → Secrets and variables → Actions → New repository secret。名称必须和下面左列完全一致，值不要加引号。
+
+| 密钥名 | 填什么 | 从哪里拿到 |
+| --- | --- | --- |
+| `APPLE_TEAM_ID` | 10 位团队 ID | [Membership](https://developer.apple.com/account) 页面的 Team ID |
+| `APP_STORE_CONNECT_KEY_ID` | API 密钥的 Key ID，约 10 位 | App Store Connect → 用户和访问 → 集成 → App Store Connect API → 团队密钥。生成时角色选 Admin 或 App Manager，页面上的 Key ID 就是它 |
+| `APP_STORE_CONNECT_ISSUER_ID` | 签发者 UUID | 同一个 API 页面顶部的 Issuer ID |
+| `APP_STORE_CONNECT_API_KEY_BASE64` | `AuthKey_密钥ID.p8` 文件的 Base64 | 生成密钥时只能下载一次 `.p8`。在能跑命令的电脑上执行 `base64 -w 0 AuthKey_XXXX.p8`（macOS 用 `base64 -i AuthKey_XXXX.p8`），把整行输出贴进密钥 |
+| `IOS_DISTRIBUTION_P12_BASE64` | 苹果分发证书 `.p12` 的 Base64 | 见下面「没有 Mac 怎么做出 p12」 |
+| `IOS_DISTRIBUTION_P12_PASSWORD` | 导出 p12 时你自己设的密码 | 就是你在 openssl 命令里输入的那串密码，原文保存 |
+| `IOS_PROVISIONING_PROFILE_BASE64` | App Store 描述文件 `.mobileprovision` 的 Base64 | [Profiles](https://developer.apple.com/account/resources/profiles/list) → 加号 → App Store Connect → 选 `com.jincw.overseasdigest` 和上面的分发证书 → 下载。再执行 `base64 -w 0 那个文件.mobileprovision`。如果这条命令不认识 `-w`，改成 `base64 那个文件.mobileprovision | tr -d '\n'` |
+
+没有 Mac 时，用 OpenSSL 做分发证书（Windows 的 Git Bash、Linux 或任何装了 OpenSSL 的电脑都可以）：
+
+1. 生成私钥和证书请求：
+
+   ```bash
+   openssl req -nodes -newkey rsa:2048 -keyout ios_distribution.key -out ios_distribution.csr -subj "/CN=Overseas Digest Distribution"
+   ```
+
+2. 打开 [Certificates](https://developer.apple.com/account/resources/certificates/list) → 加号 → Apple Distribution。上传刚生成的 `ios_distribution.csr`，下载得到的 `.cer`。
+3. 合成 p12。下载下来的 `.cer` 多半是 DER。密码自己定，记下来放进 `IOS_DISTRIBUTION_P12_PASSWORD`：
+
+   ```bash
+   openssl x509 -in distribution.cer -inform DER -out distribution.pem
+   openssl pkcs12 -export -inkey ios_distribution.key -in distribution.pem -out distribution.p12
+   base64 -w 0 distribution.p12
+   ```
+
+   如果 `openssl x509` 报格式错误，把 `-inform DER` 改成 `-inform PEM` 再试一次。`ios_distribution.key` 只留在你自己的电脑上，不要提交进仓库。
+
+描述文件和证书必须是同一套：描述文件里选中的证书，就是这个 p12。
+
+上传：
+
+1. 确认上面 7 个密钥都已保存。
+2. 打开本仓库的 Actions → **Upload TestFlight** → Run workflow → 选 `main`（合并之后）或当前分支 → Run。
+3. 等这个 macOS 作业变绿。App Store Connect 里的构建版本还要再处理一段时间，处理中时 TestFlight 里看不到。
+4. 在 iPhone 17 Pro Max 上安装苹果的 TestFlight App，用同一个 Apple ID 登录。
+5. 打开 [该 App 的 TestFlight 页](https://appstoreconnect.apple.com)。你的账号若是 Admin、Developer 或 Marketing，内部测试组里就能看到这一版，不必做 Beta 审核。
+6. 在 TestFlight 里点安装「海外简报」。
+
+内部测试最多 100 人。外部测试要另做 Beta 审核，这个个人用途不用。
+
+有 Mac 时仍可以走 Xcode 的 Product → Archive → Distribute App → App Store Connect。没有 Mac 时只用上面的工作流。
 
 ## 许可与内容
 
