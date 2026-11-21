@@ -1,6 +1,6 @@
 # 海外资讯简报
 
-个人用的 iOS 阅读应用，加上这个公开仓库里的每日数据。应用用简体中文阅读一份海外新闻摘要：先看当天这一期的图文版面，也可以翻以往各期。不打算上架公开 App Store，用自己的 Apple 开发者账号在 Xcode 里装到 iPhone，或走 TestFlight 内部测试。
+个人用的 iOS 阅读应用，加上这个公开仓库里的每日数据。装到手机上后，主屏幕显示的名字是「猫头鹰」。应用用简体中文阅读一份海外新闻摘要：先看当天这一期的图文版面，也可以翻以往各期。不打算上架公开 App Store，用自己的 Apple 开发者账号在 Xcode 里装到 iPhone，或走 TestFlight 内部测试。
 
 应用不依赖第三方库。最低系统是 iOS 17。
 
@@ -119,7 +119,7 @@
 6. 勾上 Automatically manage signing。Team 选那个付费团队。Bundle Identifier 保持 `com.jincw.overseasdigest`。如果提示已被别人占用，改成只属于你的一串，例如 `com.你的名字.overseasdigest`。后面 TestFlight 必须用同一个。
 7. Xcode 窗口顶部的运行目标不要选模拟器。在设备列表里点你的 **iPhone 17 Pro Max**。
 8. 按运行按钮（▶），或菜单 Product → Run。第一次编译会久一点。
-9. 装好后若打不开，并提示不受信任的开发者：在手机上打开「设置 → 通用 → VPN 与设备管理」，点你的开发者证书，再点信任。然后回到主屏幕打开「海外简报」。
+9. 装好后若打不开，并提示不受信任的开发者：在手机上打开「设置 → 通用 → VPN 与设备管理」，点你的开发者证书，再点信任。然后回到主屏幕打开「猫头鹰」。
 
 付费账号的描述文件按年更新。只要团队和 Bundle ID 不变，以后改完代码再按一次运行即可。
 
@@ -138,7 +138,7 @@
 先在浏览器里建好 App，否则上传没有地方可去。
 
 1. 打开 [Apple Developer](https://developer.apple.com/account/resources/identifiers/list) → Identifiers → 加号。选 App IDs → App，Bundle ID 选 Explicit，填 `com.jincw.overseasdigest`。若你改过工程里的 Bundle ID，这里必须改成同一个。
-2. 打开 [App Store Connect](https://appstoreconnect.apple.com/apps) → 加号 → 新建 App。平台 iOS，名称可用「海外简报」，套装 ID 选上一步的 Bundle ID，SKU 自己起一个不重复的字符串。不必填上架截图，也不必提交审核。
+2. 打开 [App Store Connect](https://appstoreconnect.apple.com/apps) → 加号 → 新建 App。平台 iOS，名称可用「猫头鹰」，套装 ID 选上一步的 Bundle ID，SKU 自己起一个不重复的字符串。不必填上架截图，也不必提交审核。
 
 然后在本仓库准备 7 个 Actions 密钥。打开 GitHub 仓库 → Settings → Secrets and variables → Actions → New repository secret。名称必须和下面左列完全一致，值不要加引号。
 
@@ -180,7 +180,7 @@
 3. 等这个 macOS 作业变绿。App Store Connect 里的构建版本还要再处理一段时间，处理中时 TestFlight 里看不到。
 4. 在 iPhone 17 Pro Max 上安装苹果的 TestFlight App，用同一个 Apple ID 登录。
 5. 打开 [该 App 的 TestFlight 页](https://appstoreconnect.apple.com)。你的账号若是 Admin、Developer 或 Marketing，内部测试组里就能看到这一版，不必做 Beta 审核。
-6. 在 TestFlight 里点安装「海外简报」。
+6. 在 TestFlight 里点安装「猫头鹰」。
 
 内部测试最多 100 人。外部测试要另做 Beta 审核，这个个人用途不用。
 
