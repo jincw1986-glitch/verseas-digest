@@ -100,6 +100,7 @@
         "headline",
         "summary",
         "sources",
+        "image",
         "glossary"
       ],
       "properties": {
@@ -120,7 +121,8 @@
           }
         },
         "image": {
-          "$ref": "#/$defs/image"
+          "$ref": "#/$defs/image",
+          "description": "新闻条目必填。path 或 url 至少填一个，并写 credit。只使用真实的官方、新闻或共享资源照片，不要用生成图。"
         },
         "glossary": {
           "type": "array",
