@@ -33,7 +33,7 @@ final class ReminderSettings: ObservableObject {
         } else if allowed {
             statusMessage = "已设好。每天当地时间 8:00 会提示：今天的海外资讯简报已更新。"
         } else if settings.authorizationStatus == .denied {
-            statusMessage = "通知权限已关闭。请到系统设置里允许“海外简报”发送通知。"
+            statusMessage = "通知权限已关闭。请到系统设置里允许“猫头鹰”发送通知。"
         } else {
             statusMessage = "还没有通知权限。打开开关后，系统会询问一次。"
         }
@@ -61,7 +61,7 @@ final class ReminderSettings: ObservableObject {
             UserDefaults.standard.set(false, forKey: defaultsKey)
             needsSystemSettings = settings.authorizationStatus == .denied
             statusMessage = settings.authorizationStatus == .denied
-                ? "通知权限已关闭。请到系统设置里允许“海外简报”发送通知。"
+                ? "通知权限已关闭。请到系统设置里允许“猫头鹰”发送通知。"
                 : "没有获得通知权限，无法在早上 8:00 提醒。"
             return
         }
@@ -79,7 +79,7 @@ final class ReminderSettings: ObservableObject {
         components.hour = 8
         components.minute = 0
         let content = UNMutableNotificationContent()
-        content.title = "海外简报"
+        content.title = "猫头鹰"
         content.body = "今天的海外资讯简报已更新"
         content.sound = .default
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
