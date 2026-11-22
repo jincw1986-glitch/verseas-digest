@@ -162,7 +162,9 @@ def check_item(item: object, where: str) -> None:
     if not isinstance(item, dict):
         error(f"{where}: 条目必须是对象")
         return
-    check_no_extra(item, {"headline", "summary", "sources", "image", "glossary"}, where)
+    check_no_extra(item, {"headline", "summary", "sources", "image", "glossary", "importance"}, where)
+    if "importance" in item and item["importance"] not in ("major", "notable", "routine"):
+        error(f"{where}: importance 只能为 major、notable 或 routine")
     headline = require_string(item, "headline", where)
     summary = require_string(item, "summary", where)
     if summary is not None:
