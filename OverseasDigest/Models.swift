@@ -4,7 +4,7 @@ struct IssueIndex: Codable, Equatable {
     var issues: [IndexEntry]
 }
 
-struct IndexEntry: Codable, Equatable, Identifiable {
+struct IndexEntry: Codable, Hashable, Identifiable, Sendable {
     var id: String { date }
     var date: String
     var title: String

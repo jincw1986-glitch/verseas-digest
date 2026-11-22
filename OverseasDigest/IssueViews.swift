@@ -609,62 +609,169 @@ struct ItemDetailView: View {
 
 struct ArchiveView: View {
     @EnvironmentObject private var model: DigestModel
+    @State private var grouping = Grouping.date
+    @State private var category: String?
+    @State private var scanAttempt = 0
+    @State private var completedScan: Scan?
+
+    private enum Grouping: String, CaseIterable {
+        case date = "按日期"
+        case category = "按栏目"
+    }
+
+    private struct Scan: Equatable {
+        let entries: [IndexEntry]
+        let attempt: Int
+    }
+
+    private var entries: [IndexEntry] { model.index?.issues ?? [] }
+
+    private var categories: [String] {
+        var seen: Set<String> = []
+        return entries.flatMap { model.sectionNames(in: $0) ?? [] }
+            .map(archiveCategoryName)
+            .filter { seen.insert($0).inserted }
+    }
+
+    private var filteredEntries: [IndexEntry] {
+        if grouping == .date { return entries }
+        guard let category else { return [] }
+        return entries.filter { entry in
+            model.sectionNames(in: entry)?.contains { archiveCategoryName($0) == category } == true
+        }
+    }
 
     var body: some View {
-        Group {
-            if let index = model.index, !index.issues.isEmpty {
-                List(index.issues) { entry in
-                    NavigationLink(value: entry.date) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                Text(ChineseDate.string(from: entry.date))
-                                    .font(.headline)
-                                if entry.date == index.issues.first?.date {
-                                    Text("最新")
-                                        .font(.caption.weight(.semibold))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 3)
-                                        .background(Color.accentColor.opacity(0.16), in: Capsule())
-                                        .foregroundStyle(Color.accentColor)
-                                }
-                            }
-                            Text(entry.title)
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                        }
-                        .padding(.vertical, 6)
-                    }
+        let scan = Scan(entries: entries, attempt: scanAttempt)
+
+        List {
+            Picker("查看方式", selection: $grouping) {
+                ForEach(Grouping.allCases, id: \.self) { mode in
+                    Text(mode.rawValue).tag(mode)
                 }
-            } else {
+            }
+            .pickerStyle(.segmented)
+
+            if entries.isEmpty {
                 ContentUnavailableView(
                     "还没有往期",
                     systemImage: "books.vertical",
                     description: Text("下拉可重新获取目录。")
                 )
+            } else {
+                if grouping == .category {
+                    categoryControls(scan: scan)
+                }
+                Section {
+                    ForEach(filteredEntries) { entry in
+                        NavigationLink(value: ArchiveDestination(
+                            date: entry.date,
+                            category: grouping == .category ? category : nil
+                        )) {
+                            editionRow(entry)
+                        }
+                    }
+                }
             }
         }
         .navigationTitle("往期")
-        .navigationDestination(for: String.self) { date in
-            ArchivedIssueView(date: date)
+        .navigationDestination(for: ArchiveDestination.self) { destination in
+            ArchivedIssueView(date: destination.date, category: destination.category)
         }
-        .refreshable { await model.refresh() }
+        .task(id: grouping == .category ? scan : nil) {
+            guard grouping == .category else { return }
+            await model.loadArchiveSections(scan.entries)
+            if !Task.isCancelled { completedScan = scan }
+        }
+        .onChange(of: categories, initial: true) { _, available in
+            if let category, available.contains(category) { return }
+            category = available.first
+        }
+        .refreshable {
+            await model.refresh()
+            scanAttempt += 1
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 RefreshButton()
             }
         }
     }
+
+    private func categoryControls(scan: Scan) -> some View {
+        let unavailable = entries.count { model.sectionNames(in: $0) == nil }
+        return Section {
+            if !categories.isEmpty {
+                Picker("栏目", selection: $category) {
+                    ForEach(categories, id: \.self) { name in
+                        Text(name).tag(Optional(name))
+                    }
+                }
+                .pickerStyle(.menu)
+            }
+
+            if unavailable > 0 {
+                if completedScan == scan {
+                    Button {
+                        scanAttempt += 1
+                    } label: {
+                        Label("\(unavailable) 期的栏目暂不可用，重试", systemImage: "arrow.clockwise")
+                    }
+                } else {
+                    ProgressView("正在查找各期栏目")
+                }
+            }
+        }
+    }
+
+    private func editionRow(_ entry: IndexEntry) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Text(ChineseDate.string(from: entry.date)).font(.headline)
+                if entry.date == entries.first?.date {
+                    Text("最新")
+                        .font(.caption.weight(.semibold))
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(Color.accentColor.opacity(0.16), in: Capsule())
+                        .foregroundStyle(Color.accentColor)
+                }
+            }
+            Text(entry.title)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+        }
+        .padding(.vertical, 6)
+    }
+}
+
+private struct ArchiveDestination: Hashable {
+    let date: String
+    let category: String?
+}
+
+private func archiveCategoryName(_ name: String) -> String {
+    name == "社会资讯" ? "社会与荒诞" : name
 }
 
 struct ArchivedIssueView: View {
     let date: String
+    let category: String?
     @EnvironmentObject private var model: DigestModel
     @State private var attempted = false
 
     var body: some View {
         Group {
             if let issue = model.issues[date] {
-                DigestOverview(issue: issue)
+                if let category {
+                    if let section = issue.sections.first(where: { archiveCategoryName($0.name) == category }) {
+                        IssueBody(issue: issue, section: section)
+                    } else {
+                        ContentUnavailableView("这一期没有该栏目", systemImage: "newspaper")
+                    }
+                } else {
+                    DigestOverview(issue: issue)
+                }
             } else if !attempted {
                 ProgressView("正在载入这一期")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

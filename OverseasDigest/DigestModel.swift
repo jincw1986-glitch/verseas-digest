@@ -5,6 +5,7 @@ import Foundation
 final class DigestModel: ObservableObject {
     @Published private(set) var index: IssueIndex?
     @Published private(set) var issues: [String: DigestIssue] = [:]
+    @Published private var archivedSectionNames: [IndexEntry: [String]] = [:]
     @Published private(set) var isRefreshing = false
     @Published private(set) var banner: String?
 
@@ -67,6 +68,7 @@ final class DigestModel: ObservableObject {
 
     func reloadFromDisk() {
         repository.clearPictureMemory()
+        archivedSectionNames.removeAll()
         let loaded = repository.loadIndex()
         index = loaded
         var next: [String: DigestIssue] = [:]
@@ -78,6 +80,40 @@ final class DigestModel: ObservableObject {
             }
         }
         issues = next
+    }
+
+    func sectionNames(in entry: IndexEntry) -> [String]? {
+        issues[entry.date]?.sections.map(\.name) ?? archivedSectionNames[entry]
+    }
+
+    func loadArchiveSections(_ entries: [IndexEntry]) async {
+        var uncached: [IndexEntry] = []
+        for entry in entries where sectionNames(in: entry) == nil {
+            if let local = repository.loadIssue(entry) {
+                archivedSectionNames[entry] = local.sections.map(\.name)
+            } else {
+                uncached.append(entry)
+            }
+        }
+
+        // Fetch in small batches so a large archive doesn't start a request for every issue at once.
+        let repository = repository
+        for start in stride(from: 0, to: uncached.count, by: 4) {
+            guard !Task.isCancelled else { return }
+            await withTaskGroup(of: (IndexEntry, [String]?).self) { group in
+                for entry in uncached[start..<min(start + 4, uncached.count)] {
+                    group.addTask {
+                        let issue = try? await repository.fetchIssue(entry)
+                        return (entry, issue?.sections.map(\.name))
+                    }
+                }
+                for await (entry, names) in group {
+                    if !Task.isCancelled, let names {
+                        archivedSectionNames[entry] = names
+                    }
+                }
+            }
+        }
     }
 
     func openIssue(date: String) async {
