@@ -417,13 +417,3 @@ private struct OverviewCategoryRow: View {
         }
     }
 }
-
-private extension NewsImportance {
-    var color: Color {
-        switch self {
-        case .major: Color(red: 0.55, green: 0.32, blue: 0.43)
-        case .notable: Color(red: 0.67, green: 0.40, blue: 0.17)
-        case .routine: Color(red: 0.40, green: 0.51, blue: 0.61)
-        }
-    }
-}

@@ -169,6 +169,7 @@ private struct SectionPager: View {
             symbol: SectionAccent.symbol(for: section.name),
             pageLabel: label
         ) {
+            NewsImportanceBadge(importance: item.importance)
             Text(item.summary)
                 .font(.body)
                 .fixedSize(horizontal: false, vertical: true)
@@ -473,6 +474,7 @@ struct ItemDetailView: View {
                 Text(item.headline)
                     .font(.largeTitle.weight(.bold))
                     .fixedSize(horizontal: false, vertical: true)
+                NewsImportanceBadge(importance: item.importance)
                 if let picture = item.image {
                     DigestPhoto(picture: picture, framing: .full)
                         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))

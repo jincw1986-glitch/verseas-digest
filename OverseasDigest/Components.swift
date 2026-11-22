@@ -60,6 +60,40 @@ struct FlowLayout: Layout {
     }
 }
 
+extension NewsImportance {
+    var color: Color {
+        switch self {
+        case .major: Color(red: 0.55, green: 0.32, blue: 0.43)
+        case .notable: Color(red: 0.67, green: 0.40, blue: 0.17)
+        case .routine: Color(red: 0.40, green: 0.51, blue: 0.61)
+        }
+    }
+}
+
+struct NewsImportanceBadge: View {
+    let importance: NewsImportance?
+
+    var body: some View {
+        let color = importance?.color ?? .secondary
+        let label = importance?.label ?? "未评级"
+
+        HStack(spacing: 6) {
+            RoundedRectangle(cornerRadius: 2)
+                .fill(color)
+                .frame(width: 9, height: 9)
+                .accessibilityHidden(true)
+            Text(label)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.primary)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 5)
+        .background(color.opacity(0.16), in: Capsule())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("重要程度，\(label)")
+    }
+}
+
 struct GlossaryPill: View {
     let title: String
     let action: () -> Void
