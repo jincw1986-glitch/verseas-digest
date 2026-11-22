@@ -8,11 +8,17 @@ struct IssueBody: View {
     @State private var page = 0
     @State private var sheet: PresentedSheet?
 
+    init(issue: DigestIssue, section: DigestSection, page: Int = 0) {
+        self.issue = issue
+        _selectedSection = State(initialValue: section.name)
+        _page = State(initialValue: page)
+    }
+
     private var activeSection: String {
         if issue.sections.contains(where: { $0.name == selectedSection }) {
             return selectedSection
         }
-        return issue.sections.first?.name ?? ""
+        return issue.readingSections.first?.name ?? ""
     }
 
     private var current: DigestSection? {
@@ -50,12 +56,15 @@ struct IssueBody: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle(current?.name ?? "今日")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.visible, for: .navigationBar)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    showDirectory = true
-                } label: {
-                    Label("栏目", systemImage: "line.3.horizontal")
+            if current?.photo == nil, !issue.readingSections.isEmpty {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showDirectory.toggle()
+                    } label: {
+                        Label(showDirectory ? "关闭目录" : "栏目", systemImage: showDirectory ? "xmark" : "line.3.horizontal")
+                    }
                 }
             }
         }
@@ -99,7 +108,7 @@ struct IssueBody: View {
                     .padding(.bottom, 12)
                 ScrollView {
                     VStack(spacing: 4) {
-                        ForEach(issue.sections) { section in
+                        ForEach(issue.readingSections) { section in
                             let selected = activeSection == section.name
                             let tint = SectionAccent.color(for: section.name)
                             Button {
@@ -655,7 +664,7 @@ struct ArchivedIssueView: View {
     var body: some View {
         Group {
             if let issue = model.issues[date] {
-                IssueBody(issue: issue)
+                DigestOverview(issue: issue)
             } else if !attempted {
                 ProgressView("正在载入这一期")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

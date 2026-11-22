@@ -16,6 +16,8 @@ struct DigestIssue: Codable, Equatable, Identifiable {
     var date: String
     var title: String
     var sections: [DigestSection]
+
+    var readingSections: [DigestSection] { sections.filter { $0.name != "每日一图" } }
 }
 
 struct DigestSection: Codable, Equatable, Identifiable {
@@ -27,6 +29,14 @@ struct DigestSection: Codable, Equatable, Identifiable {
     var place: PlaceEssay?
     var gallery: [GalleryItem]
     var wiki: WikiArticle?
+
+    var importanceCounts: [NewsImportance: Int] {
+        items.reduce(into: [:]) { counts, item in
+            if let level = item.importance {
+                counts[level, default: 0] += 1
+            }
+        }
+    }
 
     var entryCount: Int {
         switch name {
@@ -159,6 +169,27 @@ struct DigestItem: Codable, Equatable, Identifiable {
     var sources: [SourceLink]
     var image: DigestPicture?
     var glossary: [GlossaryEntry]
+    var importance: NewsImportance? = nil
+}
+
+enum NewsImportance: String, Codable, CaseIterable, Hashable {
+    case major, notable, routine
+
+    var label: String {
+        switch self {
+        case .major: "重大"
+        case .notable: "重点"
+        case .routine: "常规"
+        }
+    }
+
+    var rank: Int {
+        switch self {
+        case .major: 3
+        case .notable: 2
+        case .routine: 1
+        }
+    }
 }
 
 struct SourceLink: Codable, Equatable, Identifiable {
