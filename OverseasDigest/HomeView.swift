@@ -37,9 +37,10 @@ struct DigestOverview: View {
 
     @EnvironmentObject private var model: DigestModel
     @Environment(\.colorScheme) private var colorScheme
+    @AppStorage(DigestAppearance.storageKey) private var appearance: DigestAppearance = .system
 
     private var paper: Color {
-        colorScheme == .dark ? Color(red: 0.12, green: 0.12, blue: 0.11)
+        colorScheme == .dark ? Color(red: 0.08, green: 0.10, blue: 0.13)
             : Color(red: 0.97, green: 0.95, blue: 0.91)
     }
 
@@ -92,15 +93,26 @@ struct DigestOverview: View {
 
     private var masthead: some View {
         VStack(alignment: .leading, spacing: 8) {
-            ViewThatFits(in: .horizontal) {
-                HStack(alignment: .firstTextBaseline, spacing: 12) {
+            if showsRefresh {
+                HStack(spacing: 4) {
                     publicationName
                     Spacer(minLength: 0)
-                    editionDate.fixedSize()
+                    appearanceButton
+                    RefreshButton()
+                        .frame(minWidth: 44, minHeight: 44)
                 }
-                VStack(alignment: .leading, spacing: 8) {
-                    publicationName
-                    editionDate
+                editionDate.frame(maxWidth: .infinity, alignment: .trailing)
+            } else {
+                ViewThatFits(in: .horizontal) {
+                    HStack(alignment: .firstTextBaseline, spacing: 12) {
+                        publicationName
+                        Spacer(minLength: 0)
+                        editionDate.fixedSize()
+                    }
+                    VStack(alignment: .leading, spacing: 8) {
+                        publicationName
+                        editionDate
+                    }
                 }
             }
             Rectangle()
@@ -118,14 +130,23 @@ struct DigestOverview: View {
     }
 
     private var editionDate: some View {
-        HStack(spacing: 8) {
-            Text(ChineseDate.string(from: issue.date))
-                .font(.system(.subheadline, design: .serif, weight: .semibold))
-            if showsRefresh {
-                RefreshButton()
-                    .frame(minWidth: 44, minHeight: 44)
-            }
+        Text(ChineseDate.string(from: issue.date))
+            .font(.system(.subheadline, design: .serif, weight: .semibold))
+    }
+
+    private var appearanceButton: some View {
+        let isNight = colorScheme == .dark
+        return Button {
+            appearance = isNight ? .day : .night
+        } label: {
+            Image(systemName: isNight ? "sun.max" : "moon")
+                .font(.body.weight(.semibold))
+                .foregroundStyle(.primary)
+                .frame(minWidth: 44, minHeight: 44)
+                .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
+        .accessibilityLabel(isNight ? "切换到白天模式" : "切换到夜间模式")
     }
 
     private func dailyPhoto(_ photo: PhotoOfDay, section: DigestSection) -> some View {
@@ -136,23 +157,37 @@ struct DigestOverview: View {
             NavigationLink {
                 IssueBody(issue: issue, section: section)
             } label: {
-                VStack(alignment: .leading, spacing: 10) {
+                ZStack(alignment: .bottomLeading) {
                     Color.clear.aspectRatio(3.0 / 2.0, contentMode: .fit)
                         .overlay {
                             DigestPhoto(picture: photo.image, fillsFrame: true)
-                                .allowsHitTesting(false)
-                                .accessibilityHidden(true)
                         }
                         .clipped()
+                        .allowsHitTesting(false)
+                        .accessibilityHidden(true)
                     HStack(spacing: 8) {
                         Text(photo.title)
                             .font(.system(.title2, design: .serif, weight: .bold))
+                            .fixedSize(horizontal: false, vertical: true)
                         Image(systemName: "chevron.right")
                             .font(.footnote.weight(.semibold))
                             .accessibilityHidden(true)
                     }
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 38)
+                    .padding(.bottom, 16)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background {
+                        LinearGradient(
+                            stops: [.init(color: .clear, location: 0),
+                                    .init(color: .black.opacity(0.62), location: 0.42),
+                                    .init(color: .black.opacity(0.88), location: 1)],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
