@@ -108,6 +108,10 @@
           "type": "string",
           "minLength": 1
         },
+        "importance": {
+          "enum": ["major", "notable", "routine"],
+          "description": "新闻重要程度：重大、重点、常规。旧期可省略。"
+        },
         "summary": {
           "type": "string",
           "minLength": 1,
