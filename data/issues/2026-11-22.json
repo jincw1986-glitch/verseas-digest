@@ -1,6 +1,6 @@
 {
   "date": "2026-11-22",
-  "title": "2026年11月22日 · 海外资讯简报",
+  "title": "2026年11月22日 · 海外资讯简报（晚间补刊）",
   "sections": [
     {
       "name": "每日一图",
@@ -30,6 +30,35 @@
     {
       "name": "国际政治与时事",
       "items": [
+        {
+          "headline": "【晚间更新】COP31未能通过总括决定，化石燃料措辞成焦点",
+          "summary": "11月22日，土耳其安塔利亚的联合国气候大会未能通过总括决定，欧盟等拒绝接受未明确提及化石燃料的最终草案。总括决定未获通过，但部分分项议题仍取得进展。",
+          "sources": [
+            {
+              "name": "联合国气候变化框架公约：安塔利亚草案",
+              "url": "https://docs.unfccc.int/documents/10000419/files/en/dt_cop31_cover_decision_COP.pdf"
+            },
+            {
+              "name": "美联社：会议结果",
+              "url": "https://apnews.com/article/f6e36c4caf13ec6fed57c9f077cbd067"
+            },
+            {
+              "name": "卫报：闭幕会议",
+              "url": "https://www.theguardian.com/environment/2026/nov/22/cop31-climate-talks-set-to-end-in-deep-division-as-key-deal-rejected"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Wiev_from_cliffs_at_Antalya_coast.jpg/960px-Wiev_from_cliffs_at_Antalya_coast.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "Alp ykslx／Wikimedia Commons，CC0 1.0；土耳其安塔利亚海岸资料照，非会场。"
+          },
+          "glossary": [
+            {
+              "term": "总括决定",
+              "type": "term",
+              "explanation": "气候大会的总括决定汇集缔约方对本届会议主要议题的共同立场。它未获通过，并不等于会议其他分项决定一并失效。"
+            }
+          ]
+        },
         {
           "headline": "墨西哥抓获“矮子伊西德罗”，锡那罗亚爆发激烈枪战",
           "summary": "墨西哥军方11月20日夜在锡那罗亚州瓜萨韦抓获美国联邦调查局十大通缉要犯之一、贝尔特兰·莱瓦集团头目福斯托·伊西德罗·梅萨·弗洛雷斯，他的堂兄和负责财务的妹夫也一并落网，美方提供了情报支持。行动引发枪战和焚车堵路，墨方称4名士兵和7名枪手死亡、8人被捕。",
@@ -632,6 +661,31 @@
     {
       "name": "科学与体育",
       "items": [
+        {
+          "headline": "【晚间更新】维斯塔潘以0.639秒优势赢得拉斯维加斯站",
+          "summary": "当地时间11月21日晚，红牛车手马克斯·维斯塔潘赢得F1拉斯维加斯大奖赛，领先迈凯伦车手兰多·诺里斯0.639秒，奥斯卡·皮亚斯特里从第17位发车追到第三。排位赛最快的基米·安东内利因更换额外动力单元部件被罚退五位，从第六位起步，最终拿到第四。",
+          "sources": [
+            {
+              "name": "F1官方正赛成绩",
+              "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"
+            },
+            {
+              "name": "F1官方发车顺序",
+              "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/starting-grid"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Max_Verstappen_at_the_Red_Bull_Fan_Zone_%E2%80%93_Crown_Riverwalk%2C_Melbourne_%28028A7657%29.jpg/960px-Max_Verstappen_at_the_Red_Bull_Fan_Zone_%E2%80%93_Crown_Riverwalk%2C_Melbourne_%28028A7657%29.jpg",
+            "credit": "资料图：维斯塔潘于2026年3月出席墨尔本红牛车迷活动，非本站现场。摄影：Yu Chu Chin／Wikimedia Commons，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/），使用缩略版。"
+          },
+          "glossary": [
+            {
+              "term": "罚退发车",
+              "type": "term",
+              "explanation": "F1车手使用超出配额的动力单元部件时，可能被罚退发车。这会改变正赛起步的位置，但并不改变已经记录的排位赛单圈时间。"
+            }
+          ]
+        },
         {
           "headline": "利兹联4比1大胜切尔西，27年来首次在斯坦福桥赢球",
           "summary": "英超11月21日，利兹联客场4比1击败切尔西，奥卡福梅开二度，卡尔弗特-卢因罚进点球，阿伦森锦上添花，这是利兹联1999年12月以来首次在斯坦福桥赢下联赛。同日纽卡斯尔2比2战平阿森纳，托马斯·弗兰克执教水晶宫的首秀则以失利告终。",
