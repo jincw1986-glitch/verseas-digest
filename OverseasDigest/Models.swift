@@ -23,12 +23,17 @@ struct DigestIssue: Codable, Equatable, Identifiable {
 struct DigestSection: Codable, Equatable, Identifiable {
     var id: String { name }
     var name: String
+    var displayName: String { Self.displayName(for: name) }
     var items: [DigestItem]
     var jokes: [JokeItem]
     var photo: PhotoOfDay?
     var place: PlaceEssay?
     var gallery: [GalleryItem]
     var wiki: WikiArticle?
+
+    static func displayName(for name: String) -> String {
+        name == "笑话" ? "段子" : name
+    }
 
     var importanceCounts: [NewsImportance: Int] {
         items.reduce(into: [:]) { counts, item in

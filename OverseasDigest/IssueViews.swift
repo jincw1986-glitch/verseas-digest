@@ -40,7 +40,7 @@ struct IssueBody: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(section.name)
+        .navigationTitle(section.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.visible, for: .navigationBar)
         .refreshable { await model.refresh() }
@@ -161,7 +161,7 @@ private struct SectionPager: View {
 
     private func newsPage(_ item: DigestItem, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: item.headline,
             dateLine: dateLine,
             picture: item.image,
@@ -185,7 +185,7 @@ private struct SectionPager: View {
 
     private func photoPage(_ photo: PhotoOfDay, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: photo.title,
             dateLine: dateLine,
             picture: photo.image,
@@ -206,7 +206,7 @@ private struct SectionPager: View {
 
     private func placePage(_ place: PlaceEssay, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: place.name,
             dateLine: dateLine,
             picture: place.photos.first?.picture,
@@ -268,7 +268,7 @@ private struct SectionPager: View {
 
     private func wikiPage(_ wiki: WikiArticle, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: wiki.title,
             dateLine: dateLine,
             picture: wiki.images.first,
@@ -312,7 +312,7 @@ private struct SectionPager: View {
 
     private func jokePage(_ joke: JokeItem, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: joke.authorName,
             dateLine: dateLine,
             picture: nil,
@@ -349,7 +349,7 @@ private struct SectionPager: View {
                 .buttonStyle(.plain)
                 .accessibilityLabel("打开 \(joke.authorName) 的帖子")
             }
-            footnote("笑话是 X 上的原帖。点作者名字可打开帖子。")
+            footnote("这些段子来自 X。点作者名字可打开原帖。")
         }
     }
 
@@ -654,7 +654,7 @@ private struct ArchiveDestination: Hashable {
 }
 
 private func archiveCategoryName(_ name: String) -> String {
-    name == "社会资讯" ? "社会与荒诞" : name
+    name == "社会资讯" ? "社会与荒诞" : DigestSection.displayName(for: name)
 }
 
 struct ArchivedIssueView: View {

@@ -183,7 +183,7 @@ struct DigestOverview: View {
                                     directorySelection = section.name
                                 } label: {
                                     HStack(spacing: 8) {
-                                        Text(section.name)
+                                        Text(section.displayName)
                                             .font(.body)
                                             .multilineTextAlignment(.leading)
                                         Spacer(minLength: 4)
@@ -238,7 +238,7 @@ struct DigestOverview: View {
 
     private func dailyPhoto(_ photo: PhotoOfDay, section: DigestSection) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(section.name)
+            Text(section.displayName)
                 .font(.system(.title2, design: .serif, weight: .bold))
                 .accessibilityAddTraits(.isHeader)
             NavigationLink {
@@ -353,7 +353,7 @@ private struct OverviewCategoryRow: View {
             } label: {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack(spacing: 8) {
-                        Text(section.name).font(.system(.headline, design: .serif))
+                        Text(section.displayName).font(.system(.headline, design: .serif))
                         Spacer(minLength: 0)
                         Text("\(section.entryCount)则")
                             .font(.subheadline.monospacedDigit())
