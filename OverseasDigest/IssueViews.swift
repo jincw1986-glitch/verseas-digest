@@ -2,27 +2,15 @@ import SwiftUI
 
 struct IssueBody: View {
     let issue: DigestIssue
+    let section: DigestSection
     @EnvironmentObject private var model: DigestModel
-    @State private var selectedSection = ""
-    @State private var showDirectory = false
-    @State private var page = 0
+    @State private var page: Int
     @State private var sheet: PresentedSheet?
 
     init(issue: DigestIssue, section: DigestSection, page: Int = 0) {
         self.issue = issue
-        _selectedSection = State(initialValue: section.name)
+        self.section = section
         _page = State(initialValue: page)
-    }
-
-    private var activeSection: String {
-        if issue.sections.contains(where: { $0.name == selectedSection }) {
-            return selectedSection
-        }
-        return issue.readingSections.first?.name ?? ""
-    }
-
-    private var current: DigestSection? {
-        issue.sections.first { $0.name == activeSection }
     }
 
     var body: some View {
@@ -36,123 +24,36 @@ struct IssueBody: View {
                     .padding(.vertical, 8)
                     .background(Color.orange.opacity(0.18))
             }
-            if let section = current {
-                SectionPager(
-                    section: section,
-                    dateLine: ChineseDate.string(from: issue.date),
-                    page: pageBinding(for: section),
-                    accent: SectionAccent.color(for: section.name),
-                    onWeb: { url in
-                        sheet = .web(WebLink(url: url))
-                    },
-                    onGlossary: { entry in
-                        sheet = .glossary(entry)
-                    }
-                )
-                .id(section.name)
-            }
+            SectionPager(
+                section: section,
+                dateLine: ChineseDate.string(from: issue.date),
+                page: pageBinding,
+                accent: SectionAccent.color(for: section.name),
+                onWeb: { url in
+                    sheet = .web(WebLink(url: url))
+                },
+                onGlossary: { entry in
+                    sheet = .glossary(entry)
+                }
+            )
+            .id(section.name)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(current?.name ?? "今日")
+        .navigationTitle(section.name)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.visible, for: .navigationBar)
-        .toolbar {
-            if current?.photo == nil, !issue.readingSections.isEmpty {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showDirectory.toggle()
-                    } label: {
-                        Label(showDirectory ? "关闭目录" : "栏目", systemImage: showDirectory ? "xmark" : "line.3.horizontal")
-                    }
-                }
-            }
-        }
         .refreshable { await model.refresh() }
-        .overlay {
-            if showDirectory {
-                sectionDirectory
-            }
-        }
-        .animation(.easeInOut(duration: 0.28), value: showDirectory)
         .sheet(item: $sheet) { presented in
             SheetContent(presented: presented)
         }
     }
 
-    private func pageBinding(for section: DigestSection) -> Binding<Int> {
+    private var pageBinding: Binding<Int> {
         Binding(
             get: { min(page, max(section.entryCount - 1, 0)) },
             set: { page = $0 }
         )
-    }
-
-    private var sectionDirectory: some View {
-        let accent = SectionAccent.color(for: activeSection)
-        return ZStack(alignment: .leading) {
-            Color.black.opacity(0.38)
-                .ignoresSafeArea()
-                .onTapGesture { showDirectory = false }
-                .accessibilityLabel("关闭栏目目录")
-                .accessibilityAddTraits(.isButton)
-            VStack(alignment: .leading, spacing: 0) {
-                Text(ChineseDate.string(from: issue.date))
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(accent)
-                    .padding(.horizontal, 20)
-                    .padding(.top, 28)
-                Text("栏目目录")
-                    .font(.title2.weight(.bold))
-                    .padding(.horizontal, 20)
-                    .padding(.top, 4)
-                    .padding(.bottom, 12)
-                ScrollView {
-                    VStack(spacing: 4) {
-                        ForEach(issue.readingSections) { section in
-                            let selected = activeSection == section.name
-                            let tint = SectionAccent.color(for: section.name)
-                            Button {
-                                page = 0
-                                selectedSection = section.name
-                                showDirectory = false
-                            } label: {
-                                HStack(spacing: 10) {
-                                    RoundedRectangle(cornerRadius: 2, style: .continuous)
-                                        .fill(tint)
-                                        .frame(width: 4, height: 22)
-                                    Text(section.name)
-                                        .font(.body.weight(selected ? .semibold : .regular))
-                                        .foregroundStyle(.primary)
-                                        .multilineTextAlignment(.leading)
-                                    Spacer(minLength: 8)
-                                    Text("\(section.entryCount)")
-                                        .font(.subheadline.weight(.semibold))
-                                        .foregroundStyle(selected ? Color.white : Color.secondary)
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 2)
-                                        .background(selected ? tint : Color.secondary.opacity(0.15), in: Capsule())
-                                }
-                                .padding(.horizontal, 12)
-                                .frame(minHeight: 48)
-                                .background(
-                                    selected ? tint.opacity(0.14) : Color.clear,
-                                    in: RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("只显示这一栏")
-                        }
-                    }
-                    .padding(.horizontal, 8)
-                }
-            }
-            .frame(maxWidth: 320, maxHeight: .infinity, alignment: .top)
-            .frame(width: 300)
-            .background(.regularMaterial)
-            .ignoresSafeArea(edges: .bottom)
-            .accessibilityAddTraits(.isModal)
-        }
-        .transition(.opacity)
     }
 }
 

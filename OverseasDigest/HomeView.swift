@@ -38,6 +38,8 @@ struct DigestOverview: View {
     @EnvironmentObject private var model: DigestModel
     @Environment(\.colorScheme) private var colorScheme
     @AppStorage(DigestAppearance.storageKey) private var appearance: DigestAppearance = .system
+    @State private var showsDirectory = false
+    @State private var directorySelection: String?
 
     private var paper: Color {
         colorScheme == .dark ? Color(red: 0.08, green: 0.10, blue: 0.13)
@@ -87,6 +89,17 @@ struct DigestOverview: View {
             .frame(maxWidth: .infinity)
         }
         .background(paper.ignoresSafeArea())
+        .accessibilityHidden(showsDirectory)
+        .overlay {
+            if showsDirectory {
+                directory
+            }
+        }
+        .navigationDestination(item: $directorySelection) { name in
+            if let section = issue.readingSections.first(where: { $0.name == name }) {
+                IssueBody(issue: issue, section: section)
+            }
+        }
         .toolbarBackground(paper, for: .tabBar)
         .toolbarBackground(.visible, for: .tabBar)
     }
@@ -123,10 +136,84 @@ struct DigestOverview: View {
     }
 
     private var publicationName: some View {
-        Text("猫头鹰")
-            .font(.system(.largeTitle, design: .serif, weight: .heavy))
-            .accessibilityAddTraits(.isHeader)
-            .fixedSize()
+        Button {
+            withAnimation(.easeInOut(duration: 0.25)) { showsDirectory = true }
+        } label: {
+            Text("猫头鹰")
+                .font(.system(.largeTitle, design: .serif, weight: .heavy))
+                .frame(minHeight: 44)
+                .fixedSize()
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint("打开栏目目录")
+        .disabled(issue.readingSections.isEmpty)
+    }
+
+    private var directory: some View {
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                Button(action: closeDirectory) {
+                    Color.black.opacity(0.38)
+                }
+                .buttonStyle(.plain)
+                .ignoresSafeArea()
+                .accessibilityHidden(true)
+
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack(spacing: 8) {
+                        Text("栏目目录")
+                            .font(.system(.title2, design: .serif, weight: .bold))
+                            .accessibilityAddTraits(.isHeader)
+                        Spacer(minLength: 4)
+                        Button("关闭", action: closeDirectory)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .frame(minHeight: 44)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.top, 12)
+                    Divider()
+
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 0) {
+                            ForEach(issue.readingSections) { section in
+                                Button {
+                                    closeDirectory()
+                                    directorySelection = section.name
+                                } label: {
+                                    HStack(spacing: 8) {
+                                        Text(section.name)
+                                            .font(.body)
+                                            .multilineTextAlignment(.leading)
+                                        Spacer(minLength: 4)
+                                        Text("\(section.entryCount)则")
+                                            .font(.subheadline.monospacedDigit())
+                                            .foregroundStyle(.secondary)
+                                            .fixedSize()
+                                    }
+                                    .padding(.vertical, 6)
+                                    .frame(minHeight: 44)
+                                    .contentShape(Rectangle())
+                                }
+                                .buttonStyle(.plain)
+                                Divider()
+                            }
+                        }
+                        .padding(.horizontal, 16)
+                    }
+                }
+                .frame(width: min(geometry.size.width * 0.83, 320), height: geometry.size.height)
+                .background(paper)
+                .accessibilityAddTraits(.isModal)
+                .accessibilityAction(.escape, closeDirectory)
+            }
+        }
+        .transition(.opacity)
+    }
+
+    private func closeDirectory() {
+        withAnimation(.easeInOut(duration: 0.25)) { showsDirectory = false }
     }
 
     private var editionDate: some View {
