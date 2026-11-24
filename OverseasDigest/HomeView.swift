@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import CoreMotion
 
 struct HomeView: View {
     @EnvironmentObject private var model: DigestModel
@@ -45,7 +46,6 @@ struct DigestOverview: View {
     @State private var pageTurn = 0
     @State private var mastheadVisible = true
     @AppStorage("overviewOpenedEntries") private var openedEntries = Data()
-    @AppStorage("overviewReadEntries") private var readEntries = Data()
     @AppStorage("overviewBubbleSound") private var bubbleSound = true
 
     private struct ReadingRoute: Hashable {
@@ -121,8 +121,6 @@ struct DigestOverview: View {
                     if readingRoute == route { finishedReading = true }
                 }, onPageOpened: { index in
                     openedEntries = adding(entryKey(section, index), to: openedEntries)
-                }, onPageRead: { index in
-                    readEntries = adding(entryKey(section, index), to: readEntries)
                 })
             }
         }
@@ -246,6 +244,9 @@ struct DigestOverview: View {
 
     private func open(_ section: DigestSection, page: Int = 0) {
         finishedReading = false
+        if (0..<section.entryCount).contains(page) {
+            openedEntries = adding(entryKey(section, page), to: openedEntries)
+        }
         readingRoute = ReadingRoute(section: section.name, page: page)
     }
 
@@ -347,13 +348,12 @@ struct DigestOverview: View {
             .padding(.vertical, 12)
             Rectangle().fill(.primary).frame(height: 1)
             let opened = entryKeys(in: openedEntries)
-            let read = entryKeys(in: readEntries)
             BubbleOverview(
                 sections: rankedSections,
                 soundEnabled: $bubbleSound,
                 hasOpened: { section, page in opened.contains(entryKey(section, page)) },
                 isFinished: { section in
-                    section.entryCount > 0 && (0..<section.entryCount).allSatisfy { read.contains(entryKey(section, $0)) }
+                    section.entryCount > 0 && (0..<section.entryCount).allSatisfy { opened.contains(entryKey(section, $0)) }
                 },
                 open: { section, page in open(section, page: page) }
             )
@@ -403,7 +403,9 @@ private struct BubbleOverview: View {
     let open: (DigestSection, Int) -> Void
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.scenePhase) private var scenePhase
     @ScaledMetric(relativeTo: .body) private var storyDiameter: CGFloat = 68
+    @StateObject private var gravity = BubbleGravity()
     @State private var requested: String?
     @State private var displayed: DigestSection?
     @State private var pressed: String?
@@ -419,15 +421,12 @@ private struct BubbleOverview: View {
         let exiting: Bool
         let width: CGFloat
         let offset: CGFloat
+        let shifts: [CGFloat]
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
-            BubblePacking(pressed: pressed, pressure: pressure) {
-                ForEach(sections) { section in
-                    categoryButton(section)
-                }
-            }
+            cloud
             if let section = displayed {
                 rail(section)
             }
@@ -443,12 +442,35 @@ private struct BubbleOverview: View {
                 displayed = updated
             }
         }
+        .task(id: scenePhase == .active && !reduceMotion) {
+            if scenePhase == .active, !reduceMotion { await gravity.track() }
+        }
+    }
+
+    private var cloud: some View {
+        let width = railWidth > 0 ? railWidth : 350
+        let area = GravityBubbleBoard.Area.cloud(width: width, diameters: sections.map(categoryDiameter))
+        return ZStack(alignment: .topLeading) {
+            Color.clear
+            ForEach(sections.indices, id: \.self) { index in
+                categoryButton(sections[index])
+                    .position(gravity.cloudCenters.indices.contains(index)
+                              ? gravity.cloudCenters[index] : GravityBubbleBoard.seed(index: index, in: area))
+            }
+        }
+        .frame(height: area.height)
+        .clipped()
+        .onChange(of: area, initial: true) { _, size in gravity.configureCloud(size) }
+    }
+
+    private func categoryDiameter(_ section: DigestSection) -> CGFloat {
+        let rating = section.importanceCounts
+        return min(112, 61 + CGFloat(rating[.major, default: 0]) * 16
+                           + CGFloat(rating[.notable, default: 0]) * 5)
     }
 
     private func categoryButton(_ section: DigestSection) -> some View {
-        let rating = section.importanceCounts
-        let diameter = min(112, 61 + CGFloat(rating[.major, default: 0]) * 16
-                           + CGFloat(rating[.notable, default: 0]) * 5)
+        let diameter = categoryDiameter(section)
         let completed = isFinished(section)
         return Button {
             select(section)
@@ -466,8 +488,6 @@ private struct BubbleOverview: View {
         .frame(width: diameter, height: diameter)
         .scaleEffect(x: pressed == section.name ? 1 + pressure * 0.10 : 1,
                      y: pressed == section.name ? 1 + pressure * 0.19 : 1)
-        .layoutValue(key: BubbleDiameter.self, value: diameter)
-        .layoutValue(key: BubbleName.self, value: section.name)
         .zIndex(pressed == section.name ? 1 : 0)
         .accessibilityLabel(section.displayName)
         .accessibilityValue(completed ? "已读完" : "未读完")
@@ -504,6 +524,7 @@ private struct BubbleOverview: View {
                             }
                         }
                         .padding(.horizontal, 16)
+                        .frame(width: railArea(for: section).width, alignment: .leading)
                         .padding(.vertical, 9)
                         .background {
                             GeometryReader { proxy in
@@ -522,6 +543,9 @@ private struct BubbleOverview: View {
                 .clipped()
                 .allowsHitTesting(motion == nil)
             }
+        }
+        .onChange(of: railArea(for: section), initial: true) { _, area in
+            gravity.configureRail(area, section: section.name)
         }
     }
 
@@ -576,6 +600,9 @@ private struct BubbleOverview: View {
             rebound = Task { @MainActor in
                 do {
                     try await Task.sleep(for: .milliseconds(100))
+                    if let index = sections.firstIndex(where: { $0.name == section.name }) {
+                        gravity.nudgeNeighbors(of: index)
+                    }
                     withAnimation(.spring(duration: 0.23, bounce: 0.48)) { pressure = 0.92 }
                     try await Task.sleep(for: .milliseconds(230))
                     withAnimation(.spring(duration: 0.22, bounce: 0.32)) { pressure = 0 }
@@ -598,6 +625,7 @@ private struct BubbleOverview: View {
                 motion = nil
                 railOffset = 0
             } else if let section = sections.first(where: { $0.name == requested }) {
+                gravity.configureRail(railArea(for: section), section: section.name)
                 displayed = section
                 railOffset = 0
                 await roll(section, exiting: false)
@@ -616,31 +644,45 @@ private struct BubbleOverview: View {
     }
 
     private func travel(_ page: Int, in motion: BubbleMotion) -> (x: CGFloat, time: Double) {
-        let slot = 16 + CGFloat(page) * (storyDiameter + 6) + motion.offset
+        let slot = 16 + CGFloat(page) * (storyDiameter + 6) + motion.offset + shift(at: page, in: motion.shifts)
         let distance = motion.exiting ? min(-6, -slot - storyDiameter - 6) : max(6, motion.width - slot + 6)
         return (distance, max(motion.exiting ? 0.19 : 0.28, Double(abs(distance)) / 430))
     }
 
     private func pose(for page: Int, at date: Date) -> Pose {
-        guard let motion else { return Pose() }
+        let shift = shift(at: page, in: motion?.shifts ?? gravity.railShifts)
+        let gravitySpin = Double(shift / (storyDiameter * .pi)) * 360
+        guard let motion else { return Pose(x: shift, spin: gravitySpin) }
         let elapsed = date.timeIntervalSince(motion.started)
         if reduceMotion {
             let progress = min(1, max(0, elapsed / 0.16))
-            return Pose(opacity: motion.exiting ? 1 - progress : progress)
+            return Pose(x: shift, spin: gravitySpin, opacity: motion.exiting ? 1 - progress : progress)
         }
         let (distance, time) = travel(page, in: motion)
         let timeInMotion = elapsed - delay(for: page, in: motion)
         let progress = min(1, max(0, timeInMotion / time))
         let rotation = Double(distance / (storyDiameter * .pi)) * 360
         if motion.exiting {
-            return Pose(x: distance * progress, spin: rotation * progress)
+            return Pose(x: shift + distance * progress, spin: gravitySpin + rotation * progress)
         }
         if timeInMotion <= time {
-            return Pose(x: distance * (1 - progress), spin: rotation * (1 - progress))
+            return Pose(x: shift + distance * (1 - progress), spin: gravitySpin + rotation * (1 - progress))
         }
         let bounce = min(1, (timeInMotion - time) / 0.22)
         let pulse = sin(bounce * .pi * 2) * (1 - bounce)
-        return Pose(x: -7 * pulse, spin: -8 * pulse, stretch: 1 + 0.13 * pulse)
+        return Pose(x: shift - 7 * pulse, spin: gravitySpin - 8 * pulse, stretch: 1 + 0.13 * pulse)
+    }
+
+    private func shift(at page: Int, in shifts: [CGFloat]) -> CGFloat {
+        shifts.indices.contains(page) ? shifts[page] : 0
+    }
+
+    private func railArea(for section: DigestSection) -> GravityBubbleBoard.Area {
+        let viewport = max(railWidth + 32, 250)
+        let span = CGFloat(section.entryCount) * storyDiameter + CGFloat(max(0, section.entryCount - 1)) * 6
+        let width = span + 32 <= viewport ? viewport : span + 62
+        return .init(width: width, height: storyDiameter + 10,
+                     diameters: Array(repeating: storyDiameter, count: section.entryCount), horizontal: true)
     }
 
     private func delay(for page: Int, in motion: BubbleMotion) -> Double {
@@ -652,14 +694,16 @@ private struct BubbleOverview: View {
     @MainActor
     private func roll(_ section: DigestSection, exiting: Bool) async {
         guard section.entryCount > 0 else { return }
+        gravity.railPaused = true
+        defer { gravity.railPaused = false }
         let frame = BubbleMotion(started: .now, exiting: exiting, width: max(railWidth + 32, 250),
-                                 offset: exiting ? railOffset : 0)
+                                 offset: exiting ? railOffset : 0, shifts: gravity.railShifts)
         motion = frame
         let times = (0..<section.entryCount).map { page in
             (page: page, duration: travel(page, in: frame).time, delay: delay(for: page, in: frame))
         }
         let visible = times.filter { item in
-            let x = 16 + CGFloat(item.page) * (storyDiameter + 6) + frame.offset
+            let x = 16 + CGFloat(item.page) * (storyDiameter + 6) + frame.offset + shift(at: item.page, in: frame.shifts)
             return x < frame.width && x + storyDiameter > 0
         }
         let duration = reduceMotion ? 0.16 : (visible.map { $0.duration + $0.delay }.max() ?? 0.28) + (exiting ? 0 : 0.22)
@@ -683,75 +727,225 @@ private struct BubbleRailOffset: PreferenceKey {
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) { value = nextValue() }
 }
 
-private struct BubbleDiameter: LayoutValueKey { static let defaultValue: CGFloat = 64 }
-private struct BubbleName: LayoutValueKey { static let defaultValue = "" }
+private struct GravityBubbleBoard {
+    struct Area: Equatable {
+        let width: CGFloat
+        let height: CGFloat
+        let diameters: [CGFloat]
+        let horizontal: Bool
 
-private struct BubblePacking: Layout {
-    let pressed: String?
-    var pressure: CGFloat
-
-    struct Cache {
-        var width: CGFloat? = nil
-        var diameters: [CGFloat] = []
-        var frames: [CGRect] = []
-    }
-
-    var animatableData: CGFloat {
-        get { pressure }
-        set { pressure = newValue }
-    }
-
-    func makeCache(subviews: Subviews) -> Cache { Cache() }
-
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout Cache) -> CGSize {
-        let width = proposal.width ?? 360
-        let frames = positions(width: width, subviews: subviews, cache: &cache)
-        return CGSize(width: width, height: (frames.map(\.maxY).max() ?? 0) + 8)
-    }
-
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout Cache) {
-        let circles = positions(width: bounds.width, subviews: subviews, cache: &cache)
-        let source = subviews.firstIndex { $0[BubbleName.self] == pressed }
-        for (index, circle) in circles.enumerated() {
-            var point = CGPoint(x: circle.midX, y: circle.midY)
-            if let source, source != index {
-                let origin = circles[source]
-                let dx = circle.midX - origin.midX
-                let dy = circle.midY - origin.midY
-                let distance = hypot(dx, dy)
-                let gap = distance - (circle.width + origin.width) / 2
-                if gap < 24, distance > 0 {
-                    let nudge = max(0, pressure) * min(13, max(4, 12 - gap / 3))
-                    point.x += dx / distance * nudge
-                    point.y += dy / distance * nudge
-                }
-            }
-            subviews[index].place(at: CGPoint(x: bounds.minX + point.x, y: bounds.minY + point.y),
-                                  anchor: .center, proposal: ProposedViewSize(width: circle.width, height: circle.height))
+        static func cloud(width: CGFloat, diameters: [CGFloat]) -> Self {
+            let space = diameters.reduce(0) { $0 + .pi * $1 * $1 / 4 }
+            return .init(width: width, height: max(179, space / max(width * 0.65, 1) + 32),
+                         diameters: diameters, horizontal: false)
         }
     }
 
-    private func positions(width: CGFloat, subviews: Subviews, cache: inout Cache) -> [CGRect] {
-        let diameters = subviews.map { min($0[BubbleDiameter.self], max(width, 1)) }
-        if cache.width == width, cache.diameters == diameters { return cache.frames }
-        var frames: [CGRect] = []
-        for size in diameters {
-            var best: CGRect?
-            let bottom = (frames.map(\.maxY).max() ?? 0) + 6
-            for y in stride(from: CGFloat(4), through: bottom, by: 3) {
-                for x in stride(from: CGFloat(0), through: max(0, width - size), by: 3) {
-                    let candidate = CGRect(x: x, y: y, width: size, height: size)
-                    if frames.allSatisfy({ hypot($0.midX - candidate.midX, $0.midY - candidate.midY) >= ($0.width + size) / 2 - 1 }) {
-                        best = candidate
-                        break
+    struct Bubble {
+        var center: CGPoint
+        let radius: CGFloat
+        var velocity = CGVector.zero
+    }
+
+    let area: Area
+    private(set) var bubbles: [Bubble]
+
+    init(area: Area) {
+        self.area = area
+        bubbles = area.diameters.enumerated().map { index, size in
+            Bubble(center: Self.seed(index: index, in: area), radius: size / 2)
+        }
+        if !area.horizontal {
+            arrangeInCenter()
+        }
+    }
+
+    static func seed(index: Int, in area: Area) -> CGPoint {
+        if area.horizontal {
+            let diameter = area.diameters[index]
+            return CGPoint(x: 16 + CGFloat(index) * (diameter + 6) + diameter / 2, y: area.height / 2)
+        }
+        let columns = max(1, Int(area.width / 86))
+        let rows = max(1, (area.diameters.count + columns - 1) / columns)
+        return CGPoint(x: (CGFloat(index % columns) + 0.5) * area.width / CGFloat(columns),
+                       y: (CGFloat(index / columns) + 0.5) * area.height / CGFloat(rows))
+    }
+
+    private mutating func arrangeInCenter() {
+        var placed: [Bubble] = []
+        for index in bubbles.indices {
+            let radius = bubbles[index].radius
+            var nearest = CGFloat.greatestFiniteMagnitude
+            let center = bubbles[index].center
+            for y in stride(from: radius + 2, through: area.height - radius - 2, by: 5) {
+                for x in stride(from: radius + 2, through: area.width - radius - 2, by: 5) {
+                    let distance = hypot(x - center.x, y - center.y)
+                    if distance < nearest, placed.allSatisfy({ hypot($0.center.x - x, $0.center.y - y) >= $0.radius + radius }) {
+                        nearest = distance
+                        bubbles[index].center = CGPoint(x: x, y: y)
                     }
                 }
-                if best != nil { break }
             }
-            frames.append(best ?? CGRect(x: 0, y: bottom, width: size, height: size))
+            placed.append(bubbles[index])
         }
-        cache = Cache(width: width, diameters: diameters, frames: frames)
-        return frames
+        for _ in 0..<12 { step(x: 0, y: 0, delta: 0) }
+    }
+
+    mutating func nudgeNeighbors(of index: Int) {
+        guard bubbles.indices.contains(index) else { return }
+        let source = bubbles[index]
+        for other in bubbles.indices where other != index {
+            let dx = bubbles[other].center.x - source.center.x
+            let dy = bubbles[other].center.y - source.center.y
+            let distance = hypot(dx, dy)
+            let gap = distance - source.radius - bubbles[other].radius
+            if distance > 0, gap < 24 {
+                let strength = max(75, 175 - gap * 4)
+                bubbles[other].velocity.dx += dx / distance * strength
+                bubbles[other].velocity.dy += dy / distance * strength
+            }
+        }
+    }
+
+    mutating func step(x: CGFloat, y: CGFloat, delta: CGFloat) {
+        let damping: CGFloat = area.horizontal ? 0.958 : 0.973
+        for index in bubbles.indices {
+            bubbles[index].velocity.dx = min(580, max(-580, (bubbles[index].velocity.dx + x * delta) * damping))
+            bubbles[index].velocity.dy = area.horizontal ? 0 : min(580, max(-580, (bubbles[index].velocity.dy + y * delta) * damping))
+            bubbles[index].center.x += bubbles[index].velocity.dx * delta
+            bubbles[index].center.y += bubbles[index].velocity.dy * delta
+            constrain(index)
+        }
+        for _ in 0..<3 {
+            for first in bubbles.indices {
+                for second in (first + 1)..<bubbles.count { collide(first, second) }
+            }
+            for index in bubbles.indices { constrain(index) }
+        }
+    }
+
+    private mutating func constrain(_ index: Int) {
+        let radius = bubbles[index].radius + 2
+        let right = max(radius, area.width - radius)
+        if bubbles[index].center.x < radius {
+            bubbles[index].center.x = radius
+            bubbles[index].velocity.dx = abs(bubbles[index].velocity.dx) * 0.43
+        } else if bubbles[index].center.x > right {
+            bubbles[index].center.x = right
+            bubbles[index].velocity.dx = -abs(bubbles[index].velocity.dx) * 0.43
+        }
+        if area.horizontal {
+            bubbles[index].center.y = area.height / 2
+            return
+        }
+        let bottom = max(radius, area.height - radius)
+        if bubbles[index].center.y < radius {
+            bubbles[index].center.y = radius
+            bubbles[index].velocity.dy = abs(bubbles[index].velocity.dy) * 0.43
+        } else if bubbles[index].center.y > bottom {
+            bubbles[index].center.y = bottom
+            bubbles[index].velocity.dy = -abs(bubbles[index].velocity.dy) * 0.43
+        }
+    }
+
+    private mutating func collide(_ first: Int, _ second: Int) {
+        let a = bubbles[first], b = bubbles[second]
+        let dx = b.center.x - a.center.x, dy = b.center.y - a.center.y
+        let distance = hypot(dx, dy)
+        let overlap = a.radius + b.radius - distance
+        guard overlap > 0 else { return }
+        let nx = distance > 0.01 ? dx / distance : 1
+        let ny = distance > 0.01 ? dy / distance : 0
+        let correction = overlap * 0.47
+        bubbles[first].center.x -= nx * correction
+        bubbles[first].center.y -= ny * correction
+        bubbles[second].center.x += nx * correction
+        bubbles[second].center.y += ny * correction
+        let closing = (b.velocity.dx - a.velocity.dx) * nx + (b.velocity.dy - a.velocity.dy) * ny
+        if closing < 0 {
+            let impulse = -closing * 0.72
+            bubbles[first].velocity.dx -= nx * impulse
+            bubbles[first].velocity.dy -= ny * impulse
+            bubbles[second].velocity.dx += nx * impulse
+            bubbles[second].velocity.dy += ny * impulse
+        }
+    }
+}
+
+@MainActor
+private final class BubbleGravity: ObservableObject {
+    @Published private(set) var cloudCenters: [CGPoint] = []
+    @Published private(set) var railShifts: [CGFloat] = []
+
+    var railPaused = false
+    private let motion = CMMotionManager()
+    private var cloud: GravityBubbleBoard?
+    private var rail: GravityBubbleBoard?
+    private var currentSection: String?
+
+    func configureCloud(_ area: GravityBubbleBoard.Area) {
+        guard cloud?.area != area else { return }
+        let board = GravityBubbleBoard(area: area)
+        cloud = board
+        cloudCenters = board.bubbles.map(\.center)
+    }
+
+    func configureRail(_ area: GravityBubbleBoard.Area, section: String) {
+        guard rail?.area != area || currentSection != section else { return }
+        rail = GravityBubbleBoard(area: area)
+        currentSection = section
+        railShifts = Array(repeating: 0, count: area.diameters.count)
+    }
+
+    func nudgeNeighbors(of index: Int) { cloud?.nudgeNeighbors(of: index) }
+
+    func track() async {
+        let hasMotion = motion.isDeviceMotionAvailable
+        if hasMotion {
+            motion.deviceMotionUpdateInterval = 1.0 / 50.0
+            motion.startDeviceMotionUpdates()
+        }
+        defer { if hasMotion { motion.stopDeviceMotionUpdates() } }
+        let clock = ContinuousClock()
+        var last = clock.now
+        while !Task.isCancelled {
+            let now = clock.now
+            let elapsed = last.duration(to: now).components
+            let delta = min(0.034, CGFloat(elapsed.seconds) + CGFloat(elapsed.attoseconds) / 1e18)
+            last = now
+            let gravity = screenGravity()
+            tick(x: gravity.dx, y: gravity.dy, delta: delta)
+            do { try await Task.sleep(for: .milliseconds(20)) } catch { return }
+        }
+    }
+
+    private func screenGravity() -> CGVector {
+        guard let sample = motion.deviceMotion?.gravity else { return .zero }
+        let x = CGFloat(sample.x), y = CGFloat(sample.y)
+        let scene = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .first { $0.activationState == .foregroundActive }
+        switch scene?.interfaceOrientation {
+        case .landscapeLeft: return CGVector(dx: -y, dy: -x)
+        case .landscapeRight: return CGVector(dx: y, dy: x)
+        case .portraitUpsideDown: return CGVector(dx: -x, dy: y)
+        default: return CGVector(dx: x, dy: -y)
+        }
+    }
+
+    private func tick(x: CGFloat, y: CGFloat, delta: CGFloat) {
+        cloud?.step(x: x * 620, y: y * 620, delta: delta)
+        if let positions = cloud?.bubbles.map(\.center),
+           zip(positions, cloudCenters).contains(where: { hypot($0.0.x - $0.1.x, $0.0.y - $0.1.y) > 0.2 }) {
+            cloudCenters = positions
+        }
+        guard !railPaused, var board = rail else { return }
+        board.step(x: x * 680, y: 0, delta: delta)
+        rail = board
+        let shifts = board.bubbles.enumerated().map { index, bubble in
+            bubble.center.x - GravityBubbleBoard.seed(index: index, in: board.area).x
+        }
+        if zip(shifts, railShifts).contains(where: { abs($0.0 - $0.1) > 0.2 }) { railShifts = shifts }
     }
 }
 
