@@ -1,0 +1,1135 @@
+{
+  "date": "2026-11-25",
+  "title": "2026年11月25日 · 海外资讯简报",
+  "sections": [
+    {
+      "name": "每日一图",
+      "photo": {
+        "title": "广重怎样刻出一场骤雨",
+        "interpretation": "桥面从画幅左侧斜切进来，行人缩着肩沿桥赶路。河上的竹筏和远岸近乎横卧，细密的雨线以不同角度交错，贯穿天空、桥面和河水。看清这几组线的方向，就能感觉到这一阵雨来得有多急。\n\n这是歌川广重1857年的木版画《大桥安宅骤雨》，属于《名胜江户百景》。纽约大都会艺术博物馆指出，纤细的交叉雨线并不容易刻印。三十年后，梵高又把这幅画临摹成油画《雨中的桥》。梵高博物馆的对照图可以看出，斜桥、行人和雨线换了一种媒材，画面的骨架依然清楚。\n\n东京国立博物馆的广重特展第三期将于11月25日开放，展至12月20日。《名胜江户百景》是这一期的重点，东京展品清单也列有这幅桥上骤雨。这里配的是纽约大都会艺术博物馆收藏的同作印本。",
+        "image": {
+          "url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/55433/134439/main-image",
+          "credit": "歌川广重，《大桥安宅骤雨》，1857年。纽约大都会艺术博物馆藏，JP2522，Howard Mansfield 收藏，1936 年由 Rogers Fund 购藏。开放图像，CC0。"
+        },
+        "sources": [
+          {
+            "name": "东京国立博物馆：歌川广重特展",
+            "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2759&lang=zh_cn"
+          },
+          {
+            "name": "东京国立博物馆：展品清单，第 3-046 号",
+            "url": "https://www.tnm.jp/common/fckeditor/editor/filemanager/connectors/php/transfer.php?file=%2Fexhibition%2FSpecial%2F20260929_hiroshige%2Fuid000360_4869726F7368696765204E657720506572737065637469766573206F6E2045646F204A6170616E5F4C697374206F6620576F726B732C20456E676C6973682E706466"
+          },
+          {
+            "name": "纽约大都会艺术博物馆：1857 年木版画及雨线说明",
+            "url": "https://www.metmuseum.org/art/collection/search/55433"
+          },
+          {
+            "name": "梵高博物馆：广重版画与梵高油画对照",
+            "url": "https://www.vangoghmuseum.nl/en/japanese-prints/person/33202/Utagawa%20Hiroshige"
+          }
+        ]
+      }
+    },
+    {
+      "name": "国际政治与时事",
+      "items": [
+        {
+          "headline": "2025年全球地雷及战争遗留爆炸物造成至少6929人伤亡",
+          "summary": "《地雷监测报告》11月24日发布，2025年全球记录到至少6929人因地雷和战争遗留爆炸物伤亡，是2020年以来最高。已知身份的伤亡者中，84%是平民；在年龄已知的平民伤亡者中，半数是儿童。",
+          "sources": [
+            {
+              "name": "《地雷监测报告》主要发现",
+              "url": "https://the-monitor.org/online-reader/landmine-monitor-2026#major-findings"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Demining_work_in_Eastern_Ukraine_01.jpg/960px-Demining_work_in_Eastern_Ukraine_01.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "Nataliia Aliabieva／Wikimedia Commons，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）；2020年乌克兰东部排雷资料照。"
+          },
+          "glossary": [
+            {
+              "term": "战争遗留爆炸物",
+              "type": "term",
+              "explanation": "指在战争中未爆炸或被遗弃、战后仍会危及居民的弹药。不少社区在战斗结束后，仍无法安全返回家园或耕种。"
+            },
+            {
+              "term": "《禁雷条约》",
+              "type": "term",
+              "explanation": "这项1997年通过的条约禁止缔约方使用、储存、生产和转让杀伤人员地雷。条约也要求缔约方销毁库存、清理雷区并协助受害者。"
+            }
+          ],
+          "importance": "major"
+        },
+        {
+          "headline": "美国与卡塔尔在华盛顿举行战略对话，商谈缓和地区紧张",
+          "importance": "notable",
+          "summary": "卡塔尔外交部24日说，卡塔尔首相兼外交大臣与美国国务卿23日在华盛顿共同主持第八次战略对话，双方讨论地区降温和航行自由，并签署人工智能合作文件及关键矿产加工谅解备忘录。美联社报道，这次会谈举行之际，卡塔尔正试图推动美伊重启谈判。",
+          "sources": [
+            {
+              "name": "卡塔尔外交部：第八次战略对话",
+              "url": "https://mofa.gov.qa/en/qatar/latest-articles/latest-news/details/2026/11/23/prime-minister-and-minister-of-foreign-affairs--us-secretary-of-state-chair-8th-qatar-us-strategic-dialogue"
+            },
+            {
+              "name": "美联社：卡塔尔推动恢复美伊谈判",
+              "url": "https://apnews.com/article/16e0c2cb05347cfcac068ec4aebb363f"
+            },
+            {
+              "name": "美国国务院：会面现场原图",
+              "url": "https://www.flickr.com/photos/statephotos/55669879546/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Secretary_Rubio_Meets_with_Qatari_Prime_Minister_and_Foreign_Minister_%2855669879546%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "11月23日，鲁比奥在美国国务院会见卡塔尔首相。Freddie Everett／美国国务院，公有领域，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "战略对话",
+              "type": "term",
+              "explanation": "这是两国定期举行的政府间磋商，可以同时讨论外交、安全、贸易和科技合作。对话涉及地区冲突，并不等于有关冲突各方已加入谈判或签署协议。"
+            },
+            {
+              "term": "外交斡旋",
+              "type": "concept",
+              "explanation": "斡旋是由第三方帮助冲突各方沟通、传递提议或寻找谈判条件。卡塔尔在这里是居中沟通的一方，不代替美国或伊朗作决定。"
+            }
+          ]
+        },
+        {
+          "headline": "哥伦比亚和平协议签署十周年，联合国敦促继续落实",
+          "summary": "11月24日，哥伦比亚政府与原哥伦比亚革命武装力量签署最终和平协议满十年。古特雷斯说，协议距预定落实期限还有五年，呼吁继续帮助前战斗人员重返社会、改善边缘地区公共服务，并保障受害者权利。",
+          "sources": [
+            {
+              "name": "联合国秘书长发言人声明",
+              "url": "https://colombia.unmissions.org/en/news/declaracion-atribuible-al-portavoz-del-secretario-general-decimo-aniversario-del"
+            },
+            {
+              "name": "联合国政治和建设和平事务部：执行背景",
+              "url": "https://dppa.un.org/en/news/colombia-peace-deal-must-endure-as-insecurity-grows-security-council-hears"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Colombian_President_Santos_Signs_a_Peace_Accord_With_FARC_Leader_Jim%C3%A9nez_%2829330649883%29.jpg/960px-Colombian_President_Santos_Signs_a_Peace_Accord_With_FARC_Leader_Jim%C3%A9nez_%2829330649883%29.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "美国国务院／Wikimedia Commons，美国公有领域；2016年9月卡塔赫纳早期签署仪式资料照，并非11月最终协议签署现场。"
+          },
+          "glossary": [
+            {
+              "term": "哥伦比亚革命武装力量（FARC-EP）",
+              "type": "org",
+              "explanation": "这是曾与哥伦比亚政府长期交战的一支游击力量。2016年协议为其放下武器和成员重返平民生活提供了框架。"
+            },
+            {
+              "term": "过渡司法",
+              "type": "concept",
+              "explanation": "是社会在冲突结束或出现重大政治转变后，处理过去严重侵权的制度安排。它兼顾查明真相、追究责任、赔偿和防止类似事件再发生。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "塔吉克斯坦通知退出《罗马规约》，退出将于2027年生效",
+          "summary": "联合国作为条约保存人确认，塔吉克斯坦已于11月20日通知退出设立国际刑事法院的《罗马规约》，退出将在2027年11月20日生效。国际刑事法院缔约国大会主席团11月23日对此表示关切。",
+          "sources": [
+            {
+              "name": "联合国条约保存人通知",
+              "url": "https://treaties.un.org/doc/Publication/CN/2026/CN.506.2026-Eng.pdf"
+            },
+            {
+              "name": "国际刑事法院缔约国大会主席团",
+              "url": "https://www.icc-cpi.int/news/statement-presidency-assembly-states-parties-withdrawal-rome-statute-tajikistan"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/The_International_Criminal_Court_%28ICC%29_in_The_Hague.jpg/960px-The_International_Criminal_Court_%28ICC%29_in_The_Hague.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "Tony Webster／Wikimedia Commons，CC BY 2.0（https://creativecommons.org/licenses/by/2.0/）；海牙国际刑事法院建筑资料照。"
+          },
+          "glossary": [
+            {
+              "term": "《罗马规约》",
+              "type": "term",
+              "explanation": "这是一项于1998年通过的多边条约，设立了国际刑事法院。按第127条，退出通常在联合国秘书长收到书面通知一年后生效。"
+            },
+            {
+              "term": "国际刑事法院（ICC）",
+              "type": "org",
+              "explanation": "总部位于荷兰海牙，主要审理个人涉嫌实施的种族灭绝罪、危害人类罪、战争罪及侵略罪。它与处理国家间争端的国际法院并不是同一机构。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "国际特赦组织呼吁调查埃塞俄比亚提格雷炮击",
+          "summary": "国际特赦组织在11月23日发布的调查中说，它核实了埃塞俄比亚北部阿拉马塔市9月26日至28日四起炮击中14名平民死亡。该组织呼吁按涉嫌战争罪调查这些事件，并指与提格雷人民解放阵线有关联的武装人员此前也曾在居民区设立据点。",
+          "sources": [
+            {
+              "name": "国际特赦组织原始调查",
+              "url": "https://www.amnesty.org/en/latest/news/2026/11/ethiopia-lethal-artillery-strikes-on-civilian-neighbourhoods-in-tigrays-alamata-city-must-be-investigated-as-war-crimes/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Alamata_City.png?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Mesfin Arage／美国之音，经Wikimedia Commons提供，美国公有领域；2020年阿拉马塔市资料照。"
+          },
+          "glossary": [
+            {
+              "term": "提格雷",
+              "type": "term",
+              "explanation": "提格雷是埃塞俄比亚北部的一个行政区，也是2020年至2022年当地武装冲突的主要地区。2022年达成停止敌对行动协议后，当地近来再次爆发冲突。"
+            },
+            {
+              "term": "国际人道法",
+              "type": "term",
+              "explanation": "它约束武装冲突各方如何对待平民和进行军事行动。其中一项基本原则是区分平民与军事目标，并尽可能避免让平民面临危险。"
+            }
+          ],
+          "importance": "notable"
+        }
+      ]
+    },
+    {
+      "name": "经济与市场",
+      "items": [
+        {
+          "headline": "刚果（金）将暂停钴出口，无锡多份钴合约盘中涨停",
+          "importance": "major",
+          "summary": "刚果（金）战略矿产监管机构11月23日宣布，自11月30日起暂停矿产钴出口，恢复日期另行通知；路透社报道，24日无锡不锈钢交易中心多份钴合约早盘触及涨幅上限。联合国贸发会议统计，刚果（金）占2025年全球钴矿产量的74%，中国是主要精炼国。",
+          "sources": [
+            {
+              "name": "刚果通讯社",
+              "url": "https://acp.cd/economie/la-rdc-suspend-la-commercialisation-du-cobalt-des-le-30-novembre-2026/"
+            },
+            {
+              "name": "监管通知原件（上海有色网转载）",
+              "url": "https://news.metal.com/pt/newscontent/JUTU72A5BPZE7RKNMM6OWNDPXLUFHYO3VWXKZZA-smm-analysis-drc-suspends-cobalt-exports-again-how-long-can-this-round-of-cobalt-price-increases-last"
+            },
+            {
+              "name": "路透社市场报道",
+              "url": "https://www.kitco.com/news/off-the-wire/2026-11-24/china-cobalt-prices-surge-three-month-high-congo-bans-exports"
+            },
+            {
+              "name": "联合国贸发会议",
+              "url": "https://unctad.org/publication/global-trade-update-june-2026-shifting-dynamics-critical-minerals-trade"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Malachite-Heterogenite-165716.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Malachite-Heterogenite-165716.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：刚果（金）科卢韦齐地区的孔雀石与水钴矿标本。Rob Lavinsky／iRocks.com 摄，CC BY-SA 3.0。"
+          },
+          "glossary": [
+            {
+              "term": "出口配额",
+              "type": "concept",
+              "explanation": "出口配额是监管机构允许企业在某段时间内出口的数量上限。公告要求持配额的企业在11月29日前完成当月安排的出货。"
+            },
+            {
+              "term": "钴精炼",
+              "type": "term",
+              "explanation": "矿石或中间产品要经进一步加工，才成为制造业可以使用的钴金属或钴化合物。采矿与精炼往往分在不同国家，因此出口限制会传导至海外市场。"
+            }
+          ]
+        },
+        {
+          "headline": "AI股回吐涨幅，纳斯达克综合指数收跌1.5%",
+          "importance": "notable",
+          "summary": "美联社报道，美东时间11月24日，科技股回吐前一日部分涨幅，纳斯达克综合指数收跌1.5%，标普500指数下跌0.5%，道琼斯工业平均指数则上涨0.9%。AI公司Anthropic的股价收盘跌破首次公开发行价格。",
+          "sources": [
+            {
+              "name": "美联社：美国主要股指最终收盘数据",
+              "url": "https://apnews.com/article/6cc4e580290aadf304ee316d6d46dd81"
+            },
+            {
+              "name": "维基共享资源：配图及许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Nasdaq_Tower_May_2026.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Nasdaq_Tower_May_2026.jpg/960px-Nasdaq_Tower_May_2026.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "资料图：2026年5月的纳斯达克时代广场大楼，非当日交易画面。Nielsoncaetanosalmeron／维基共享资源，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/），缩放原图。"
+          },
+          "glossary": [
+            {
+              "term": "纳斯达克综合指数",
+              "type": "term",
+              "explanation": "这个指数追踪在纳斯达克市场上市的广泛股票组合，科技企业权重较大。它与只选取大型非金融公司的纳斯达克100指数并不相同。"
+            },
+            {
+              "term": "首次公开发行价格",
+              "type": "concept",
+              "explanation": "首次公开发行价格是公司上市时向获配投资者发行股票所用的价格。股票开始交易后，市场价格会随买卖变化，并不保证维持在发行价格之上。"
+            }
+          ]
+        },
+        {
+          "headline": "美国11月消费者信心升至103.3，现况与预期同步改善",
+          "importance": "notable",
+          "summary": "美国世界大型企业联合会11月24日公布，11月消费者信心指数从10月的91.9升至103.3。调查于11月1日至17日进行，受访者对当前就业和商业状况评价转好，对未来的预期也有所改善。",
+          "sources": [
+            {
+              "name": "美国世界大型企业联合会",
+              "url": "https://www.conference-board.org/topics/consumer-confidence/"
+            },
+            {
+              "name": "美联社",
+              "url": "https://apnews.com/article/9d13d96cc3e4bac8f334f9145c718e42"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:LangensteinsAisleJuly2008.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/LangensteinsAisleJuly2008.jpg",
+            "credit": "资料图：美国新奥尔良杂货店货架，2008年。Infrogmation of New Orleans 摄，CC BY-SA 3.0。"
+          },
+          "glossary": [
+            {
+              "term": "消费者信心指数",
+              "type": "concept",
+              "explanation": "这项指数来自对家庭的调查，反映消费者怎样看待经济，而不直接统计实际花了多少钱。该系列将1985年的指数水平设为100。"
+            },
+            {
+              "term": "预期指数",
+              "type": "term",
+              "explanation": "它用来概括受访者对近期收入、商业和就业前景的看法。11月这个分项上升至83.6，仍明显低于衡量当前情况的分项。"
+            }
+          ]
+        },
+        {
+          "headline": "德国企业景气指数升至90.6，制造业信心逆势回落",
+          "importance": "notable",
+          "summary": "德国伊福经济研究所11月24日表示，11月企业景气指数由10月修订值90.1升至90.6。服务业和贸易业的景气指标上升，但制造业指标连续六次上升后转弱，制造商对未来的预期重新落入负区间。",
+          "sources": [
+            {
+              "name": "伊福经济研究所",
+              "url": "https://www.ifo.de/en/facts/2026-11-24/ifo-business-climate-rises-november-2026"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Skyline_frankfurt_am_main.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Skyline_frankfurt_am_main.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：德国法兰克福天际线。Bana Shennak 摄，CC BY-SA 4.0。"
+          },
+          "glossary": [
+            {
+              "term": "伊福企业景气指数",
+              "type": "term",
+              "explanation": "这是对德国企业进行月度调查得出的景气指标，综合考察企业对当前业务和未来前景的判断。它衡量企业情绪，不是对国内生产总值的直接统计。"
+            },
+            {
+              "term": "季节调整",
+              "type": "concept",
+              "explanation": "节假日和固定的季节性经营安排可能让相邻月份的数据很难直接比较。季节调整尝试去掉这些规律性的起伏，帮助看清相邻月份变化。"
+            }
+          ]
+        },
+        {
+          "headline": "巴斯夫从德国工厂开始向宁德时代交付电池正极材料",
+          "importance": "notable",
+          "summary": "巴斯夫11月23日宣布，已从德国施瓦茨海德工厂向宁德时代交付首批高性能正极活性材料，这是双方2025年签订的全球框架协议在德国落地。巴斯夫同时从长沙工厂向宁德时代供应中国市场。",
+          "sources": [
+            {
+              "name": "巴斯夫",
+              "url": "https://www.basf.com/global/en/media/news-releases/2026/11/p-26-191"
+            },
+            {
+              "name": "宁德时代：2025年框架协议",
+              "url": "https://www.catl.com/en/news/6493.html"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:BASF_Schwarzheide_Panorama_2024_Luftbild_Toni_Klemm_2500px.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/BASF_Schwarzheide_Panorama_2024_Luftbild_Toni_Klemm_2500px.jpg",
+            "credit": "资料图：德国施瓦茨海德巴斯夫厂区，Toni Klemm 摄于2024年，CC BY-SA 4.0。"
+          },
+          "glossary": [
+            {
+              "term": "正极活性材料",
+              "type": "term",
+              "explanation": "这是锂离子电池正极中参与储存和释放锂离子的材料。它的组成会影响电池的能量密度、寿命和其他性能。"
+            },
+            {
+              "term": "框架协议",
+              "type": "concept",
+              "explanation": "框架协议先确定双方合作的范围和基本安排。此处2025年的签约与德国工厂开始实际交货是两个不同阶段。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科技与人工智能",
+      "items": [
+        {
+          "headline": "美国商务部公布规则，将东南亚七家实体列入出口管制清单",
+          "importance": "major",
+          "summary": "美国商务部工业与安全局公开的规则把分列马来西亚、新加坡和泰国的七家实体纳入出口管制清单，其中包括多家使用Megaspeed名称的企业。该局称列名理由是存在先进计算产品被转供未获授权的用途或用户的显著风险，规则定于11月25日正式刊登。",
+          "sources": [
+            {
+              "name": "美国联邦公报：公开查阅版",
+              "url": "https://public-inspection.federalregister.gov/2026-23999.pdf"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Herbert-C-Hoover-Building-Louis-Ayres-Constitution-Avenue-Pennsylvania-Avenue-Washington-DC-Apr-2014.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Herbert-C-Hoover-Building-Louis-Ayres-Constitution-Avenue-Pennsylvania-Avenue-Washington-DC-Apr-2014.jpg",
+            "credit": "资料图：美国商务部总部赫伯特·胡佛大楼。Gunnar Klack 摄，CC BY-SA 4.0。"
+          },
+          "glossary": [
+            {
+              "term": "实体清单",
+              "type": "term",
+              "explanation": "这是美国出口管理条例下的一份名单，对列名对象参与的特定交易设置额外许可条件。是否需要许可证，要看交易对象和物项是否落入相应的规定。"
+            },
+            {
+              "term": "推定拒绝",
+              "type": "term",
+              "explanation": "这项规则对新增实体的许可申请设定了推定拒绝的审查政策，即主管部门原则上不批准申请。这个术语说的是许可审查标准，不是刑事判决。"
+            }
+          ]
+        },
+        {
+          "headline": "Anthropic推出Claude Ship试用版，协助审核GitHub代码改动",
+          "importance": "notable",
+          "summary": "Anthropic于11月23日介绍Claude Ship，将代码审查、协助修复和按团队规则作出审批决定放在同一流程。它面向使用GitHub的Claude Team和Enterprise团队，新增的修复与审批组件仍处于测试阶段。",
+          "sources": [
+            {
+              "name": "Anthropic产品公告",
+              "url": "https://claude.com/resources/articles/introducing-claude-ship"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Undercityhackclub.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Undercityhackclub.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：2025年在GitHub旧金山总部举办的Undercity活动，与Claude Ship发布无关。Celesteroselli 摄，CC BY-SA 4.0。"
+          },
+          "glossary": [
+            {
+              "term": "拉取请求",
+              "type": "term",
+              "explanation": "拉取请求是开发者把自己的代码改动交给项目审阅的提议。团队可以在真正合并之前讨论改动、检查测试结果，或者要求修改。"
+            },
+            {
+              "term": "分支保护",
+              "type": "concept",
+              "explanation": "项目可以规定代码必须通过哪些检查、得到谁的批准，才允许合并到主要分支。Anthropic表示，新工具仍须遵守团队既有的分支规则。"
+            }
+          ]
+        },
+        {
+          "headline": "Sierra宣布融资17.5亿美元，估值300亿美元",
+          "importance": "notable",
+          "summary": "面向企业做人工智能客服工具的Sierra于11月23日宣布，正以300亿美元估值募集17.5亿美元，由Greenoaks和Lightspeed领投。Sierra称其年度经常性收入已超过4亿美元，这不是全年已实现收入。",
+          "sources": [
+            {
+              "name": "Sierra创办人公告",
+              "url": "https://sierra.ai/blog/series-f-30b"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:TechCrunch_Disrupt_2024_D2_Bret_Taylor-3.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/TechCrunch_Disrupt_2024_D2_Bret_Taylor-3.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：Sierra联合创办人Bret Taylor出席2024年TechCrunch Disrupt。Katelyn Tucker／Slava Blazer Photography 摄，TechCrunch发布，CC BY 2.0。"
+          },
+          "glossary": [
+            {
+              "term": "融资估值",
+              "type": "concept",
+              "explanation": "这是投资人按本轮交易条件对整家公司的定价，不是本轮实际投入的金额。尚未上市的公司也没有可与它直接划等号的每日市值。"
+            },
+            {
+              "term": "年度经常性收入",
+              "type": "term",
+              "explanation": "年度经常性收入通常按年计算可以重复获得的客户收入，不包括一次性的收费。它用来描述经常性业务的规模，不等于过去一年已实现的全部收入。"
+            }
+          ]
+        },
+        {
+          "headline": "GPT-6.2开始向ChatGPT常规聊天推出，不改变Work和Codex选项",
+          "importance": "notable",
+          "summary": "OpenAI于11月23日宣布，将基于GPT-6.2 Sol、针对日常对话调校的版本逐步提供给Plus、Pro、Business和Enterprise聊天用户。公司称这次更新改进了复杂指令和图片理解，未改变Work或Codex所用的模型。",
+          "sources": [
+            {
+              "name": "OpenAI聊天发布说明",
+              "url": "https://help-lb.openai.com/en/articles/6825453-chatgpt-release-notes"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Pioneer_Building,_San_Francisco_(2019)_-1.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Pioneer_Building%2C_San_Francisco_%282019%29_-1.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：2019年的旧金山先锋大楼，曾是OpenAI办公地点。HaeB 摄，CC BY-SA 4.0。"
+          },
+          "glossary": [
+            {
+              "term": "逐步推出",
+              "type": "term",
+              "explanation": "功能分批开放，同一套餐的不同账号不一定同时看到更新。企业账号是否可用，还取决于其工作区管理员的设置。"
+            },
+            {
+              "term": "图片理解",
+              "type": "concept",
+              "explanation": "这里指模型能根据用户上传的图片识别信息并回答问题。厂商测试中的分数反映的是特定题目表现，不能保证所有图片都识别准确。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "社会与荒诞",
+      "items": [
+        {
+          "headline": "两名登山者在厄瓜多尔海拔6277米处下国际象棋",
+          "summary": "吉尼斯世界纪录11月24日公布，两名美国登山者3月31日登上厄瓜多尔钦博拉索山后，在海拔6277米处摆开棋盘，创下在最高海拔玩桌面或聚会游戏的纪录。这项纪录比的是下棋地点的海拔，不是棋局的胜负。",
+          "importance": "notable",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Chimborazo.jpg",
+            "credit": "资料图：钦博拉索山，非比赛现场。Dr. H. Sulzer（Herbye）摄，CC BY-SA 3.0，未改动。"
+          },
+          "sources": [
+            {
+              "name": "吉尼斯世界纪录",
+              "url": "https://www.guinnessworldrecords.com/news/2026/11/best-friends-scale-20000-ft-mountain-for-a-record-breaking-game-of-chess"
+            },
+            {
+              "name": "配图出处",
+              "url": "https://commons.wikimedia.org/wiki/File:Chimborazo.jpg"
+            },
+            {
+              "name": "图片许可",
+              "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "钦博拉索山",
+              "type": "term",
+              "explanation": "钦博拉索山是厄瓜多尔最高的山。由于地球在赤道附近向外鼓，它的峰顶到地心的距离比珠穆朗玛峰顶更远。"
+            },
+            {
+              "term": "海拔",
+              "type": "term",
+              "explanation": "海拔衡量地点相对于平均海平面的高度。它和距离地心的远近使用不同的基准，因此两者的排名不一定相同。"
+            }
+          ]
+        },
+        {
+          "headline": "英国小镇为爱串门的猫苏茜揭幕铜像",
+          "summary": "美国合众国际社11月23日报道，英国多切斯特居民为经常出入当地酒馆、商店和超市的猫苏茜揭幕铜像。雕塑家阿玛·梅内克把它塑成古罗马风格，呼应小镇的历史。",
+          "importance": "routine",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Dorchester_-_South_Street_-_geograph.org.uk_-_3013971.jpg",
+            "credit": "资料图：多切斯特南街旧照，非揭幕现场。Chris Talbot 摄，CC BY-SA 2.0，未改动。"
+          },
+          "sources": [
+            {
+              "name": "合众国际社",
+              "url": "https://www.upi.com/amp/Odd_News/2026/11/23/britiain-susie-cat-statue-dorchester-england/8391795459498/"
+            },
+            {
+              "name": "配图出处",
+              "url": "https://commons.wikimedia.org/wiki/File:Dorchester_-_South_Street_-_geograph.org.uk_-_3013971.jpg"
+            },
+            {
+              "name": "图片许可",
+              "url": "https://creativecommons.org/licenses/by-sa/2.0/"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "公共艺术",
+              "type": "term",
+              "explanation": "公共艺术是放在街道、广场等公共空间、让人日常接触的艺术作品。小镇的雕像不一定纪念名人，也可以纪念当地居民共同熟悉的故事。"
+            },
+            {
+              "term": "青铜",
+              "type": "term",
+              "explanation": "青铜通常指以铜和锡为主要成分的合金。铸造时可以把金属浇入模具，使复制的轮廓和表面细节保留下来。"
+            }
+          ]
+        },
+        {
+          "headline": "泰坦尼克号幸存者当年戴过的钻戒以15万英镑拍出",
+          "summary": "英国 ITV 报道，11月21日，一枚泰坦尼克号幸存者露西·达夫·戈登在沉船当晚戴过的钻戒在英格兰拍出，落槌价为15万英镑。戒指由她的后人送拍，家族一直把它称为「泰坦尼克戒指」，并相信它原是订婚戒指。",
+          "importance": "routine",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/1912_Titanic_Departure.jpg",
+            "credit": "历史参考图：泰坦尼克号驶离南安普敦，摄影者不详，公有领域；非拍品照片。"
+          },
+          "sources": [
+            {
+              "name": "ITV：拍卖结果与戒指来历",
+              "url": "https://www.itv.com/news/2026-11-21/titanic-survivors-diamond-ring-sells-for-150000-at-auction"
+            },
+            {
+              "name": "历史照片出处",
+              "url": "https://commons.wikimedia.org/wiki/File:1912_Titanic_Departure.jpg"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "落槌价",
+              "type": "term",
+              "explanation": "落槌价是拍卖师确认成交时最后喊出的竞价。买家最终支付的金额还可能包括拍卖行佣金等费用。"
+            },
+            {
+              "term": "单钻戒指",
+              "type": "term",
+              "explanation": "单钻戒指的视觉中心是一颗主钻，而不是多颗大小相近的钻石。它常被用作订婚戒指，但不等于每枚单钻戒指都用于订婚。"
+            }
+          ]
+        },
+        {
+          "headline": "一棵约5.5米高的白冷杉抵达白宫，将摆在蓝厅",
+          "summary": "11月23日，来自威斯康星州恩德弗一处树场的官方圣诞树抵达白宫。这棵约18英尺（5.5米）的白冷杉将在蓝厅陈设；树场先赢得全国圣诞树行业的评比，白宫随后前往选树。",
+          "importance": "routine",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/2023-white-house-christmas-tree-blue-room.jpg",
+            "credit": "资料照片：2023年白宫蓝厅圣诞树，不是今年的树。美国白宫官方照片，美国公有领域。"
+          },
+          "sources": [
+            {
+              "name": "白宫：2026年树木抵达现场",
+              "url": "https://www.whitehouse.gov/videos/first-lady-melania-trump-welcomes-official-2026-white-house-christmas-tree-is-here/"
+            },
+            {
+              "name": "白宫记者团：树种、原产地与选树流程",
+              "url": "https://bnonews.com/whpool/sczf5s4X"
+            },
+            {
+              "name": "资料图片出处",
+              "url": "https://commons.wikimedia.org/wiki/File:2023-white-house-christmas-tree-blue-room.jpg"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "白冷杉",
+              "type": "term",
+              "explanation": "白冷杉是北美西部原产的常绿针叶树，英文常称 white fir 或 concolor fir。树冠通常呈圆锥形，针叶带蓝绿色，栽培品种也可作为圣诞树。"
+            },
+            {
+              "term": "白宫蓝厅",
+              "type": "term",
+              "explanation": "蓝厅是白宫主层的椭圆形会客厅之一。它长期是白宫官方圣诞树的室内陈设地点，不同于户外公共活动所用的国家圣诞树。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科学与体育",
+      "items": [
+        {
+          "headline": "巴基斯坦航天员将随神舟二十四号飞往天宫",
+          "importance": "major",
+          "summary": "中国载人航天工程办公室11月24日公布，神舟二十四号计划于25日北京时间08:18从酒泉发射，巴基斯坦航天员穆罕默德·齐尚·阿里将与汤洪波、武毅同行。阿里作为载荷专家执行短期任务，计划搭乘神舟二十三号返回，届时将成为首位到访天宫的外籍航天员。",
+          "sources": [
+            {
+              "name": "中国载人航天工程网：任务发布会",
+              "url": "https://www.cmse.gov.cn/xwzx/202611/t20261124_57876.html"
+            },
+            {
+              "name": "巴基斯坦太空与高层大气研究委员会：任务中心",
+              "url": "https://astronaut.suparco.gov.pk/"
+            },
+            {
+              "name": "维基共享资源：天宫照片与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Rear_view_of_Tiangong_Space_Station.jpg"
+            },
+            {
+              "name": "CC BY 4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Rear_view_of_Tiangong_Space_Station.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：天宫空间站后向视角，可见一艘此前的神舟飞船对接。中国载人航天工程办公室，CC BY 4.0，使用原图。"
+          },
+          "glossary": [
+            {
+              "term": "载荷专家",
+              "type": "term",
+              "explanation": "载荷专家是负责操作实验设备和完成科研任务的航天员。阿里在中国受训，将作为载荷专家参与短期在轨任务。"
+            },
+            {
+              "term": "交会对接",
+              "type": "term",
+              "explanation": "飞船入轨后调整轨道和速度，逐渐接近空间站，再连接到指定舱口。神舟二十四号计划采用自主快速交会对接方案。"
+            }
+          ]
+        },
+        {
+          "headline": "欧几里得望远镜发现迄今最遥远的类星体",
+          "importance": "major",
+          "summary": "欧洲航天局11月24日公布，欧几里得望远镜发现的类星体 J1504+6252，在大爆炸后约6.3亿年就已存在，比上一纪录早约4000万年。韦布望远镜的后续观测显示，其中心黑洞质量约为太阳的3.6亿倍，这让黑洞如何在早期宇宙迅速长大的问题更难回答。",
+          "sources": [
+            {
+              "name": "欧洲航天局：发现公告",
+              "url": "https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-breaks-own-quasar-record-by-40-million-years"
+            },
+            {
+              "name": "《天文学与天体物理学》研究论文",
+              "url": "https://www.aanda.org/10.1051/0004-6361/202662243"
+            },
+            {
+              "name": "欧洲航天局：图像及授权",
+              "url": "https://www.esa.int/media/about-us/directorates/science/euclid/euclid-s-image-of-farthest-quasar"
+            },
+            {
+              "name": "CC BY-SA 3.0 IGO",
+              "url": "https://creativecommons.org/licenses/by-sa/3.0/igo/"
+            }
+          ],
+          "image": {
+            "url": "https://media.esa.int/global/public/common/image/2026/11/402420/image-thumb__402420__fit_large/j1504-6252-euclid-press-master-16bit-jpg.bfc2f054.webp",
+            "credit": "图中央的小红点是类星体 J1504+6252。ESA/Euclid/Euclid Consortium/NASA, Wolf et al. 2026；CC BY-SA 3.0 IGO。"
+          },
+          "glossary": [
+            {
+              "term": "类星体",
+              "type": "term",
+              "explanation": "类星体是异常明亮的星系中心。发光的不是黑洞本身，而是落向黑洞的物质释放出的能量。"
+            },
+            {
+              "term": "红移",
+              "type": "term",
+              "explanation": "光的波长被拉长后会移向光谱的红端。在宇宙学观测中，红移通常越大，我们看到的就越接近宇宙早期。"
+            }
+          ]
+        },
+        {
+          "headline": "皇马半场落后，下半场连进五球逆转埃因霍温",
+          "importance": "notable",
+          "summary": "当地时间11月24日，欧冠联赛阶段第五轮，埃因霍温凭佩里希奇的点球半场领先，皇马最终在主场以5比1取胜。巴尔韦德扳平、替补登场的贝林厄姆反超，随后姆巴佩打进两球，维尼修斯锁定比分。",
+          "sources": [
+            {
+              "name": "欧足联：第五轮战报",
+              "url": "https://es.uefa.com/uefachampionsleague/news/02ab-222685d3f846-767266861120-1000--resumen-del-martes-de-la-jornada-5-de-la-champions-leagu/"
+            },
+            {
+              "name": "维基共享资源：球场照片",
+              "url": "https://commons.wikimedia.org/wiki/File:M-estadio-santiago-bernabeu-diciembre-2024-c.jpg"
+            },
+            {
+              "name": "CC BY 4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/M-estadio-santiago-bernabeu-diciembre-2024-c.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：马德里伯纳乌球场外观，MottaW 摄于2024年12月，CC BY 4.0，使用原图。"
+          },
+          "glossary": [
+            {
+              "term": "欧冠联赛阶段",
+              "type": "concept",
+              "explanation": "36支球队在同一张积分榜上排名，每队与8个不同对手交锋。前8名直接进入16强，第9至24名通过附加赛争夺其余席位。"
+            },
+            {
+              "term": "裘德·贝林厄姆",
+              "type": "person",
+              "explanation": "贝林厄姆是皇家马德里和英格兰队的中场球员。本场他替补上场后凌空破门，帮助皇马从1比1变为2比1。"
+            }
+          ]
+        },
+        {
+          "headline": "枫叶队落后两球后连进四球，结束九连败",
+          "importance": "notable",
+          "summary": "北美当地时间11月23日，多伦多枫叶队客场0比2落后纽约岛人队，最终以4比2逆转，结束九连败。加文·麦肯纳在第三节打进反超球，岛人队连续七场拿到积分的纪录也随之结束。",
+          "sources": [
+            {
+              "name": "北美职业冰球联赛：赛后战报",
+              "url": "https://www.nhl.com/news/toronto-maple-leafs-new-york-islanders-game-recap-november-23-2026"
+            },
+            {
+              "name": "维基共享资源：枫叶队资料图",
+              "url": "https://commons.wikimedia.org/wiki/File:Scotiabank_Arena_Toronto_Carolina_March_20_2026.jpg"
+            },
+            {
+              "name": "CC BY-SA 4.0",
+              "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Scotiabank_Arena_Toronto_Carolina_March_20_2026.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：2026年3月多伦多枫叶队主场对阵卡罗来纳飓风队，非本场画面。Adam Bishop 摄，CC BY-SA 4.0，使用原图。"
+          },
+          "glossary": [
+            {
+              "term": "延迟判罚",
+              "type": "term",
+              "explanation": "犯规发生后，如果未犯规一方仍控制冰球，裁判可先不吹停，让进攻继续。多伦多的反超球就在一次延迟判罚期间打进。"
+            },
+            {
+              "term": "连续得分场次",
+              "type": "concept",
+              "explanation": "NHL常规赛中，获胜得两分，加时赛或点球决胜落败也得一分。岛人此前连续七场拿分，包括四胜和三场未在常规时间输掉的比赛。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "影视与明星",
+      "items": [
+        {
+          "headline": "多伦多木兰电影节回顾邱炯炯，将联映《椒麻堂会》与《彩排记》",
+          "summary": "多伦多木兰国际电影节安排邱炯炯于当地时间11月25日谈绘画与电影，28日在因尼斯学院联映《椒麻堂会》和《彩排记》。策展人从邱炯炯为《椒麻堂会》画下的数百张草图中，选出了角色、布景与分镜设计展出。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "木兰国际电影节策展文章",
+              "url": "https://mulanfestival.com/2026/strange-tales-from-qiu-jiongjiongs-cinema/"
+            },
+            {
+              "name": "图片来源与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Innis_College.JPG"
+            },
+            {
+              "name": "艺术家对谈",
+              "url": "https://mulanfestival.com/zh/festival-2026/artist-talk-with-qiu-jiongjiong/"
+            },
+            {
+              "name": "联映节目表",
+              "url": "https://mulanfestival.com/festival-2026/post-screening-salons/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Innis_College.JPG?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "联映场地资料图，多伦多大学因尼斯学院，SimonP 摄，CC BY-SA 3.0。"
+          },
+          "glossary": [
+            {
+              "term": "电影回顾展",
+              "type": "concept",
+              "explanation": "电影回顾展把一位创作者不同时期的作品集中放映，便于观众对照其题材和手法的变化。这次联映把围绕川剧演员展开的《椒麻堂会》和较早的短片《彩排记》放在一场。"
+            },
+            {
+              "term": "分镜图",
+              "type": "term",
+              "explanation": "分镜图在拍摄前画出一组关键画面，明确人物位置、镜头取景或动作的先后。它与角色草图和布景图配合使用，本身不意味着影片采用了逐格动画。"
+            }
+          ]
+        },
+        {
+          "headline": "布拉德·皮特再演特技替身，芬奇新片11月25日起登陆部分 IMAX 影院",
+          "summary": "大卫·芬奇执导的《The Further Mis-Adventures of Cliff Booth》11月25日起在全球指定 IMAX 影院独家放映两周，12月23日再上线 Netflix。布拉德·皮特再次饰演克里夫·布斯，昆汀·塔伦蒂诺把新故事放在1977年的好莱坞。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "Netflix Tudum",
+              "url": "https://www.netflix.com/tudum/articles/david-fincher-new-film-release-date"
+            },
+            {
+              "name": "图片来源与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Brad_Pitt_2019_by_Glenn_Francis_(cropped).jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Brad_Pitt_2019_by_Glenn_Francis_%28cropped%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "布拉德·皮特2019年资料照，Glenn Francis 摄，维基共享资源裁切版，CC BY-SA 4.0。"
+          },
+          "glossary": [
+            {
+              "term": "克里夫·布斯",
+              "type": "term",
+              "explanation": "克里夫·布斯是先前电影《好莱坞往事》中的虚构特技替身，同样由布拉德·皮特饰演。新片故事距前作的1969年背景相隔八年。"
+            },
+            {
+              "term": "独家院线窗口",
+              "type": "concept",
+              "explanation": "院线窗口指电影进入另一种发行渠道之前，先在影院放映的一段时间。本片的这段院线窗口只安排在指定 IMAX 影院，并不是与流媒体同日上线。"
+            }
+          ]
+        },
+        {
+          "headline": "迪士尼动画《Hexed》11月25日上映，女儿与母亲闯进女巫世界",
+          "summary": "迪士尼动画电影《Hexed》定于11月25日在美国院线上映。发现自己会魔法的少女比莉和谨慎的母亲艾丽斯踏入女巫世界，由海莉·斯坦菲尔德和拉希达·琼斯分别配音。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "迪士尼电影",
+              "url": "https://movies.disney.com/hexed"
+            },
+            {
+              "name": "图片来源与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Hailee_Steinfeld_by_Gage_Skidmore.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Hailee_Steinfeld_by_Gage_Skidmore.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "海莉·斯坦菲尔德2018年圣迭戈动漫展资料照，Gage Skidmore 摄，CC BY-SA 3.0。"
+          },
+          "glossary": [
+            {
+              "term": "迪士尼动画工作室",
+              "type": "org",
+              "explanation": "《Hexed》由 Walt Disney Animation Studios 制作，这家工作室也是《冰雪奇缘》和《疯狂动物城》的制作方。这里指迪士尼旗下的这家动画工作室，不是另一个动画厂牌皮克斯。"
+            },
+            {
+              "term": "成长故事",
+              "type": "concept",
+              "explanation": "成长故事关注年轻主角如何逐渐理解自己，在冲突中学会承担选择的后果。这部电影把发现魔法的冒险与母女重新理解彼此放在一起。"
+            }
+          ]
+        },
+        {
+          "headline": "克里斯·帕拉特主演的《Way of the Warrior Kid》上线 Apple TV",
+          "summary": "苹果原创电影《Way of the Warrior Kid》定于11月25日全球上线 Apple TV。裘德·希尔饰演在学校被欺负的少年，他在帕拉特饰演的舅舅帮助下，开始重新理解何谓勇气。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "Apple TV Press",
+              "url": "https://www.apple.com/tv-pr/news/2026/11/apple-original-films-celebrates-the-world-premiere-of-way-of-the-warrior-kid/"
+            },
+            {
+              "name": "图片来源与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Chris_Pratt_by_Gage_Skidmore_2.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Chris_Pratt_by_Gage_Skidmore_2.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "克里斯·帕拉特在2016年圣迭戈动漫展，资料照，Gage Skidmore 摄，CC BY-SA 3.0。"
+          },
+          "glossary": [
+            {
+              "term": "乔科·威林克",
+              "type": "person",
+              "explanation": "乔科·威林克是美国退役海豹突击队员，也是电影原著小说的作者。他还参与了这部改编电影的制作。"
+            },
+            {
+              "term": "McG",
+              "type": "person",
+              "explanation": "McG 是这部电影的导演，曾执导《霹雳娇娃》和《终结者2018》。他这次把重点放在少年马克与舅舅杰克之间的关系。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "书籍与作家",
+      "items": [
+        {
+          "headline": "华裔美国少女带着应用点子闯进 MIT，新青春小说11月24日出版",
+          "summary": "罗娜·王的长篇处女作《You Had Me at Hello World》11月24日由西蒙与舒斯特旗下青少年出版部门发行。小说里的华裔美国少女参加麻省理工学院的暑期编程赛，原本冲着大奖而来，却遇上项目被破坏和初恋。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "西蒙与舒斯特",
+              "url": "https://www.simonandschuster.com/books/You-Had-Me-at-Hello-World/Rona-Wang/9781534488526"
+            },
+            {
+              "name": "图片来源与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:MIT-killian.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/MIT-killian.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "小说场景资料图，麻省理工学院基利安庭院，MITalum 摄，CC BY-SA 3.0。"
+          },
+          "glossary": [
+            {
+              "term": "黑客松",
+              "type": "term",
+              "explanation": "黑客松是一种有时间限制的集中开发活动，参与者通常结队做出原型，再向评委展示成果。它指的是短期密集创作，不等于入侵计算机系统。"
+            },
+            {
+              "term": "Hello World",
+              "type": "term",
+              "explanation": "许多编程教程把显示 Hello World 作为学习一门语言的第一个小练习。书名把这一程序员熟悉的问候与初恋主题放在一起。"
+            }
+          ]
+        },
+        {
+          "headline": "诗体儿童小说《An Octopus Named Houdini》出版，从一只章鱼的视角看水族馆",
+          "summary": "扎娜·弗雷永写作、科琳娜·卢肯插画的《An Octopus Named Houdini》11月24日发行。主人公章鱼霍迪尼想回到野外海域，水族馆主人的女儿朱诺成了它意外结识的朋友。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "西蒙与舒斯特",
+              "url": "https://www.simonandschuster.com/books/An-Octopus-Named-Houdini/Zana-Fraillon/9798347114757"
+            },
+            {
+              "name": "图片来源与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Octopus-vulgaris.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Octopus-vulgaris.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "普通章鱼资料图，并非书中角色，MartinThoma 摄，CC0。"
+          },
+          "glossary": [
+            {
+              "term": "诗体小说",
+              "type": "concept",
+              "explanation": "诗体小说用分行和诗节推进情节，不采用从头到尾整段散文的形式。这本书借节奏与留白写章鱼对海水和自由的感受。"
+            },
+            {
+              "term": "中年级读物",
+              "type": "term",
+              "explanation": "英语出版里的 middle grade 指主要为小学高年级到初中低年级读者创作的书，不等同于青少年小说。不同作品的推荐年龄可以不同，这本书的出版社标注为8到12岁。"
+            }
+          ]
+        },
+        {
+          "headline": "玛丽·希金斯·克拉克悬疑故事集《Anastasia Syndrome》推出新版",
+          "summary": "西蒙与舒斯特11月24日推出玛丽·希金斯·克拉克悬疑故事集《Anastasia Syndrome》的新版。同名中篇里，二战期间成为孤儿的历史作家朱迪思向精神科医生求助，希望找回自己的身世线索，却成了实验对象。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "西蒙与舒斯特",
+              "url": "https://www.simonandschuster.com/books/Anastasia-Syndrome/Mary-Higgins-Clark/9781668240229"
+            },
+            {
+              "name": "图片来源与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Anastasia_Nikolaevna_Romanova_1914.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Anastasia_Nikolaevna_Romanova_1914.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "历史资料图，1914年俄国女大公阿纳斯塔西娅，作者不详，公共领域。"
+          },
+          "glossary": [
+            {
+              "term": "玛丽·希金斯·克拉克",
+              "type": "person",
+              "explanation": "克拉克以悬疑写作闻名，出版过四十余部悬疑小说。她也写短篇故事，并与女儿卡萝尔合写过悬疑作品。"
+            },
+            {
+              "term": "阿纳斯塔西娅",
+              "type": "person",
+              "explanation": "阿纳斯塔西娅是俄国末代沙皇尼古拉二世的小女儿。围绕她身世和生死的传闻为小说讨论错认身份提供了参照。"
+            }
+          ]
+        },
+        {
+          "headline": "查德·哈巴赫带新小说到迈阿密书展，讲两位朋友走出大学城之后",
+          "summary": "美国作家查德·哈巴赫在11月22日的迈阿密书展专场介绍新作《The Brightness》。小说写佩拉和伊尔玛两位好友离开平静的大学城后，如何面对友情、失落和逐渐无可回头的选择。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "迈阿密书展活动日程",
+              "url": "https://miamibookfair.com/event/which-way-now-stories-at-the-crossroads-fiction/"
+            },
+            {
+              "name": "图片来源与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:The_Freedom_Tower.jpg"
+            },
+            {
+              "name": "书展简介",
+              "url": "https://miamibookfair.com/miami-book-fair/miami-book-fair-overview/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/The_Freedom_Tower.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "迈阿密市中心资料图，迈阿密戴德学院的自由塔，并非本场活动会场。Rob Olivera 摄，CC BY 2.0。"
+          },
+          "glossary": [
+            {
+              "term": "迈阿密书展",
+              "type": "org",
+              "explanation": "迈阿密书展是迈阿密戴德学院推动的年度文学活动，安排小说、非虚构与诗歌等不同类型的作家对谈。除十一月书展外，主办方还全年举办阅读及写作项目。"
+            },
+            {
+              "term": "安德鲁·博里加",
+              "type": "person",
+              "explanation": "安德鲁·博里加是一名作家，担任此次哈巴赫对谈的主持人。他的小说《Victim》同样关注人物如何叙述和塑造自己的人生。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "美女与野兽",
+      "gallery": [
+        {
+          "kind": "person",
+          "caption": "格蕾塔·李在2023年柏林电影节介绍电影《过往人生》。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/MKr23377_Greta_Lee_%28Past_Lives%2C_Berlinale_2023%29_%28cropped%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Martin Kraft 摄，Mithoron 裁切，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:MKr23377_Greta_Lee_(Past_Lives,_Berlinale_2023)_(cropped).jpg"
+          }
+        },
+        {
+          "kind": "person",
+          "caption": "大阪直美在2018年美国网球公开赛捧起女单冠军奖杯。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Naomi_Osaka_2018_US_Open.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Azilko 摄，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Naomi_Osaka_2018_US_Open.jpg"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "圣迭戈动物园里的耳廓狐。两只耳朵几乎和脸一样抢眼。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Vulpes_zerda.JPG?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Ericj 摄，CC BY-SA 3.0（https://creativecommons.org/licenses/by-sa/3.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Vulpes_zerda.JPG"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "在巴西利亚拍到的穴小鸮。这种小型猫头鹰常在开放地带活动。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Athene_cunicularia_%2830608066931%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Donald Hobern 摄，CC BY 2.0（https://creativecommons.org/licenses/by/2.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Athene_cunicularia_(30608066931).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "name": "天涯海角",
+      "place": {
+        "name": "比利时·根特旧码头",
+        "paragraphs": [
+          "入夜后，根特莱厄河两岸的灯照亮一排高低错落的山墙，水里也排列着一排。站在圣米歇尔桥上，两条旧码头都看得见。眼下隔水相望的是步道和店铺，从前在这里分发货物的却是船只，这一段河原本就是城里的港口。",
+          "看右岸的草码头，不妨先找老谷仓那道阶梯形的山墙。根特旅游机构把这座仓库追溯到十三世纪。另有一栋屋子曾供负责量谷的人办公，粮食上岸还得量过，才知道该怎样计价和交易；今天，那间房的门面已经另作商用。",
+          "沿河再看一座修复过的船工行会会馆，立面的装饰比谷仓细密得多。同一排房子曾各司其职：有的收存粮袋，有的处理交易，有的留给靠河吃饭的人议事。现在码头上有人坐着聊天，河上还有船经过，只是很少再有人等着卸下一船粮食。"
+        ],
+        "photos": [
+          {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Graslei_and_Korenlei_by_night.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Daniuu 摄，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/），维基共享资源",
+            "caption": "夜色中的根特草码头与谷物码头。"
+          }
+        ]
+      }
+    }
+  ]
+}
