@@ -5,7 +5,6 @@ struct IssueBody: View {
     let section: DigestSection
     let onReading: (() -> Void)?
     let onPageOpened: ((Int) -> Void)?
-    let onPageRead: ((Int) -> Void)?
     @EnvironmentObject private var model: DigestModel
     @Environment(\.scenePhase) private var scenePhase
     @State private var page: Int
@@ -13,12 +12,11 @@ struct IssueBody: View {
     @State private var qualifiedPages: Set<Int> = []
 
     init(issue: DigestIssue, section: DigestSection, page: Int = 0, onReading: (() -> Void)? = nil,
-         onPageOpened: ((Int) -> Void)? = nil, onPageRead: ((Int) -> Void)? = nil) {
+         onPageOpened: ((Int) -> Void)? = nil) {
         self.issue = issue
         self.section = section
         self.onReading = onReading
         self.onPageOpened = onPageOpened
-        self.onPageRead = onPageRead
         _page = State(initialValue: page)
     }
 
@@ -44,7 +42,7 @@ struct IssueBody: View {
                 onGlossary: { entry in
                     sheet = .glossary(entry)
                 },
-                onReadingScroll: onReading == nil && onPageRead == nil ? nil : qualifyReading
+                onReadingScroll: onReading == nil ? nil : qualifyReading
             )
             .id(section.name)
         }
@@ -72,15 +70,14 @@ struct IssueBody: View {
     }
 
     private var readingPage: Int? {
-        guard onReading != nil || onPageRead != nil, scenePhase == .active, sheet == nil,
-              (0..<section.entryCount).contains(page) else { return nil }
+        guard onReading != nil, scenePhase == .active, sheet == nil,
+              section.items.indices.contains(page) else { return nil }
         return page
     }
 
     private func qualifyReading() {
         guard let page = readingPage, qualifiedPages.insert(page).inserted else { return }
-        onPageRead?(page)
-        if section.items.indices.contains(page) { onReading?() }
+        onReading?()
     }
 
     private var pageBinding: Binding<Int> {
