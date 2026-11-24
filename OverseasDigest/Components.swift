@@ -228,6 +228,7 @@ struct DigestPhoto: View {
     var symbol: String = "photo"
     var fillsFrame: Bool = false
     var framing: PhotoFraming = .hero
+    var isInteractive = true
     @State private var phase: Phase = .idle
     @State private var showViewer = false
     @State private var loadToken = LoadToken()
@@ -257,7 +258,7 @@ struct DigestPhoto: View {
         }
         .clipped()
         .contentShape(Rectangle())
-        .simultaneousGesture(TapGesture().onEnded { handleTap() })
+        .simultaneousGesture(TapGesture().onEnded { if isInteractive { handleTap() } })
         .onAppear { beginLoad(force: false) }
         .onChange(of: picture?.cacheKey) { _, _ in
             phase = .idle
@@ -265,7 +266,7 @@ struct DigestPhoto: View {
         }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(accessibilityText)
-        .accessibilityAddTraits(hasPicture ? .isButton : AccessibilityTraits())
+        .accessibilityAddTraits(hasPicture && isInteractive ? .isButton : AccessibilityTraits())
         .fullScreenCover(isPresented: $showViewer) {
             if case .loaded(let image, _) = phase {
                 ImageViewer(image: image, credit: picture?.credit ?? "")
@@ -276,9 +277,9 @@ struct DigestPhoto: View {
     private var accessibilityText: String {
         switch phase {
         case .failed:
-            return "图片没有载入，轻点重试"
+            return isInteractive ? "图片没有载入，轻点重试" : "图片没有载入"
         case .loaded:
-            return "查看大图。\(picture?.credit ?? "")"
+            return isInteractive ? "查看大图。\(picture?.credit ?? "")" : picture?.credit ?? "图片"
         case .loading:
             return "正在载入图片"
         case .idle:
@@ -292,7 +293,7 @@ struct DigestPhoto: View {
         case .loaded(let image, let faces):
             FittedPhoto(image: image, faces: faces, framing: framing)
         case .failed:
-            statusFill(title: "图片没有载入", detail: "轻点重试", spinning: false)
+            statusFill(title: "图片没有载入", detail: isInteractive ? "轻点重试" : nil, spinning: false)
         case .loading where hasPicture:
             statusFill(title: "正在载入图片", detail: nil, spinning: true)
         default:

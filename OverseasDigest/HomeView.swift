@@ -339,7 +339,7 @@ struct DigestOverview: View {
                 }
             }
         } else {
-            HStack(spacing: 10) {
+            HStack(alignment: .top, spacing: 10) {
                 tile(sections[0], index: 0)
                 VStack(spacing: 10) {
                     tile(sections[1], index: 1)
@@ -398,22 +398,8 @@ private struct OverviewCategoryTile: View {
     let section: DigestSection
     let position: Int
     let open: (Int) -> Void
-    @Environment(\.colorScheme) private var colorScheme
 
     private var isLead: Bool { position == 0 }
-
-    private var ink: Color { isLead || colorScheme == .dark ? .white : Color(red: 0.13, green: 0.11, blue: 0.12) }
-
-    private var surface: Color {
-        if isLead { return Color(red: 0.36, green: 0.15, blue: 0.23) }
-        let tints: [Color] = [
-            Color(red: 0.91, green: 0.75, blue: 0.55),
-            Color(red: 0.68, green: 0.76, blue: 0.82),
-            Color(red: 0.86, green: 0.77, blue: 0.58),
-            Color(red: 0.76, green: 0.76, blue: 0.61)
-        ]
-        return tints[(position - 1) % tints.count].opacity(colorScheme == .dark ? 0.21 : 0.55)
-    }
 
     private var counts: [Int] {
         let totals = section.importanceCounts
@@ -427,48 +413,51 @@ private struct OverviewCategoryTile: View {
         return section.items.firstIndex { $0.importance?.rank == highestRank }
     }
 
+    private var preview: (picture: DigestPicture, page: Int)? {
+        if let index = headlineIndex, let picture = section.items[index].image {
+            return (picture, index)
+        }
+        if let index = section.items.firstIndex(where: { $0.image != nil }), let picture = section.items[index].image {
+            return (picture, index)
+        }
+        if let picture = section.place?.photos.first?.picture ?? section.gallery.first?.image ?? section.wiki?.images.first {
+            return (picture, 0)
+        }
+        return nil
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
+            let preview = preview
             Button {
-                open(0)
+                open(preview?.page ?? 0)
             } label: {
-                VStack(alignment: .leading, spacing: 8) {
-                    HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text(section.displayName)
-                            .font(.system(isLead ? .title2 : .headline, design: .serif, weight: .semibold))
-                            .fixedSize(horizontal: false, vertical: true)
-                        Spacer(minLength: 0)
-                        Image(systemName: "chevron.right")
-                            .font(.caption.weight(.semibold))
-                            .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 0) {
+                    if let preview {
+                        Color.clear
+                            .frame(height: isLead ? 178 : 76)
+                            .frame(maxWidth: .infinity)
+                            .overlay {
+                                DigestPhoto(picture: preview.picture, fillsFrame: true, isInteractive: false)
+                                    .allowsHitTesting(false)
+                                    .accessibilityHidden(true)
+                            }
+                            .clipped()
                     }
-                    if isLead, let major = section.importanceCounts[.major], major > 0 {
-                        HStack(alignment: .firstTextBaseline, spacing: 7) {
-                            Text("\(major)")
-                                .font(.system(.largeTitle, design: .serif, weight: .heavy).monospacedDigit())
-                            Text("重大").font(.system(.headline, design: .serif))
-                        }
-                        .accessibilityHidden(true)
-                    }
-                    if !section.items.isEmpty {
-                        importanceBreakdown
-                    } else {
-                        Text("\(section.entryCount)则")
-                            .font(.subheadline.monospacedDigit())
-                    }
+                    summary
+                        .padding(isLead ? 14 : 11)
                 }
-                .frame(maxWidth: .infinity, minHeight: isLead ? 44 : 94, alignment: .topLeading)
-                .padding(isLead ? 0 : 11)
+                .frame(maxWidth: .infinity, alignment: .topLeading)
                 .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
 
             if isLead, let index = headlineIndex {
-                Rectangle().fill(ink.opacity(0.35)).frame(height: 1)
+                Divider().padding(.horizontal, 14)
                 Button {
                     open(index)
                 } label: {
-                    HStack(spacing: 6) {
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
                         Text(section.items[index].headline)
                             .font(.system(.headline, design: .serif))
                             .multilineTextAlignment(.leading)
@@ -478,31 +467,47 @@ private struct OverviewCategoryTile: View {
                             .accessibilityHidden(true)
                     }
                     .frame(minHeight: 44, alignment: .topLeading)
+                    .padding(.horizontal, 14)
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
             }
         }
-        .foregroundStyle(ink)
-        .padding(isLead ? 14 : 0)
-        .frame(maxWidth: .infinity, minHeight: isLead ? 242 : 116, alignment: .topLeading)
-        .background {
-            LinearGradient(colors: [surface, surface.opacity(0.80)], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .overlay {
-                    GeometryReader { geometry in
-                        Image("OverviewPaper")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .trailing)
-                            .clipped()
-                    }
-                    .opacity(isLead ? 0.23 : 0.18)
-                    .blendMode(isLead || colorScheme == .dark ? .softLight : .multiply)
-                    .allowsHitTesting(false)
-                    .accessibilityHidden(true)
-                }
-                .compositingGroup()
+        .foregroundStyle(.primary)
+        .background(Color(.secondarySystemGroupedBackground))
+        .overlay {
+            Rectangle().strokeBorder(Color.primary.opacity(0.10))
+                .allowsHitTesting(false)
         }
+    }
+
+    private var summary: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .firstTextBaseline, spacing: 6) {
+                Text(section.displayName)
+                    .font(.system(isLead ? .title2 : .headline, design: .serif, weight: .semibold))
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.semibold))
+                    .accessibilityHidden(true)
+            }
+            if isLead, let major = section.importanceCounts[.major], major > 0 {
+                HStack(alignment: .firstTextBaseline, spacing: 7) {
+                    Text("\(major)")
+                        .font(.system(.largeTitle, design: .serif, weight: .heavy).monospacedDigit())
+                    Text("重大").font(.system(.headline, design: .serif))
+                }
+                .accessibilityHidden(true)
+            }
+            if section.items.isEmpty {
+                Text("\(section.entryCount)则").font(.subheadline.monospacedDigit())
+            } else {
+                importanceBreakdown
+            }
+        }
+        .frame(minHeight: 44, alignment: .topLeading)
     }
 
     @ViewBuilder
