@@ -269,6 +269,46 @@
       "name": "科技与人工智能",
       "items": [
         {
+          "headline": "英伟达董事会一致同意黄仁勋复任，独立调查继续",
+          "importance": "major",
+          "summary": "英伟达11月23日公告，董事会一致投票恢复联合创始人黄仁勋的总裁、首席执行官及董事职务；按其向美国证监会提交的文件，决定于22日作出并立即生效。英伟达说，独立董事主导的调查仍将继续，临时首席执行官科莱特·克雷斯继续担任首席财务官。",
+          "sources": [
+            {
+              "name": "英伟达投资者关系：复任公告",
+              "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Board-Reinstates-Jensen-Huang-as-President-CEO-and-Board-Director/default.aspx"
+            },
+            {
+              "name": "美国证监会：英伟达 Form 8-K",
+              "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000090/nvda-20261122.htm"
+            },
+            {
+              "name": "配图来源及许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Jensen_Huang_(cropped)_(2024).jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Jensen_Huang_%28cropped%29_%282024%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：2024年5月黄仁勋与欧盟代表会面时的照片，非此次复任现场。Peter Dasilva／欧盟委员会，经维基共享资源提供，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/），原图已裁切。"
+          },
+          "glossary": [
+            {
+              "term": "科莱特·克雷斯",
+              "type": "person",
+              "explanation": "克雷斯是英伟达执行副总裁兼首席财务官。黄仁勋离任后，她曾兼任临时首席执行官；黄仁勋复任后，她继续主管财务。"
+            },
+            {
+              "term": "独立董事委员会",
+              "type": "org",
+              "explanation": "这类委员会由不担任公司管理职务、满足独立性要求的董事组成。本案的调查由独立董事负责，并聘请了外部律师；恢复职务不代表调查已经结束。"
+            },
+            {
+              "term": "Form 8-K",
+              "type": "term",
+              "explanation": "Form 8-K 是美国上市公司向证监会报告重大事项的文件，高管变动是常见披露事项之一。文件会写明事件发生日，因此可以区分董事会作决定和公司发布公告的日期。"
+            }
+          ]
+        },
+        {
           "headline": "麻省理工学院介绍让小模型在本机优化模拟电路的方法",
           "importance": "notable",
           "summary": "麻省理工学院11月23日介绍SLIC训练方法，研究团队用它训练了一个约40亿参数的模型，让模型在电路模拟器里反复调参。论文显示，该模型在特定放大器设计测试中超过了体量更大的参照模型；这还不是对所有芯片设计任务的比较。",
@@ -362,37 +402,6 @@
               "term": "预训练",
               "type": "concept",
               "explanation": "预训练通常让模型在大量文本或代码上学习预测后续内容，形成基础能力。教模型更好地遵循指令、回答问题或使用工具，则通常属于之后的训练阶段。"
-            }
-          ]
-        },
-        {
-          "headline": "三星发布双模式电竞显示器，低分辨率下最高1100赫兹",
-          "importance": "routine",
-          "summary": "三星11月23日宣布推出27英寸Odyssey G6（G60H）：在HD模式下最高1100赫兹，在2560×1440的QHD模式下最高600赫兹。英国市场计划12月开售，实际刷新率还取决于游戏与信号源的性能。",
-          "sources": [
-            {
-              "name": "三星英国新闻中心",
-              "url": "https://news.samsung.com/uk/samsung-launches-odyssey-g6-the-worlds-first-1100hz-gaming-monitor"
-            },
-            {
-              "name": "图片出处与授权",
-              "url": "https://commons.wikimedia.org/wiki/File:Samsung_LC27F591FDEXZW_front_20191229.jpg"
-            }
-          ],
-          "image": {
-            "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Samsung_LC27F591FDEXZW_front_20191229.jpg",
-            "credit": "资料图：三星展示的另一款27英寸显示器，非此次新品。Solomon203 摄，CC BY-SA 4.0，维基共享资源。"
-          },
-          "glossary": [
-            {
-              "term": "刷新率",
-              "type": "concept",
-              "explanation": "刷新率以赫兹计，表示屏幕每秒最多可以更新多少次画面。它不同于游戏实际生成的帧率，显卡如果每秒只输出较少的新画面，高刷新率也不会让游戏凭空多出新帧。"
-            },
-            {
-              "term": "双模式显示",
-              "type": "term",
-              "explanation": "这款显示器的双模式让用户在两种分辨率与刷新率搭配之间切换。像素更少时，每帧需要传输和处理的数据通常更少，因此可以换取更高的刷新上限。"
             }
           ]
         }
