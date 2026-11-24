@@ -341,6 +341,8 @@ def accepted_orders() -> list[list[str]]:
         insert_wiki(SECTION_ORDER),
         list(LEGACY_ORDER),
         insert_wiki(LEGACY_ORDER),
+        list(SECTION_ORDER[:-1]),
+        insert_wiki(SECTION_ORDER)[:-1],
     ]
 
 
@@ -420,9 +422,9 @@ def check_issue(issue: dict, path: Path, index_date: str | None) -> None:
     order = matching_order(names)
     if order is None:
         error(
-            f"{where}: 新的一天请按此顺序：{'、'.join(SECTION_ORDER)}。"
+            f"{where}: 新的一天请按此顺序：{'、'.join(SECTION_ORDER[:-1])}。"
             f"社会栏名为「社会与荒诞」。"
-            f"「{WIKI_SECTION}」可以省略；若有，必须紧挨在笑话之前。"
+            f"「{WIKI_SECTION}」可作为末栏；旧期保留的「{JOKE_SECTION}」仍放在末栏。"
             f"旧期若仍叫「社会资讯」，且天涯海角在美女与野兽之前，也接受。"
             f"实际为 {names}"
         )
@@ -536,6 +538,7 @@ def check_schema_file() -> None:
     if not isinstance(variants, list):
         variants = [sections_schema]
     declared = []
+    without_optional_jokes = []
     for variant in variants:
         prefix = variant.get("prefixItems", []) if isinstance(variant, dict) else []
         names = []
@@ -546,7 +549,16 @@ def check_schema_file() -> None:
                 except (KeyError, IndexError, TypeError):
                     names.append(None)
         declared.append(names)
-    if declared != accepted_orders():
+        if not isinstance(variant, dict) or variant.get("maxItems") != len(names):
+            error("data/schema.json 的栏目数量上限与栏目顺序不一致")
+            continue
+        minimum = variant.get("minItems")
+        if minimum != len(names):
+            if minimum == len(names) - 1 and names[-1:] == [JOKE_SECTION]:
+                without_optional_jokes.append(names[:-1])
+            else:
+                error("data/schema.json 只能允许省略末尾的笑话栏目")
+    if declared + without_optional_jokes != accepted_orders():
         error("data/schema.json 的栏目顺序与校验脚本不一致")
 
 
@@ -559,7 +571,11 @@ def self_test() -> None:
     assert matching_order(insert_wiki(SECTION_ORDER)) == insert_wiki(SECTION_ORDER)
     assert matching_order(list(LEGACY_ORDER)) == list(LEGACY_ORDER)
     assert matching_order(insert_wiki(LEGACY_ORDER)) == insert_wiki(LEGACY_ORDER)
+    assert matching_order(list(SECTION_ORDER[:-1])) == list(SECTION_ORDER[:-1])
+    assert matching_order(insert_wiki(SECTION_ORDER)[:-1]) == insert_wiki(SECTION_ORDER)[:-1]
+    assert matching_order(list(LEGACY_ORDER[:-1])) is None
     assert matching_order(list(SECTION_ORDER) + [WIKI_SECTION]) is None
+    assert matching_order(list(SECTION_ORDER[:-2])) is None
     assert count_sentences("甲。乙。丙。丁。戊。") == 5
 
 
@@ -591,3 +607,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+

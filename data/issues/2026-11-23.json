@@ -1,0 +1,1120 @@
+{
+  "date": "2026-11-23",
+  "title": "2026年11月23日 · 海外资讯简报",
+  "sections": [
+    {
+      "name": "每日一图",
+      "photo": {
+        "title": "火星岩石里的49个小圆孔",
+        "interpretation": "这张拼图由49张火星岩石的近照组成。每一格都有一个直径约16毫米的圆孔，孔边堆着灰色、棕色或偏红的岩粉。相同的圆形在画面里反复出现，真正吸引眼睛的是每块岩石不同的纹理和颜色。\n\n这些孔是美国宇航局的“好奇号”火星车为取样钻出来的。钻头装在机械臂末端，岩石被磨成粉末后送入车身内的仪器，供研究人员分析成分。拍摄近照的火星手持透镜成像仪也装在同一条机械臂上。\n\n美国宇航局在11月16日把截至当月的这49张照片排成了七行七列。把每一格看成一次取样，就能在图上看到探测工作是怎样一点一点累积起来的。留在孔边的岩粉是肉眼看得见的痕迹，岩石的成分则由车上的仪器测定。",
+        "image": {
+          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia26804/PIA26804.jpg?fit=clip&h=1536&w=1536",
+          "credit": "NASA／JPL-Caltech／MSSS，火星车“好奇号”机械臂相机拍摄，NASA Photojournal 拼图。"
+        },
+        "sources": [
+          {
+            "name": "NASA Photojournal：49个钻孔",
+            "url": "https://science.nasa.gov/photojournal/a-collage-showing-49-drill-holes-made-by-nasas-curiosity-mars-rover/"
+          },
+          {
+            "name": "NASA：“好奇号”火星车",
+            "url": "https://science.nasa.gov/mission/msl-curiosity/"
+          }
+        ]
+      }
+    },
+    {
+      "name": "国际政治与时事",
+      "items": [
+        {
+          "headline": "联大主席到访罗兴亚难民营，呼吁落实国际法院判决",
+          "summary": "11月20日，联合国大会主席在孟加拉国科克斯巴扎尔的难民营呼吁落实国际法院裁决。法院前一天裁定，缅甸在2017年若开邦北部的军事行动中对罗兴亚人实施了种族灭绝。",
+          "sources": [
+            {
+              "name": "联合国大会主席声明",
+              "url": "https://www.un.org/pga/81/documents/speeches/icj-judgment-gambia-v-myanmar-20-november-2026/"
+            },
+            {
+              "name": "联合国缅甸问题独立调查机制",
+              "url": "https://iimm.un.org/en/icj-judgment-marks-historic-step-towards-justice-rohingya"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Rohingya_Camp_in_Cox%27s_Bazar%2C_Bangladesh.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Voice of America／Wikimedia Commons，公有领域；科克斯巴扎尔难民营资料照。"
+          },
+          "glossary": [
+            {
+              "term": "国际法院",
+              "type": "org",
+              "explanation": "国际法院是联合国主要司法机关，总部位于荷兰海牙。它可以审理国家之间的争端，不是审判个人的国际刑事法院。"
+            },
+            {
+              "term": "罗兴亚人",
+              "type": "term",
+              "explanation": "罗兴亚人是在缅甸若开邦长期生活的民族群体。2017年暴力事件后，大批罗兴亚人逃往邻国孟加拉国。"
+            }
+          ],
+          "importance": "major"
+        },
+        {
+          "headline": "联黎部队称黎南局势仍紧张，授权年底到期后启动撤离",
+          "summary": "联合国驻黎巴嫩临时部队11月20日说，尽管敌对行动有所减少，黎巴嫩南部平民仍受到空袭、炮击和基础设施损毁影响。部队表示，其授权于12月31日届满，撤离将从2027年1月1日开始。",
+          "sources": [
+            {
+              "name": "联合国驻黎巴嫩临时部队",
+              "url": "https://unifil.unmissions.org/en/node/137577"
+            },
+            {
+              "name": "联合国安理会第2790号决议",
+              "url": "https://unifil.unmissions.org/sites/default/files/250828_unifil_mandate_renewal_adopted_res._e.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/UNIFIL_%288878255489%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Irish Defence Forces／Wikimedia Commons，CC BY 2.0（https://creativecommons.org/licenses/by/2.0/）；2013年联黎部队纪念活动资料照。"
+          },
+          "glossary": [
+            {
+              "term": "联黎部队",
+              "type": "org",
+              "explanation": "联合国驻黎巴嫩临时部队成立于1978年。这支维和部队在黎南监测局势，并与各方保持联络。"
+            },
+            {
+              "term": "维和任务授权",
+              "type": "concept",
+              "explanation": "安理会决议规定维和行动的职责和期限。授权届满后，人员与装备仍可能分阶段撤出。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "日内瓦全球化学品大会通过首批进度指标",
+          "summary": "联合国环境规划署11月21日宣布，各方在日内瓦暂定首批全球指标，用来追踪化学品和废物管理目标。大会也通过了两项实施计划，分别聚焦国家监管能力和产业供应链。",
+          "sources": [
+            {
+              "name": "联合国环境规划署",
+              "url": "https://www.unep.org/en/news-and-stories/press-release/global-chemicals-conference-adopts-measures-track-progress"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Palace_of_Nations_Geneva_20102014_02.jpg/960px-Palace_of_Nations_Geneva_20102014_02.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "Vassil／Wikimedia Commons，CC0 1.0；日内瓦万国宫资料照，并非本次会议现场。"
+          },
+          "glossary": [
+            {
+              "term": "全球化学品框架",
+              "type": "term",
+              "explanation": "这是一项自愿性的国际框架，涵盖化学品和废物的安全管理。它让各国政府、企业和其他机构围绕共同目标开展工作。"
+            },
+            {
+              "term": "供应链",
+              "type": "concept",
+              "explanation": "供应链涵盖从原料采购、加工生产到配送销售的环节。控制有害化学品需要制造商与上下游共享相关信息。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "联合国与巴巴多斯将在布里奇敦举行人工智能安全峰会",
+          "summary": "联合国20日例行简报确认，秘书长古特雷斯将赴巴巴多斯参加定于当地时间11月23日举行的峰会。与会者将讨论跨国合作如何改善人工智能安全，以及如何让更多国家分享技术收益。",
+          "sources": [
+            {
+              "name": "联合国秘书长发言人简报",
+              "url": "https://www.un.org/sg/fr/node/401528"
+            },
+            {
+              "name": "联合国数字和新兴技术办公室",
+              "url": "https://www.un.org/digital-emerging-technologies/es/content/barbados-and-united-nations-co-host-special-summit-ai-safety-23-november"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Bridgetown%2C_Barbados.jpg/960px-Bridgetown%2C_Barbados.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "NASA Astronauts／Wikimedia Commons，公有领域；布里奇敦资料照，非峰会现场。"
+          },
+          "glossary": [
+            {
+              "term": "布里奇敦",
+              "type": "term",
+              "explanation": "布里奇敦是加勒比岛国巴巴多斯的首都。此次人工智能安全峰会由巴巴多斯与联合国共同主办。"
+            },
+            {
+              "term": "人工智能安全",
+              "type": "concept",
+              "explanation": "人工智能安全关注如何测试、评估和降低系统可能带来的风险。此次会议也将讨论技术接入、能力建设和不同语言社群的代表性。"
+            }
+          ],
+          "importance": "notable"
+        }
+      ]
+    },
+    {
+      "name": "经济与市场",
+      "items": [
+        {
+          "headline": "Anthropic完成上市发行，发行总额约935亿美元",
+          "summary": "Anthropic于11月20日宣布完成首次公开募股，每股发行价83美元，扣除费用前的发行总额约935亿美元，其中约916亿美元归公司。同期另向七家企业定向发行股份，金额约260亿美元，不计入上述公开发行额。",
+          "sources": [
+            {
+              "name": "Anthropic：发行完成公告",
+              "url": "https://www.anthropic.com/news/ipo-close"
+            },
+            {
+              "name": "Anthropic：IPO定价公告",
+              "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"
+            },
+            {
+              "name": "美联社：上市报道",
+              "url": "https://apnews.com/article/53fb21bd250b936d93c5c8885af8d393"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Dario_Amodei_at_TechCrunch_Disrupt_2023_01.jpg/960px-Dario_Amodei_at_TechCrunch_Disrupt_2023_01.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "TechCrunch／Wikimedia Commons，CC BY 2.0（https://creativecommons.org/licenses/by/2.0/）；达里奥·阿莫代伊2023年活动资料照。"
+          },
+          "glossary": [
+            {
+              "term": "首次公开募股",
+              "type": "term",
+              "explanation": "首次公开募股简称IPO，指公司第一次面向公众发行股票。发行价不同于挂牌后的成交价格。"
+            },
+            {
+              "term": "定向发行",
+              "type": "concept",
+              "explanation": "定向发行面向选定的投资者，而非向公众销售。Anthropic的这笔交易与公开募股同期完成，但两笔金额分别统计。"
+            }
+          ],
+          "importance": "major"
+        },
+        {
+          "headline": "英国10月公共部门净借款升至170亿英镑",
+          "summary": "英国国家统计局11月20日公布，10月公共部门净借款为170亿英镑，同比多8亿英镑。中央政府当月应付债务利息升至112亿英镑，但本财年截至10月的累计借款仍低于上年同期。",
+          "sources": [
+            {
+              "name": "英国国家统计局",
+              "url": "https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicsectorfinance/bulletins/publicsectorfinances/october2026"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/HM_Treasury%2C_Horse_Guards_Road_-_panoramio.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "ktanaka／Wikimedia Commons，CC BY 3.0（https://creativecommons.org/licenses/by/3.0/）；英国财政部大楼资料照。"
+          },
+          "glossary": [
+            {
+              "term": "公共部门净借款",
+              "type": "term",
+              "explanation": "这是公共部门支出超过收入的差额。它反映一段时间的收支缺口，不等于历年积累的债务存量。"
+            },
+            {
+              "term": "政府债务利息",
+              "type": "concept",
+              "explanation": "政府发行债券等债务工具后，需要按约定支付利息。对部分英国国债而言，通胀还会影响应付利息金额。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "日本10月消费者物价同比上涨2.3%",
+          "summary": "日本总务省统计局11月20日公布，10月全国消费者物价指数同比上涨2.3%。剔除生鲜食品后，同比上涨2.2%。",
+          "sources": [
+            {
+              "name": "日本总务省统计局",
+              "url": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html"
+            },
+            {
+              "name": "日本总务省当期统计通讯",
+              "url": "https://www.stat.go.jp/info/mail/pdf/20261120_no1917.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Japanese_Supermarket.jpg/960px-Japanese_Supermarket.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "Yuya Tamai／Wikimedia Commons，CC BY 2.0（https://creativecommons.org/licenses/by/2.0/）；日本超市资料照。"
+          },
+          "glossary": [
+            {
+              "term": "消费者物价指数",
+              "type": "term",
+              "explanation": "消费者物价指数用一篮子商品和服务的价格衡量一般消费成本的变化。同比增速比较的是本月与上年同月。"
+            },
+            {
+              "term": "日本核心CPI",
+              "type": "term",
+              "explanation": "日本常用的核心消费者物价指数剔除价格易受季节和天气影响的生鲜食品。这个口径仍包含能源，与一些国家同时剔除食品和能源的口径不同。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "费城联储制造业调查降至半年低点，新订单接近停滞",
+          "summary": "费城联储11月19日公布，其辖区11月制造业总体活动指数从20.9降至6.3，为5月以来最低。指标仍为正，但新订单指数从4.3降至负0.4。",
+          "sources": [
+            {
+              "name": "费城联邦储备银行",
+              "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-11"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Federal_Reserve_Bank_Building_Philadelphia.jpg",
+            "credit": "Beyond My Ken／Wikimedia Commons，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/）；费城联储大楼资料照。"
+          },
+          "glossary": [
+            {
+              "term": "扩散指数",
+              "type": "term",
+              "explanation": "扩散指数用报告上升的受访企业占比减去报告下降的占比。它衡量变化影响了多少企业，不是产量增长率。"
+            },
+            {
+              "term": "费城联储",
+              "type": "org",
+              "explanation": "费城联邦储备银行是美国联邦储备系统的地区联储之一。它的制造业调查反映辖区企业情况，不是全美制造业统计。"
+            }
+          ],
+          "importance": "routine"
+        }
+      ]
+    },
+    {
+      "name": "科技与人工智能",
+      "items": [
+        {
+          "headline": "TikTok推出肖像检测，帮助创作者举报AI冒用",
+          "summary": "TikTok于11月20日宣布，符合条件的创作者和公众人物可自愿开通肖像检测，发现平台上可能冒用其形象的AI内容时可收到通知并举报。平台还开放了一个无需账号的查询工具，但它只能检查图片或视频是否经由TikTok自家的AI功能生成或编辑。",
+          "sources": [
+            {
+              "name": "TikTok新闻中心",
+              "url": "https://newsroom.tiktok.com/more-tools-to-provide-clarity-and-control-around-ai-generated-content?lang=en-GB"
+            },
+            {
+              "name": "图片出处",
+              "url": "https://commons.wikimedia.org/wiki/File:TikTok_Headquarters.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/TikTok_Headquarters.jpg",
+            "credit": "资料图：TikTok原加州卡尔弗城总部，2024年。Coolcaesar 摄，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/），维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "肖像检测",
+              "type": "term",
+              "explanation": "TikTok的这项功能须由符合条件的人主动申请，并经第三方核验身份。系统提示疑似冒用时，当事人可以先查看再决定是否举报，提示本身并不意味着帖子一定违规。"
+            },
+            {
+              "term": "内容凭证",
+              "type": "concept",
+              "explanation": "内容凭证可记录媒体文件的来源及生成或编辑过程。它与判断画面里的事是否真的发生是两回事，缺少凭证也不等于文件就是伪造的。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "Thinking Machines发布可离线运行的Inkling 2 Mini",
+          "summary": "Thinking Machines Lab于11月20日发布总参数264亿的Inkling 2 Mini，以Apache 2.0许可证开放模型权重。模型卡列出的本地运行设备包括配备至少32 GB内存的苹果芯片Mac，用户不必把每次请求都发往云端。",
+          "sources": [
+            {
+              "name": "Thinking Machines Lab",
+              "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+            },
+            {
+              "name": "模型卡",
+              "url": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+            },
+            {
+              "name": "图片出处",
+              "url": "https://commons.wikimedia.org/wiki/File:MacBook_Pro_(14-inch,_M5,_Space_Black).jpg"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/MacBook_Pro_%2814-inch%2C_M5%2C_Space_Black%29.jpg/960px-MacBook_Pro_%2814-inch%2C_M5%2C_Space_Black%29.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "资料图：搭载苹果芯片的MacBook Pro，并非发布演示设备。AzureSaturn 摄，CC0 1.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "循环式Transformer",
+              "type": "concept",
+              "explanation": "Transformer通过多层处理输入信息，而循环式设计让一部分层用同一组权重重复计算。Inkling 2 Mini的中间12层会运行三遍，不必为每一遍另存一套权重。"
+            },
+            {
+              "term": "开放权重",
+              "type": "concept",
+              "explanation": "权重是模型经过训练学到的参数，公开后别人可以下载并在自己的设备上运行模型，但仍须遵守许可证。权重可下载不等于训练代码、原始数据也全部公开。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "OpenAI向开发者开放可边听边说的GPT-Live-1.1",
+          "summary": "OpenAI的开发接口更新记录在11月19日列出GPT-Live-1.1，开发者社区次日发布公告。这个10月起已在ChatGPT部分套餐中使用的语音模型可以边说边听，也能把复杂请求交给应用后台处理。",
+          "sources": [
+            {
+              "name": "OpenAI API更新记录",
+              "url": "https://developers.openai.com/api/docs/changelog"
+            },
+            {
+              "name": "OpenAI模型文档",
+              "url": "https://developers.openai.com/api/docs/models/gpt-live-1.1"
+            },
+            {
+              "name": "OpenAI开发者公告",
+              "url": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537"
+            },
+            {
+              "name": "图片出处",
+              "url": "https://commons.wikimedia.org/wiki/File:Yeti-USB-Microphone.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Yeti-USB-Microphone.jpg",
+            "credit": "资料图：Yeti USB麦克风，并非OpenAI产品。Evan-Amos 摄，公有领域，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "全双工语音",
+              "type": "concept",
+              "explanation": "全双工是指声音可以在两个方向同时传输。用在语音助手上，就是用户能在助手说话时插话或补充信息，不必等上一句话说完。"
+            },
+            {
+              "term": "后台任务委派",
+              "type": "concept",
+              "explanation": "语音模型负责听和说，把需要查询、计算或调用工具的任务交给应用后台。这样可以让对话与耗时较长的任务分开进行。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "蒙特利尔银行用IBM量子计算机筛选机器学习输入",
+          "summary": "蒙特利尔银行11月19日公布与希腊色雷斯德谟克利特大学合作的实验：研究者用IBM量子计算机给数据变量排序，尝试找出对预测最有用的变量。银行称实验用较少样本得到了与传统筛选方法相近的结果，但没有宣布已用于实际银行业务。",
+          "sources": [
+            {
+              "name": "蒙特利尔银行公告",
+              "url": "https://newsroom.bmo.com/2026-11-19-BMO-Demonstrates-Quantum-Utility-in-Machine-Learning-Application-Using-IBM-Quantum-Computers"
+            },
+            {
+              "name": "图片出处",
+              "url": "https://commons.wikimedia.org/wiki/File:IBM_Q_System_Two_Ikerbasque_03.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/IBM_Q_System_Two_Ikerbasque_03.jpg",
+            "credit": "资料图：西班牙圣塞瓦斯蒂安的IBM Quantum System Two，并非该实验设备。Irekia / Eusko Jaurlaritza 摄，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/），维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "特征选择",
+              "type": "concept",
+              "explanation": "特征是模型用来预测的输入变量。特征选择会挑出更有用的变量，并减少重复或无关的变量，让模型不必把所有输入都纳入训练。"
+            },
+            {
+              "term": "量子实用性",
+              "type": "term",
+              "explanation": "这次公告用它描述一种实验结果：量子计算在特定规模上可靠运行，而用传统方法精确复现同样的计算在实践中已不容易。它并不等于量子计算机在所有任务上都更快，也不能单凭一次实验判断商业效益。"
+            }
+          ],
+          "importance": "routine"
+        }
+      ]
+    },
+    {
+      "name": "社会与荒诞",
+      "items": [
+        {
+          "headline": "一只猫逃出航空箱，波士顿航班在滑行道上暂停",
+          "summary": "11月20日，达美航空2706号航班在波士顿准备起飞时，一只猫跑出航空箱，机组短暂停止滑行。小猫被重新安置后飞机继续出发，地面管制员在道别时还学了一声猫叫。",
+          "sources": [
+            {
+              "name": "波士顿25台：达美发言人与管制录音",
+              "url": "https://www.boston25news.com/news/local/not-your-typical-carry-on-loose-cat-causes-commotion-flight-leaving-logan-airport/4YIYQ7VQMVFF7BQZXXGXMM4IWQ/"
+            },
+            {
+              "name": "NBC波士顿：达美回应与管制录音",
+              "url": "https://www.nbcboston.com/news/local/loose-pet-plane-boston-logan-airport/4052928/"
+            },
+            {
+              "name": "达美航空宠物乘机规定",
+              "url": "https://www.delta.com/us/en/pet-travel/overview"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/KBOS_Aerial_NGS.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：波士顿洛根机场的旧航空测量图，并非事发画面。美国国家海洋和大气管理局航空测量项目，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "滑行道",
+              "type": "term",
+              "explanation": "滑行道是飞机在机场地面移动的通道，常把停机坪与跑道连起来。航班暂停时仍在地面滑行阶段，不是在起飞后返航。"
+            },
+            {
+              "term": "客舱宠物航空箱",
+              "type": "term",
+              "explanation": "达美允许符合条件的小型宠物随客进入客舱，但航空箱必须能放进前方座位下。按照该公司的规定，在飞机上宠物必须留在妥善关好的箱内。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "林务局的“大脚怪”档案重上新闻，内容并非存在证明",
+          "summary": "美国媒体11月21日至22日报道，美国林务局在10月15日把三份“大脚怪”相关材料列入公开阅览室，其中一份是1982年对俄勒冈州乌马蒂拉国家森林疑似足迹的调查。另两份是涉蒙大拿州足迹传闻的材料，公开这些记录不代表政府证实了传说。",
+          "sources": [
+            {
+              "name": "美国林务局公开阅览室",
+              "url": "https://www.fs.usda.gov/about-agency/foia/reading-room"
+            },
+            {
+              "name": "1982年足迹调查原件",
+              "url": "https://www.fs.usda.gov/sites/default/files/2026-10/June%2018%201982%20Bigfoot%20Tracks%20Investigation%20Umatilla%20NF.pdf"
+            },
+            {
+              "name": "KTVZ当地报道",
+              "url": "https://ktvz.com/news/2026/11/21/usda-quietly-releases-bigfoot-files-included-cases-in-the-pacific-northwest/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Bigfoot_leave_no_trace_USFS.jpeg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：美国林务局旧日户外宣传插画，并非传说生物的实拍。美国农业部林务局，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "大脚怪",
+              "type": "concept",
+              "explanation": "大脚怪又称萨斯夸奇，是北美民间传说中的一种人形生物。目击叙述与疑似足迹属于待查线索，不能单独证明一种生物存在。"
+            },
+            {
+              "term": "信息自由法阅览室",
+              "type": "term",
+              "explanation": "美国一些联邦机构会在公开阅览室预先发布经常被申请或已经公开的记录。公众可以先查阅这些文件，不必就同一材料另行申请。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "43.5秒画完自由女神像，画布一翻才看懂",
+          "summary": "吉尼斯世界纪录公布，美国表演画家戴维·加里波第在纽约布鲁克林用43.5秒画成自由女神像肖像，取得他首项吉尼斯纪录。观众起初只看到蓝绿色笔触，直到他把画布倒转，女神的脸才显现出来。",
+          "sources": [
+            {
+              "name": "吉尼斯世界纪录现场报道",
+              "url": "https://www.guinnessworldrecords.com/news/2026/11/speed-painter-celebrates-gwr-day-by-making-statue-of-liberty-portrait-in-under-1-minute"
+            },
+            {
+              "name": "吉尼斯世界纪录日",
+              "url": "https://www.guinnessworldrecords.com/gwrday"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Statue_of_Liberty_National_Monument_STLI4930.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：纽约自由女神像本体，并非现场画作。美国国家公园管理局数字影像档案，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "表演绘画",
+              "type": "concept",
+              "explanation": "表演绘画不仅展示作品，也把作画动作和呈现方式变成表演的一部分。这次把画面倒着画，再转正揭晓，便是演出的关键。"
+            },
+            {
+              "term": "吉尼斯世界纪录日",
+              "type": "term",
+              "explanation": "这一活动始于2004年，鼓励各地参与者尝试挑战纪录。2026年的活动在11月19日举行。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "佛州警方接到车库闯入报警，找到一只名叫“培根”的猪",
+          "summary": "11月20日合众国际社援引佛州卡塞尔伯里警方报道，警员本月初应居民报警赶到社区，发现躲进邻居车库的并不是人，而是一只走失的宠物猪。警员把它送回主人身边，警方发帖还打趣说，这位名叫“培根”的访客似乎只想找点宵夜。",
+          "sources": [
+            {
+              "name": "卡塞尔伯里警方原帖",
+              "url": "https://www.facebook.com/permalink.php?id=100069250627716&ref=embed_post&story_fbid=1452778780373796"
+            },
+            {
+              "name": "合众国际社报道",
+              "url": "https://www.upi.com/Odd_News/2026/11/20/casselberry-police-pig-bacon/8891795199569/"
+            },
+            {
+              "name": "Parade引述警方原帖",
+              "url": "https://parade.com/news/florida-police-catch-pig-intruder-named-bacon-in-neighbors-garage"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Pig_USDA01c0116.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：一只家猪幼崽，并非涉事宠物猪。Ken Hammond／美国农业部，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "培根（Bacon）",
+              "type": "term",
+              "explanation": "英语里的 bacon 通常指腌制的猪肉，也常译为烟肉。把这个词用作猪的名字，本身就是一个反差玩笑。"
+            },
+            {
+              "term": "卡塞尔伯里警察局",
+              "type": "org",
+              "explanation": "这是佛罗里达州卡塞尔伯里市的市警察机构，全天受理求助。警方在这起事件中负责应答报警并把动物送回主人身边。"
+            }
+          ],
+          "importance": "routine"
+        }
+      ]
+    },
+    {
+      "name": "科学与体育",
+      "items": [
+        {
+          "headline": "飞行八年，欧日联合探测器进入水星轨道",
+          "summary": "欧洲航天局任务团队在世界协调时间11月22日确认，贝皮科伦坡号已被水星引力捕获。欧洲的水星行星轨道器和日本的水星磁层轨道器目前仍连在一起，按计划将在12月分离。",
+          "sources": [
+            {
+              "name": "欧洲航天局运行团队",
+              "url": "https://bsky.app/profile/operations.esa.int/post/3n2uftyw2f22t"
+            },
+            {
+              "name": "欧洲航天局任务时间表",
+              "url": "https://www.esa.int/articles/about-us/directorates/science/bepicolombo/latest-updates-bepicolombo-s-arrival-at-mercury"
+            }
+          ],
+          "image": {
+            "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/p/i/a/1/PIA16853-1.jpg",
+            "credit": "资料图：信使号拍摄的水星增强色影像，非本次任务拍摄。NASA／约翰斯·霍普金斯大学应用物理实验室／卡内基科学研究所。"
+          },
+          "glossary": [
+            {
+              "term": "轨道捕获",
+              "type": "term",
+              "explanation": "探测器接近行星时需要减速，才能由飞掠变成环绕。贝皮科伦坡号先进入初始轨道，之后还要调整两个轨道器的位置。"
+            },
+            {
+              "term": "水星磁层",
+              "type": "concept",
+              "explanation": "水星磁场和太阳风相互作用，形成行星周围的一片磁场主导区域。日本的Mio轨道器主要研究这个区域及它与太阳风的相互作用。"
+            }
+          ],
+          "importance": "major"
+        },
+        {
+          "headline": "埃塞克斯一处保护地记录到111只罕见夜蛾，创项目纪录",
+          "summary": "埃塞克斯野生动物信托报告，阿博茨霍尔今年的成蛾调查记录到111只费氏河口蛾，创该保护项目纪录。项目先在地势较安全的地点栽种幼虫取食的寄主植物，随后于2010年引入蛾卵。",
+          "sources": [
+            {
+              "name": "埃塞克斯野生动物信托",
+              "url": "https://www.essexwt.org.uk/news/record-survey-season-rare-moth"
+            },
+            {
+              "name": "英国联合自然保护委员会",
+              "url": "https://sac.jncc.gov.uk/species/S4035/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Peucedanum_officinale_kz02.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：费氏河口蛾幼虫的寄主植物，摄于柏林植物园。Krzysztof Ziarnek（Kenraiz）摄，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/）。"
+          },
+          "glossary": [
+            {
+              "term": "寄主植物",
+              "type": "concept",
+              "explanation": "某些昆虫在幼虫期依赖特定植物取食或发育，这种植物叫寄主植物。费氏河口蛾在英国依赖的寄主植物是 Peucedanum officinale。"
+            },
+            {
+              "term": "成蛾调查",
+              "type": "term",
+              "explanation": "调查员在成蛾出现的季节记录观察到的个体。111只是调查中记下的数量，不是当地全部种群的估算。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "利物浦主场4比0击败曼联，约罗开场8分钟染红",
+          "summary": "当地时间11月22日，利物浦在安菲尔德4比0击败曼联，索博斯洛伊、维尔茨、恩古莫哈和穆尼奥斯各进一球。曼联后卫约罗第8分钟被直接罚下，索博斯洛伊随后用这次犯规换来的任意球打开比分。",
+          "sources": [
+            {
+              "name": "利物浦官方比赛报告",
+              "url": "https://lfcbeta.liverpoolfc.com/news/match-report-liverpool-4-0-manchester-united-premier-league"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Anfield_from_Stanley_Park_car_park_-_geograph.org.uk_-_7952456.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：从斯坦利公园望向安菲尔德球场，并非比赛现场。Mike Pennington／Geograph，CC BY-SA 2.0（https://creativecommons.org/licenses/by-sa/2.0/）。"
+          },
+          "glossary": [
+            {
+              "term": "直接任意球",
+              "type": "term",
+              "explanation": "直接任意球可以由主罚球员直接射门得分，不必先由另一名球员触球。索博斯洛伊正是用这种方式打进本场第一球。"
+            },
+            {
+              "term": "安菲尔德球场",
+              "type": "term",
+              "explanation": "安菲尔德是英格兰利物浦市的一座足球场，也是利物浦队主场。球队自1892年起在那里比赛。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "文班亚马砍下50分，马刺114比91击败鹈鹕",
+          "summary": "当地时间11月21日，圣安东尼奥马刺主场以114比91击败新奥尔良鹈鹕。最终官方技术统计显示，维克托·文班亚马29投20中，贡献50分、18个篮板、4次抢断和5次盖帽。",
+          "sources": [
+            {
+              "name": "NBA最终技术统计",
+              "url": "https://statsdmz.nba.com/pdfs/20261121/20261121_NOPSAS.pdf"
+            },
+            {
+              "name": "NBA翌日综述",
+              "url": "https://www.nba.com/news/starting-5-november-22-2026"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Victor_Wembanyama_San_Antonio_Spurs_2024.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：文班亚马2024年对波特兰开拓者时上场，非本场。Frenchieinportland／Wikimedia Commons，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。"
+          },
+          "glossary": [
+            {
+              "term": "进攻篮板",
+              "type": "term",
+              "explanation": "己方投篮未中后，本队抢回球权，就记作进攻篮板。这让球队不用先防完对手一轮，就能继续进攻。"
+            },
+            {
+              "term": "盖帽",
+              "type": "term",
+              "explanation": "防守球员合法触碰或拍掉对手的投篮，并使投篮不中，可以记为盖帽。它与抢断不同，后者通常发生在对手传球或运球时。"
+            }
+          ],
+          "importance": "notable"
+        }
+      ]
+    },
+    {
+      "name": "影视与明星",
+      "items": [
+        {
+          "headline": "《On Top of the Cliff》获塔林黑夜电影节大奖",
+          "summary": "恩里卡·佩雷斯执导的《On Top of the Cliff》获第 30 届塔林黑夜电影节主竞赛大奖，主演比安卡·布切利凭安娜一角获最佳女演员。大奖包含塔林市提供的 2 万欧元奖金，由导演和制片人分享。",
+          "sources": [
+            {
+              "name": "塔林黑夜电影节",
+              "url": "https://poff.ee/en/news/p-oe-ff-30-announced-the-winners/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/%D0%A2%D0%BE%D1%80%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9_%D1%86%D0%B5%D0%BD%D1%82%D1%80_Solaris_%28Solarise_keskus%29%2C_30.08.2012_-_panoramio.jpg",
+            "credit": "资料图：获奖片展映影院所在的塔林 Solaris 中心，Vadim Zhivotovsky 摄，CC BY 3.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "塔林黑夜电影节",
+              "type": "org",
+              "explanation": "这是在爱沙尼亚首都塔林举办的国际电影节，简称 PÖFF。除主竞赛外，电影节还设有面向导演首作等不同类型影片的竞赛。"
+            },
+            {
+              "term": "国际合拍片",
+              "type": "concept",
+              "explanation": "指由不同国家的制片方共同参与制作的影片。此次获奖片是墨西哥、秘鲁与瑞士的合拍作品。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "《Women and War》获阿姆斯特丹纪录片节观众奖",
+          "summary": "阿姆斯特丹国际纪录片节 11 月 20 日宣布，埃尔维拉·涅维拉的《Women and War》获得观众奖。影片跟随四名女性，她们在乌克兰山区的一间木屋接受心理辅导，尝试从战争带来的创伤中恢复。",
+          "sources": [
+            {
+              "name": "阿姆斯特丹国际纪录片节",
+              "url": "https://festival.idfa.nl/en/news/audience-award-2026/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Path%C3%A9_Tuschinski.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：本片在电影节期间放映的阿姆斯特丹图辛斯基影院，Fabio Bruna 摄，CC BY-SA 2.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "阿姆斯特丹国际纪录片节",
+              "type": "org",
+              "explanation": "简称 IDFA，在荷兰阿姆斯特丹举行，聚焦纪录片和非虚构影像。其竞赛奖由评委选出，观众奖则另有投票程序。"
+            },
+            {
+              "term": "观众奖",
+              "type": "award",
+              "explanation": "观众观看符合资格的影片后，可通过购票邮箱收到的链接评分。电影节本届为获奖影片提供 5000 欧元奖金。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "伍尔夫小说搬到当代尼日利亚，奥科内多凭《Clarissa》获奖",
+          "summary": "斯德哥尔摩国际电影节授予苏菲·奥科内多最佳女演员奖。她主演的《Clarissa》把弗吉尼亚·伍尔夫《达洛维夫人》的故事移到当代尼日利亚，由阿里·埃西里和丘科·埃西里执导。",
+          "sources": [
+            {
+              "name": "斯德哥尔摩国际电影节新闻稿",
+              "url": "https://www.mynewsdesk.com/se/stockholms_filmfestival/pressreleases/the-winners-of-the-stockholm-international-film-festival-2026-3479179"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Sophie_Okonedo_%2826810957362%29_%28cropped%29.jpg",
+            "credit": "苏菲·奥科内多 2016 年资料照，Greg2600 摄，维基共享资源裁切版，CC BY-SA 2.0。"
+          },
+          "glossary": [
+            {
+              "term": "《达洛维夫人》",
+              "type": "term",
+              "explanation": "弗吉尼亚·伍尔夫的小说以伦敦一天的生活为框架。女主人公克拉丽莎筹备晚宴时，叙事不断进入人物各自的记忆和思绪。"
+            },
+            {
+              "term": "苏菲·奥科内多",
+              "type": "person",
+              "explanation": "英国演员，活跃于电影、电视与舞台。她曾凭《卢旺达饭店》获奥斯卡最佳女配角提名。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "马拉喀什电影节开幕，玛丽昂·歌迪亚担任评审团主席",
+          "summary": "第 23 届马拉喀什国际电影节 11 月 20 日开幕，将持续至 28 日。官方公布的片单共有来自 39 个国家的 76 部影片，主竞赛评审团由法国演员玛丽昂·歌迪亚领衔。",
+          "sources": [
+            {
+              "name": "马拉喀什国际电影节官方片单",
+              "url": "https://marrakech-festival.com/wp-content/uploads/2026/11/FIFM26_-_CP_SELECTION_OFFICIELLE_ENG_c-1.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Marion_Cotillard-1127.jpg/1280px-Marion_Cotillard-1127.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "资料图：歌迪亚出席 2026 年威尼斯电影节，Harald Krichel / WikiPortraits，CC BY-SA 4.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "玛丽昂·歌迪亚",
+              "type": "person",
+              "explanation": "法国演员，曾在《玫瑰人生》中扮演歌手伊迪丝·琵雅芙。她凭该片获奥斯卡最佳女主角奖。"
+            },
+            {
+              "term": "阿特拉斯工作坊",
+              "type": "org",
+              "explanation": "这是马拉喀什电影节为电影人提供的行业发展项目，帮助项目推进创作和制作。本届官方选片中有 12 部影片曾获该项目支持。"
+            }
+          ],
+          "importance": "routine"
+        }
+      ]
+    },
+    {
+      "name": "书籍与作家",
+      "items": [
+        {
+          "headline": "保加利亚作家戈斯波迪诺夫在法国科涅克获颁让·莫内文学奖",
+          "summary": "保加利亚作家格奥尔基·戈斯波迪诺夫凭《园丁与死亡》法语版获得第 32 届让·莫内欧洲文学奖。颁奖礼安排在 11 月 21 日的法国科涅克欧洲文学节。",
+          "sources": [
+            {
+              "name": "科涅克欧洲文学节",
+              "url": "https://litteratures-europeennes.com/les-prix-litteraires/prix-jean-monnet/"
+            },
+            {
+              "name": "国际布克奖",
+              "url": "https://thebookerprizes.com/the-booker-library/books/time-shelter"
+            },
+            {
+              "name": "颁奖日期",
+              "url": "https://m.livreshebdo.fr/article/gueorgui-gospodinov-laureat-du-prix-jean-monnet-de-litterature-europeenne-2026"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/GeorgiGospodinov_%28cropped%29.jpg",
+            "credit": "戈斯波迪诺夫资料照，Mrs Robinson 摄，维基共享资源裁切版，公共领域。"
+          },
+          "glossary": [
+            {
+              "term": "让·莫内欧洲文学奖",
+              "type": "award",
+              "explanation": "该奖自 1995 年起表彰欧洲作家，参评作品须在评选周期内以法语写成或译成法语。法国夏朗德省为奖项提供 5000 欧元奖金。"
+            },
+            {
+              "term": "格奥尔基·戈斯波迪诺夫",
+              "type": "person",
+              "explanation": "保加利亚小说家、诗人和剧作家。他的《时间庇护所》与英译者安杰拉·罗德尔共同获得 2023 年国际布克奖。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "都柏林文学奖公布 2027 年提名，全球 90 家图书馆推荐 71 部小说",
+          "summary": "都柏林文学奖 11 月 18 日公布了 2027 年候选名单，71 部小说由来自 41 个国家的 90 家图书馆提名。按主办方日程，评委将在明年 2 月公布长名单，5 月揭晓得主。",
+          "sources": [
+            {
+              "name": "都柏林文学奖",
+              "url": "https://dublinliteraryaward.ie/"
+            },
+            {
+              "name": "2027 年完整提名表",
+              "url": "https://dublinliteraryaward.ie/wp-content/uploads/2026/11/DLA27-Nominated-titles_bybook_final.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Dublin_City_Hall_Exterior.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：奖项赞助方都柏林市议会的市政厅，Zairon 摄，CC BY 4.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "都柏林文学奖",
+              "type": "award",
+              "explanation": "该奖由都柏林市议会资助、都柏林市图书馆负责组织。参评小说可以是英语原创，也可以是出版了英译本的其他语言作品。"
+            },
+            {
+              "term": "图书馆提名",
+              "type": "concept",
+              "explanation": "这项文学奖由各地参与的图书馆推荐作品，而不是由出版社直接报送。初始提名可供读者查阅，但并不等同于评委随后选出的长名单。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "美国笔会公布文学资助访谈，口述史与文学翻译获支持",
+          "summary": "美国笔会 11 月 20 日发布本届文学资助获得者访谈，这批资助共计 9 万美元，覆盖 16 位作者和译者。项目之一将记录利比里亚橡胶种植园工人和家属的经历。",
+          "sources": [
+            {
+              "name": "美国笔会资助访谈",
+              "url": "https://pen.org/2027-literary-grant-winners-interview/"
+            },
+            {
+              "name": "美国笔会完整获资助名单",
+              "url": "https://pen.org/2027-literary-grant-winners/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/John_Updike%2C_author_at_PEN_Congress.jpg",
+            "credit": "资料图：作家约翰·厄普代克参加 1986 年笔会大会，Bernard Gotfryd 摄，美国国会图书馆馆藏，无已知发布限制。"
+          },
+          "glossary": [
+            {
+              "term": "文学口述史",
+              "type": "concept",
+              "explanation": "作者通过访谈收集亲历者的回忆，将容易在书面档案中被忽略的日常经验记录下来。在这批项目中，马文·加尔贝·戴维斯关注橡胶种植园工人及其社区。"
+            },
+            {
+              "term": "PEN／海姆翻译基金",
+              "type": "org",
+              "explanation": "美国笔会设立这项基金，为把各地作品译成英语的译者提供资助。它支持尚在进行的书稿，让译者有时间完成工作。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "唐·德里罗用笔名写的冰球小说《Amazons》重新出版",
+          "summary": "美国出版社Scribner于11月17日再版唐·德里罗1980年以笔名克利奥·伯德韦尔发表的小说《Amazons》。故事借自传口吻讲述一位虚构的女冰球员在纽约游骑兵队效力的第一个完整赛季。",
+          "sources": [
+            {
+              "name": "Scribner出版页",
+              "url": "https://www.simonandschuster.com/books/Amazons/Cleo-Birdwell/9781668260647"
+            },
+            {
+              "name": "作家经纪机构",
+              "url": "https://www.robinstrausagency.com/don-delillo"
+            },
+            {
+              "name": "《出版人周刊》11月20日报道",
+              "url": "https://www2.publishersweekly.com/pw/by-topic/industry-news/publisher-news/article/101830-don-delillo-s-slapshot.html"
+            },
+            {
+              "name": "美国国会图书馆照片档案",
+              "url": "https://www.loc.gov/pictures/item/2020730627/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Don_DeLillo%2C_author.jpg/960px-Don_DeLillo%2C_author.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "资料图：唐·德里罗，纽约，1988年。Bernard Gotfryd 摄，美国国会图书馆馆藏，无已知发布限制。"
+          },
+          "glossary": [
+            {
+              "term": "克利奥·伯德韦尔",
+              "type": "person",
+              "explanation": "这是德里罗署在书上的笔名，也是小说主角的名字。副标题把她称为首位在北美职业冰球联盟打球的女性，但这是小说设定，并非体育史记载。"
+            },
+            {
+              "term": "纽约游骑兵队",
+              "type": "org",
+              "explanation": "纽约游骑兵队是真实存在的北美职业冰球队。德里罗把真实球队写进虚构回忆录，让小说读起来更像球员自述。"
+            }
+          ],
+          "importance": "routine"
+        }
+      ]
+    },
+    {
+      "name": "美女与野兽",
+      "gallery": [
+        {
+          "kind": "person",
+          "caption": "2024年巴黎奥运会女子体操团体决赛上的西蒙娜·拜尔斯。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Simone_Biles_Paris_Olympics.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Ocoudis 摄，CC0 1.0，维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Simone_Biles_Paris_Olympics.jpg"
+          }
+        },
+        {
+          "kind": "person",
+          "caption": "安雅·泰勒-乔伊离开2024年戛纳电影节《疯狂的麦克斯：狂暴女神》记者会。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Anya_Taylor-Joy_at_the_2024_Cannes_Film_Festival.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Frank Sun 摄，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Anya_Taylor-Joy_at_the_2024_Cannes_Film_Festival.jpg"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "乌干达的鲸头鹳。宽大的喙像一只木鞋，也给这种涉禽起了另一个名字：鞋嘴鹳。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/8/81/The_shoebill_portrait.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Jameswasswa 摄，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:The_shoebill_portrait.jpg"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "印度尼西亚蓝碧海域的孔雀螳螂虾，甲壳上的颜色一层接一层。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Peacock_mantis_shrimp_(Odontodactylus_scyllarus)_(24408552006).jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Rickard Zerpe 摄，CC BY-SA 2.0（https://creativecommons.org/licenses/by-sa/2.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Peacock_mantis_shrimp_(Odontodactylus_scyllarus)_(24408552006).jpg"
+          }
+        }
+      ]
+    },
+    {
+      "name": "天涯海角",
+      "place": {
+        "name": "希腊·德尔斐",
+        "paragraphs": [
+          "说到世界中心，容易想到一块平坦开阔、四面都看得见的地方。德尔斐却在帕尔纳索斯山的坡上，进了古遗址就得一路往上。通往阿波罗神庙的圣道沿坡绕行，两旁从前立着希腊各城邦的宝库和奉献给神明的雕塑和纪念物。那是一条带着礼物来求问神谕的路，也是各城邦把名字留在这里的地方。",
+          "古希腊人有另一种说法。宙斯从世界两端各放出一只鹰，鸟在这处山坡上相遇，世间便有了一个可以指给人看的中心。考古博物馆收藏的“世界之脐”是一块卵形石，曾装在一根雕刻着舞者的柱子顶端。石面凸起的交叉纹路，模仿的是覆盖圣石的羊毛网。仔细看一看，一个关于整个世界的故事，最后落在了这么具体的手工细节上。",
+          "剧场的位置比神庙更高。照片从上方往下拍，半圆的石座、神庙残柱和远处山谷依次落进画面。站在这里回想两只鹰，会很自然地把视线从建筑挪向山的两头。这里的高低和远近，给那个原本只讲相遇的故事添上了地形。",
+          "很久以后，古遗址上盖起了一个叫卡斯特里的村子。为了进行大规模发掘，希腊和法国协商迁走原地的村庄，法国雅典学院在1892年开始发掘。如今有人沿圣道看古代宝库，十九世纪末的发掘记录里却还能看到另一个德尔斐的层次。山坡上曾经有神庙、住家和工地，今天所见的石头也保留了这些时代留下的痕迹。"
+        ],
+        "photos": [
+          {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Panoramic_view_of_the_Apollo_Temple_in_Delphi.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Kim Bach 摄，CC BY-SA 2.0（https://creativecommons.org/licenses/by-sa/2.0/），维基共享资源。",
+            "caption": "德尔斐的古剧场、阿波罗神庙与山坡全景。"
+          },
+          {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Delphi_omphalos.jpg",
+            "credit": "Helen Simonsson 摄，CC BY-SA 3.0（https://creativecommons.org/licenses/by-sa/3.0/），维基共享资源。",
+            "caption": "德尔斐考古博物馆收藏的世界之脐石，石面保留着绳网状刻纹。"
+          }
+        ]
+      }
+    },
+    {
+      "name": "维基漫游",
+      "wiki": {
+        "title": "奥特维尔故居",
+        "originalTitle": "Hauteville House",
+        "tagline": "《悲惨世界》写成于一座临海的白房子，室内布置出自雨果自己。",
+        "body": "根西岛的圣彼得港有一座临海的白房子，名叫奥特维尔故居。1856年，流亡中的维克多·雨果用诗集《沉思集》带来的收入买下它，在这里住到1870年。巴黎市的博物馆资料把《悲惨世界》《海上劳工》和《笑面人》都列在这座房子里诞生的作品中。屋外是海峡，屋内却有一个由雨果自己布置的世界。\n\n他在岛上逛旧货铺，带回柜子、箱子和陶器，把各处搜罗来的物件放在一起，做成带有中世纪气息的室内装饰。红客厅、餐厅的壁炉、冬日花园和名为“瞭望间”的房间，都保留了他亲手规划这座房子的痕迹。读过《海上劳工》以后，再看一眼这座朝向海的房子，会发现作家笔下的根西岛也有很具体的地形和光线。\n\n雨果离开后又几次回到这里。1927年，他的后人把房子赠给巴黎市，于是巴黎在海峡群岛有了一座自己的博物馆。两张外墙照片相隔约一个半世纪，一张拍于雨果仍住在这里的年代，一张拍于2006年。现在还能在照片中辨认同一座屋子，也能顺着这些窗户想象，当初那位在岛上四处淘旧家具的人是怎样过日子的。",
+        "images": [
+          {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Fa%C3%A7ade_d%27Hauteville_House%2C_2007.0.16FOL31.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "奥特维尔故居外墙，约1860至1861年。摄影者不详，巴黎博物馆联盟／雨果故居博物馆，CC0 1.0。"
+          },
+          {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Hauteville_House_Victor_Hugo_in_Guernsey.jpg",
+            "credit": "奥特维尔故居外墙，2006年。Man vyi 摄，公有领域。"
+          }
+        ],
+        "sourceUrl": "https://en.wikipedia.org/wiki/Hauteville_House"
+      }
+    },
+    {
+      "name": "笑话",
+      "items": [
+        {
+          "text": "a sign of great disrespect",
+          "translation": "极其不尊重的表现",
+          "note": "节选。说的是未经幼儿邀请就跟他们一起唱。",
+          "authorName": "Thrilla the Gorilla",
+          "handle": "@ThrillaRilla369",
+          "url": "https://x.com/ThrillaRilla369/status/2122060685912011082"
+        },
+        {
+          "text": "that incorrect password that just failed",
+          "translation": "刚才没通过的那个错误密码",
+          "note": "节选。吐槽密码管理器在登录失败后还来问要不要保存。",
+          "authorName": "Mike Healy",
+          "handle": "@mike_hasarms",
+          "url": "https://x.com/mike_hasarms/status/2122224255261917506"
+        },
+        {
+          "text": "Gen X will be running orientation.",
+          "translation": "X 世代将负责带大家熟悉情况。",
+          "note": "节选。作者说，互联网若断了，大家就在图书馆见。",
+          "authorName": "𝓐 ⭑",
+          "handle": "@ayojoestar",
+          "url": "https://x.com/ayojoestar/status/2122773031089037569"
+        },
+        {
+          "text": "Can…can I join, too?",
+          "translation": "我……我也能参加吗？",
+          "note": "节选。主人听完狗狗托儿所的日程以后问。",
+          "authorName": "The Real Rodney Lacroix",
+          "handle": "@RealRodLacroix",
+          "url": "https://x.com/RealRodLacroix/status/2122867791933943974"
+        },
+        {
+          "text": "roleplaying with you",
+          "translation": "跟你玩角色扮演",
+          "note": "节选。吐槽现在搜谷歌，感觉像找了个即兴搭档。",
+          "authorName": "ratz 🐀",
+          "handle": "@hom0emo_",
+          "url": "https://x.com/hom0emo_/status/2122868872717983912"
+        },
+        {
+          "text": "my spaghetti appointment",
+          "translation": "我的意大利面预约",
+          "note": "节选。作者说，到餐厅报预约时有种奇妙的尴尬。",
+          "authorName": "D",
+          "handle": "@more_dreM",
+          "url": "https://x.com/more_dreM/status/2119185305412735434"
+        },
+        {
+          "text": "anything being that hilarious",
+          "translation": "有任何事好笑到那个程度",
+          "note": "节选。作者看着镜子里的笑纹，想不起自己什么时候笑得那么厉害。",
+          "authorName": "Fuckin’ Princess",
+          "handle": "@8WithaTiara",
+          "url": "https://x.com/8WithaTiara/status/2119495301883138547"
+        },
+        {
+          "text": "the last four people",
+          "translation": "前面那四个人",
+          "note": "节选。听到客服说通话可能录音，作者想让客服把自己前四次解释的问题直接放一遍。",
+          "authorName": "Amelia",
+          "handle": "@amelia_tweetz",
+          "url": "https://x.com/amelia_tweetz/status/2119501319987958017"
+        },
+        {
+          "text": "gas station sushi",
+          "translation": "加油站寿司",
+          "note": "节选。作者拿它比喻自己对自动驾驶汽车的信任程度。",
+          "authorName": "Uncle Bob 🍩",
+          "handle": "@UncleBob56",
+          "url": "https://x.com/UncleBob56/status/2119439887963173212"
+        },
+        {
+          "text": "thinking it’s a Christmas wreath.",
+          "translation": "还以为它是圣诞花环。",
+          "note": "节选。作者一直把 🥗 当成花环发出去。",
+          "authorName": "WhatserName",
+          "handle": "@IamEveryDayPpl",
+          "url": "https://x.com/IamEveryDayPpl/status/2120691156883550573"
+        }
+      ]
+    }
+  ]
+}
