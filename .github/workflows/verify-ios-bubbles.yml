@@ -15,3 +15,36 @@ jobs:
       - uses: actions/checkout@v4
       - name: Compile iOS simulator app
         run: xcodebuild -quiet -project OverseasDigest.xcodeproj -scheme OverseasDigest -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+      - name: Smoke-test gravity on both axes and horizontal rail
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          source = Path("OverseasDigest/HomeView.swift").read_text()
+          board = source.split("private struct GravityBubbleBoard {",1)[1].split("@MainActor\nprivate final class BubbleGravity",1)[0]
+          Path("/tmp/OwlGravitySmoke.swift").write_text("import Foundation\nimport CoreGraphics\nstruct GravityBubbleBoard {" + board + """
+          let area = GravityBubbleBoard.Area.cloud(width: 355, diameters: [112, 94, 86, 80, 75, 70, 61, 61])
+          var cloud = GravityBubbleBoard(area: area)
+          let starting = cloud.bubbles.map(\\.center)
+          precondition(starting.map(\\.x).max()! > area.width * 0.65)
+          precondition(starting.map(\\.y).max()! > area.height * 0.5)
+          for _ in 0..<80 { cloud.step(x: 410, y: 510, delta: 0.02) }
+          precondition(zip(starting, cloud.bubbles).contains { start, bubble in
+              abs(start.x - bubble.center.x) > 4 && abs(start.y - bubble.center.y) > 4
+          })
+          precondition(cloud.bubbles.allSatisfy { item in
+              item.center.x - item.radius >= 0 && item.center.x + item.radius <= area.width
+              && item.center.y - item.radius >= 0 && item.center.y + item.radius <= area.height
+          })
+          let lane = GravityBubbleBoard.Area(width: 390, height: 78, diameters: [68, 68, 68, 68], horizontal: true)
+          var rail = GravityBubbleBoard(area: lane)
+          let initial = rail.bubbles[0].center.x
+          for _ in 0..<70 { rail.step(x: 500, y: 2500, delta: 0.02) }
+          let right = rail.bubbles[0].center.x
+          precondition(right > initial + 25)
+          for _ in 0..<70 { rail.step(x: -500, y: -2500, delta: 0.02) }
+          precondition(rail.bubbles[0].center.x < right - 25)
+          precondition(rail.bubbles.allSatisfy { $0.center.y == lane.height / 2 })
+          print("Packing, portrait gravity, confinement, and horizontal reversal passed.")
+          """)
+          PY
+          swift /tmp/OwlGravitySmoke.swift
