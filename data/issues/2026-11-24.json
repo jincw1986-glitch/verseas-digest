@@ -1,0 +1,995 @@
+{
+  "date": "2026-11-24",
+  "title": "2026年11月24日 · 海外资讯简报",
+  "sections": [
+    {
+      "name": "每日一图",
+      "photo": {
+        "title": "从卫星上看，阿塔卡马沙漠开花了",
+        "interpretation": "智利北部科皮亚波西南的一片山坡上，棕色荒地间出现了一道道紫红色斑块。这张图是陆地卫星9号在10月24日拍到的。对照9月14日同一地点的卫星图，可以看到山坡的轮廓相同，紫红色却还没有大面积出现。\n\n当地冬季罕见的充沛降水让埋在土里的休眠种子发芽。入春后，花从地面上成片开放，颜色甚至能在卫星图上辨认。研究人员当天也来到现场拍照，判断图里大片的紫红色主要来自Cistanthe 属的花，具体是哪一种仍有待确认。\n\n从地面看，人能认出一朵花的形状，却很难看清整片山坡开到了哪里。卫星能一次看到许多山坡，再隔一段时间回看同一片地面。把两种视角合起来，才能知道这些紫红色是什么，又在沙漠里铺开了多远。",
+        "image": {
+          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-ni%C3%B1o-rains-paint-the-atacama/atacamabloom_oli2_20261024.jpg?fit=clip&h=1042&w=768",
+          "credit": "NASA Earth Observatory／Michala Garrison 制图，使用美国地质调查局 Landsat 9 数据，2026年10月24日。"
+        },
+        "sources": [
+          {
+            "name": "NASA 地球观测站：阿塔卡马沙漠花开（两期卫星图对照）",
+            "url": "https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/"
+          },
+          {
+            "name": "2026年9月14日同一地点的卫星图",
+            "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-ni%C3%B1o-rains-paint-the-atacama/atacamabloom_oli_20260914.jpg?fit=clip&h=1042&w=768"
+          }
+        ]
+      }
+    },
+    {
+      "name": "国际政治与时事",
+      "items": [
+        {
+          "headline": "欧委会提出第22轮对俄制裁，拟把约60家银行排除出SWIFT",
+          "summary": "欧盟委员会11月23日公布新一轮对俄制裁方案，提出对约60家俄罗斯银行扩大交易禁令，并将它们排除出SWIFT。方案还涉及加密货币和支付网络，目前是提案，并非已经生效。",
+          "sources": [
+            {
+              "name": "欧盟委员会",
+              "url": "https://cyprus.representation.ec.europa.eu/news/statement-president-von-der-leyen-22nd-package-sanctions-against-russia-2026-11-23_en"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/European_Commission_flags.jpg/960px-European_Commission_flags.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "Sébastien Bertrand／Wikimedia Commons，CC BY 2.0（https://creativecommons.org/licenses/by/2.0/）；布鲁塞尔欧委会大楼外的旗帜资料照。"
+          },
+          "glossary": [
+            {
+              "term": "SWIFT",
+              "type": "org",
+              "explanation": "SWIFT是金融机构交换跨境支付等业务报文的网络。它传递标准化指令，本身不负责划转资金。"
+            },
+            {
+              "term": "欧盟制裁方案",
+              "type": "term",
+              "explanation": "欧盟委员会可以提出新的限制性措施。提案不能直接等同于已经通过、公布并生效的制裁。"
+            }
+          ]
+        },
+        {
+          "headline": "联合国安理会听取乌克兰局势通报，联合国再促停火",
+          "summary": "联合国副秘书长迪卡洛11月23日在安理会说，前一晚基辅州一处住宅楼遇袭，造成11人死亡、6人受伤。她重申联合国秘书长关于立即、全面和无条件停火的呼吁。",
+          "sources": [
+            {
+              "name": "联合国政治和建设和平事务部",
+              "url": "https://dppa.un.org/en/news/remarks-by-usg-dicarlo-to-the-security-council-on-ukraine-as-delivered"
+            },
+            {
+              "name": "欧盟驻联合国代表团",
+              "url": "https://www.eeas.europa.eu/delegations/un-new-york/eu-statement-un-security-council-maintenance-peace-and-security-ukraine-7_en?s=63"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/United_Nations_Headquarters_-_Security_Council_chamber%2C_straight-on_view.jpg/960px-United_Nations_Headquarters_-_Security_Council_chamber%2C_straight-on_view.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "Jdforrester／Wikimedia Commons，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）；安理会会议厅资料照，非该次会议。"
+          },
+          "glossary": [
+            {
+              "term": "迪卡洛",
+              "type": "person",
+              "explanation": "罗斯玛丽·迪卡洛是联合国主管政治和建设和平事务的副秘书长。她此番以联合国高级官员身份向安理会通报乌克兰局势。"
+            },
+            {
+              "term": "基辅州",
+              "type": "term",
+              "explanation": "基辅州是围绕乌克兰首都基辅的州级行政区。首都基辅市本身是另设的行政单位，不能把基辅州事件直接写成基辅市事件。"
+            }
+          ]
+        },
+        {
+          "headline": "英国与欧盟结束青年交流谈判，计划允许往返居住最长三年",
+          "summary": "英国和欧盟在11月20日布鲁塞尔峰会上确认青年交流计划已结束谈判，方案拟允许双方各10万名年轻人赴对方居住最长三年。双方还确认英国将在2027年参与伊拉斯谟＋计划。",
+          "sources": [
+            {
+              "name": "英国政府：峰会联合声明",
+              "url": "https://www.gov.uk/government/publications/ukeu-summit-2026-key-documents/uk-eu-summit-2026-joint-statement-html"
+            },
+            {
+              "name": "欧盟理事会：峰会联合声明",
+              "url": "https://www.consilium.europa.eu/media/ccpczdvj/joint-statement-eu-uk-summit-20-november-2026.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Union_jack_and_eu_brexit.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "TeroVesalainen／Wikimedia Commons，CC0 1.0；英国和欧盟旗帜资料图，非峰会现场。"
+          },
+          "glossary": [
+            {
+              "term": "青年交流计划",
+              "type": "term",
+              "explanation": "这项计划涵盖工作、学习、志愿服务及旅行等用途。联合声明提出争取不晚于2028年适用协议，并力争不晚于2030年1月向年轻人提供机会。"
+            },
+            {
+              "term": "伊拉斯谟＋",
+              "type": "org",
+              "explanation": "这是欧盟在教育、培训、青年和体育领域支持跨境合作与交流的项目。参加该项目和获得另一项青年居留安排是两回事。"
+            }
+          ]
+        },
+        {
+          "headline": "法国前总理德维尔潘宣布参选2027年总统",
+          "summary": "法国前总理多米尼克·德维尔潘11月20日宣布角逐2027年总统选举，并将公共债务和法国的国际影响力列为竞选议题。他已推出竞选网站。",
+          "sources": [
+            {
+              "name": "德维尔潘竞选网站",
+              "url": "https://villepin.fr/"
+            },
+            {
+              "name": "美联社现场报道",
+              "url": "https://apnews.com/article/abd1b09867e78f646245f3202821ca35"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/De_Villepin_PM_portrait.png?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "法国总理府摄影服务处／Wikimedia Commons，Licence Ouverte 1.0（https://www.etalab.gouv.fr/licence-ouverte-open-licence）；2005年官方资料照。"
+          },
+          "glossary": [
+            {
+              "term": "多米尼克·德维尔潘",
+              "type": "person",
+              "explanation": "德维尔潘是法国政治人物，2005年至2007年担任总理。他此前还担任过法国外交部长。"
+            },
+            {
+              "term": "法国总统选举",
+              "type": "term",
+              "explanation": "法国总统由选民直接选出。首轮没有候选人获得过半有效选票时，得票最多的两人进入第二轮。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "经济与市场",
+      "items": [
+        {
+          "headline": "纽约联储行长：美国经济有韧性，但通胀仍高于目标",
+          "summary": "纽约联储行长威廉姆斯11月23日说，按个人消费支出价格指数衡量，美国通胀约为3.5%，仍高于美联储2%的目标。他表示，判断今后的货币政策路径仍需综合最新数据。",
+          "sources": [
+            {
+              "name": "纽约联储：演说要点",
+              "url": "https://tellerwindow.newyorkfed.org/2026/11/23/key-takeaways-from-president-williamss-speech-on-the-economic-outlook-and-monetary-policy-28/"
+            },
+            {
+              "name": "纽约联储：演说全文",
+              "url": "https://www.newyorkfed.org/newsevents/speeches/2026/wil261123"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/John_C._Williams.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "纽约联储／Wikimedia Commons，美国公有领域；约翰·威廉姆斯官方肖像。"
+          },
+          "glossary": [
+            {
+              "term": "个人消费支出价格指数",
+              "type": "term",
+              "explanation": "个人消费支出价格指数衡量家庭消费商品和服务的价格变化。美联储以这一指标衡量其长期通胀目标。"
+            },
+            {
+              "term": "通胀目标",
+              "type": "concept",
+              "explanation": "通胀目标是央行希望物价在较长时期达到的增长率。美联储的2%目标不是说每个月的通胀都必须恰好等于2%。"
+            }
+          ]
+        },
+        {
+          "headline": "欧元区11月综合PMI初值持平，德法经济景气分化",
+          "summary": "标普全球11月23日发布的欧元区综合采购经理指数初值为51.7，与上月持平。调查显示德国企业活动增长较快，而法国的企业活动仍显疲弱。",
+          "sources": [
+            {
+              "name": "标普全球：欧元区初值解读",
+              "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/11/steady-eurozone-flash-pmi-masks-widening-growth-disparities"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/European_Central_Bank_%28EZB%29%2C_Frankfurt%2C_Germany.jpg/960px-European_Central_Bank_%28EZB%29%2C_Frankfurt%2C_Germany.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "Foeniz／Wikimedia Commons，CC BY-SA 4.0（https://creativecommons.org/licenses/by-sa/4.0/）；法兰克福欧洲央行总部资料照。"
+          },
+          "glossary": [
+            {
+              "term": "综合采购经理指数",
+              "type": "term",
+              "explanation": "综合采购经理指数汇总制造业和服务业企业调查中的产出情况。指数高于50通常表示企业活动较上月扩张，但它不是GDP增速。"
+            },
+            {
+              "term": "初值",
+              "type": "concept",
+              "explanation": "初值是统计机构或调查机构在最终统计之前公布的早期结果。调查样本补齐后，最后公布的数字可能有所调整。"
+            }
+          ]
+        },
+        {
+          "headline": "加拿大9月零售额环比增0.8%，加油站贡献较大",
+          "summary": "加拿大统计局11月20日公布，9月零售额环比增长0.8%至753亿加元，主要受加油站和燃料销售商推动。扣除价格变化后，销量仅增加0.1%。",
+          "sources": [
+            {
+              "name": "加拿大统计局：9月零售报告",
+              "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/261120/dq261120a-eng.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Interior_Toronto_Eaton_Centre_looking_north.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Mamonello／Wikimedia Commons，CC BY 2.0（https://creativecommons.org/licenses/by/2.0/）；多伦多伊顿中心资料照。"
+          },
+          "glossary": [
+            {
+              "term": "名义零售额",
+              "type": "term",
+              "explanation": "名义零售额按交易时价格计算。即使实际卖出的商品数量变化不大，价格上涨也能带动名义销售额上升。"
+            },
+            {
+              "term": "核心零售额",
+              "type": "term",
+              "explanation": "加拿大统计局的核心零售额剔除了加油站、燃料销售商及汽车和零部件经销商。这个口径有助于观察其他零售部门的变化。"
+            }
+          ]
+        },
+        {
+          "headline": "大不列颠10月零售销量环比回升0.7%",
+          "summary": "英国国家统计局11月20日公布，大不列颠10月零售销量环比上升0.7%，而9月修订后为下降0.6%。截至10月的三个月合计销量比此前三个月增长0.4%。",
+          "sources": [
+            {
+              "name": "英国国家统计局：10月零售销售",
+              "url": "https://backup.ons.gov.uk/wp-content/uploads/sites/3/2026/11/Retail-sales-Great-Britain-October-2026.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Shops_on_the_High_Street_-_geograph.org.uk_-_5981243.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "James Emmans／Geograph／Wikimedia Commons，CC BY-SA 2.0（https://creativecommons.org/licenses/by-sa/2.0/）；英格兰沃金商业街资料照。"
+          },
+          "glossary": [
+            {
+              "term": "零售销量",
+              "type": "term",
+              "explanation": "销量口径剔除了价格变化，衡量消费者实际买到的货物数量。它与按支付金额计算的零售额不同。"
+            },
+            {
+              "term": "移动三个月比较",
+              "type": "concept",
+              "explanation": "移动三个月比较把最新连续三个月与此前连续三个月相比较。单月容易受假期、天气或促销影响，较长窗口有助于分辨趋势。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科技与人工智能",
+      "items": [
+        {
+          "headline": "麻省理工学院介绍让小模型在本机优化模拟电路的方法",
+          "summary": "麻省理工学院11月23日介绍SLIC训练方法，研究团队用它训练了一个约40亿参数的模型，让模型在电路模拟器里反复调参。论文显示，该模型在特定放大器设计测试中超过了体量更大的参照模型；这还不是对所有芯片设计任务的比较。",
+          "sources": [
+            {
+              "name": "麻省理工学院新闻网",
+              "url": "https://news.mit.edu/2026/ai-driven-technique-could-help-engineers-design-analog-chips-faster-and-less-expensive-1123"
+            },
+            {
+              "name": "研究论文",
+              "url": "https://arxiv.org/abs/2611.13452v1"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Great_Dome,_Massachusetts_Institute_of_Technology,_Cambridge_MA.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Great_Dome%2C_Massachusetts_Institute_of_Technology%2C_Cambridge_MA.jpg",
+            "credit": "资料图：麻省理工学院大圆顶。John Phelan 摄，CC BY 3.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "模拟集成电路",
+              "type": "concept",
+              "explanation": "这类电路处理连续变化的电压或电流，例如放大无线信号或读取温度传感器。设计时往往要同时兼顾放大倍数、稳定性和功耗，改进其中一项未必能改善其他指标。"
+            },
+            {
+              "term": "电路仿真",
+              "type": "concept",
+              "explanation": "工程师可以先用软件估算电路在不同条件下的表现，不必每调整一次参数就制造一块芯片。研究中的小模型把仿真反馈当作下一轮修改的依据，但真正制造出来的芯片仍需测试。"
+            }
+          ]
+        },
+        {
+          "headline": "亚马逊签约购买Decart的AI优化技术，交易尚待审查",
+          "summary": "亚马逊11月23日宣布签约购买Decart优化工具背后的专有技术，并计划让三名联合创办人及研究和工程团队加入。双方自2025年起已在亚马逊自研Trainium芯片上合作，此次交易仍待监管批准等常规交割条件满足。",
+          "sources": [
+            {
+              "name": "亚马逊公告",
+              "url": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Amazon_Spheres_01.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Amazon_Spheres_01.jpg",
+            "credit": "资料图：美国西雅图的亚马逊球形办公建筑。Joe Mabel 摄，CC BY-SA 4.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "Trainium",
+              "type": "term",
+              "explanation": "Trainium是亚马逊云服务设计的一系列人工智能加速芯片，为模型训练及运行提供算力。能否把芯片性能用足，也取决于上层软件如何安排计算和分配内存。"
+            },
+            {
+              "term": "推理",
+              "type": "concept",
+              "explanation": "模型训练结束后，根据用户输入算出回答、图像或预测的过程叫推理。优化推理可以缩短等待时间或降低每次请求的算力成本，不等于改变模型训练时学到的内容。"
+            }
+          ]
+        },
+        {
+          "headline": "OpenAI首席科学家提议用困惑度帮助设定AI研发门槛",
+          "summary": "OpenAI首席科学家雅各布·帕乔茨基11月22日发文，建议先进模型开发者用困惑度等指标衡量进展，并约定在达到明确的安全监测目标前不越过共同设定的研发门槛。他也指出，不同实验室用的测试数据并不一致，这些数值不能拿来直接比较。",
+          "sources": [
+            {
+              "name": "雅各布·帕乔茨基署名原文",
+              "url": "https://openai.com/index/perplexity-and-intelligence/"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:1515_Third_Street.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/1515_Third_Street.jpg",
+            "credit": "资料图：2025年拍摄的旧金山OpenAI办公室外观。Coolcaesar 摄，CC BY 4.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "困惑度",
+              "type": "concept",
+              "explanation": "困惑度衡量语言模型预测下一个词元有多不确定。使用同一套测试数据和计量方式时，得分越低通常意味着预测得越准，但它不能直接告诉我们模型在某个实际任务上有多可靠。"
+            },
+            {
+              "term": "预训练",
+              "type": "concept",
+              "explanation": "预训练通常让模型在大量文本或代码上学习预测后续内容，形成基础能力。教模型更好地遵循指令、回答问题或使用工具，则通常属于之后的训练阶段。"
+            }
+          ]
+        },
+        {
+          "headline": "三星发布双模式电竞显示器，低分辨率下最高1100赫兹",
+          "summary": "三星11月23日宣布推出27英寸Odyssey G6（G60H）：在HD模式下最高1100赫兹，在2560×1440的QHD模式下最高600赫兹。英国市场计划12月开售，实际刷新率还取决于游戏与信号源的性能。",
+          "sources": [
+            {
+              "name": "三星英国新闻中心",
+              "url": "https://news.samsung.com/uk/samsung-launches-odyssey-g6-the-worlds-first-1100hz-gaming-monitor"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Samsung_LC27F591FDEXZW_front_20191229.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Samsung_LC27F591FDEXZW_front_20191229.jpg",
+            "credit": "资料图：三星展示的另一款27英寸显示器，非此次新品。Solomon203 摄，CC BY-SA 4.0，维基共享资源。"
+          },
+          "glossary": [
+            {
+              "term": "刷新率",
+              "type": "concept",
+              "explanation": "刷新率以赫兹计，表示屏幕每秒最多可以更新多少次画面。它不同于游戏实际生成的帧率，显卡如果每秒只输出较少的新画面，高刷新率也不会让游戏凭空多出新帧。"
+            },
+            {
+              "term": "双模式显示",
+              "type": "term",
+              "explanation": "这款显示器的双模式让用户在两种分辨率与刷新率搭配之间切换。像素更少时，每帧需要传输和处理的数据通常更少，因此可以换取更高的刷新上限。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "社会与荒诞",
+      "items": [
+        {
+          "headline": "新加坡一座商场电影院变身图书馆，书架从地板通向天花板",
+          "summary": "新加坡宏茂桥图书馆11月20日迁入宏茂桥坊四楼重新开放，利用原电影院的挑高空间装设落地书架。馆内另设环绕式屏幕和更多自习座位。",
+          "sources": [
+            {
+              "name": "宏茂桥坊：迁址重开",
+              "url": "https://amk-hub.com/news/ang-mo-kio-library-amk-hub-reopening-2026"
+            },
+            {
+              "name": "新加坡亚洲新闻台：到馆报道",
+              "url": "https://www.channelnewsasia.com/singapore/new-ang-mo-kio-library-amk-hub-reopen-bookshelves-study-spaces-6568976"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/%28SGP-Singapore%29_AMK_Hub_Exterior_2024-05-19.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "S5A-0043／Wikimedia Commons，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）；宏茂桥坊商场外观资料照，并非新馆内景。"
+          },
+          "glossary": [
+            {
+              "term": "宏茂桥图书馆",
+              "type": "org",
+              "explanation": "这所公共图书馆位于新加坡宏茂桥。原馆设在宏茂桥6道，新馆迁至宏茂桥坊。"
+            },
+            {
+              "term": "建筑再利用",
+              "type": "concept",
+              "explanation": "建筑再利用把已有空间改作新的用途。这座改建图书馆利用电影院留下的挑高空间，形成了以高书架为特色的公共阅读区。"
+            }
+          ]
+        },
+        {
+          "headline": "英国切斯特动物园迎来独角犀牛幼崽，监控拍下第一步",
+          "summary": "切斯特动物园11月19日公布，一头名叫阿莎的印度犀在约15个月孕期后产下幼崽，监控记录了出生和初次站立的过程。园方说，母子均健康，幼崽是欧洲保育繁殖计划的一员。",
+          "sources": [
+            {
+              "name": "切斯特动物园",
+              "url": "https://www.chesterzoo.org/news/greater-one-horned-rhino-born-at-chester-zoo"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Greater_one-horned_rhino%2C_Chester_Zoo.jpg",
+            "credit": "Nigel Swales／Wikimedia Commons，CC BY-SA 2.0（https://creativecommons.org/licenses/by-sa/2.0/）；同园印度犀资料照，并非新生幼崽。"
+          },
+          "glossary": [
+            {
+              "term": "印度犀",
+              "type": "term",
+              "explanation": "印度犀又称大独角犀牛，现有野生种群主要分布在印度和尼泊尔。它的皮肤有明显褶皱，看起来像披着甲片。"
+            },
+            {
+              "term": "保育繁殖",
+              "type": "concept",
+              "explanation": "保育繁殖指在受管理的种群中有计划地繁殖受威胁动物。管理机构会兼顾种群的健康和遗传多样性。"
+            }
+          ]
+        },
+        {
+          "headline": "香港文物探知馆展出赤洲出土的恐龙化石",
+          "summary": "香港文物探知馆11月20日起免费展出66组展品，其中包括在赤洲出土的所有恐龙化石。香港发展局说，部分骨骼可能来自同一只巨龙形类恐龙。",
+          "sources": [
+            {
+              "name": "香港发展局",
+              "url": "https://www.devb.gov.hk/en/publications_and_press_releases/press/index_id_15659.html"
+            },
+            {
+              "name": "香港古物古迹办事处：展览详情",
+              "url": "https://www.amo.gov.hk/en/visitor-centre/exhibitions/heritage-discovery-centre/dinosaur-exhibition/index.html"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Kowloon_Park_201008.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Baycrest／Wikimedia Commons，CC BY-SA 2.5（https://creativecommons.org/licenses/by-sa/2.5/）；展馆所在的九龙公园资料照，非展览现场。"
+          },
+          "glossary": [
+            {
+              "term": "赤洲",
+              "type": "term",
+              "explanation": "赤洲又称Port Island，是香港的一座岛屿。2024年起，当地研究和发掘团队在岛上调查恐龙化石。"
+            },
+            {
+              "term": "巨龙形类",
+              "type": "term",
+              "explanation": "巨龙形类是蜥脚类恐龙中的一个演化分支，包含多种长颈植食恐龙。骨骼零碎时，研究者可能只能判断大致类群，不能确定种名。"
+            }
+          ]
+        },
+        {
+          "headline": "日本国立汉森病资料馆排映纪录片，追溯台湾乐生院搬迁争议",
+          "summary": "日本国立汉森病资料馆安排11月23日举行纪录片《大风之岛》的日本首映，并计划在放映后安排导演许雅婷见观众。电影围绕台湾乐生疗养院居民争取保留原有院区的经历展开。",
+          "sources": [
+            {
+              "name": "日本国立汉森病资料馆",
+              "url": "https://www.nhdm.jp/en/events/list/10295/?fontSize=2"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/National_Hansen%27s_Disease_Museum.JPG?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Waka77／Wikimedia Commons，CC0 1.0；日本国立汉森病资料馆外观资料照。"
+          },
+          "glossary": [
+            {
+              "term": "乐生疗养院",
+              "type": "org",
+              "explanation": "乐生疗养院位于台湾新北市，其设立可追溯到日治时期。曾在此长期隔离生活的住民后来参与了反迁移和保存院区的行动。"
+            },
+            {
+              "term": "汉森病",
+              "type": "term",
+              "explanation": "汉森病是麻风病的另一名称，由麻风分枝杆菌等病原体引起。历史上的强制隔离政策给许多患者带来了长期社会排斥。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科学与体育",
+      "items": [
+        {
+          "headline": "贝皮科伦坡号绕水星一圈约75小时，后续点火方案已调整",
+          "summary": "欧洲航天局11月23日说，贝皮科伦坡号入轨点火因软件问题提前结束，只完成约77%的预定速度变化，实际进入周期约75小时的稳定轨道，原计划为58小时。地面团队已调整后续机动方案，无须增加点火次数，两台探测器仍按计划于德国时间12月9日、日本时间12月10日分离。",
+          "sources": [
+            {
+              "name": "欧洲航天局11月23日任务更新",
+              "url": "https://www.esa.int/et/articles/about-us/directorates/operations/bepicolombo-safely-in-mercury-orbit-despite-unexpected-challenge"
+            },
+            {
+              "name": "欧洲航天局飞掠资料图与署名",
+              "url": "https://www.esa.int/ESA_Multimedia/Images/2025/01/Lava_and_debris_brighten_Mercury_s_surface"
+            }
+          ],
+          "image": {
+            "url": "https://media.esa.int/legacy/web/images/esa_multimedia/images/2025/01/lava_and_debris_brighten_mercury_s_surface/26527329-1-eng-GB/284640/image-thumb__284640__fit_large/Lava_and_debris_brighten_Mercury_s_surface.c90b434b.webp",
+            "credit": "资料图：贝皮科伦坡号2025年1月8日第六次飞掠水星时拍摄，并非本次入轨画面。ESA/BepiColombo/MTM，CC BY-SA 3.0 IGO（https://creativecommons.org/licenses/by-sa/3.0/igo/）。"
+          },
+          "glossary": [
+            {
+              "term": "安全模式",
+              "type": "term",
+              "explanation": "航天器遭遇异常时可以自动暂停非必要活动，以保护自己。贝皮科伦坡号重新与地面取得联系后，遥测确认它已进入这一模式。"
+            },
+            {
+              "term": "轨道周期",
+              "type": "concept",
+              "explanation": "轨道周期是航天器沿同一轨道绕天体一周所需的时间。贝皮科伦坡号当前约75小时，比任务原先预计的58小时多17小时。"
+            }
+          ]
+        },
+        {
+          "headline": "韦布从爆炸残骸中找出恒星临终前的线索",
+          "summary": "11月23日公布的观测显示，韦布望远镜在仙后座A超新星残骸中分辨出成分各异的尘埃团。研究团队认为，这些成分差异支持一个推断：原来的恒星在爆炸前可能仅数小时就发生了内部燃烧层混合。",
+          "sources": [
+            {
+              "name": "欧洲航天局韦布团队发布",
+              "url": "https://esawebb.org/news/weic2624/"
+            },
+            {
+              "name": "美国航天局研究解读",
+              "url": "https://science.nasa.gov/missions/webb/nasas-webb-shows-how-supernova-dust-chronicles-star-evolution/"
+            },
+            {
+              "name": "韦布原图与署名",
+              "url": "https://esawebb.org/images/weic2624a/"
+            }
+          ],
+          "image": {
+            "url": "https://cdn.esawebb.org/archives/images/screen/weic2624a.jpg",
+            "credit": "NASA, ESA, CSA, T. Temim (Columbia University), R. Arendt (UMBC), D. Milisavljevic (Purdue University). Image Processing: J. DePasquale (STScI). CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。"
+          },
+          "glossary": [
+            {
+              "term": "超新星残骸",
+              "type": "term",
+              "explanation": "大质量恒星爆炸后，会把气体和尘埃抛到周围空间。残骸保留这些物质，有时能帮助研究者倒推原恒星内部的结构。"
+            },
+            {
+              "term": "燃烧层混合",
+              "type": "concept",
+              "explanation": "大质量恒星演化后期，不同深度可能发生不同种类的核聚变。相邻燃烧层的物质一旦混在一起，恒星爆炸所释放的物质配比也可能改变。"
+            }
+          ]
+        },
+        {
+          "headline": "马克·马尔克斯葡萄牙站第八，提前夺得第八座MotoGP顶级组冠军",
+          "summary": "11月22日，杜卡迪车手马克·马尔克斯在葡萄牙大奖赛正赛拿到第八，凭赛季积分提前锁定第八座MotoGP顶级组世界冠军。马尔科·贝泽奇赢得本站正赛，豪尔赫·马丁和劳尔·费尔南德斯分列第二、第三，前三名都骑阿普利亚赛车。",
+          "sources": [
+            {
+              "name": "MotoGP官方赛报",
+              "url": "https://www.motogp.com/en/news/2026/11/22/bezzecchi-wins-in-portugal-as-marc-marquez-finishes-p8-to-clinch-his-8th-motogp-title/1186076"
+            },
+            {
+              "name": "图片出处与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Marc_M%C3%A1rquez_at_the_pit_lane_during_the_2025_Italian_motorcycle_Grand_Prix.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Marc_M%C3%A1rquez_at_the_pit_lane_during_the_2025_Italian_motorcycle_Grand_Prix.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：马克·马尔克斯在2025年意大利大奖赛维修区，非本站画面。TeamEG00 摄，作者已释放至公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "车手世界冠军",
+              "type": "award",
+              "explanation": "车手冠军按全赛季个人积分决定，不要求夺冠者赢下最后一场比赛。某站结束后若剩余积分已不足以让对手反超，领先者就能提前夺冠。"
+            },
+            {
+              "term": "制造商积分榜",
+              "type": "term",
+              "explanation": "这张积分榜衡量赛车制造商的赛季成绩，与车手个人积分榜分开。本站阿普利亚包揽领奖台，而车手冠军归杜卡迪车手。"
+            }
+          ]
+        },
+        {
+          "headline": "旧金山49人在墨西哥城35比10胜维京人，主帅累计百胜",
+          "summary": "当地时间11月22日，旧金山49人在墨西哥城班奥特球场以35比10击败明尼苏达维京人，四分卫布罗克·珀迪送出三次达阵传球。这场比赛是主教练凯尔·沙纳汉执教生涯第100胜，这一总数包含季后赛。",
+          "sources": [
+            {
+              "name": "旧金山49人队官方赛报",
+              "url": "https://www.49ers.com/news/49ers-deliver-35-10-victory-over-vikings-in-mexico-city-takeaways-from-minvssf"
+            },
+            {
+              "name": "比赛中心",
+              "url": "https://www.49ers.com/game-day/2026/reg-week11/vikings-at-49ers/"
+            },
+            {
+              "name": "球场资料图与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:Estadio_Azteca,_Mexico_City,_Mexico.jpg"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Estadio_Azteca%2C_Mexico_City%2C_Mexico.jpg/960px-Estadio_Azteca%2C_Mexico_City%2C_Mexico.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "资料图：2026年5月的班奥特球场（阿兹特克球场），并非比赛现场。ProtoplasmaKid 摄，原图已裁剪，CC BY 4.0（https://creativecommons.org/licenses/by/4.0/）。"
+          },
+          "glossary": [
+            {
+              "term": "达阵传球",
+              "type": "term",
+              "explanation": "四分卫传球后，接球队友在对方端区完成接球或持球冲入端区，可记为达阵传球。一次达阵本身值六分，之后球队还可尝试附加得分。"
+            },
+            {
+              "term": "NFL国际赛",
+              "type": "term",
+              "explanation": "NFL会把部分常规赛安排在美国境外举行。墨西哥城这场虽然不在两队平时的主场，结果仍照常计入常规赛排名。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "影视与明星",
+      "items": [
+        {
+          "headline": "从油港希望到社区悲剧，《Whiddy》获科克电影节长片观众奖",
+          "summary": "科克国际电影节11月23日宣布，阿德里安·麦卡锡执导、布伦达·莫里西联合执导的《Whiddy》获长片观众奖。纪录片制作历时七年，讲述爱尔兰西科克一处社区迎来跨国石油公司后，如何面对随之发生的悲剧及其问责问题。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/The_Everyman_Palace_-_geograph.org.uk_-_6039527.jpg",
+            "credit": "资料图：科克电影节闭幕放映场地 Everyman 剧院。N Chadwick，CC BY-SA 2.0。"
+          },
+          "sources": [
+            {
+              "name": "科克国际电影节：闭幕与观众奖",
+              "url": "https://corkfilmfest.org/71st-festival-wraps-up-and-announces-audience-award-winners/"
+            },
+            {
+              "name": "剧院资料照片与授权",
+              "url": "https://commons.wikimedia.org/wiki/File:The_Everyman_Palace_-_geograph.org.uk_-_6039527.jpg"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "班特里湾",
+              "type": "term",
+              "explanation": "班特里湾位于爱尔兰西南部科克郡沿海。纪录片的故事从当地乡村社区迎来石油企业讲起。"
+            },
+            {
+              "term": "观众奖",
+              "type": "concept",
+              "explanation": "观众奖体现参加电影节的观众偏好，不等同于评审团授予的竞赛大奖。科克电影节分别给长片和短片设立观众奖。"
+            }
+          ],
+          "importance": "notable"
+        },
+        {
+          "headline": "丹麦片《The Guest》获希洪电影节 Albar 单元最佳长片",
+          "summary": "西班牙希洪国际电影节公布第64届竞赛结果，马斯·门格尔执导的丹麦电影《The Guest》拿下 Albar 单元最佳长片。同一单元的最佳女演员由日本影片《Fujiko》的片山友希获得。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Tatro_Jovellanos_Gij%C3%B3n.jpg",
+            "credit": "资料图：《The Guest》本届放映场地之一、希洪霍韦利亚诺斯剧院。Bonnot，CC0 1.0。"
+          },
+          "sources": [
+            {
+              "name": "希洪电影节第64届获奖名单",
+              "url": "https://ficx.tv/palmares/"
+            },
+            {
+              "name": "电影节：Albar 主竞赛",
+              "url": "https://ficx.tv/seccion-oficial/albar/"
+            },
+            {
+              "name": "电影节：剧院与放映记录",
+              "url": "https://ficx.tv/sedes/teatro-jovellanos/"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "希洪国际电影节",
+              "type": "term",
+              "explanation": "电影节在西班牙北部阿斯图里亚斯的希洪举行。节方在西班牙语与当地阿斯图里亚斯语中分别使用 Gijón 和 Xixón。"
+            },
+            {
+              "term": "Albar",
+              "type": "term",
+              "explanation": "这是希洪电影节聚焦当代作者电影的主竞赛单元。它与另设奖项的 Retueyos 和 FICX Premiere 单元分别评选。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "戛纳评审团大奖得主《Minotaur》重返塞萨洛尼基银幕",
+          "summary": "塞萨洛尼基电影节11月23日宣布，安德烈·兹维亚金采夫的《Minotaur》将重回当地电影节影院的放映节目。影片此前为第67届塞萨洛尼基国际电影节揭幕，也是法国选送奥斯卡国际影片奖的作品。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/The_Cinema_Olympion_At_The_Square_Aristotle_%28156816069%29.jpeg",
+            "credit": "资料图：希腊塞萨洛尼基亚里士多德广场上的 Olympion 影院。Mick D Kirkov，CC0 1.0。"
+          },
+          "sources": [
+            {
+              "name": "塞萨洛尼基电影节11月23日放映公告",
+              "url": "https://filmfestival.gr/en/newsroom/news/to-teras-einai-an8rwpino-o-minwtayros-toy-antrei-zbiagkintsef-sto-olympion/"
+            },
+            {
+              "name": "Olympion 资料图与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:The_Cinema_Olympion_At_The_Square_Aristotle_(156816069).jpeg"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "安德烈·兹维亚金采夫",
+              "type": "person",
+              "explanation": "他是俄罗斯电影导演，拍过《利维坦》和《无爱可诉》。这部作品把一个商人面对的婚姻危机和战争征召放在同一故事里。"
+            },
+            {
+              "term": "国际影片奖选送",
+              "type": "concept",
+              "explanation": "奥斯卡国际影片奖允许各国或地区各提交一部作品参选。被一国选送只是进入竞逐程序，不等于已经获得奥斯卡提名。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "手绘瓷砖动画《Virgin Fandango》获葡萄牙科英布拉电影节大奖",
+          "summary": "葡萄牙Caminhos电影节11月21日公布获奖名单，玛西·佩奇执导的音乐动画短片《Virgin Fandango》获得科英布拉市大奖。这部葡萄牙和加拿大合拍的短片用约1.2万块手绘瓷砖创作，也在埃斯皮纽的CINANIMA动画节葡萄牙竞赛单元获得安东尼奥·加约奖。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Museu_Nacional_do_Azulejo%2C_Lisbon%2C_townscape_azulejo.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "工艺参考图：里斯本葡萄牙国家瓷砖博物馆收藏的一件城市景观瓷砖画，Gerda Arendt 摄，CC0 1.0。"
+          },
+          "sources": [
+            {
+              "name": "Caminhos电影节：2026年获奖名单",
+              "url": "https://www.caminhos.info/2026/11/palmares-32-a-edicao/"
+            },
+            {
+              "name": "CINANIMA动画节：2026年获奖名单",
+              "url": "https://cinanima.pt/premiados-cinanima-2026/"
+            },
+            {
+              "name": "葡萄牙短片推广机构：创作材料与制作方",
+              "url": "https://www.agencia.curtas.pt/news/show/2452"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "彩绘瓷砖（azulejo）",
+              "type": "term",
+              "explanation": "Azulejo是葡萄牙语里装饰瓷砖的名称。多块砖可拼成墙上的图案或叙事画面，这部短片把瓷砖用作逐格变化的动画画面。"
+            },
+            {
+              "term": "定格动画",
+              "type": "concept",
+              "explanation": "定格动画把物件或人物每次移动后的状态拍成一格，再把照片连续播放形成动作。片中的瓷砖画面逐格变化，瓷砖本身的笔触和表面质地也跟着进入影像。"
+            }
+          ],
+          "importance": "routine"
+        }
+      ]
+    },
+    {
+      "name": "书籍与作家",
+      "items": [
+        {
+          "headline": "《东京都同情塔》作者与意大利语译者同获东京—罗马文学奖",
+          "summary": "日本作家九段理江与译者加拉·玛丽亚·福拉科凭《东京都同情塔》获得第五届东京—罗马文学奖。日文原版于2024年由新潮社出版，意大利语版于2025年由 Ippocampo 出版，主办方将在11月27日于东京举办颁奖活动。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Tokyo_Metropolitan_Government_Building.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "题材参考：现实中的东京都厅大楼，不是封面或小说中虚构的塔。百楽兎摄，CC BY-SA 3.0，原图。"
+          },
+          "sources": [
+            {
+              "name": "东京意大利文化会馆：获奖及颁奖安排",
+              "url": "https://iictokyo.esteri.it/ja/gli_eventi/calendario/tokyo-roma-parole-in-transito-cerimonia-di-premiazione-2/"
+            },
+            {
+              "name": "ANSA：11月23日报道",
+              "url": "https://www.ansa.it/english/news/news_from_embassies/2026/11/23/rie-qudan-and-gala-maria-follaco-receive-the-tokyo-rome_a4279579-b4bd-430c-b70a-2f127ee9be1d.html"
+            },
+            {
+              "name": "配图出处",
+              "url": "https://commons.wikimedia.org/wiki/File:Tokyo_Metropolitan_Government_Building.jpg"
+            },
+            {
+              "name": "图片许可",
+              "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "东京—罗马文学奖",
+              "type": "term",
+              "explanation": "这一奖项旨在让更多意大利读者接触日本当代文学。评奖对象是日本小说及其意大利语译本，原作者和译者共同获奖。"
+            },
+            {
+              "term": "文学翻译",
+              "type": "term",
+              "explanation": "文学翻译除了传达情节，还要让读者听见人物说话的语气和叙述节奏。遇到依赖当地语境的用语，译者往往要在解释背景与保留阅读流畅感之间取舍。"
+            }
+          ]
+        },
+        {
+          "headline": "拉希达·布拉克尼的小说《La part absente》获吉赛尔·阿利米文学奖",
+          "summary": "法国出版业媒体《Livres Hebdo》11月23日报道，拉希达·布拉克尼凭小说《La part absente》获得第四届吉赛尔·阿利米文学奖。小说由 Stock 出版，主人公把名字 Karima 改成 Karina；一个字母的变化，牵出她想隐藏的家庭经历和阿尔及利亚战争带来的创伤。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Promenade_Gis%C3%A8le-Halimi%2C_Paris_7e_2.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "背景图：巴黎以吉赛尔·阿利米命名的步道，不是颁奖现场。Polymagou 摄，CC BY-SA 4.0，原图。"
+          },
+          "sources": [
+            {
+              "name": "Livres Hebdo：11月23日获奖报道",
+              "url": "https://www.livreshebdo.fr/article/rachida-brakni-laureate-du-prix-gisele-halimi-2026"
+            },
+            {
+              "name": "巴黎律师公会：活动及评奖规则",
+              "url": "https://www.avocatparis.org/agenda-des-evenements/prix-litteraire-gisele-halimi"
+            },
+            {
+              "name": "Stock 出版社：原书简介",
+              "url": "https://www.editions-stock.fr/livre/la-part-absente-9782234098374/"
+            },
+            {
+              "name": "配图出处",
+              "url": "https://commons.wikimedia.org/wiki/File:Promenade_Gis%C3%A8le-Halimi,_Paris_7e_2.jpg"
+            },
+            {
+              "name": "图片许可",
+              "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "吉赛尔·阿利米文学奖",
+              "type": "term",
+              "explanation": "这项文学奖以律师吉赛尔·阿利米命名。第四届由巴黎律师公会公布规则，评选2026年1月1日至10月1日出版的法语虚构作品。"
+            },
+            {
+              "term": "阿尔及利亚战争",
+              "type": "term",
+              "explanation": "这场战争始于1954年，1962年以阿尔及利亚脱离法国殖民统治并获得独立告终。小说把这段历史写进主人公的成长和家庭记忆，而不是从战事本身展开。"
+            }
+          ]
+        },
+        {
+          "headline": "法国科幻图像小说《Silent Jenny》推出英文版",
+          "summary": "企鹅兰登书目显示，马蒂厄·巴布莱的科幻图像小说《Silent Jenny》英文版定于11月24日发行。书中，传粉昆虫在气候变化后的世界消失，研究人员珍妮试图恢复蜜蜂种群，却发现要重建家园得先让流动岛屿上的社群合作。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Mathieu_Bablet_2023.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：作者马蒂厄·巴布莱，2023 年。librairie mollat，CC BY 3.0。"
+          },
+          "sources": [
+            {
+              "name": "企鹅兰登书目：英文版出版日与内容",
+              "url": "https://www.penguinrandomhouse.com/books/839614/silent-jenny-by-mathieu-bablet/"
+            },
+            {
+              "name": "作者资料照片与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:Mathieu_Bablet_2023.jpg"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "图像小说",
+              "type": "term",
+              "explanation": "图像小说用连续漫画格与文字叙事，通常以单册或较长篇幅呈现。它可以讲述科幻、纪实或回忆录，并不特指某一种题材。"
+            },
+            {
+              "term": "传粉",
+              "type": "concept",
+              "explanation": "花粉从雄蕊转移到雌蕊柱头的过程有助于许多植物结籽或结果。蜜蜂等动物搬运花粉，风也能为一些植物传粉。"
+            }
+          ],
+          "importance": "routine"
+        },
+        {
+          "headline": "帕特森与前检察官合写的新庭审小说《The Murder Trial》出版",
+          "summary": "詹姆斯·帕特森的官方网站列出，他与南希·艾伦合写的《The Murder Trial》于11月23日由 Little, Brown 出版。故事围绕一名被控杀害父母的年轻女子的审判展开；合著者艾伦曾在密苏里州从事检察工作。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/James_Patterson_at_the_Library_of_Congress_National_Book_Festival_on_August_24%2C_2024_%28cropped%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "资料图：詹姆斯·帕特森在 2024 年美国国会图书馆国家图书节。Shawn Miller／美国国会图书馆，CC0 1.0；图源已裁切。"
+          },
+          "sources": [
+            {
+              "name": "帕特森官方网站：小说与出版信息",
+              "url": "https://www.jamespatterson.com/titles/james-patterson/the-murder-trial/9780316601702/"
+            },
+            {
+              "name": "作者资料照片与许可",
+              "url": "https://commons.wikimedia.org/wiki/File:James_Patterson_at_the_Library_of_Congress_National_Book_Festival_on_August_24,_2024_(cropped).jpg"
+            }
+          ],
+          "glossary": [
+            {
+              "term": "南希·艾伦",
+              "type": "person",
+              "explanation": "她在密苏里州从事法律工作约十五年，参加过三十多宗由陪审团审理的案件。她此前已与帕特森合写过《Juror #3》等法庭小说。"
+            },
+            {
+              "term": "法庭悬疑",
+              "type": "term",
+              "explanation": "这类小说常把证据、证词及双方交锋作为悬念的来源。读者看到的不只是案件经过，还包括庭审如何重建那段经过。"
+            }
+          ],
+          "importance": "routine"
+        }
+      ]
+    },
+    {
+      "name": "美女与野兽",
+      "gallery": [
+        {
+          "kind": "person",
+          "caption": "艾玛·斯通在2025年威尼斯电影节为影片《拯救地球》（Bugonia）亮相。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Emma_Stone_at_Venice_Film_Festival_for_%22Bugonia%22.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Sofia Luna Cabras 摄，CC0 1.0，维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Emma_Stone_at_Venice_Film_Festival_for_%22Bugonia%22.jpg"
+          }
+        },
+        {
+          "kind": "person",
+          "caption": "科科·高芙在2022年美国网球公开赛上。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Coco_Gauff.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "All-Pro Reels 摄，CC BY-SA 2.0（https://creativecommons.org/licenses/by-sa/2.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Coco_Gauff.jpg"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "加州莫罗湾，一只海獭裹着海带漂在水面休息。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/California_Sea_Otter.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Mike Baird 摄，CC BY 2.0（https://creativecommons.org/licenses/by/2.0/），维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:California_Sea_Otter.jpg"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "夏威夷毛伊岛，绿海龟甲壳上的纹路一块挨着一块。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Green_Sea_Turtle%2C_Maui.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Bernard Spragg. NZ 摄，CC0 1.0，维基共享资源"
+          },
+          "source": {
+            "name": "维基共享资源",
+            "url": "https://commons.wikimedia.org/wiki/File:Green_Sea_Turtle,_Maui.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "name": "天涯海角",
+      "place": {
+        "name": "爱沙尼亚·塔林老城",
+        "paragraphs": [
+          "从托姆佩阿山往下看，塔林的红瓦屋顶挤得很密，远处才露出一片海。脚下是石灰岩高地，城堡和上城在这里占着高处；过去的商人则大多住在坡下。把视线顺着屋顶挪向海边，就能明白这座港城为什么长成了上下两截。",
+          "下城保留着中世纪的街巷格局。行会会馆、商人的房子和市政厅并不整齐地排在一条观光大道上，而是散在窄巷和广场之间。今天站在市政厅广场，仍可以从那些朝向街道的门辨认出一座贸易城市的生活：议事、会客、开店，都离得很近。",
+          "广场角落的市政厅药房最早见于1422年的市政记录，确切的开业时间反而没人知道。它现在还在原址营业，店里另有一小处展览，讲早年的药方和药具。城墙告诉人塔林怎样守住自己，这间还开着门的老药房，则留下了一点城里人当年怎样过日子的线索。"
+        ],
+        "photos": [
+          {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/View_over_Old_Town_from_Toompea_-_Tallinn_-_Estonia_%2835895837881%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "Adam Jones 摄，CC BY-SA 2.0（https://creativecommons.org/licenses/by-sa/2.0/），维基共享资源",
+            "caption": "从托姆佩阿高地眺望塔林下城。"
+          }
+        ]
+      }
+    }
+  ]
+}
