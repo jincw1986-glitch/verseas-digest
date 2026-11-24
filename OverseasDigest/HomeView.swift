@@ -1,4 +1,5 @@
 import SwiftUI
+import AVFoundation
 
 struct HomeView: View {
     @EnvironmentObject private var model: DigestModel
@@ -37,13 +38,15 @@ struct DigestOverview: View {
 
     @EnvironmentObject private var model: DigestModel
     @Environment(\.colorScheme) private var colorScheme
-    @Environment(\.dynamicTypeSize) private var typeSize
     @AppStorage(DigestAppearance.storageKey) private var appearance: DigestAppearance = .system
     @State private var showsDirectory = false
     @State private var readingRoute: ReadingRoute?
     @State private var finishedReading = false
     @State private var pageTurn = 0
     @State private var mastheadVisible = true
+    @AppStorage("overviewOpenedEntries") private var openedEntries = Data()
+    @AppStorage("overviewReadEntries") private var readEntries = Data()
+    @AppStorage("overviewBubbleSound") private var bubbleSound = true
 
     private struct ReadingRoute: Hashable {
         let section: String
@@ -95,7 +98,7 @@ struct DigestOverview: View {
                     dailyPhoto(photo, section: section)
                 }
                 if !issue.readingSections.isEmpty {
-                    categoryMosaic
+                    categoryBubbles
                 }
             }
             .padding(.horizontal, 16)
@@ -116,6 +119,10 @@ struct DigestOverview: View {
             if let section = issue.sections.first(where: { $0.name == route.section }) {
                 IssueBody(issue: issue, section: section, page: route.page, onReading: {
                     if readingRoute == route { finishedReading = true }
+                }, onPageOpened: { index in
+                    openedEntries = adding(entryKey(section, index), to: openedEntries)
+                }, onPageRead: { index in
+                    readEntries = adding(entryKey(section, index), to: readEntries)
                 })
             }
         }
@@ -242,6 +249,20 @@ struct DigestOverview: View {
         readingRoute = ReadingRoute(section: section.name, page: page)
     }
 
+    private func entryKey(_ section: DigestSection, _ index: Int) -> String {
+        "\(issue.date)\u{1f}\(section.name)\u{1f}\(section.bubbleHeadline(at: index))"
+    }
+
+    private func entryKeys(in data: Data) -> Set<String> {
+        (try? JSONDecoder().decode(Set<String>.self, from: data)) ?? []
+    }
+
+    private func adding(_ key: String, to data: Data) -> Data {
+        var entries = entryKeys(in: data)
+        guard entries.insert(key).inserted else { return data }
+        return (try? JSONEncoder().encode(entries)) ?? data
+    }
+
     private var editionDate: some View {
         Text(ChineseDate.string(from: issue.date))
             .font(.system(.subheadline, design: .serif, weight: .semibold))
@@ -309,7 +330,7 @@ struct DigestOverview: View {
         .accessibilityHint("阅读图片背后的故事")
     }
 
-    private var categoryMosaic: some View {
+    private var categoryBubbles: some View {
         VStack(alignment: .leading, spacing: 0) {
             Divider()
             ViewThatFits(in: .horizontal) {
@@ -325,39 +346,19 @@ struct DigestOverview: View {
             }
             .padding(.vertical, 12)
             Rectangle().fill(.primary).frame(height: 1)
-            mosaicTiles.padding(.top, 10)
-        }
-    }
-
-    @ViewBuilder
-    private var mosaicTiles: some View {
-        let sections = rankedSections
-        if typeSize.isAccessibilitySize || sections.count < 3 {
-            VStack(spacing: 10) {
-                ForEach(sections.indices, id: \.self) { index in
-                    tile(sections[index], index: index)
-                }
-            }
-        } else {
-            HStack(alignment: .top, spacing: 10) {
-                tile(sections[0], index: 0)
-                VStack(spacing: 10) {
-                    tile(sections[1], index: 1)
-                    tile(sections[2], index: 2)
-                }
-            }
-            LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible())], spacing: 10) {
-                ForEach(sections.indices.dropFirst(3), id: \.self) { index in
-                    tile(sections[index], index: index)
-                }
-            }
+            let opened = entryKeys(in: openedEntries)
+            let read = entryKeys(in: readEntries)
+            BubbleOverview(
+                sections: rankedSections,
+                soundEnabled: $bubbleSound,
+                hasOpened: { section, page in opened.contains(entryKey(section, page)) },
+                isFinished: { section in
+                    section.entryCount > 0 && (0..<section.entryCount).allSatisfy { read.contains(entryKey(section, $0)) }
+                },
+                open: { section, page in open(section, page: page) }
+            )
+            .id(issue.date)
             .padding(.top, 10)
-        }
-    }
-
-    private func tile(_ section: DigestSection, index: Int) -> some View {
-        OverviewCategoryTile(section: section, position: index) { page in
-            open(section, page: page)
         }
     }
 
@@ -394,149 +395,428 @@ private struct MastheadVisibility: PreferenceKey {
     }
 }
 
-private struct OverviewCategoryTile: View {
-    let section: DigestSection
-    let position: Int
-    let open: (Int) -> Void
+private struct BubbleOverview: View {
+    let sections: [DigestSection]
+    @Binding var soundEnabled: Bool
+    let hasOpened: (DigestSection, Int) -> Bool
+    let isFinished: (DigestSection) -> Bool
+    let open: (DigestSection, Int) -> Void
 
-    private var isLead: Bool { position == 0 }
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @ScaledMetric(relativeTo: .body) private var storyDiameter: CGFloat = 68
+    @State private var requested: String?
+    @State private var displayed: DigestSection?
+    @State private var pressed: String?
+    @State private var pressure: CGFloat = 0
+    @State private var motion: BubbleMotion?
+    @State private var transition: Task<Void, Never>?
+    @State private var rebound: Task<Void, Never>?
+    @State private var railWidth: CGFloat = 0
+    @State private var railOffset: CGFloat = 0
 
-    private var counts: [Int] {
-        let totals = section.importanceCounts
-        return NewsImportance.allCases.map { totals[$0, default: 0] }
-    }
-
-    private var headlineIndex: Int? {
-        guard let first = section.items.indices.first else { return nil }
-        let highestRank = section.items.compactMap { $0.importance?.rank }.max()
-        guard let highestRank else { return first }
-        return section.items.firstIndex { $0.importance?.rank == highestRank }
-    }
-
-    private var preview: (picture: DigestPicture, page: Int)? {
-        if let index = headlineIndex, let picture = section.items[index].image {
-            return (picture, index)
-        }
-        if let index = section.items.firstIndex(where: { $0.image != nil }), let picture = section.items[index].image {
-            return (picture, index)
-        }
-        if let picture = section.place?.photos.first?.picture ?? section.gallery.first?.image ?? section.wiki?.images.first {
-            return (picture, 0)
-        }
-        return nil
+    private struct BubbleMotion {
+        let started: Date
+        let exiting: Bool
+        let width: CGFloat
+        let offset: CGFloat
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            let preview = preview
-            Button {
-                open(preview?.page ?? 0)
-            } label: {
-                VStack(alignment: .leading, spacing: 0) {
-                    if let preview {
-                        Color.clear
-                            .frame(height: isLead ? 178 : 76)
-                            .frame(maxWidth: .infinity)
-                            .overlay {
-                                DigestPhoto(picture: preview.picture, fillsFrame: true, isInteractive: false)
-                                    .allowsHitTesting(false)
-                                    .accessibilityHidden(true)
-                            }
-                            .clipped()
-                    }
-                    summary
-                        .padding(isLead ? 14 : 11)
+        VStack(alignment: .leading, spacing: 14) {
+            BubblePacking(pressed: pressed, pressure: pressure) {
+                ForEach(sections) { section in
+                    categoryButton(section)
                 }
-                .frame(maxWidth: .infinity, alignment: .topLeading)
-                .contentShape(Rectangle())
             }
-            .buttonStyle(.plain)
+            if let section = displayed {
+                rail(section)
+            }
+        }
+        .background {
+            GeometryReader { proxy in
+                Color.clear
+                    .onChange(of: proxy.size.width, initial: true) { _, width in railWidth = width }
+            }
+        }
+        .onChange(of: sections) { _, sections in
+            if let current = displayed, let updated = sections.first(where: { $0.name == current.name }) {
+                displayed = updated
+            }
+        }
+    }
 
-            if isLead, let index = headlineIndex {
-                Divider().padding(.horizontal, 14)
+    private func categoryButton(_ section: DigestSection) -> some View {
+        let rating = section.importanceCounts
+        let diameter = min(112, 61 + CGFloat(rating[.major, default: 0]) * 16
+                           + CGFloat(rating[.notable, default: 0]) * 5)
+        let completed = isFinished(section)
+        return Button {
+            select(section)
+        } label: {
+            bubbleSurface(fill: completed ? section.bubbleColor : .white, selected: requested == section.name) {
+                Text(section.bubbleName)
+                    .font(.system(diameter > 89 ? .headline : .subheadline, design: .serif, weight: .semibold))
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(completed ? .white : .black)
+                    .padding(5)
+                    .minimumScaleFactor(0.61)
+            }
+        }
+        .buttonStyle(.plain)
+        .frame(width: diameter, height: diameter)
+        .scaleEffect(x: pressed == section.name ? 1 + pressure * 0.10 : 1,
+                     y: pressed == section.name ? 1 + pressure * 0.19 : 1)
+        .layoutValue(key: BubbleDiameter.self, value: diameter)
+        .layoutValue(key: BubbleName.self, value: section.name)
+        .zIndex(pressed == section.name ? 1 : 0)
+        .accessibilityLabel(section.displayName)
+        .accessibilityValue(completed ? "已读完" : "未读完")
+        .accessibilityAddTraits(requested == section.name ? .isSelected : [])
+        .accessibilityHint("显示该栏的内容气泡")
+    }
+
+    private func rail(_ section: DigestSection) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text(section.displayName)
+                    .font(.system(.headline, design: .serif, weight: .bold))
+                    .accessibilityAddTraits(.isHeader)
+                Spacer(minLength: 6)
                 Button {
-                    open(index)
+                    soundEnabled.toggle()
+                    if !soundEnabled { JellyBubbleSound.shared.stop() }
                 } label: {
-                    HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text(section.items[index].headline)
-                            .font(.system(.headline, design: .serif))
-                            .multilineTextAlignment(.leading)
-                        Spacer(minLength: 0)
-                        Image(systemName: "chevron.right")
-                            .font(.caption.weight(.semibold))
-                            .accessibilityHidden(true)
-                    }
-                    .frame(minHeight: 44, alignment: .topLeading)
-                    .padding(.horizontal, 14)
-                    .contentShape(Rectangle())
+                    Image(systemName: soundEnabled ? "speaker.wave.2" : "speaker.slash")
+                        .frame(minWidth: 44, minHeight: 44)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(soundEnabled ? "关闭气泡音效" : "开启气泡音效")
             }
-        }
-        .foregroundStyle(.primary)
-        .background(Color(.secondarySystemGroupedBackground))
-        .overlay {
-            Rectangle().strokeBorder(Color.primary.opacity(0.10))
-                .allowsHitTesting(false)
-        }
-    }
-
-    private var summary: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack(alignment: .firstTextBaseline, spacing: 6) {
-                Text(section.displayName)
-                    .font(.system(isLead ? .title2 : .headline, design: .serif, weight: .semibold))
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                Spacer(minLength: 0)
-                Image(systemName: "chevron.right")
-                    .font(.caption.weight(.semibold))
-                    .accessibilityHidden(true)
-            }
-            if isLead, let major = section.importanceCounts[.major], major > 0 {
-                HStack(alignment: .firstTextBaseline, spacing: 7) {
-                    Text("\(major)")
-                        .font(.system(.largeTitle, design: .serif, weight: .heavy).monospacedDigit())
-                    Text("重大").font(.system(.headline, design: .serif))
-                }
-                .accessibilityHidden(true)
-            }
-            if section.items.isEmpty {
-                Text("\(section.entryCount)则").font(.subheadline.monospacedDigit())
-            } else {
-                importanceBreakdown
-            }
-        }
-        .frame(minHeight: 44, alignment: .topLeading)
-    }
-
-    @ViewBuilder
-    private var importanceBreakdown: some View {
-        let counts = counts
-        let unrated = section.items.count - counts.reduce(0, +)
-        if unrated == section.items.count {
-            Text("未评级").font(.caption)
-        } else {
-            let shares = counts + [unrated]
-            let colors = NewsImportance.allCases.map(\.color) + [Color.secondary.opacity(0.25)]
-            GeometryReader { geometry in
-                HStack(spacing: 0) {
-                    ForEach(shares.indices, id: \.self) { index in
-                        if shares[index] > 0 {
-                            colors[index]
-                                .frame(width: geometry.size.width * CGFloat(shares[index]) / CGFloat(section.items.count))
+            if section.entryCount > 0 {
+                TimelineView(.animation(paused: motion == nil)) { clock in
+                    ScrollView(.horizontal) {
+                        HStack(alignment: .top, spacing: 6) {
+                            ForEach(0..<section.entryCount, id: \.self) { page in
+                                let pose = pose(for: page, at: clock.date)
+                                storyButton(section, page: page, pose: pose)
+                                    .offset(x: pose.x)
+                                    .opacity(pose.opacity)
+                            }
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 9)
+                        .background {
+                            GeometryReader { proxy in
+                                Color.clear.preference(key: BubbleRailOffset.self,
+                                    value: proxy.frame(in: .named("bubbleRail")).minX)
+                            }
                         }
                     }
+                    .coordinateSpace(name: "bubbleRail")
+                    .scrollIndicators(.hidden)
+                    .scrollDisabled(motion != nil)
+                    .onPreferenceChange(BubbleRailOffset.self) { railOffset = $0 }
+                }
+                .id(section.name)
+                .padding(.horizontal, -16)
+                .clipped()
+                .allowsHitTesting(motion == nil)
+            }
+        }
+    }
+
+    private func storyButton(_ section: DigestSection, page: Int, pose: Pose) -> some View {
+        let importance = section.items.indices.contains(page) ? section.items[page].importance : nil
+        let opened = hasOpened(section, page)
+        let title = section.bubbleHeadline(at: page)
+        return Button {
+            open(section, page)
+        } label: {
+            VStack(spacing: 5) {
+                bubbleSurface(fill: opened ? (importance?.color ?? section.bubbleColor) : .white, selected: false) {
+                    Text(title.count > 9 ? String(title.prefix(8)) + "…" : title)
+                        .font(.system(.caption, design: .serif, weight: .semibold))
+                        .multilineTextAlignment(.center)
+                        .lineLimit(3)
+                        .minimumScaleFactor(0.68)
+                        .foregroundStyle(opened ? .white : .black)
+                        .padding(6)
+                }
+                .frame(width: storyDiameter, height: storyDiameter)
+                .rotationEffect(.degrees(pose.spin))
+                .scaleEffect(x: pose.stretch, y: 2 - pose.stretch)
+                if !section.items.isEmpty {
+                    Text(importance?.label ?? "未评级").font(.caption2)
                 }
             }
-            .frame(height: 7)
-            .clipShape(Capsule())
-            .accessibilityHidden(true)
-            let ratings = zip(NewsImportance.allCases, counts).map { level, count in "\(level.label) \(count)" }
-            let labels = unrated > 0 ? ratings + ["未评级 \(unrated)"] : ratings
-            Text(labels.joined(separator: " · "))
-                .font(.caption.monospacedDigit())
+            .frame(width: storyDiameter)
         }
+        .buttonStyle(.plain)
+        .accessibilityLabel(title)
+        .accessibilityValue([importance?.label, opened ? "已打开" : "未打开"].compactMap { $0 }.joined(separator: "，"))
+    }
+
+    private func bubbleSurface<Label: View>(fill: Color, selected: Bool, @ViewBuilder label: () -> Label) -> some View {
+        Circle()
+            .fill(fill.gradient)
+            .overlay { Circle().strokeBorder(selected ? Color.primary : Color.black.opacity(0.14), lineWidth: selected ? 2 : 1) }
+            .shadow(color: .black.opacity(0.14), radius: 5, y: 3)
+            .overlay { label() }
+            .contentShape(Circle())
+    }
+
+    private func select(_ section: DigestSection) {
+        requested = requested == section.name ? nil : section.name
+        if !reduceMotion {
+            rebound?.cancel()
+            withAnimation(.easeOut(duration: 0.10)) {
+                pressed = section.name
+                pressure = -1
+            }
+            rebound = Task { @MainActor in
+                do {
+                    try await Task.sleep(for: .milliseconds(100))
+                    withAnimation(.spring(duration: 0.23, bounce: 0.48)) { pressure = 0.92 }
+                    try await Task.sleep(for: .milliseconds(230))
+                    withAnimation(.spring(duration: 0.22, bounce: 0.32)) { pressure = 0 }
+                } catch { return }
+            }
+        }
+        guard transition == nil else { return }
+        transition = Task { @MainActor in
+            await settle()
+            transition = nil
+        }
+    }
+
+    @MainActor
+    private func settle() async {
+        while displayed?.name != requested {
+            if let section = displayed {
+                await roll(section, exiting: true)
+                displayed = nil
+                motion = nil
+                railOffset = 0
+            } else if let section = sections.first(where: { $0.name == requested }) {
+                displayed = section
+                railOffset = 0
+                await roll(section, exiting: false)
+                motion = nil
+            } else {
+                requested = nil
+            }
+        }
+    }
+
+    private struct Pose {
+        var x: CGFloat = 0
+        var spin = 0.0
+        var stretch: CGFloat = 1
+        var opacity = 1.0
+    }
+
+    private func travel(_ page: Int, in motion: BubbleMotion) -> (x: CGFloat, time: Double) {
+        let slot = 16 + CGFloat(page) * (storyDiameter + 6) + motion.offset
+        let distance = motion.exiting ? min(-6, -slot - storyDiameter - 6) : max(6, motion.width - slot + 6)
+        return (distance, max(motion.exiting ? 0.19 : 0.28, Double(abs(distance)) / 430))
+    }
+
+    private func pose(for page: Int, at date: Date) -> Pose {
+        guard let motion else { return Pose() }
+        let elapsed = date.timeIntervalSince(motion.started)
+        if reduceMotion {
+            let progress = min(1, max(0, elapsed / 0.16))
+            return Pose(opacity: motion.exiting ? 1 - progress : progress)
+        }
+        let (distance, time) = travel(page, in: motion)
+        let timeInMotion = elapsed - delay(for: page, in: motion)
+        let progress = min(1, max(0, timeInMotion / time))
+        let rotation = Double(distance / (storyDiameter * .pi)) * 360
+        if motion.exiting {
+            return Pose(x: distance * progress, spin: rotation * progress)
+        }
+        if timeInMotion <= time {
+            return Pose(x: distance * (1 - progress), spin: rotation * (1 - progress))
+        }
+        let bounce = min(1, (timeInMotion - time) / 0.22)
+        let pulse = sin(bounce * .pi * 2) * (1 - bounce)
+        return Pose(x: -7 * pulse, spin: -8 * pulse, stretch: 1 + 0.13 * pulse)
+    }
+
+    private func delay(for page: Int, in motion: BubbleMotion) -> Double {
+        if !motion.exiting { return Double(page) * 0.17 }
+        let hidden = max(0, Int(-motion.offset / (storyDiameter + 6)))
+        return Double(max(0, page - hidden)) * 0.17
+    }
+
+    @MainActor
+    private func roll(_ section: DigestSection, exiting: Bool) async {
+        guard section.entryCount > 0 else { return }
+        let frame = BubbleMotion(started: .now, exiting: exiting, width: max(railWidth + 32, 250),
+                                 offset: exiting ? railOffset : 0)
+        motion = frame
+        let times = (0..<section.entryCount).map { page in
+            (page: page, duration: travel(page, in: frame).time, delay: delay(for: page, in: frame))
+        }
+        let visible = times.filter { item in
+            let x = 16 + CGFloat(item.page) * (storyDiameter + 6) + frame.offset
+            return x < frame.width && x + storyDiameter > 0
+        }
+        let duration = reduceMotion ? 0.16 : (visible.map { $0.duration + $0.delay }.max() ?? 0.28) + (exiting ? 0 : 0.22)
+        await withTaskGroup(of: Void.self) { group in
+            for item in visible {
+                let time = reduceMotion ? 0.04 : item.delay + (exiting ? min(item.duration * 0.56, 0.20) : item.duration)
+                group.addTask { @MainActor in
+                    do {
+                        try await Task.sleep(for: .seconds(time))
+                        if soundEnabled { JellyBubbleSound.shared.play(index: item.page, exiting: exiting) }
+                    } catch { return }
+                }
+            }
+            try? await Task.sleep(for: .seconds(duration))
+        }
+    }
+}
+
+private struct BubbleRailOffset: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) { value = nextValue() }
+}
+
+private struct BubbleDiameter: LayoutValueKey { static let defaultValue: CGFloat = 64 }
+private struct BubbleName: LayoutValueKey { static let defaultValue = "" }
+
+private struct BubblePacking: Layout {
+    let pressed: String?
+    var pressure: CGFloat
+
+    struct Cache {
+        var width: CGFloat? = nil
+        var diameters: [CGFloat] = []
+        var frames: [CGRect] = []
+    }
+
+    var animatableData: CGFloat {
+        get { pressure }
+        set { pressure = newValue }
+    }
+
+    func makeCache(subviews: Subviews) -> Cache { Cache() }
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout Cache) -> CGSize {
+        let width = proposal.width ?? 360
+        let frames = positions(width: width, subviews: subviews, cache: &cache)
+        return CGSize(width: width, height: (frames.map(\.maxY).max() ?? 0) + 8)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout Cache) {
+        let circles = positions(width: bounds.width, subviews: subviews, cache: &cache)
+        let source = subviews.firstIndex { $0[BubbleName.self] == pressed }
+        for (index, circle) in circles.enumerated() {
+            var point = CGPoint(x: circle.midX, y: circle.midY)
+            if let source, source != index {
+                let origin = circles[source]
+                let dx = circle.midX - origin.midX
+                let dy = circle.midY - origin.midY
+                let distance = hypot(dx, dy)
+                let gap = distance - (circle.width + origin.width) / 2
+                if gap < 24, distance > 0 {
+                    let nudge = max(0, pressure) * min(13, max(4, 12 - gap / 3))
+                    point.x += dx / distance * nudge
+                    point.y += dy / distance * nudge
+                }
+            }
+            subviews[index].place(at: CGPoint(x: bounds.minX + point.x, y: bounds.minY + point.y),
+                                  anchor: .center, proposal: ProposedViewSize(width: circle.width, height: circle.height))
+        }
+    }
+
+    private func positions(width: CGFloat, subviews: Subviews, cache: inout Cache) -> [CGRect] {
+        let diameters = subviews.map { min($0[BubbleDiameter.self], max(width, 1)) }
+        if cache.width == width, cache.diameters == diameters { return cache.frames }
+        var frames: [CGRect] = []
+        for size in diameters {
+            var best: CGRect?
+            let bottom = (frames.map(\.maxY).max() ?? 0) + 6
+            for y in stride(from: CGFloat(4), through: bottom, by: 3) {
+                for x in stride(from: CGFloat(0), through: max(0, width - size), by: 3) {
+                    let candidate = CGRect(x: x, y: y, width: size, height: size)
+                    if frames.allSatisfy({ hypot($0.midX - candidate.midX, $0.midY - candidate.midY) >= ($0.width + size) / 2 - 1 }) {
+                        best = candidate
+                        break
+                    }
+                }
+                if best != nil { break }
+            }
+            frames.append(best ?? CGRect(x: 0, y: bottom, width: size, height: size))
+        }
+        cache = Cache(width: width, diameters: diameters, frames: frames)
+        return frames
+    }
+}
+
+@MainActor
+private final class JellyBubbleSound {
+    static let shared = JellyBubbleSound()
+    private let cues: [TimeInterval] = [0.045, 0.265, 0.385, 0.565, 0.765, 0.965, 1.165, 1.285, 1.505, 1.645]
+    private var players: [AVAudioPlayer] = []
+
+    func play(index: Int, exiting: Bool) {
+        guard let data = NSDataAsset(name: "JellyBubbleSound")?.data,
+              let player = try? AVAudioPlayer(data: data) else { return }
+        let cue = cues[(index + (exiting ? 5 : 0)) % cues.count]
+        player.currentTime = cue
+        player.volume = exiting ? 0.36 : 0.52
+        players.append(player)
+        player.play()
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(110))
+            player.stop()
+            players.removeAll { $0 === player }
+        }
+    }
+
+    func stop() {
+        players.forEach { $0.stop() }
+        players.removeAll()
+    }
+}
+
+private extension DigestSection {
+    var bubbleName: String {
+        switch name {
+        case "国际政治与时事": "国际政治"
+        case "经济与市场": "经济市场"
+        case "科技与人工智能": "科技 AI"
+        case "社会与荒诞", "社会资讯": "社会"
+        case "科学与体育": "科学体育"
+        case "影视与明星": "影视"
+        case "书籍与作家": "书籍作家"
+        default: displayName
+        }
+    }
+
+    var bubbleColor: Color {
+        switch name {
+        case "国际政治与时事": Color(red: 0.32, green: 0.26, blue: 0.18)
+        case "经济与市场": Color(red: 0.43, green: 0.40, blue: 0.13)
+        case "科技与人工智能": Color(red: 0.21, green: 0.37, blue: 0.29)
+        case "社会与荒诞", "社会资讯": Color(red: 0.49, green: 0.20, blue: 0.16)
+        case "科学与体育": Color(red: 0.22, green: 0.37, blue: 0.43)
+        case "影视与明星": Color(red: 0.42, green: 0.22, blue: 0.49)
+        case "书籍与作家": Color(red: 0.65, green: 0.27, blue: 0.23)
+        case "美女与野兽": Color(red: 0.36, green: 0.45, blue: 0.23)
+        case "天涯海角": Color(red: 0.12, green: 0.46, blue: 0.42)
+        case "维基漫游": Color(red: 0.35, green: 0.32, blue: 0.58)
+        default: Color(red: 0.46, green: 0.32, blue: 0.23)
+        }
+    }
+
+    func bubbleHeadline(at index: Int) -> String {
+        if items.indices.contains(index) { return items[index].headline }
+        if jokes.indices.contains(index) { return jokes[index].translation ?? jokes[index].text }
+        if gallery.indices.contains(index) { return gallery[index].caption }
+        return place?.name ?? wiki?.title ?? photo?.title ?? displayName
     }
 }
 
