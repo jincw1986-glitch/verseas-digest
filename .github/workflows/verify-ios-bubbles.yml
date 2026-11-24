@@ -1,0 +1,17 @@
+name: Verify SwiftUI test build
+
+on:
+  push:
+    branches: [codex/verify-ios-bubbles]
+
+permissions:
+  contents: read
+
+jobs:
+  ios-compile:
+    runs-on: macos-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile iOS simulator app
+        run: xcodebuild -quiet -project OverseasDigest.xcodeproj -scheme OverseasDigest -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
