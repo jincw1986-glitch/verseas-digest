@@ -37,9 +37,18 @@ struct DigestOverview: View {
 
     @EnvironmentObject private var model: DigestModel
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.dynamicTypeSize) private var typeSize
     @AppStorage(DigestAppearance.storageKey) private var appearance: DigestAppearance = .system
     @State private var showsDirectory = false
-    @State private var directorySelection: String?
+    @State private var readingRoute: ReadingRoute?
+    @State private var finishedReading = false
+    @State private var pageTurn = 0
+    @State private var mastheadVisible = true
+
+    private struct ReadingRoute: Hashable {
+        let section: String
+        let page: Int
+    }
 
     private var paper: Color {
         colorScheme == .dark ? Color(red: 0.08, green: 0.10, blue: 0.13)
@@ -71,6 +80,12 @@ struct DigestOverview: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
                 masthead
+                    .background {
+                        GeometryReader { geometry in
+                            Color.clear.preference(key: MastheadVisibility.self,
+                                                   value: geometry.frame(in: .named("digestOverview")).maxY > 30)
+                        }
+                    }
                 if showsRefresh, let banner = model.banner {
                     Text(banner)
                         .font(.footnote)
@@ -80,7 +95,7 @@ struct DigestOverview: View {
                     dailyPhoto(photo, section: section)
                 }
                 if !issue.readingSections.isEmpty {
-                    categoryList
+                    categoryMosaic
                 }
             }
             .padding(.horizontal, 16)
@@ -88,6 +103,8 @@ struct DigestOverview: View {
             .frame(maxWidth: 650)
             .frame(maxWidth: .infinity)
         }
+        .coordinateSpace(name: "digestOverview")
+        .onPreferenceChange(MastheadVisibility.self) { mastheadVisible = $0 }
         .background(paper.ignoresSafeArea())
         .accessibilityHidden(showsDirectory)
         .overlay {
@@ -95,9 +112,17 @@ struct DigestOverview: View {
                 directory
             }
         }
-        .navigationDestination(item: $directorySelection) { name in
-            if let section = issue.readingSections.first(where: { $0.name == name }) {
-                IssueBody(issue: issue, section: section)
+        .navigationDestination(item: $readingRoute) { route in
+            if let section = issue.sections.first(where: { $0.name == route.section }) {
+                IssueBody(issue: issue, section: section, page: route.page, onReading: {
+                    if readingRoute == route { finishedReading = true }
+                })
+            }
+        }
+        .onChange(of: readingRoute) { _, route in
+            if route == nil, finishedReading {
+                finishedReading = false
+                pageTurn += 1
             }
         }
         .toolbarBackground(paper, for: .tabBar)
@@ -105,33 +130,31 @@ struct DigestOverview: View {
     }
 
     private var masthead: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            if showsRefresh {
-                HStack(spacing: 4) {
-                    publicationName
-                    Spacer(minLength: 0)
-                    appearanceButton
-                    RefreshButton()
-                        .frame(minWidth: 44, minHeight: 44)
-                }
-                editionDate.frame(maxWidth: .infinity, alignment: .trailing)
-            } else {
-                ViewThatFits(in: .horizontal) {
-                    HStack(alignment: .firstTextBaseline, spacing: 12) {
-                        publicationName
-                        Spacer(minLength: 0)
-                        editionDate.fixedSize()
+        VStack(spacing: 3) {
+            ZStack(alignment: .bottomLeading) {
+                VStack(alignment: .trailing, spacing: 0) {
+                    if showsRefresh {
+                        HStack(spacing: 0) {
+                            appearanceButton
+                            RefreshButton()
+                                .frame(width: 44, height: 44, alignment: .top)
+                        }
                     }
-                    VStack(alignment: .leading, spacing: 8) {
-                        publicationName
-                        editionDate
-                    }
+                    editionDate
+                        .multilineTextAlignment(.trailing)
+                        .padding(.leading, 60)
+                    Spacer(minLength: 4)
                 }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.top, 6)
+                .frame(minHeight: 88, alignment: .topTrailing)
+
+                publicationName
             }
-            Rectangle()
-                .fill(.primary)
-                .frame(height: 2)
-            Divider().padding(.top, -5)
+            .padding(.bottom, -3)
+            .zIndex(1)
+            Rectangle().fill(.primary).frame(height: 2)
+            Divider()
         }
     }
 
@@ -139,13 +162,11 @@ struct DigestOverview: View {
         Button {
             withAnimation(.easeInOut(duration: 0.25)) { showsDirectory = true }
         } label: {
-            Text("猫头鹰")
-                .font(.system(.largeTitle, design: .serif, weight: .heavy))
-                .frame(minHeight: 44)
-                .fixedSize()
+            MastheadOwl(turn: mastheadVisible ? pageTurn : 0)
                 .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .accessibilityLabel("猫头鹰")
         .accessibilityHint("打开栏目目录")
         .disabled(issue.readingSections.isEmpty)
     }
@@ -180,7 +201,7 @@ struct DigestOverview: View {
                             ForEach(issue.readingSections) { section in
                                 Button {
                                     closeDirectory()
-                                    directorySelection = section.name
+                                    open(section)
                                 } label: {
                                     HStack(spacing: 8) {
                                         Text(section.displayName)
@@ -216,6 +237,11 @@ struct DigestOverview: View {
         withAnimation(.easeInOut(duration: 0.25)) { showsDirectory = false }
     }
 
+    private func open(_ section: DigestSection, page: Int = 0) {
+        finishedReading = false
+        readingRoute = ReadingRoute(section: section.name, page: page)
+    }
+
     private var editionDate: some View {
         Text(ChineseDate.string(from: issue.date))
             .font(.system(.subheadline, design: .serif, weight: .semibold))
@@ -227,9 +253,10 @@ struct DigestOverview: View {
             appearance = isNight ? .day : .night
         } label: {
             Image(systemName: isNight ? "sun.max" : "moon")
-                .font(.body.weight(.semibold))
+                .font(.system(size: 20, weight: .semibold))
                 .foregroundStyle(.primary)
-                .frame(minWidth: 44, minHeight: 44)
+                .frame(height: 20)
+                .frame(width: 44, height: 44, alignment: .top)
                 .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
@@ -237,21 +264,20 @@ struct DigestOverview: View {
     }
 
     private func dailyPhoto(_ photo: PhotoOfDay, section: DigestSection) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(section.displayName)
-                .font(.system(.title2, design: .serif, weight: .bold))
-                .accessibilityAddTraits(.isHeader)
-            NavigationLink {
-                IssueBody(issue: issue, section: section)
-            } label: {
-                ZStack(alignment: .bottomLeading) {
-                    Color.clear.aspectRatio(3.0 / 2.0, contentMode: .fit)
-                        .overlay {
-                            DigestPhoto(picture: photo.image, fillsFrame: true)
-                        }
-                        .clipped()
-                        .allowsHitTesting(false)
-                        .accessibilityHidden(true)
+        Button {
+            open(section)
+        } label: {
+            ZStack(alignment: .bottomLeading) {
+                Color.clear.aspectRatio(3.0 / 2.0, contentMode: .fit)
+                    .overlay {
+                        DigestPhoto(picture: photo.image, fillsFrame: true)
+                    }
+                    .clipped()
+                    .allowsHitTesting(false)
+                    .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(section.displayName)
+                        .font(.system(.subheadline, design: .serif, weight: .semibold))
                     HStack(spacing: 8) {
                         Text(photo.title)
                             .font(.system(.title2, design: .serif, weight: .bold))
@@ -260,29 +286,30 @@ struct DigestOverview: View {
                             .font(.footnote.weight(.semibold))
                             .accessibilityHidden(true)
                     }
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 16)
-                    .padding(.top, 38)
-                    .padding(.bottom, 16)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background {
-                        LinearGradient(
-                            stops: [.init(color: .clear, location: 0),
-                                    .init(color: .black.opacity(0.62), location: 0.42),
-                                    .init(color: .black.opacity(0.88), location: 1)],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    }
+                    .multilineTextAlignment(.leading)
                 }
-                .contentShape(Rectangle())
+                .foregroundStyle(.white)
+                .padding(.horizontal, 16)
+                .padding(.top, 38)
+                .padding(.bottom, 16)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background {
+                    LinearGradient(
+                        stops: [.init(color: .clear, location: 0),
+                                .init(color: .black.opacity(0.62), location: 0.42),
+                                .init(color: .black.opacity(0.88), location: 1)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                }
             }
-            .buttonStyle(.plain)
-            .accessibilityHint("阅读图片背后的故事")
+            .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
+        .accessibilityHint("阅读图片背后的故事")
     }
 
-    private var categoryList: some View {
+    private var categoryMosaic: some View {
         VStack(alignment: .leading, spacing: 0) {
             Divider()
             ViewThatFits(in: .horizontal) {
@@ -298,10 +325,39 @@ struct DigestOverview: View {
             }
             .padding(.vertical, 12)
             Rectangle().fill(.primary).frame(height: 1)
-            ForEach(rankedSections) { section in
-                OverviewCategoryRow(issue: issue, section: section)
-                Divider()
+            mosaicTiles.padding(.top, 10)
+        }
+    }
+
+    @ViewBuilder
+    private var mosaicTiles: some View {
+        let sections = rankedSections
+        if typeSize.isAccessibilitySize || sections.count < 3 {
+            VStack(spacing: 10) {
+                ForEach(sections.indices, id: \.self) { index in
+                    tile(sections[index], index: index)
+                }
             }
+        } else {
+            HStack(spacing: 10) {
+                tile(sections[0], index: 0)
+                VStack(spacing: 10) {
+                    tile(sections[1], index: 1)
+                    tile(sections[2], index: 2)
+                }
+            }
+            LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible())], spacing: 10) {
+                ForEach(sections.indices.dropFirst(3), id: \.self) { index in
+                    tile(sections[index], index: index)
+                }
+            }
+            .padding(.top, 10)
+        }
+    }
+
+    private func tile(_ section: DigestSection, index: Int) -> some View {
+        OverviewCategoryTile(section: section, position: index) { page in
+            open(section, page: page)
         }
     }
 
@@ -330,9 +386,34 @@ struct DigestOverview: View {
     }
 }
 
-private struct OverviewCategoryRow: View {
-    let issue: DigestIssue
+private struct MastheadVisibility: PreferenceKey {
+    static let defaultValue = false
+
+    static func reduce(value: inout Bool, nextValue: () -> Bool) {
+        value = value || nextValue()
+    }
+}
+
+private struct OverviewCategoryTile: View {
     let section: DigestSection
+    let position: Int
+    let open: (Int) -> Void
+    @Environment(\.colorScheme) private var colorScheme
+
+    private var isLead: Bool { position == 0 }
+
+    private var ink: Color { isLead || colorScheme == .dark ? .white : Color(red: 0.13, green: 0.11, blue: 0.12) }
+
+    private var surface: Color {
+        if isLead { return Color(red: 0.36, green: 0.15, blue: 0.23) }
+        let tints: [Color] = [
+            Color(red: 0.91, green: 0.75, blue: 0.55),
+            Color(red: 0.68, green: 0.76, blue: 0.82),
+            Color(red: 0.86, green: 0.77, blue: 0.58),
+            Color(red: 0.76, green: 0.76, blue: 0.61)
+        ]
+        return tints[(position - 1) % tints.count].opacity(colorScheme == .dark ? 0.21 : 0.55)
+    }
 
     private var counts: [Int] {
         let totals = section.importanceCounts
@@ -347,44 +428,80 @@ private struct OverviewCategoryRow: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            NavigationLink {
-                IssueBody(issue: issue, section: section)
+        VStack(alignment: .leading, spacing: 10) {
+            Button {
+                open(0)
             } label: {
                 VStack(alignment: .leading, spacing: 8) {
-                    HStack(spacing: 8) {
-                        Text(section.displayName).font(.system(.headline, design: .serif))
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
+                        Text(section.displayName)
+                            .font(.system(isLead ? .title2 : .headline, design: .serif, weight: .semibold))
+                            .fixedSize(horizontal: false, vertical: true)
                         Spacer(minLength: 0)
-                        Text("\(section.entryCount)则")
-                            .font(.subheadline.monospacedDigit())
-                            .foregroundStyle(.secondary)
-                            .fixedSize()
                         Image(systemName: "chevron.right")
                             .font(.caption.weight(.semibold))
-                            .foregroundStyle(.secondary)
                             .accessibilityHidden(true)
+                    }
+                    if isLead, let major = section.importanceCounts[.major], major > 0 {
+                        HStack(alignment: .firstTextBaseline, spacing: 7) {
+                            Text("\(major)")
+                                .font(.system(.largeTitle, design: .serif, weight: .heavy).monospacedDigit())
+                            Text("重大").font(.system(.headline, design: .serif))
+                        }
+                        .accessibilityHidden(true)
                     }
                     if !section.items.isEmpty {
                         importanceBreakdown
+                    } else {
+                        Text("\(section.entryCount)则")
+                            .font(.subheadline.monospacedDigit())
                     }
                 }
-                .padding(.vertical, 10)
-                .frame(minHeight: 44)
+                .frame(maxWidth: .infinity, minHeight: isLead ? 44 : 94, alignment: .topLeading)
+                .padding(isLead ? 0 : 11)
                 .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
-            if let index = headlineIndex {
-                NavigationLink {
-                    IssueBody(issue: issue, section: section, page: index)
+
+            if isLead, let index = headlineIndex {
+                Rectangle().fill(ink.opacity(0.35)).frame(height: 1)
+                Button {
+                    open(index)
                 } label: {
-                    Text(section.items[index].headline)
-                        .font(.system(.subheadline, design: .serif))
-                        .foregroundStyle(.secondary)
-                        .frame(maxWidth: .infinity, minHeight: 44, alignment: .topLeading)
-                        .contentShape(Rectangle())
+                    HStack(spacing: 6) {
+                        Text(section.items[index].headline)
+                            .font(.system(.headline, design: .serif))
+                            .multilineTextAlignment(.leading)
+                        Spacer(minLength: 0)
+                        Image(systemName: "chevron.right")
+                            .font(.caption.weight(.semibold))
+                            .accessibilityHidden(true)
+                    }
+                    .frame(minHeight: 44, alignment: .topLeading)
+                    .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
             }
+        }
+        .foregroundStyle(ink)
+        .padding(isLead ? 14 : 0)
+        .frame(maxWidth: .infinity, minHeight: isLead ? 242 : 116, alignment: .topLeading)
+        .background {
+            LinearGradient(colors: [surface, surface.opacity(0.80)], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .overlay {
+                    GeometryReader { geometry in
+                        Image("OverviewPaper")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .trailing)
+                            .clipped()
+                    }
+                    .opacity(isLead ? 0.23 : 0.18)
+                    .blendMode(isLead || colorScheme == .dark ? .softLight : .multiply)
+                    .allowsHitTesting(false)
+                    .accessibilityHidden(true)
+                }
+                .compositingGroup()
         }
     }
 
@@ -393,7 +510,7 @@ private struct OverviewCategoryRow: View {
         let counts = counts
         let unrated = section.items.count - counts.reduce(0, +)
         if unrated == section.items.count {
-            Text("未评级").font(.caption).foregroundStyle(.secondary)
+            Text("未评级").font(.caption)
         } else {
             let shares = counts + [unrated]
             let colors = NewsImportance.allCases.map(\.color) + [Color.secondary.opacity(0.25)]
@@ -408,12 +525,63 @@ private struct OverviewCategoryRow: View {
                 }
             }
             .frame(height: 7)
+            .clipShape(Capsule())
             .accessibilityHidden(true)
             let ratings = zip(NewsImportance.allCases, counts).map { level, count in "\(level.label) \(count)" }
             let labels = unrated > 0 ? ratings + ["未评级 \(unrated)"] : ratings
             Text(labels.joined(separator: " · "))
                 .font(.caption.monospacedDigit())
-                .foregroundStyle(.secondary)
         }
+    }
+}
+
+private struct MastheadOwl: View {
+    let turn: Int
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var angle = 0.0
+    @State private var opacity = 0.0
+    @State private var playedTurn = 0
+
+    var body: some View {
+        ZStack {
+            owl
+            owl
+                .mask {
+                    Path { path in
+                        path.move(to: CGPoint(x: 34.6, y: 37.0))
+                        path.addLine(to: CGPoint(x: 48.0, y: 34.7))
+                        path.addLine(to: CGPoint(x: 46.6, y: 49.8))
+                        path.addLine(to: CGPoint(x: 34.6, y: 53.9))
+                        path.closeSubpath()
+                    }
+                    .fill(.white)
+                }
+                .rotation3DEffect(.degrees(angle), axis: (x: 0, y: 1, z: 0), anchor: UnitPoint(x: 0.494, y: 0.65))
+                .brightness(0.12)
+                .opacity(opacity)
+        }
+        .frame(width: 52, height: 64)
+        .offset(y: 2)
+        .accessibilityHidden(true)
+        .task(id: turn) {
+            guard turn > playedTurn else { return }
+            do {
+                try await Task.sleep(for: .milliseconds(240))
+                playedTurn = turn
+                angle = 0
+                opacity = reduceMotion ? 0 : 1
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    if reduceMotion { opacity = 1 } else { angle = -155 }
+                }
+                try await Task.sleep(for: .milliseconds(250))
+                withAnimation(.easeOut(duration: 0.10)) { opacity = 0 }
+            } catch {
+                opacity = 0
+            }
+        }
+    }
+
+    private var owl: some View {
+        Image("MastheadOwl").resizable().frame(width: 72, height: 72)
     }
 }

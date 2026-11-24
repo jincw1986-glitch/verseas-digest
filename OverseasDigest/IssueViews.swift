@@ -3,13 +3,17 @@ import SwiftUI
 struct IssueBody: View {
     let issue: DigestIssue
     let section: DigestSection
+    let onReading: (() -> Void)?
     @EnvironmentObject private var model: DigestModel
+    @Environment(\.scenePhase) private var scenePhase
     @State private var page: Int
     @State private var sheet: PresentedSheet?
+    @State private var didQualify = false
 
-    init(issue: DigestIssue, section: DigestSection, page: Int = 0) {
+    init(issue: DigestIssue, section: DigestSection, page: Int = 0, onReading: (() -> Void)? = nil) {
         self.issue = issue
         self.section = section
+        self.onReading = onReading
         _page = State(initialValue: page)
     }
 
@@ -34,7 +38,8 @@ struct IssueBody: View {
                 },
                 onGlossary: { entry in
                     sheet = .glossary(entry)
-                }
+                },
+                onReadingScroll: onReading == nil ? nil : qualifyReading
             )
             .id(section.name)
         }
@@ -47,6 +52,27 @@ struct IssueBody: View {
         .sheet(item: $sheet) { presented in
             SheetContent(presented: presented)
         }
+        .task(id: readingPage) {
+            guard readingPage != nil, !didQualify else { return }
+            do {
+                try await Task.sleep(for: .seconds(8))
+                if !Task.isCancelled { qualifyReading() }
+            } catch {
+                return
+            }
+        }
+    }
+
+    private var readingPage: Int? {
+        guard onReading != nil, scenePhase == .active, sheet == nil,
+              section.items.indices.contains(page) else { return nil }
+        return page
+    }
+
+    private func qualifyReading() {
+        guard readingPage != nil, !didQualify else { return }
+        didQualify = true
+        onReading?()
     }
 
     private var pageBinding: Binding<Int> {
@@ -128,6 +154,7 @@ private struct SectionPager: View {
     let accent: Color
     let onWeb: (URL) -> Void
     let onGlossary: (GlossaryEntry) -> Void
+    var onReadingScroll: (() -> Void)?
 
     var body: some View {
         TabView(selection: $page) {
@@ -155,11 +182,11 @@ private struct SectionPager: View {
         } else if let wiki = section.wiki {
             wikiPage(wiki, label: label)
         } else if section.items.indices.contains(index) {
-            newsPage(section.items[index], label: label)
+            newsPage(section.items[index], label: label, isSelected: index == page)
         }
     }
 
-    private func newsPage(_ item: DigestItem, label: String) -> some View {
+    private func newsPage(_ item: DigestItem, label: String, isSelected: Bool) -> some View {
         MagazineCard(
             kicker: section.displayName,
             title: item.headline,
@@ -167,7 +194,8 @@ private struct SectionPager: View {
             picture: item.image,
             accent: accent,
             symbol: SectionAccent.symbol(for: section.name),
-            pageLabel: label
+            pageLabel: label,
+            onReadingScroll: isSelected ? onReadingScroll : nil
         ) {
             NewsImportanceBadge(importance: item.importance)
             Text(item.summary)
@@ -382,6 +410,7 @@ private struct MagazineCard<Content: View>: View {
     let pageLabel: String
     var framing: PhotoFraming = .hero
     var jokeStyle: Bool = false
+    var onReadingScroll: (() -> Void)? = nil
     @ViewBuilder var content: () -> Content
 
     var body: some View {
@@ -442,6 +471,19 @@ private struct MagazineCard<Content: View>: View {
                     .padding(18)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .background(alignment: .top) {
+                    if onReadingScroll != nil {
+                        GeometryReader { geometry in
+                            Color.clear.preference(key: ReadingOffset.self,
+                                                   value: geometry.frame(in: .named("articleScroll")).minY)
+                        }
+                        .frame(height: 0)
+                    }
+                }
+            }
+            .coordinateSpace(name: "articleScroll")
+            .onPreferenceChange(ReadingOffset.self) { offset in
+                if offset < -12 { onReadingScroll?() }
             }
             .scrollBounceBehavior(.basedOnSize)
             .background(jokeStyle ? Color.jokePaper : Color(.secondarySystemGroupedBackground))
@@ -457,6 +499,14 @@ private struct MagazineCard<Content: View>: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding(.top, 8)
         }
+    }
+}
+
+private struct ReadingOffset: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = min(value, nextValue())
     }
 }
 
