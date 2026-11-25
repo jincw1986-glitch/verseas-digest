@@ -1,0 +1,1207 @@
+{
+  "date": "2026-11-26",
+  "title": "2026年11月26日 · 海外资讯简报",
+  "sections": [
+    {
+      "name": "每日一图",
+      "photo": {
+        "title": "赫拉号拍到小行星撞击坑：几乎与迪莫弗斯同宽",
+        "interpretation": "这两张黑白图不是两个不同的天体，而是欧洲航天局的赫拉号从不同角度拍下的同一个撞击坑。迪莫弗斯只有约150米宽，坑几乎横跨它的一面。坑内还有大块岩石裸露，另一侧则仍保留着撞击前照片里那种布满碎石的地貌。\n\n2022年，美国航天局的DART探测器故意撞向迪莫弗斯，测试能否改变小行星的运动。地面望远镜随后测出，迪莫弗斯绕较大的迪迪莫斯转一圈的时间缩短了约33分钟，但从地球上看不清撞击点究竟变成了什么样。此次近拍把看不见的地形变化补上了。\n\n赫拉号没有再撞一次，而是在双小行星附近观察撞击留下的痕迹。研究团队还发现周围有数百块此前未被识别的小岩块，不过不能仅凭这些照片认定每一块都来自撞击。接下来研究人员要弄清，撞击能量有多少改变了轨道，又有多少用在挖坑、改变外形和抛出碎块上。",
+        "image": {
+          "url": "https://www.sttinfo.fi/files/69821258/72537994/566729/fi",
+          "credit": "赫拉号从两个角度拍摄迪莫弗斯的撞击坑，坑内可见裸露的大块岩石。© ESA，媒体刊载。https://photolibrary.esa.int/terms-and-conditions/"
+        },
+        "sources": [
+          {
+            "name": "图尔库大学：赫拉任务团队发布",
+            "url": "https://www.sttinfo.fi/tiedote/72537994/euroopan-avaruusjarjesto-julkaisi-kuvia-maailman-ensimmaisen-planetaarisen-puolustuksen-testin-tuloksista?lang=fi&publisherId=69821258"
+          }
+        ]
+      }
+    },
+    {
+      "name": "国际政治与时事",
+      "items": [
+        {
+          "headline": "澳大利亚与所罗门群岛签署安全条约，限制第三方设军事基地",
+          "summary": "澳大利亚和所罗门群岛11月25日签署条约，确认澳大利亚为所方主要安全伙伴，并约定不得允许外国在所罗门群岛建立军事或安全基地。条约仍须双方完成国内程序并交换通知方能生效，签署并不等于所方已终止2022年与中国签署的安全合作协议。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "澳大利亚外交贸易部：条约正文",
+              "url": "https://www.dfat.gov.au/geo/solomon-islands/australia-solomon-islands-treaty"
+            },
+            {
+              "name": "澳大利亚总理办公室",
+              "url": "https://www.pm.gov.au/media/signing-australia-solomon-islands-treaty"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Honiara_aerial.jpg/960px-Honiara_aerial.jpg",
+            "credit": "所罗门群岛首都霍尼亚拉（资料图）。Xplore Dive / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "首要安全伙伴",
+              "type": "term",
+              "explanation": "这类约定通常体现在危机时优先磋商、按请求提供援助等方面。在这份条约里，它与不许第三方建立军事或安全基地的明确条款并列。"
+            },
+            {
+              "term": "条约生效",
+              "type": "term",
+              "explanation": "签字表明双方正式认可文本，却不代表每一条义务当日就生效。此处须双方先完成各自的国内程序，再按条约规定交换通知。"
+            }
+          ]
+        },
+        {
+          "headline": "意大利批评乌克兰在利比亚附近袭击俄方船只",
+          "summary": "意大利政府11月25日批评乌克兰在利比亚附近针对俄方船只的袭击，认为可能使地中海安全局势恶化。美联社援引利比亚方面证实，两名利比亚海军军官在相关事件后死亡。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "路透社",
+              "url": "https://www.reuters.com/world/italy-rebukes-ukraine-over-attacks-russian-ships-libya-2026-11-25/"
+            },
+            {
+              "name": "美联社",
+              "url": "https://apnews.com/article/6995de4ee91278459742a359eeb7439e"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/%D9%85%D9%8A%D9%86%D8%A7%D8%A1_%D8%B7%D8%B1%D8%A7%D8%A8%D9%84%D8%B3.jpg/960px-%D9%85%D9%8A%D9%86%D8%A7%D8%A1_%D8%B7%D8%B1%D8%A7%D8%A8%D9%84%D8%B3.jpg",
+            "credit": "利比亚的黎波里港（资料图，非事发地点）。Rubellah / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "地中海南岸",
+              "type": "term",
+              "explanation": "利比亚位于地中海南岸，与意大利隔海相望。这片海域集中了南欧与北非之间的商贸和能源航线，战事外溢会影响地区航运。"
+            },
+            {
+              "term": "利比亚的平行政权",
+              "type": "term",
+              "explanation": "利比亚长期存在以的黎波里为中心的西部当局和以东部为据点的政治军事力量。两边各有机构和安全部队，报道中所说的利比亚方面要结合声明的具体来源理解。"
+            }
+          ]
+        },
+        {
+          "headline": "欧盟拟与西巴尔干伙伴逐一商谈融入单一市场",
+          "summary": "欧盟与西巴尔干伙伴11月25日举行峰会，欧盟提出自2027年初按各方准备程度推进加入欧盟单一市场的专项对话，并拟与阿尔巴尼亚等四方启动手机漫游谈判。这是分阶段的市场接轨安排，不等于同意这些伙伴立即加入欧盟。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "欧盟理事会",
+              "url": "https://www.consilium.europa.eu/en/meetings/international-summit/2026/11/25/"
+            },
+            {
+              "name": "欧盟委员会",
+              "url": "https://enlargement.ec.europa.eu/news/statement-president-von-der-leyen-president-costa-following-eu-western-balkans-summit-2026-11-25_en?prefLang=et"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Berlaymont_EU_Building-Brussels.jpg/960px-Berlaymont_EU_Building-Brussels.jpg",
+            "credit": "欧盟委员会布鲁塞尔总部（资料图）。acediscovery / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "单一欧元支付区（SEPA）",
+              "type": "term",
+              "explanation": "参加方让跨境欧元转账遵循统一的技术和业务规则，以减少转账摩擦和费用。加入支付区不等于加入欧盟，也不等于改用欧元作为本国货币。"
+            },
+            {
+              "term": "欧盟单一市场",
+              "type": "term",
+              "explanation": "成员国在共同规则下推动商品、服务、资本和人员流动。欧盟可以在西巴尔干伙伴正式入盟前，先就开放若干行业或服务达成安排。"
+            }
+          ]
+        },
+        {
+          "headline": "北约秘书长访美，与特朗普讨论乌克兰战争",
+          "summary": "北约秘书长马克·吕特11月25日在佛罗里达州海湖庄园与美国总统特朗普会面；他在会前表示，美方正试探俄罗斯是否真正愿意结束战争。北约此前确认此次访问安排，尚未公布会面达成的新协议。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "北约：访问公告",
+              "url": "https://www.nato.int/en/news-and-events/events/media-advisories/2026/11/24/nato-secretary-general-to-visit-the-united-states-of-america"
+            },
+            {
+              "name": "Scripps News",
+              "url": "https://www.scrippsnews.com/politics/nato-chief-says-trump-is-testing-putin-ahead-of-mar-a-lago-meeting"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/MaralagoLoC.jpg/960px-MaralagoLoC.jpg",
+            "credit": "佛罗里达州海湖庄园（1967年资料图）。Jack Boucher / 美国国会图书馆 HABS / Wikimedia Commons，公有领域，https://commons.wikimedia.org/wiki/File:MaralagoLoC.jpg"
+          },
+          "glossary": [
+            {
+              "term": "马克·吕特",
+              "type": "person",
+              "explanation": "吕特曾任荷兰首相，2024年接任北约秘书长。秘书长主持盟国间的协商，对外发言，但不能代各成员国决定提供何种援助。"
+            },
+            {
+              "term": "海湖庄园",
+              "type": "term",
+              "explanation": "海湖庄园在美国佛罗里达州棕榈滩，是特朗普的私人俱乐部和住所。它也被用于会晤外国来访人士，本次会面并不在白宫举行。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "经济与市场",
+      "items": [
+        {
+          "headline": "美国拟对14个经济体采取新关税措施，对华方案公开征求意见",
+          "summary": "美国贸易代表办公室11月25日就其认定的制造业「结构性产能过剩」，对14个经济体提出新措施；首选对华方案按商品清单区分税率，两个附件之外最高20%、附件A最高10%、附件B不加征本项税，其中20%档须扣除同一商品在另一项涉强迫劳动的301措施下所缴的税率。谈判未达预期才考虑更高备选税率，最高40%，适用同样的扣减规则；拟议措施没有生效日期，书面意见收至2027年1月5日。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "美国贸易代表办公室",
+              "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/ustr-makes-determinations-and-proposes-actions-14-section-301-investigations-relating-structural"
+            },
+            {
+              "name": "美国贸易代表办公室",
+              "url": "https://ustr.gov/sites/default/files/files/Press/Releases/2026/China%20FRN.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/View_of_Port_of_Los_Angeles_with_container_ships.jpg/960px-View_of_Port_of_Los_Angeles_with_container_ships.jpg",
+            "credit": "美国洛杉矶港（资料图）。Downtowngal / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "301调查",
+              "type": "term",
+              "explanation": "这是美国依据《1974年贸易法》第301条等条款启动的贸易调查。美国贸易代表办公室可以在作出调查认定后提出关税等措施，但本次文件仍在征求意见，不能当作已经征收。"
+            },
+            {
+              "term": "关税附件和抵扣",
+              "type": "term",
+              "explanation": "附件用美国海关商品编号区分不同的拟议待遇。抵扣只针对同一商品在通知点明的另一项行动下适用的税率，不是扣除所有现有关税，也不等于附件B商品免交其他税。"
+            }
+          ]
+        },
+        {
+          "headline": "韩国综指收跌6.16%，美股科技股尾盘收窄跌幅",
+          "summary": "韩国综合股价指数11月25日跌6.16%至4,697.51点，三星电子跌9.87%，SK海力士跌11.05%。稍后纳斯达克综合指数一度跌逾4%，收盘跌0.6%；标普500指数跌0.3%，道琼斯工业平均指数涨0.3%。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "韩联社",
+              "url": "https://en.yna.co.kr/view/AEN20261125006251320"
+            },
+            {
+              "name": "美联社：美国股指收盘",
+              "url": "https://apnews.com/article/94fdb0ecb060ec65c0b02879ce0d2d09"
+            },
+            {
+              "name": "美联社",
+              "url": "https://apnews.com/article/stock-markets-ai-earnings-oil-10044b4fb55d3ff20fde9ba9e9acaab1"
+            },
+            {
+              "name": "路透社",
+              "url": "https://www.reuters.com/business/nasdaq-futures-slide-over-2-fresh-us-tariff-concerns-inflation-data-focus-2026-11-25/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Samsung_headquarters.jpg/960px-Samsung_headquarters.jpg",
+            "credit": "韩国首尔三星总部（资料图）。Oskar Alexanderson / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "韩国综合股价指数（KOSPI）",
+              "type": "term",
+              "explanation": "它是追踪韩国证券交易所主板股票的主要指数，和中小科技股较集中的KOSDAQ不是同一个市场。三星电子、SK海力士等大市值公司波动时，往往能显著带动指数。"
+            },
+            {
+              "term": "盘中跌幅与收盘涨跌幅",
+              "type": "term",
+              "explanation": "盘中跌幅反映交易时段某一时点或极值相对上一收盘的变化，收盘涨跌幅则用当天最终收盘点位计算。盘中急跌后反弹，两项数字可以相差很大。"
+            }
+          ]
+        },
+        {
+          "headline": "美国第三季度GDP增速上修至4.3%，10月PCE通胀仍偏高",
+          "summary": "美国经济分析局11月25日把第三季度实际GDP的环比折年增速由3.4%上修至4.3%，主要反映投资和消费数据更新。另一份报告显示10月个人消费支出价格指数同比涨3.8%，剔除食品和能源后同比涨3.3%，两项环比都涨0.3%。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "美国经济分析局",
+              "url": "https://www.bea.gov/news/2026/gdp-second-estimate-and-corporate-profits-3rd-quarter-2026"
+            },
+            {
+              "name": "美国经济分析局",
+              "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Herbert_C._Hoover_Federal_Building.jpg/960px-Herbert_C._Hoover_Federal_Building.jpg",
+            "credit": "美国商务部胡佛大楼（资料图，经济分析局隶属商务部）。Tony Webster / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "环比折年率",
+              "type": "term",
+              "explanation": "它把一季的增长换算成这一速度持续四季时的全年增幅。本次未经折年的实际环比增长约1.1%，不能把4.3%理解为一个季度内的实际增长。"
+            },
+            {
+              "term": "PCE价格指数",
+              "type": "term",
+              "explanation": "它衡量居民消费相关商品和服务的价格，还覆盖为居民代付的部分开支。美国联储的长期2%通胀目标按这一指数的年度变动衡量。"
+            }
+          ]
+        },
+        {
+          "headline": "欧盟将对部分进口混动车设临时配额，中国原产车合计逾19万辆",
+          "summary": "欧盟自12月1日起对部分进口混合动力乘用车实行200天的临时保障措施，按产地分配配额，其中中国原产车获191,780辆配额。配额内仍缴适用关税，配额用完的同类车辆不得进口；措施按原产地和动力类型划定，不按品牌划分。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "欧盟官方公报",
+              "url": "https://eur-lex.europa.eu/eli/reg_impl/2026/2614/oj"
+            },
+            {
+              "name": "中国商务部",
+              "url": "https://www.mofcom.gov.cn/xwfb/xwfyrth/art/2026/art_67a40650300a4ef396543f5964c7748b.html"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/BYD_Seal_U_DM-i_DSC_9306.jpg/960px-BYD_Seal_U_DM-i_DSC_9306.jpg",
+            "credit": "比亚迪在欧销售的混合动力车型（资料图；不代表具体车辆原产地判定）。Alexander Migl / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "临时保障措施",
+              "type": "term",
+              "explanation": "进口方可在正式调查结束前临时限制部分产品进口。本次用的是数量配额，配额内车辆仍缴纳通常适用的关税。"
+            },
+            {
+              "term": "受配额约束的混动车",
+              "type": "term",
+              "explanation": "法规涵盖符合海关编码的部分新乘用车，要求内燃机和电机都参与驱动，包括符合条件的插混和非插混车型。电力只用于启停等非驱动功能的微混车不在这项配额内。"
+            }
+          ]
+        },
+        {
+          "headline": "希音欧洲季度净收入下滑27.6%，加快在欧洲本地发货",
+          "summary": "SHEIN在港交所披露第三季度欧洲净收入为29.77亿美元，同比减少27.6%，全球净收入下降5.9%。公司称欧洲低值包裹新规实施后调价及缩减营销影响需求；广州服装企业是其供应网络的一部分，但公告没有披露广州供应商订单变化。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "香港交易所披露易",
+              "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1125/2026112500731_c.pdf"
+            },
+            {
+              "name": "欧盟理事会",
+              "url": "https://www.consilium.europa.eu/en/policies/eu-action-influx-of-small-parcels/"
+            },
+            {
+              "name": "stockanalysis.com",
+              "url": "https://stockanalysis.com/quote/hkg/0625/transcripts/761598-q3-2026/"
+            },
+            {
+              "name": "SHEIN供应商披露",
+              "url": "https://www.sheingroup.com/newsroom/amplifying-supplier-and-worker-engagement-through-third-party-partnerships"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Salon_Shein_w_Galerii_M%C5%82ociny_w_Warszawie.jpg/960px-Salon_Shein_w_Galerii_M%C5%82ociny_w_Warszawie.jpg",
+            "credit": "资料图：2024年，波兰华沙一处希音门店。 图源：DMCGN / Wikimedia Commons / CC BY 4.0；https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "欧盟低价包裹关税",
+              "type": "term",
+              "explanation": "自7月1日起，欧盟对符合条件、货值低于150欧元的进口小包裹按不同商品类别各征3欧元临时关税。同一包裹有多个类别，税额会累加；11月1日才开始征收的2欧元处理费是另一项措施，不属于第三季度的成本。"
+            },
+            {
+              "term": "本地履约",
+              "type": "term",
+              "explanation": "电商先把商品调拨至消费市场附近的仓库，顾客下单后从当地发货，而不是逐单从海外直寄。这个比例说的是配送方式，不代表同等比例的商品改在欧洲生产。"
+            }
+          ]
+        },
+        {
+          "headline": "厦门航空拟购50架波音737-8，最快2031年起交付",
+          "summary": "中国南方航空披露，持股55%的厦门航空于11月24日签约购买50架波音737-8，计划于2031年至2034年接收。目录总价约74亿美元，并非实际成交价，交易仍需履行相关审批。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "香港交易所披露易",
+              "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1124/2026112401223.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/B-20EK_of_Xiamen_Airlines_at_TSN_T2_20261102.jpg/960px-B-20EK_of_Xiamen_Airlines_at_TSN_T2_20261102.jpg",
+            "credit": "厦航现有737-8在天津滨海机场（资料图；非新订飞机）。Tim Wu / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "737-8",
+              "type": "term",
+              "explanation": "737-8是波音737 MAX家族的一款窄体客机。尺寸和航程适合航空公司配置短途或中程航线，不能与编号相似的上一代737-800混为一谈。"
+            },
+            {
+              "term": "目录价",
+              "type": "term",
+              "explanation": "飞机制造商的目录价是公开参考价，不等于订单实际支付价格。航空公司可按采购规模、交付安排等谈判，实际折扣往往不公开。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科技与人工智能",
+      "items": [
+        {
+          "headline": "华为回应美国陪审团裁决：十项罪名成立，两项获判无罪",
+          "summary": "华为11月25日在深圳发表声明，反对美国纽约东区联邦陪审团的裁决；陪审团24日裁定华为技术有限公司被控12项罪名中10项成立、2项不成立。法院尚未量刑，律师预计上诉，但这不等于已经提交上诉。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "华为声明",
+              "url": "https://www.huawei.com/en/news/2026/11/statement-on-jury-verdict"
+            },
+            {
+              "name": "美国司法部",
+              "url": "https://www.justice.gov/opa/pr/chinese-tech-giant-huawei-and-subsidiaries-convicted-sanctions-violations-fraud-conspiracy"
+            },
+            {
+              "name": "路透社",
+              "url": "https://www.reuters.com/legal/litigation/chinas-huawei-convicted-us-criminal-trial-stemming-iran-business-2026-11-24/"
+            },
+            {
+              "name": "美联社",
+              "url": "https://apnews.com/article/b39ac780e2e31140015a1be02f0329ab"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/HuaweiShenzhen.jpg/500px-HuaweiShenzhen.jpg",
+            "credit": "资料图：2017年拍摄的华为深圳办公楼。 图源：Raysonho @ Open Grid Scheduler / Grid Engine / Wikimedia Commons / CC0 1.0；https://creativecommons.org/publicdomain/zero/1.0/"
+          },
+          "glossary": [
+            {
+              "term": "RICO（美国《反勒索及受贿组织法》）",
+              "type": "term",
+              "explanation": "这部美国联邦法律可以用来追究通过一系列特定违法行为经营或参与一个组织的责任。本案中陪审团未认定华为构成这项合谋罪，但这不影响对其他罪名分别作出的裁决。"
+            },
+            {
+              "term": "陪审团裁决与法官量刑",
+              "type": "term",
+              "explanation": "在美国联邦刑事审判中，陪审团按不同罪名判断被告是否有罪，法官随后决定刑罚。本案已公布量刑日期，但尚未公布罚款等具体结果；律师说预计上诉，也不等于已经提交上诉。"
+            }
+          ]
+        },
+        {
+          "headline": "CrowdStrike拟以约439亿美元企业价值收购Zscaler",
+          "summary": "美国网络安全公司CrowdStrike宣布拟以全股票方式收购Zscaler，以公告所用的11月20日收盘价计算，交易对应企业价值约439亿美元。两家公司的股东及监管机构仍须批准，交易并未完成。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "CrowdStrike投资者关系",
+              "url": "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-acquire-zscaler-bringing-network-security-and-zero/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/150_Mathilda_Place.jpg/960px-150_Mathilda_Place.jpg",
+            "credit": "加州桑尼韦尔的CrowdStrike办公楼（资料图）。Coolcaesar / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "企业价值",
+              "type": "term",
+              "explanation": "它衡量企业运营业务的整体价值，常从股权价值出发加债务、扣除现金。并购中看到的企业价值不是只付给股东的金额，也不一定等于最终交割时的估值。"
+            },
+            {
+              "term": "零信任",
+              "type": "term",
+              "explanation": "零信任不因用户已连进公司网络就视其为可靠，而是针对具体资源核对身份、设备状况与权限。它关注谁可以访问哪一项资源，与保护电脑免受恶意程序的终端防护互为补充。"
+            }
+          ]
+        },
+        {
+          "headline": "美国参议员发函英伟达，要求提交黄仁勋复任相关记录",
+          "summary": "美国参议员科里·布克11月25日致函英伟达董事长，要求保留今年1月1日以来的相关记录，并在12月16日之前回答有关黄仁勋复任和白宫介入的问题。这是参议员的书面问询，不是新的反垄断裁决，也与黄仁勋预定12月3日在参议院银行委员会出席的芯片出口管制听证会分开。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "科里·布克参议员办公室：函件",
+              "url": "https://www.booker.senate.gov/news/press/booker-demands-answers-from-nvidia-on-trumps-intervention-in-ceo-jensen-huangs-reinstatement"
+            },
+            {
+              "name": "美国参议院银行委员会：听证安排",
+              "url": "https://www.banking.senate.gov/hearings/protecting-americas-ai-advantage-oversight-of-us-export-controls"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Nvidia_sign.jpg/960px-Nvidia_sign.jpg",
+            "credit": "英伟达在加州圣克拉拉的办公区标牌（资料图）。Will Buckner / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "国会书面问询",
+              "type": "term",
+              "explanation": "美国议员可以向公司索取记录或要求说明。收到问询不等于违法已被认定，也不等于公司已收到强制提交文件的传票。"
+            },
+            {
+              "term": "参议院银行委员会",
+              "type": "org",
+              "explanation": "该委员会除了银行事务，也负责部分经济和国家安全议题，芯片出口管制可纳入其监督。布克发函所涉的是另一委员会的竞争政策议题，不能把两件事视作同一次听证。"
+            }
+          ]
+        },
+        {
+          "headline": "戴尔季度AI服务器营收超过220亿美元",
+          "summary": "戴尔公布截至10月30日的财季收入549.37亿美元，同比增长103%，其中AI优化服务器确认收入220.31亿美元、增长291%。同季收到的AI订单为602亿美元，季末在手订单为1,323亿美元，这两项都不是当季收入。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "戴尔财报及监管披露",
+              "url": "https://investors.delltechnologies.com/sec-filings/all-sec-filings/content/0001571996-26-000050/exhibit991earnings8kq3fy27.htm"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Experience_our_server_racks_%288531003630%29.jpg/960px-Experience_our_server_racks_%288531003630%29.jpg",
+            "credit": "戴尔早期服务器机柜（资料图，非本次出货机型）。Dell Inc. / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "AI优化服务器",
+              "type": "term",
+              "explanation": "这类服务器通常配有GPU等加速器，并针对高密度计算配置供电、散热和互联。采购方用它训练模型或处理大规模推理，但单台设备性能仍取决于具体配置。"
+            },
+            {
+              "term": "在手订单",
+              "type": "term",
+              "explanation": "企业已接受但尚未满足收入确认条件的订单形成在手订单。它反映潜在的交付规模，并不等同于当期已经交付或收到的现金。"
+            }
+          ]
+        },
+        {
+          "headline": "欧盟委员会提出《量子法案》，拟设科技股权基金",
+          "summary": "欧盟委员会11月25日提出《欧洲量子法案》，拟协调研发、采购与安全措施，并同时提出主权科技股权基金。委员会问答明确，法案没有列明固定预算，提案还须经欧洲议会和欧盟理事会审议。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "欧盟委员会",
+              "url": "https://digital-strategy.ec.europa.eu/en/news/commission-proposes-quantum-act-and-new-sovereign-tech-equity-fund-strengthen-europes-industrial"
+            },
+            {
+              "name": "欧盟委员会",
+              "url": "https://digital-strategy.ec.europa.eu/en/faqs/quantum-act-explained"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/IBM_Quantum_System_One.jpg/960px-IBM_Quantum_System_One.jpg",
+            "credit": "IBM量子计算机（资料图，非本提案项目设备）。OJB Quantum / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "量子传感",
+              "type": "term",
+              "explanation": "量子传感器利用原子等微观系统对外界变化的反应，测量时间、磁场或重力。它是量子技术的一个应用方向，不必等到通用量子计算机成熟才可使用。"
+            },
+            {
+              "term": "主权科技股权基金",
+              "type": "term",
+              "explanation": "欧委会拟设立这一投资工具，让欧盟与成员国以及其他公共或私人投资者共同出资。股权投资一般以取得企业或项目的部分权益为回报，和直接拨款不同。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "社会与荒诞",
+      "items": [
+        {
+          "headline": "开罗环城公路油罐车事故引发大火，至少31人死亡",
+          "summary": "11月25日，埃及大开罗地区吉萨省瓦拉克一段环城公路发生油罐车事故，火势蔓延至附近车辆。美联社援引埃及卫生部门更新统计称至少31人死亡、21人受伤，检方正在调查事故原因。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "美联社",
+              "url": "https://apnews.com/article/cairo-highway-fire-ring-road-89e4cd3d3d53016c9c35440b57c5ea1e"
+            },
+            {
+              "name": "埃及总统办公室",
+              "url": "https://www.presidency.eg/en/%D9%82%D8%B3%D9%85-%D8%A7%D9%84%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1/%D8%A3%D8%AE%D8%A8%D8%A7%D8%B1-%D8%B1%D8%A6%D8%A7%D8%B3%D9%8A%D8%A9/news25112026-2/"
+            },
+            {
+              "name": "《金字塔报》",
+              "url": "https://english.ahram.org.eg/NewsContent/1/1235/583424/Egypt/Urban--Transport/Fuel-truck-overturns-in-Giza-killing-%2C-prosecution.aspx"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Cairo_Ring_Road_in_Giza%2C_Egypt.jpg/1280px-Cairo_Ring_Road_in_Giza%2C_Egypt.jpg",
+            "credit": "资料图：2026年5月，吉萨一段开罗环城公路，并非事故现场。 图源：Quintin Soloviev / Wikimedia Commons / CC BY 4.0；https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "大开罗地区",
+              "type": "term",
+              "explanation": "大开罗是以埃及首都为中心的都市区，范围不限于开罗省，也包括尼罗河西岸吉萨省的部分城区。本次事故发生在吉萨的瓦拉克，所以报道也常用「开罗附近」来说明位置。"
+            },
+            {
+              "term": "开罗环城公路",
+              "type": "term",
+              "explanation": "这条干线绕过开罗及周边人口密集的城区，连接多处城市主干道。环路同时承担通勤和过境交通，局部封闭会影响其他相连路段。"
+            }
+          ]
+        },
+        {
+          "headline": "强风来袭，纽约梅西百货感恩节游行改到周六",
+          "summary": "美联社报道，梅西百货与纽约市方面11月25日宣布，因预报有强风，原定11月26日感恩节举行的第100届游行改到11月28日。改期的是游行，不是感恩节假日。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "美联社：改期报道",
+              "url": "https://apnews.com/article/cdc870899c8dc2d32a0ac3d86119b3ba"
+            },
+            {
+              "name": "CBS纽约",
+              "url": "https://www.cbsnews.com/newyork/news/macys-thanksgiving-day-parade-postponed/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/2024_Macy%27s_Thanksgiving_Day_Parade_%2854174613020%29.jpg/960px-2024_Macy%27s_Thanksgiving_Day_Parade_%2854174613020%29.jpg",
+            "credit": "2024年梅西百货感恩节游行（资料图，非今年）。Anthony Quintano / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "梅西百货感恩节游行",
+              "type": "term",
+              "explanation": "这是纽约在美国感恩节举办的街头游行，常在曼哈顿举行。游行以花车、乐队和大型气球为特色，也有电视转播。"
+            },
+            {
+              "term": "阵风",
+              "type": "term",
+              "explanation": "阵风是短时间突然增强的风，和一段时间内的平均风速不同。活动中即使平均风力不算很大，瞬时强风仍可能影响大型气球和临时设施。"
+            }
+          ]
+        },
+        {
+          "headline": "泰国与缅甸约定联合采样，调查跨境河流污染",
+          "summary": "泰国自然资源与环境部11月25日通报，泰缅商定在各自一侧的柯克河设4个、赛河设2个联合采样点，首次采样拟在今年12月至明年1月进行。针对曾检出砷等污染物的湄公河支流水系，中国外交部表示将派专家并提供技术支持。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "泰国自然资源与环境部",
+              "url": "https://www.mnre.go.th/th/news/detail/262887"
+            },
+            {
+              "name": "中国外交部",
+              "url": "https://www.mfa.gov.cn/mfa_eng/xw/fyrbt/lxjzh/202611/t20261125_12067121.html"
+            },
+            {
+              "name": "路透社",
+              "url": "https://www.reuters.com/business/environment/thailand-myanmar-agree-monitor-border-rivers-amid-pollution-fears-2026-11-25/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Kok_River%2C_Chiang_Rai%2C_Thailand.jpg/960px-Kok_River%2C_Chiang_Rai%2C_Thailand.jpg",
+            "credit": "泰国清莱的柯克河（资料图，非本次采样）。Vyacheslav Argenberg / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "联合采样点",
+              "type": "term",
+              "explanation": "两国在同一水系选定取样位置，并协调采样和检测方法，才能比较上下游及不同日期的数据。约定采样点不等于已经建成连续监测站。"
+            },
+            {
+              "term": "砷",
+              "type": "term",
+              "explanation": "砷可天然存在于岩石与土壤中，也可因采矿和工业活动进入水体。仅凭某处检出砷不能断定来源，还需结合水流方向、沉积物和各点检测结果。"
+            }
+          ]
+        },
+        {
+          "headline": "北京至伊尔库茨克国际列车首发，经乌兰巴托开行",
+          "summary": "11月25日，北京至俄罗斯伊尔库茨克的V3次国际旅客列车从北京站首次开行，经蒙古国乌兰巴托，全程约2,666公里、约55小时。往返列车按周开行，目的地是伊尔库茨克，并非旧有北京至莫斯科直达车。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "新华社",
+              "url": "https://www.xinhuanet.com/photo/20261125/d8a7601d81bb4012aca176e04512b888/c.html"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Beijing_UlaanBaatar_Moscow_Train.jpg/960px-Beijing_UlaanBaatar_Moscow_Train.jpg",
+            "credit": "经蒙古运行的旧北京至莫斯科国际列车（资料图；不是新开V3）。Kok Leng Yeo / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "V3／V4次列车",
+              "type": "term",
+              "explanation": "V3与V4分别对应北京开往伊尔库茨克及反向的车次。它们服务中蒙俄国际线路，与开往莫斯科的K3／K4在编号和终点上不同。"
+            },
+            {
+              "term": "伊尔库茨克",
+              "type": "term",
+              "explanation": "这座城市位于俄罗斯东西伯利亚的安加拉河畔，是西伯利亚铁路的重要站点。贝加尔湖距市区另有一段路程，车站抵达不等于已经到湖边。"
+            }
+          ]
+        },
+        {
+          "headline": "欧洲将从2027年起在8月8日纪念工伤事故遇难者",
+          "summary": "欧盟三机构签署联合声明，自2027年起把8月8日设为欧洲工伤事故遇难者纪念日，借此关注工作场所安全。日期取自1956年比利时马尔西内勒矿难发生当天，当年有来自12个国家的262人遇难；纪念日不是新设的法定公共假日。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "欧洲工作安全与卫生署",
+              "url": "https://osha.europa.eu/en/oshnews/8-august-established-european-day-remembrance-victims-accidents-work"
+            },
+            {
+              "name": "欧盟委员会",
+              "url": "https://cyprus.representation.ec.europa.eu/news/health-and-safety-work-8-august-become-european-day-remembrance-victims-accidents-work-2026-11-24_en"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Marcinelle_-_Bois_du_Cazier_-_2018-04-22_-_01.jpg/960px-Marcinelle_-_Bois_du_Cazier_-_2018-04-22_-_01.jpg",
+            "credit": "比利时布瓦迪卡齐耶旧煤矿（2018年资料图）。Jmh2o / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "马尔西内勒矿难",
+              "type": "term",
+              "explanation": "1956年8月8日，比利时马尔西内勒的博瓦迪卡济耶煤矿发生火灾。遇难矿工来自多个国家，这场事故后来成为欧洲讨论矿工劳动条件与安全标准的重要事件。"
+            },
+            {
+              "term": "职业安全与健康",
+              "type": "term",
+              "explanation": "这一领域关注如何在事故和职业病发生前识别并控制工作场所的危险。它既包括矿井通风、逃生等现场措施，也包括培训、监督和雇主责任。"
+            }
+          ]
+        },
+        {
+          "headline": "贝鲁特爆炸后抢救的古玻璃器在阿布扎比亮相",
+          "summary": "阿布扎比卢浮宫11月25日开幕的《Living Legacies》展览呈现八件修复后的古玻璃器，它们是2020年贝鲁特港爆炸后从黎巴嫩美国大学考古博物馆的碎片中抢救出来的。展览将修复后的器物与保护过程并置，突出当地文物如何在灾后被识别和重新拼合。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "阿布扎比卢浮宫",
+              "url": "https://www.louvreabudhabi.ae/en/exhibitions/living-legacies-protecting-heritage-building-hope"
+            },
+            {
+              "name": "ALIPH文物保护项目",
+              "url": "https://www.aliph-foundation.org/en/projects/stabilization-of-glass-artifacts-at-the-archaeological-museum"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Visitors_at_Louvre_Abu_Dhabi.jpg/960px-Visitors_at_Louvre_Abu_Dhabi.jpg",
+            "credit": "阿布扎比卢浮宫馆内（资料图，非本次展览）。Tasos Lekkas / Wikimedia Commons，CC0 1.0，https://creativecommons.org/publicdomain/zero/1.0/"
+          },
+          "glossary": [
+            {
+              "term": "贝鲁特美国大学考古博物馆",
+              "type": "org",
+              "explanation": "这座大学博物馆位于贝鲁特，收藏从史前到伊斯兰时期的区域文物。2020年港口爆炸震碎其展柜中的不少玻璃器，也留下了需要逐件辨认的残片。"
+            },
+            {
+              "term": "玻璃文物的稳定处理",
+              "type": "term",
+              "explanation": "碎片先按颜色、厚度和纹饰分类，确认边缘相接再拼合。修复优先保持残片稳定和贴合证据，不必把所有缺损都补成完整外观。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科学与体育",
+      "items": [
+        {
+          "headline": "神舟二十四号乘组进驻天宫，巴基斯坦航天员成为首位到访的外籍航天员",
+          "summary": "中国载人航天工程办公室通报，神舟二十四号11月25日11时56分对接天和核心舱前向端口，14时35分两组航天员会合。随船入站的穆罕默德·泽尚·阿里成为首位进入天宫的外籍航天员，也是首位进入地球轨道的巴基斯坦航天员。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "中国载人航天工程办公室",
+              "url": "https://www.cmse.gov.cn/xwzx/202611/t20261125_57897.html"
+            },
+            {
+              "name": "新华社：乘组会合",
+              "url": "https://www.qzwb.com/gb/content/2026-11/25/content_9263905.htm"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Interior_of_Wentian.jpg",
+            "credit": "神舟十四号乘组在问天实验舱（资料图，非此次交接）。中国载人航天工程办公室 / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "前向对接口",
+              "type": "term",
+              "explanation": "天和核心舱有多个对接口，前向端口位于核心舱节点舱朝向飞行方向的一端。接上后仍需检查密封、平衡舱压，才能打开舱门。"
+            },
+            {
+              "term": "入轨与亚轨道飞行",
+              "type": "term",
+              "explanation": "入轨意味着飞行器达到能绕地球持续运行的速度；亚轨道飞行达到高空后直接返回。巴基斯坦的纳米拉·萨利姆曾在2023年进行亚轨道飞行，因此阿里的纪录宜限定为首次入轨。"
+            }
+          ]
+        },
+        {
+          "headline": "南京团队参与辨认白垩纪水栖直翅目昆虫，后腿像带着两把桨",
+          "summary": "中国科学院南京地质古生物研究所与德国、缅甸合作团队描述了约一亿年前缅甸琥珀中的直翅目新科Hydrelcanidae。化石后足保留了叶片状结构，研究者推测它们可能靠后腿划水，但不能从静止化石直接观察其游动。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "南京地质古生物研究所",
+              "url": "https://www.nigpas.ac.cn/kyjz/202611/t20261124_8314150.html"
+            },
+            {
+              "name": "英国皇家学会会刊 B：论文",
+              "url": "https://doi.org/10.1098/rspb.2026.0751"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Water_strider_in_a_pond_2.jpg/960px-Water_strider_in_a_pond_2.jpg",
+            "credit": "现代水黾在水面活动（比较用资料图；不是化石物种）。Schnobby / Wikimedia Commons，CC BY-SA 3.0，https://creativecommons.org/licenses/by-sa/3.0/"
+          },
+          "glossary": [
+            {
+              "term": "直翅目",
+              "type": "term",
+              "explanation": "这是包括蝗虫、螽斯和蟋蟀在内的一类昆虫。许多成员善跳，研究中的这一支却保留了可能与水面活动有关的特殊后足。"
+            },
+            {
+              "term": "琥珀包裹体",
+              "type": "term",
+              "explanation": "小动物被树脂包裹后，树脂在地质时间里逐渐变成琥珀，有时能保留细小的外部形态。研究者可用保存下来的结构推断功能，但功能推断仍不同于直接观测。"
+            }
+          ]
+        },
+        {
+          "headline": "欧冠联赛阶段：巴黎圣日耳曼主场2比2战平罗马",
+          "summary": "11月25日，巴黎圣日耳曼在王子公园球场与罗马踢成2比2，两队在欧冠联赛阶段第五轮各取一分。赛果计入统一积分榜，这场并非两队之间的淘汰赛首回合。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "欧足联比赛中心",
+              "url": "https://www.uefa.com/uefachampionsleague/match/2049634--paris-vs-roma/"
+            },
+            {
+              "name": "金字塔报：赛果",
+              "url": "https://english.ahram.org.eg/NewsContent/6/55/583198/Sports/World/UEFA-Champions-League-results-amp%3B-scorers-League-.aspx"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Parc_des_Princes_depuis_le_parcage_visiteurs_13.jpg/960px-Parc_des_Princes_depuis_le_parcage_visiteurs_13.jpg",
+            "credit": "巴黎王子公园球场（资料图，非本场）。Zakarie Faibis / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "欧冠联赛阶段",
+              "type": "term",
+              "explanation": "现在的欧冠联赛阶段使用一个36队积分榜，每队与八个不同对手各踢一场。排名前八直接进十六强，第九至二十四位先踢淘汰赛附加赛。"
+            },
+            {
+              "term": "王子公园球场",
+              "type": "term",
+              "explanation": "这座球场位于巴黎西南部，是巴黎圣日耳曼的主场。它与位于圣但尼、常举办国家队比赛的法兰西体育场不是同一场地。"
+            }
+          ]
+        },
+        {
+          "headline": "意大利苦战淘汰韩国，挺进戴维斯杯四强",
+          "summary": "11月25日，卫冕冠军意大利在博洛尼亚以2比1击败韩国；穆塞蒂先为主队拿下一分，韩国追回第二场单打。贝雷蒂尼与瓦瓦索里在决胜双打连赢两个抢七，帮助意大利晋级。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "戴维斯杯：比赛报道",
+              "url": "https://www.daviscup.com/en/news/italy-korea-rep-quarterfinal-recap"
+            },
+            {
+              "name": "阿斯报：赛果",
+              "url": "https://as.com/tenis/italia-supera-con-susto-a-corea-por-el-trompazo-de-cobolli-f202611-n/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Lorenzo_Musetti_at_2025_Miami_Open.jpg/960px-Lorenzo_Musetti_at_2025_Miami_Open.jpg",
+            "credit": "意大利球员穆塞蒂（资料图，非本场）。Vbrunophotog / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "戴维斯杯",
+              "type": "term",
+              "explanation": "戴维斯杯是男子网球国家和地区代表队团体赛。总决赛八强阶段每轮最多打两场单打、一场双打，先赢两场者晋级。"
+            },
+            {
+              "term": "抢七",
+              "type": "term",
+              "explanation": "普通抢七通常在一盘打到6比6时进行。先到七分并领先至少两分才算赢，因此分数可以超过七分。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "影视与明星",
+      "items": [
+        {
+          "headline": "罗泓轸《Hope》获韩国青龙奖最佳影片",
+          "summary": "第47届韩国青龙电影奖11月25日在首尔举行，罗泓轸执导的《Hope》获最佳影片及摄影照明奖。李沧东执导的《Possible Love》获四奖，其中薛景求、全度妍分别获最佳男、女主角奖。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "《体育朝鲜》：青龙奖主办方",
+              "url": "https://www.sportschosun.com/entertainment/2026-11-25/202611250100160380014767"
+            },
+            {
+              "name": "《韩国先驱报》",
+              "url": "https://www.koreaherald.com/article/10949515"
+            },
+            {
+              "name": "Soompi：完整获奖名单",
+              "url": "https://www.soompi.com/article/1890791wpp/winners-of-the-47th-blue-dragon-film-awards"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Na_Hong-jin_at_the_2026_Cannes_Film_Festival_%28cropped%29.jpg/960px-Na_Hong-jin_at_the_2026_Cannes_Film_Festival_%28cropped%29.jpg",
+            "credit": "罗泓轸在2026年戛纳电影节为《Hope》亮相（资料图，非青龙奖现场）。Gabriel Hutchinson / WikiPortraits；共享资源裁剪版 / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "青龙电影奖",
+              "type": "award",
+              "explanation": "这是韩国电影界的年度奖项，除了影片和演员，也表彰摄影、剪辑等专业工种。它评选韩国电影，与戛纳等面向国际影片的电影节主竞赛并不是同一套奖项。"
+            },
+            {
+              "term": "罗泓轸",
+              "type": "person",
+              "explanation": "这位韩国导演的作品包括《追击者》和《哭声》，经常混用犯罪、悬疑和惊悚元素。《Hope》是他在《哭声》之后推出的首部长片导演作品。"
+            }
+          ]
+        },
+        {
+          "headline": "袁和平执导的《镖人》在法国上映，先在南特电影节放映",
+          "summary": "法国Pathé院线列出《镖人》11月25日的上映安排，影片此前于23日在南特三大洲电影节作特别放映。该片由袁和平执导，法国片名为《Le Sabre des gardiens》，法国影展介绍提到李连杰、吴京等内地演员参演。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "Pathé院线：法国上映日期",
+              "url": "https://www.pathe.fr/en/films/le-sabre-des-gardiens-55155"
+            },
+            {
+              "name": "南特三大洲电影节：特别放映",
+              "url": "https://www.3continents.com/fr/film/le-sabre-des-gardiens/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Yuen_Woo_Ping.jpg",
+            "credit": "导演袁和平（资料图，非法国放映现场）。Debbie Cerda / Slackerwood / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "袁和平",
+              "type": "person",
+              "explanation": "袁和平是香港导演和动作指导，参与过《卧虎藏龙》和《黑客帝国》的武打设计。他在《镖人》中担任导演，不只是设计动作场面。"
+            },
+            {
+              "term": "南特三大洲电影节",
+              "type": "org",
+              "explanation": "这一法国电影节以亚洲、非洲和拉丁美洲电影为重点。特别放映是策展单元，入选不等于参赛或获奖。"
+            }
+          ]
+        },
+        {
+          "headline": "滨口龙介《突缘其来》在纽约林肯中心开画",
+          "summary": "纽约林肯中心电影协会安排滨口龙介的《突缘其来》11月25日正式开画，两位主演维尔日妮·埃菲拉与冈本多绪曾凭此片共享2026年戛纳最佳女演员奖。影片借两名女性在巴黎养老机构的相遇，观察护理工作和机构改革。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "林肯中心电影协会",
+              "url": "https://www.filmlinc.org/daily/film-at-lincoln-center-unveils-fall-winter-2026-lineup/"
+            },
+            {
+              "name": "香港百老汇院线：当地片名及放映",
+              "url": "https://www.cinema.com.hk/hk/show/160710"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Ryusuke_Hamaguchi_at_2026_Cannes_Film_Festival_%28cropped%29.jpg",
+            "credit": "滨口龙介在2026年戛纳电影节（资料图）。John Sears / WikiPortraits；共享资源裁剪版 / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "滨口龙介",
+              "type": "person",
+              "explanation": "日本导演滨口龙介凭《驾驶我的车》赢得奥斯卡最佳国际影片奖。他的影片常通过细密的对话表现人物关系如何被误读，又如何因交谈而改变。"
+            },
+            {
+              "term": "Humanitude护理法",
+              "type": "term",
+              "explanation": "这种照护方法强调通过视线、说话、触碰和帮助保持直立与人相处。影片以养老院引入此法为线索，观察把理念转成日常工作时的困难。"
+            }
+          ]
+        },
+        {
+          "headline": "威尼斯最佳编剧片《好小兵》在法国上映",
+          "summary": "发行方高蒙确认，史蒂芬·布塞执导的《好小兵》于11月25日在法国上映，阿尔芭·罗尔瓦赫尔主演。影片曾获2026年威尼斯电影节最佳编剧奖，把故事放在一次死亡事件迫使管理人员直面责任的企业环境中。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "高蒙电影公司",
+              "url": "https://www.gaumont.com/en/movie/a-good-little-soldier"
+            },
+            {
+              "name": "法兰西岛大区",
+              "url": "https://www.iledefrance.fr/tous-les-evenements/production-cine-tv-soutenue-un-bon-petit-soldat-prime-la-mostra-2026"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Alba_Rohrwacher-09775.jpg/960px-Alba_Rohrwacher-09775.jpg",
+            "credit": "阿尔芭·罗尔瓦赫尔出席2026年威尼斯电影节（资料图）。CaseyJNewell / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "阿尔芭·罗尔瓦赫尔",
+              "type": "person",
+              "explanation": "她是意大利演员，长期参与意大利与法国的作者电影制作。她此前凭《饥饿的心》获得威尼斯电影节最佳女演员奖，本片的威尼斯奖项则颁给编剧。"
+            },
+            {
+              "term": "威尼斯最佳编剧奖",
+              "type": "award",
+              "explanation": "这是威尼斯电影节主竞赛奖项之一，表彰剧本写作。和金狮奖不同，它不评整部电影的综合最佳。"
+            }
+          ]
+        },
+        {
+          "headline": "布里斯托巴勒斯坦电影节以纪录片《美国医生》开幕",
+          "summary": "英国布里斯托巴勒斯坦电影节11月25日在Watershed拉开帷幕，开幕片记录三名美国医生在加沙医院志愿服务的经历。影展持续至12月6日，今年以「见证」为主题，另有剧情片、摄影展和映后交流。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "Watershed：电影节片单",
+              "url": "https://www.watershed.co.uk/whatson/season/759/bristol-palestine-film-festival-2026"
+            },
+            {
+              "name": "布里斯托电影之城",
+              "url": "https://bristolcityoffilm.co.uk/bristol-palestine-film-festival-returns-with-16th-edition/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/The_Watershed%2C_Bristol_%282226%29.jpg/960px-The_Watershed%2C_Bristol_%282226%29.jpg",
+            "credit": "布里斯托Watershed场馆（资料图）。Nilfanion / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "Watershed",
+              "type": "org",
+              "explanation": "这是布里斯托港区的文化影院与创意机构，不是以商业首轮片为主的连锁影院。它常把专题放映与导演交流等活动放在同一节目中。"
+            },
+            {
+              "term": "影展主题单元",
+              "type": "term",
+              "explanation": "电影节可以按同一主题编排不同类型电影、展览与活动。以「见证」为主题，意味着观众可以对照不同创作者如何呈现个人经验，并不表示每部影片都是纪录片。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "书籍与作家",
+      "items": [
+        {
+          "headline": "首届儿童布克奖公布八强，陈志勇图像作品入围",
+          "summary": "布克奖基金会11月24日公布首届儿童布克奖八部短名单，澳大利亚作家兼插画家陈志勇的《Hometown》入围，这本书已有刘育瑄翻译的繁体中文版本《所來、所在、所往》。四名8至12岁的儿童将与三名成人评委共同选出获奖作，结果拟于2027年2月2日揭晓。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "布克奖基金会",
+              "url": "https://thebookerprizes.com/media-centre/press-releases/childrens-booker-prize-2027-announced"
+            },
+            {
+              "name": "城邦读书花园：繁中书目",
+              "url": "https://www.cite.com.tw/book?id=109350"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Shaun_Tan_2011-05-22_002.jpg/960px-Shaun_Tan_2011-05-22_002.jpg",
+            "credit": "作家兼插画家陈志勇（2011年资料图）。Stefan Tell / Wikimedia Commons，CC BY 3.0，https://creativecommons.org/licenses/by/3.0/"
+          },
+          "glossary": [
+            {
+              "term": "儿童布克奖",
+              "type": "award",
+              "explanation": "这是布克奖基金会新设的儿童文学奖，与成人小说的布克奖分开评选。本届儿童评委和成人评委都参与终选。"
+            },
+            {
+              "term": "陈志勇（Shaun Tan）",
+              "type": "person",
+              "explanation": "陈志勇是澳大利亚作家、插画家，以《抵岸》等图像叙事作品闻名。《Hometown》同样以图像承载叙事，和插图仅作点缀的文字小说不同。"
+            }
+          ]
+        },
+        {
+          "headline": "东野圭吾《无名之町》推出英语版",
+          "summary": "日本作家东野圭吾的《无名之町》于11月24日由Tuttle推出英语版《The Dark Magician》，由亚历山大·O·史密斯翻译。王小燕译的简体中文版早在2021年出版；这次是英语读者有了新译本，不是作者发表新小说。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "Tuttle出版社",
+              "url": "https://tuttlepublishing.com/the-dark-magician-9784805320563"
+            },
+            {
+              "name": "日本国立国会图书馆",
+              "url": "https://ndlsearch.ndl.go.jp/books/R100000136-I1971430859813608487"
+            },
+            {
+              "name": "郡上市：影视改编取景",
+              "url": "https://www.city.gujo.gifu.jp/admin/info/post-2207.html"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Hachimancho_Yanagimachi%2C_Gujo%2C_Gifu_Prefecture_501-4214%2C_Japan_-_panoramio_-_%E7%B1%B3%E7%94%B0%E8%B3%A2%E4%B8%80.jpg/960px-Hachimancho_Yanagimachi%2C_Gujo%2C_Gifu_Prefecture_501-4214%2C_Japan_-_panoramio_-_%E7%B1%B3%E7%94%B0%E8%B3%A2%E4%B8%80.jpg",
+            "credit": "日本郡上八幡柳町（资料图，非改编片剧照）。米田賢一 / Wikimedia Commons，CC BY 3.0，https://creativecommons.org/licenses/by/3.0/"
+          },
+          "glossary": [
+            {
+              "term": "东野圭吾",
+              "type": "person",
+              "explanation": "东野圭吾是日本推理小说家，《嫌疑人X的献身》获直木奖。他常从侦破过程写到案中人物原有的亲情或道德处境。"
+            },
+            {
+              "term": "亚历山大·O·史密斯",
+              "type": "person",
+              "explanation": "他是一名从日语译成英语的译者，做过文学和电子游戏翻译。本书英文版名与日文原名不是直译关系。"
+            }
+          ]
+        },
+        {
+          "headline": "英国威廉希尔年度体育图书奖颁给一本足球裁判纪实",
+          "summary": "记者威廉·拉尔斯顿凭《The Impossible Job》获得2026年威廉希尔年度体育图书奖，奖金2.5万英镑。这部处女作访问了从基层业余赛到世界杯赛场的裁判，记录他们如何在压力下作判罚。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "The Bookseller",
+              "url": "https://www.thebookseller.com/news/william-ralston-wins-25000-william-hill-sports-book-award-2026"
+            },
+            {
+              "name": "颁奖新闻稿",
+              "url": "https://europeangaming.eu/portal/press-release/2026/11/25/218739/william-ralston-impossible-job-sports-book-of-the-year/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Referee_showing_a_yellow_card.jpg/960px-Referee_showing_a_yellow_card.jpg",
+            "credit": "足球主裁判出示黄牌（资料图，非书封）。Keiteay / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "威廉希尔年度体育图书奖",
+              "type": "award",
+              "explanation": "这是始于1989年的英国体育写作奖，题材不限于足球。评选看的是写作而不是运动成绩，入围者可以是记者、研究者或运动员。"
+            },
+            {
+              "term": "足球主裁判",
+              "type": "term",
+              "explanation": "主裁判负责执行比赛规则，决定是否判罚及如何处理违例。即便有助理裁判或视频助理提供信息，场上最终判罚仍由主裁判作出。"
+            }
+          ]
+        },
+        {
+          "headline": "水门事件记者鲍勃·伍德沃德出版职业回忆录",
+          "summary": "鲍勃·伍德沃德的《Secrets: A Reporter’s Memoir》11月24日在美国出版，他在书中回看从水门事件到后来报道白宫的采访经历。《华盛顿邮报》同步刊出节选，讲述他如何从尼克松的律师处追查旧材料。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "西蒙与舒斯特出版社",
+              "url": "https://www.simonandschuster.com/books/Secrets/Bob-Woodward/9781668008256"
+            },
+            {
+              "name": "《华盛顿邮报》：书摘",
+              "url": "https://www.washingtonpost.com/books/2026/11/24/excerpt-bob-woodwards-secrets/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Bob_Woodward.jpg",
+            "credit": "鲍勃·伍德沃德（资料图）。Jim Wallace / 史密森学会 / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/"
+          },
+          "glossary": [
+            {
+              "term": "鲍勃·伍德沃德",
+              "type": "person",
+              "explanation": "他是美国记者，早年与卡尔·伯恩斯坦在《华盛顿邮报》联合追踪水门案。之后他持续采写白宫和国家安全报道，也写过多任总统任内的纪实作品。"
+            },
+            {
+              "term": "水门事件",
+              "type": "term",
+              "explanation": "1972年有人闯入华盛顿水门建筑群内的民主党全国委员会办公室。对闯入和后续掩盖的调查最终导致尼克松于1974年辞职。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "美女与野兽",
+      "gallery": [
+        {
+          "kind": "person",
+          "caption": "麦琪·麦迪森在2024年戛纳电影节为《阿诺拉》亮相。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Mikey_Madison_at_2024_Cannes_Film_Festival_%28Anora_Lead_Actress%29_%28cropped%29.jpg/960px-Mikey_Madison_at_2024_Cannes_Film_Festival_%28Anora_Lead_Actress%29_%28cropped%29.jpg",
+            "credit": "Ariela Ortiz-Barrantes / WikiPortraits；共享资源裁剪版 / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "source": {
+            "name": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Mikey_Madison_at_2024_Cannes_Film_Festival_%28Anora_Lead_Actress%29_%28cropped%29.jpg"
+          }
+        },
+        {
+          "kind": "person",
+          "caption": "艾玛·拉杜卡努在2025年迈阿密网球公开赛。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Emma_Raducanu_at_2025_Miami_Open_05.jpg/960px-Emma_Raducanu_at_2025_Miami_Open_05.jpg",
+            "credit": "Vbrunophotog / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "source": {
+            "name": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Emma_Raducanu_at_2025_Miami_Open_05.jpg"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "非洲野犬的黄、黑、白毛斑延伸到长腿，每只个体的花纹都不一样。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/African_wild_dog_%28Lycaon_pictus_pictus%29.jpg/960px-African_wild_dog_%28Lycaon_pictus_pictus%29.jpg",
+            "credit": "Charles J. Sharp / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "source": {
+            "name": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:African_wild_dog_%28Lycaon_pictus_pictus%29.jpg"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "雄性鸳鸯把两片橙色羽毛支在背上，像水池里竖起两面小帆。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Mandarin_duck_%28Aix_galericulata%29_male_1.jpg/960px-Mandarin_duck_%28Aix_galericulata%29_male_1.jpg",
+            "credit": "Charles J. Sharp / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "source": {
+            "name": "Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Mandarin_duck_%28Aix_galericulata%29_male_1.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "name": "天涯海角",
+      "place": {
+        "name": "葡萄牙·波尔图里贝拉河岸",
+        "paragraphs": [
+          "从波尔图大教堂附近下到里贝拉，河像是从楼与楼之间慢慢展开的。窄街常常刚好够两个人擦肩；走到河边再回头看，一排房屋的门窗并不守同一条水平线，更像各自找了块能站稳的坡。里贝拉是旧城临河的一面，山坡和码头之间并没有整齐的分界。",
+          "路易一世桥的铁拱把城市连向杜罗河南岸的加亚新城。桥分上下两层，从岸边仰看，铁杆交错成一张密网；到了上层，平时挡住视线的房顶整个退到脚下，河才显出它的宽。世界遗产的范围把这座桥、波尔图历史城区和对岸山上的塞拉杜皮拉尔修道院放在一起。",
+          "南岸的酒窖和河流也有一段很长的关系。杜罗河上游种葡萄，酒过去顺流运到加亚储存和外销；今天河面上的传统木船，已经少了当年的满载。留在岸边看一阵，比过桥赶下一处更能读懂这座城：原来同一条河既曾运走赖以为生的货物，如今也是两岸人日常望见的风景。"
+        ],
+        "photos": [
+          {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Panoramic_View_of_Porto%27s_Ribeira_District_and_Dom_Lu%C3%ADs_I_Bridge_%2855245842707%29.jpg/960px-Panoramic_View_of_Porto%27s_Ribeira_District_and_Dom_Lu%C3%ADs_I_Bridge_%2855245842707%29.jpg",
+            "credit": "Michael Gaylard / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/",
+            "caption": "杜罗河畔的里贝拉街区和路易一世桥。"
+          }
+        ]
+      }
+    }
+  ]
+}
