@@ -1,0 +1,1147 @@
+{
+  "date": "2026-11-27",
+  "title": "2026年11月27日 · 海外资讯简报",
+  "sections": [
+    {
+      "name": "每日一图",
+      "photo": {
+        "title": "一张玻璃底片里的吴哥",
+        "interpretation": "这次不看吴哥的塔尖，先看石墙上的一位女子：她被层层雕纹托在中央，几乎把视线都收进这一小块墙面。这是约翰·汤姆森1866年在柬埔寨吴哥拍下的影像，来自惠康收藏馆的玻璃底片数字图。馆方只把浮雕人物暂列为可能的飞天，因此这里不把她的身份说死。\n\n当时的摄影师不是换一卷胶片，而是给一块玻璃涂上感光层。用湿版火棉胶法，玻璃板得趁涂层还湿时曝光并显影。汤姆森的这件藏品在档案中还被归为立体照片，供人以两幅略有视差的影像观看。\n\n11月26日至30日，联合国教科文组织在金边安排了一场关于玻璃底片的培训。从柬埔寨、印度尼西亚、蒙古、缅甸和越南来的馆藏人员，把编目、保存环境和数字化放在一起学。据教科文组织介绍，培训支持相关机构保管约3.3万张历史玻璃底片，并推进至少8000张濒危照片的数字化；眼前这张由另一家机构收藏，并非培训项目的成果。",
+        "image": {
+          "url": "https://iiif.wellcomecollection.org/image/L0056143EA/full/760,/0/default.jpg",
+          "credit": "1866年柬埔寨吴哥雕墙上的女性浮雕。玻璃底片的数字图，非此次培训的成果。 约翰·汤姆森摄，Wellcome Collection 藏，公有领域（Public Domain Mark）"
+        },
+        "sources": [
+          {
+            "name": "惠康收藏馆",
+            "url": "https://wellcomecollection.org/works/rn4q73ee"
+          },
+          {
+            "name": "联合国教科文组织",
+            "url": "https://www.unesco.org/en/articles/unesco-convenes-intensive-regional-training-safeguard-endangered-glass-plate-photograph-collections"
+          },
+          {
+            "name": "www.getty.edu",
+            "url": "https://www.getty.edu/art/exhibitions/sally_mann/inner.html"
+          }
+        ]
+      }
+    },
+    {
+      "name": "国际政治与时事",
+      "items": [
+        {
+          "headline": "霍尔木兹海峡再传油轮遇袭，海事机构未证实触雷说法",
+          "summary": "英国海事贸易行动办公室的联合海事通报确认，11月25日一艘驶出霍尔木兹海峡的油轮被不明飞来物击中，未收到污染报告。伊朗革命卫队另外声称两艘油轮触雷起火；联合通报表示，触雷说法尚未得到独立确认。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "联合海事信息中心：11月26日海事通报",
+              "url": "https://www.ukmto.org/-/media/ukmto/products/jmic_advisory_update_117_26-nov.pdf"
+            },
+            {
+              "name": "路透社：伊方说法",
+              "url": "https://www.reuters.com/world/middle-east/irans-revolutionary-guards-say-two-oil-tankers-hit-sea-mines-near-omans-khasab-2026-11-26/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Strait_of_Hormuz_%28MODIS_2020-12-04%29.jpg",
+            "credit": "霍尔木兹海峡卫星资料图，2020年12月2日拍摄，非遇袭影像。 NASA GSFC／MODIS Land Rapid Response Team / Wikimedia Commons，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "霍尔木兹海峡",
+              "type": "term",
+              "explanation": "海峡连通波斯湾和阿曼湾，是多国石油和液化天然气出口经过的水道。安全事件不仅影响船员和船东，也可能让能源运输变慢。"
+            },
+            {
+              "term": "联合海事信息中心",
+              "type": "org",
+              "explanation": "该中心汇总区域船舶安全事件，发布供航运人员研判的情况通报。记录到袭击不代表已经核实攻击来源、工具或交战方的所有说法。"
+            }
+          ]
+        },
+        {
+          "headline": "联合国：加沙最低过冬安置需求只获约35%资金",
+          "summary": "联合国人道主义事务协调厅11月26日报告，加沙应对冬季所需的最低紧急安置经费现仅筹到约35%，约136万人仍住在帐篷和临时住所。国际移民组织表示，约7万件木材和逾1200套工具已获准入境，可用于约1200户的紧急住所，但获准不等于已经送达。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "联合国人道主义事务协调厅：11月26日通报",
+              "url": "https://www.ochaopt.org/content/humanitarian-situation-report-26-november-2026"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Secretary_Blinken_Tours_Kerem_Shalom_%2853692516088%29.jpg",
+            "credit": "2024年凯雷姆沙洛姆口岸资料图，非这批物资现场；图中为当时到访的官员。 Chuck Kennedy / 美国国务院 / Wikimedia Commons，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "紧急住所",
+              "type": "term",
+              "explanation": "灾害或冲突中，紧急住所是给无家可归者提供的临时住处。过冬支援不只包含帐篷，也可能包括防水材料、床垫、毛毯和保暖用品。"
+            },
+            {
+              "term": "国际移民组织",
+              "type": "org",
+              "explanation": "该机构是联合国系统中处理移民和流离失所问题的组织。在人道危机中，它也协助流离失所者获得住宿和基本物资。"
+            }
+          ]
+        },
+        {
+          "headline": "苏丹西科尔多凡州一辆载客卡车遇袭，至少11人死亡",
+          "summary": "一名当地医院人员向法新社表示，11月26日苏丹西科尔多凡州古拜什一辆载有乘客和货物的卡车遭无人机袭击，至少11人死亡、9人受伤。当地由快速支援部队控制，其政治组织指责苏丹军方发动袭击，责任归属尚无独立确认。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "法新社（阿拉伯新闻转载）",
+              "url": "https://www.arabnews.com/middle-east/drone-attack-kills-11-in-sudans-west-kordofan-medical-source-3014164"
+            },
+            {
+              "name": "法新社（纳米比亚通讯社转载）",
+              "url": "https://www.nampa.org/text/23076001"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/SAF_in_North_Kordufan.jpg",
+            "credit": "2011年北科尔多凡州欧拜伊德机场卫星资料图，不是遇袭地点，也不表明袭击方。 ENOUGH Project / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "西科尔多凡州",
+              "type": "term",
+              "explanation": "这是苏丹中南部科尔多凡地区的一州，古拜什位于其境内。战争期间，科尔多凡的不同城镇由不同武装控制，不能用一城的情况概括全州。"
+            },
+            {
+              "term": "快速支援部队",
+              "type": "org",
+              "explanation": "这是苏丹的一支准军事武装，2023年起与苏丹军方交战。该组织对袭击责任的说法是交战一方的指控，不是独立认定。"
+            }
+          ]
+        },
+        {
+          "headline": "默茨称欧盟将争取12月17日至18日谈妥七年预算",
+          "summary": "德国总理默茨11月26日表示，欧盟领导人将争取在12月17日至18日的峰会上就2028至2034年预算达成协议。乌克兰2027年的新增融资是另一项议题，欧洲理事会尚未发布这次特别会议的正式结论。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "路透社：默茨会后说法",
+              "url": "https://www.reuters.com/world/eu-leaders-aim-budget-deal-before-end-year-merz-says-2026-11-26/"
+            },
+            {
+              "name": "欧洲理事会：会议页面",
+              "url": "https://www.consilium.europa.eu/en/meetings/european-council/2026/11/26-27/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Europa_building.jpg",
+            "credit": "布鲁塞尔欧洲大厦，2016年资料图，非本次会议现场。 Samynandpartners / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "多年期财政框架",
+              "type": "term",
+              "explanation": "这是欧盟七年公共支出的框架，约定各政策领域可用的预算上限。它不同于某一年的拨款，也不同于另行提出给乌克兰的贷款。"
+            },
+            {
+              "term": "现价与不变价",
+              "type": "concept",
+              "explanation": "现价金额按支出期间所用的价格计算，不变价把各年金额折算到同一基年以便比较。欧洲理事会的同一份预算表同时列出了现价和2025年不变价口径。"
+            }
+          ]
+        },
+        {
+          "headline": "泽连斯基警告俄罗斯可能再次大规模空袭，乌方准备加强防护",
+          "summary": "乌克兰总统泽连斯基11月26日援引情报称，俄方可能在未来几天发动新一轮大规模袭击，乌克兰相关部门正在准备应对。乌方把电力设施列为需要保护的重点；这是预警，不是新一轮袭击已经发生的确认。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "乌克兰总统办公室：当晚讲话",
+              "url": "https://www.president.gov.ua/en/news/mayemo-na-zhal-informaciyu-pro-pidgotovku-rosiyanami-novogo-107521"
+            },
+            {
+              "name": "路透社",
+              "url": "https://www.reuters.com/world/zelenskiy-says-russia-preparing-new-mass-strike-coming-days-2026-11-26/"
+            }
+          ],
+          "image": {
+            "path": "images/2026-11-21/zelensky.jpg",
+            "credit": "泽连斯基官方肖像，乌克兰总统府 president.gov.ua，CC BY 4.0，维基共享资源"
+          },
+          "glossary": [
+            {
+              "term": "基础设施防护",
+              "type": "concept",
+              "explanation": "供电网络的关键节点受损，可能让停电影响扩展到供水、供暖和通信。战时准备既包括防空，也包括抢修和临时供电。"
+            },
+            {
+              "term": "情报预警",
+              "type": "concept",
+              "explanation": "预警根据已掌握的信息判断未来风险，不等于事后确认。实际袭击的时间、范围和伤亡仍需用后续通报与独立报道核实。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "经济与市场",
+      "items": [
+        {
+          "headline": "韩国央行加息25个基点至3.25%，上调今明两年增长预测",
+          "summary": "韩国央行11月26日将基准利率由3.00%提高到3.25%，指出通胀可能在一段时间内仍高于目标。央行同时把2026年和2027年经济增长预测从8月的3.3%和2.9%分别调高到3.9%和4.1%，这并非已实现的增速。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "韩国央行：利率决定及记者会",
+              "url": "https://www.bok.or.kr/eng/bbs/E0000634/view.do?menuNo=400069&nttId=11067086"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/BankofKoreaMuseum.jpg",
+            "credit": "2005年首尔韩国央行博物馆资料图，非议息会场。 Moody 75／Emeraldnabi / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "基点",
+              "type": "term",
+              "explanation": "一个基点等于0.01个百分点，25个基点就是0.25个百分点。央行基准利率会上下影响市场借贷成本，但不代表房贷利率同步升相同幅度。"
+            },
+            {
+              "term": "经济增长预测",
+              "type": "concept",
+              "explanation": "这是央行根据当前数据和假设对未来经济增长所作的判断，不是统计部门公布的实际增速。若出口、内需或通胀走势变化，预测可再次修订。"
+            }
+          ]
+        },
+        {
+          "headline": "英国折扣零售商 Poundland 进入破产管理，多数门店暂时照常营业",
+          "summary": "英国折扣零售商 Poundland 于11月25日进入破产管理程序，管理人将探索整体或分拆出售；公司表示，多数门店连同爱尔兰共和国的 Dealz 短期仍营业。路透社估计，英爱逾600家门店和约1万个岗位前景未定；Poundland 也从26日起取消门店因顾客改变主意而提供的自愿退换货。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "Poundland 公告",
+              "url": "https://www.poundland.co.uk/pages/urgent-updates"
+            },
+            {
+              "name": "路透社，Euronext转载",
+              "url": "https://live.euronext.com/en/financial-news/uk-discounter-poundland-sinks-administration-10000-jobs-risk"
+            },
+            {
+              "name": "英国零售业工会 Usdaw",
+              "url": "https://www.usdaw.org.uk/latest-news/poundland-administration/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Poundlandstore.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "英国彼得伯勒一间 Poundland 门店的资料图，非本次事件现场。 ThisIsAce / Wikimedia Commons / CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/"
+          },
+          "glossary": [
+            {
+              "term": "破产管理（administration）",
+              "type": "term",
+              "explanation": "英国的企业破产程序之一，由持牌管理人接管企业，探索挽救企业、出售业务或其他处置方案。进入程序并不等于立即清算、关店或裁员；Poundland 的门店和业务安排仍视处置结果而定。"
+            },
+            {
+              "term": "Dealz",
+              "type": "term",
+              "explanation": "Poundland 在爱尔兰共和国使用的门店品牌。路透社报道当地约有1200名员工；公司确认 Dealz 短期继续营业。"
+            }
+          ]
+        },
+        {
+          "headline": "Temu承诺取消强制转盘，欧盟各国将监督整改",
+          "summary": "欧盟委员会11月26日表示，Temu承诺处理误导性折扣和评价，取消必须先玩转盘才能进入购物平台的设计与催促下单提示，并让结账信息更清楚、退款更容易。各国主管部门将监督履行；这是消费者保护合作程序，和11月17日关于非法商品的《数字服务法》初步认定不是同一案。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "爱尔兰竞争与消费者保护委员会",
+              "url": "https://www.ccpc.ie/news-and-media/news/article/2026/11/26/ccpc-and-eu-consumer-authorities-secure-consumer-protection-commitments-from-temu"
+            },
+            {
+              "name": "路透社",
+              "url": "https://www.reuters.com/business/retail-consumer/temu-commits-changing-some-its-commercial-practices-eu-commission-says-2026-11-26/"
+            },
+            {
+              "name": "commission.europa.eu",
+              "url": "https://commission.europa.eu/topics/consumers/consumer-rights-and-complaints/enforcement-consumer-protection/coordinated-actions/market-places-and-digital-services_en"
+            },
+            {
+              "name": "digital-strategy.ec.europa.eu",
+              "url": "https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-temu-breach-digital-services-act-failure-tackle-sale-illegal"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Berlaymont_EU_flags.jpg/960px-Berlaymont_EU_flags.jpg",
+            "credit": "资料图：2009年布鲁塞尔欧盟委员会总部外的欧盟旗帜，非本次执法现场。Hlynz / Wikimedia Commons / CC BY-SA 3.0；https://creativecommons.org/licenses/by-sa/3.0/。"
+          },
+          "glossary": [
+            {
+              "term": "消费者保护合作网络（CPC）",
+              "type": "term",
+              "explanation": "欧盟各国消费者保护主管部门通过这个网络协调处理跨境案件。平台作出承诺不等于改动已经完成，各国主管部门还会监督落实。"
+            },
+            {
+              "term": "强制游戏化",
+              "type": "term",
+              "explanation": "指用户不参加游戏就无法进入购物页面等设计。本案中的例子是进平台前必须转转盘，并不是说所有购物抽奖都被禁止。"
+            }
+          ]
+        },
+        {
+          "headline": "标普将英伟达AA信用评级列入负面观察，暂未降级",
+          "summary": "标普全球评级11月25日将英伟达的AA信用评级列入负面观察，理由包括黄仁勋辞任又复任后，管理层稳定性和董事会监督受到质疑。评级仍为AA，负面观察不等于已经降级。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "路透社：标普评级行动",
+              "url": "https://www.reuters.com/business/sp-global-places-nvidia-rating-creditwatch-negative-rising-management-governance-2026-11-25/"
+            },
+            {
+              "name": "爱尔兰公共广播：评级变动解释",
+              "url": "https://www.rte.ie/news/business/2026/1126/1600723-s-p-on-nvidia-credit-rating/"
+            }
+          ],
+          "image": {
+            "path": "images/2026-11-21/wafer.jpg",
+            "credit": "硅晶圆，Sangitiana Fararano，CC BY-SA 2.0，维基共享资源；芯片制造资料图，不是英伟达特定产品。"
+          },
+          "glossary": [
+            {
+              "term": "负面信用观察",
+              "type": "term",
+              "explanation": "评级机构在评估某一事件是否会影响偿债能力时，可以把评级列入负面观察。它提示未来可能下调，也可能在资料充分后维持原评级。"
+            },
+            {
+              "term": "AA信用评级",
+              "type": "term",
+              "explanation": "AA是标普体系中的高投资级评级，评价的是债务发行人的信用风险。它不是股票买卖建议，也不能直接拿来衡量芯片性能或公司市值。"
+            }
+          ]
+        },
+        {
+          "headline": "欧盟与CPTPP在河内建立供应链预警网络",
+          "summary": "欧盟与《全面与进步跨太平洋伙伴关系协定》成员11月26日在越南河内建立供应链预警网络，以便各方及时通报潜在供应中断并评估上下游影响。网络自愿参与、没有约束力，预计2027年初开首次会议讨论具体运作方式。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "欧盟委员会",
+              "url": "https://policy.trade.ec.europa.eu/news/eu-launches-supply-chain-early-warning-network-trans-pacific-bloc-2026-11-26_en?prefLang=sv"
+            },
+            {
+              "name": "英国政府",
+              "url": "https://www.gov.uk/government/publications/joint-ministerial-statement-on-the-occasion-of-the-second-trade-and-investment-dialogue-between-the-comprehensive-and-progressive-agreement-for-trans-/joint-ministerial-statement-on-the-occasion-of-the-second-trade-and-investment-dialogue-between-the-comprehensive-and-progressive-agreement-for-trans"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Hanoi%2C_Vietnam%2C_Hoan_Kiem_Lake.jpg/1280px-Hanoi%2C_Vietnam%2C_Hoan_Kiem_Lake.jpg",
+            "credit": "越南河内还剑湖，2008年资料图，非会议现场。 Vyacheslav Argenberg, CC BY 4.0 https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "CPTPP",
+              "type": "term",
+              "explanation": "全称《全面与进步跨太平洋伙伴关系协定》，成员包括日本、越南、加拿大和英国。它是贸易协定；此次与欧盟新建的是风险通报渠道，不代表欧盟加入协定。"
+            },
+            {
+              "term": "供应链预警网络",
+              "type": "term",
+              "explanation": "由参与方官员交换可能打断供应的信息，并判断影响如何从供货方传到采购方。首次会议才将讨论操作细节，联合声明没有规定企业必须上报。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科技与人工智能",
+      "items": [
+        {
+          "headline": "数据中心设备拉动澳大利亚企业投资，三季度环比增12.2%",
+          "summary": "澳大利亚统计局11月26日公布，经季节调整并剔除价格变动后，三季度私人新增资本支出环比增长12.2%、同比增长18.6%，为2011年三季度以来最大季度增幅。统计局把增长主要归因于数据中心设备投资；设备及机械类支出环比增23.1%，建筑和构筑物增1.7%。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "澳大利亚统计局",
+              "url": "https://www.abs.gov.au/statistics/economy/business-indicators/private-new-capital-expenditure-and-expected-expenditure-australia/sep-2026"
+            },
+            {
+              "name": "澳大利亚统计局",
+              "url": "https://www.abs.gov.au/media-centre/media-releases/data-centre-investment-continues-drive-new-capital-expenditure"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Dcentre_racks.jpg",
+            "credit": "澳大利亚悉尼一座数据中心的服务器机架（资料图，并非本次统计的新增项目）。Lgate74／Wikimedia Commons，CC BY 3.0。 https://creativecommons.org/licenses/by/3.0/"
+          },
+          "glossary": [
+            {
+              "term": "私人新增资本支出",
+              "type": "term",
+              "explanation": "这项统计衡量调查覆盖的私人企业为购置或建造新资产花了多少钱，例如添置服务器或建设机房，而不是日常工资、电费等运营开支。这里给出的是当季已发生的投资，不是企业申报的未来预算。"
+            },
+            {
+              "term": "季节调整与实际增幅",
+              "type": "term",
+              "explanation": "季节调整尽量去掉每年固定重现的波动，让相邻季度更可比。这里还用实际量衡量，尽量排除价格上涨带来的名义金额增长。"
+            }
+          ]
+        },
+        {
+          "headline": "苹果确认全球下架 MiniMax 的 AI 陪伴应用 Talkie",
+          "summary": "澳大利亚广播公司与英国调查新闻局报道，苹果确认已在全球 App Store 下架上海 MiniMax 旗下的 Talkie Lab，并向记者说明原因是应用含有性化内容。两家媒体的联合调查另记录了家长反映的未成年人不当互动；报道发布时，Google Play 仍列有 Talkie。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "www.thebureauinvestigates.com",
+              "url": "https://www.thebureauinvestigates.com/stories/2026-11-24/talkie-china-chatbot-children"
+            },
+            {
+              "name": "www.abc.net.au",
+              "url": "https://www.abc.net.au/news/2026-11-25/chinese-ai-companion-app-talkie-child-harm-allegations/107416128"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Apple_Park_Visitor_Center_sign_-_October_2018_-_8752.jpg/960px-Apple_Park_Visitor_Center_sign_-_October_2018_-_8752.jpg",
+            "credit": "2018年拍摄的苹果园区访客中心标识（资料图）。Gregory Varnum／Wikimedia Commons，CC BY-SA 4.0。 https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "AI 陪伴应用",
+              "type": "term",
+              "explanation": "这类应用让用户与模拟人物持续对话，往往主打陪伴或角色扮演，而不只是完成搜索、写作等任务。用户可能与角色建立情感联系，因此年龄限制和内容审核尤其重要。"
+            },
+            {
+              "term": "应用商店下架",
+              "type": "term",
+              "explanation": "下架表示商店停止通过该条目向用户提供下载，并不等同于远程删除已经安装的应用。苹果与谷歌各自管理商店，苹果下架也不意味着 Android 版或网页服务同步停止。"
+            }
+          ]
+        },
+        {
+          "headline": "《金融时报》：英伟达要求暂停向东南亚四国发运部分AI服务器",
+          "summary": "《金融时报》11月26日援引知情人士报道，英伟达要求制造合作伙伴暂缓向马来西亚、新加坡、泰国和印尼发运搭载其芯片的AI服务器；该报另援引两名知情人士称，新加坡云服务商Aolani拟向字节跳动出租算力的项目受到影响。暂停会持续多久、租赁项目是否继续，尚未确认。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "金融时报",
+              "url": "https://www.ft.com/content/7838a715-07d4-4605-aa60-21f5af2b2370"
+            },
+            {
+              "name": "美国政府出版局",
+              "url": "https://www.govinfo.gov/app/details/FR-2026-11-19/2026-23529"
+            },
+            {
+              "name": "www.investing.com",
+              "url": "https://www.investing.com/news/stock-market-news/nvidia-halts-server-shipments-to-four-southeast-asian-countries-ft-reports-5052112"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/TSUBAME4.0_P5160984.jpg/960px-TSUBAME4.0_P5160984.jpg",
+            "credit": "资料图：2026年5月，TSUBAME 4.0超算节点内的四块英伟达H100，非报道所称订单设备。Fukumoto / Wikimedia Commons / CC BY-SA 4.0；https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "先进计算芯片出口许可",
+              "type": "term",
+              "explanation": "美国11月19日生效的临时最终规则将巴西也列入受涵盖芯片的新增许可范围，共五国，并有特定例外。法规管的是许可；报道所称英伟达暂停发货只涉及东南亚四国，不能把两份名单混为一谈。"
+            },
+            {
+              "term": "租赁算力",
+              "type": "term",
+              "explanation": "企业借助云服务商的远程服务器训练或运行模型，不一定买下服务器本身。这里报道涉及的是拟议租赁项目，不代表字节跳动已收到芯片或项目已经取消。"
+            }
+          ]
+        },
+        {
+          "headline": "荷兰反对把芯片设备出口限制纳入美国年度国防法案",
+          "summary": "荷兰政府11月26日在议会表示，正与欧盟委员会协调，争取让美国国会不要把拟收紧半导体设备出口限制的 MATCH Act 纳入年度国防法案。提案可能影响荷兰 ASML 浸没式光刻机的对华销售，但并未生效；25日的中荷联合声明另确认继续就半导体合作及出口管制沟通。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "荷兰议会11月26日会议实录",
+              "url": "https://www.tweedekamer.nl/kamerstukken/plenaire_verslagen/detail/2026-2027/30"
+            },
+            {
+              "name": "中荷外长共识声明",
+              "url": "https://www.mfa.gov.cn/web/wjbzhd/202611/t20261125_12067183.shtml"
+            },
+            {
+              "name": "美国参议院提案文本",
+              "url": "https://www.govinfo.gov/app/details/BILLS-119s4281is"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/ASML_headquarters_Veldhoven.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "荷兰费尔德霍芬的 ASML 总部，2008年资料图。 A ansems / Wikimedia Commons / Public domain (author release)"
+          },
+          "glossary": [
+            {
+              "term": "MATCH Act",
+              "type": "term",
+              "explanation": "美国国会提出的半导体设备出口管制法案，意在让盟友实施与美国相近的限制，并在条件未满足时容许美方采取单边措施。公开的众议院和参议院提案仍需经过立法流程，不能当作已生效规则。"
+            },
+            {
+              "term": "浸没式深紫外光刻（DUV）",
+              "type": "term",
+              "explanation": "光刻机用光将电路图形投射到晶圆上。浸没式设备在镜头和晶圆之间保留一层水，在不改变光源波长的情况下提高分辨率；它属于芯片制造设备，不是英伟达 AI 服务器或其内部的芯片。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "社会与荒诞",
+      "items": [
+        {
+          "headline": "香港宏福苑火灾一周年，援助基金新增两项补助",
+          "summary": "11月26日是香港大埔宏福苑火灾一周年，火灾共造成168人死亡。香港特区政府在周年前宣布，援助基金将向每户业主发放30万港元新生活补助，分两期支付；遇难者家属按每名遇难者获发20万港元，12月底起一次性发放。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "香港特区政府",
+              "url": "https://www.info.gov.hk/gia/general/202611/24/P2026112400134p.htm"
+            },
+            {
+              "name": "香港特区政府",
+              "url": "https://www.info.gov.hk/gia/general/202611/25/P2026112500424p.htm"
+            },
+            {
+              "name": "www.ic-wangfukcourtfire.gov.hk",
+              "url": "https://www.ic-wangfukcourtfire.gov.hk/pdf/IC_Report_1_EN.pdf?embed=true"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Wang_Fuk_Court_2024_01_part2.jpg/960px-Wang_Fuk_Court_2024_01_part2.jpg",
+            "credit": "2024年8月拍摄的香港大埔宏福苑外观，摄于火灾前。摄影：Qwer132477／Wikimedia Commons，CC BY 4.0。 https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "大埔宏福苑援助基金",
+              "type": "term",
+              "explanation": "基金在火灾后成立，由政府投入启动资金并接受社会捐款，用来支援受灾居民和遇难者家属。这次的30万港元业主补助是新设项目，与此前合计同为30万港元的两年租金补助分开计算，不是同一笔钱。"
+            },
+            {
+              "term": "一户一社工",
+              "type": "term",
+              "explanation": "香港社会福利署为受灾家庭安排社工对接，协助处理福利和生活上的需要，而不必让每户分别联络多个部门。两项新生活补助也通过这一机制发放，业主和遇难者家属不需要另外申请。"
+            }
+          ]
+        },
+        {
+          "headline": "载柴油油轮在伊维萨岛外沉没，西班牙启动污染防范",
+          "summary": "一艘载柴油的油轮11月26日在西班牙伊维萨岛外海沉没，至少一名船员死亡，巴利阿里群岛当局启动海洋污染应急计划。地方后续通报称早先发现的油膜已经消散，暂未见持续污染，仍在监测。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "巴利阿里群岛政府：应急计划",
+              "url": "https://www.caib.es/webgoib/es/w/emergencies-activa-el-platerbal-en-nivell-0-per-lenfonsament-dun-vaixell-carregat-de-gasoil-a-25-milles-deivissa"
+            },
+            {
+              "name": "路透社：事故与救援",
+              "url": "https://www.reuters.com/business/energy/crew-member-dies-after-diesel-tanker-sinks-off-ibiza-spain-launches-pollution-2026-11-26/"
+            },
+            {
+              "name": "SER：当地应急部门后续通报",
+              "url": "https://cadenaser.com/comunitat-valenciana/2026/11/26/desaparece-la-mancha-y-no-hay-contaminacion-procedente-del-buque-volcado-en-ibiza-radio-valencia/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Ibiza_Port.jpg",
+            "credit": "2022年伊维萨港资料图，非沉船海域。 Josi / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "海洋污染应急计划",
+              "type": "term",
+              "explanation": "地方政府可以在油污尚未造成岸线污染前启动应急预案。它安排监测、信息通报和协作，并不本身证明发生大规模泄漏。"
+            },
+            {
+              "term": "油膜",
+              "type": "term",
+              "explanation": "一小部分油类扩散到水面后就可能形成肉眼可见的薄层。油膜消散并不等于已经掌握沉船中所有燃料的状态，因此仍需监测。"
+            }
+          ]
+        },
+        {
+          "headline": "曼谷一座炼油厂失火致9人受伤，运营方暂停全部生产",
+          "summary": "泰国能源公司Bangchak称，11月26日曼谷帕卡农炼油厂发生火灾，9名员工受伤，全部生产装置暂停。火已扑灭，事故原因仍在调查，公司尚未说明恢复生产的确切时间。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "Bangchak：上市公司公告",
+              "url": "https://investor.bangchak.co.th/en/document/viewer/208595/clarification-on-the-fire-incident-at-the-bangchak-phra-khanong-refinery"
+            },
+            {
+              "name": "路透社：关停与人员受伤",
+              "url": "https://www.reuters.com/business/energy/thailands-bangchak-shuts-all-units-bangkok-refinery-after-fire-2026-11-26/"
+            },
+            {
+              "name": "美联社：消防与居民疏散",
+              "url": "https://apnews.com/article/e8098146bfb994dffc14448b1027c5d1"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Bang_Chak_Refinery%2C_Bangkok_%28I%29.jpg/960px-Bang_Chak_Refinery%2C_Bangkok_%28I%29.jpg",
+            "credit": "帕卡农炼油厂，2023年资料图，并非火灾现场。 Supanut Arunoprayote / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "帕卡农炼油厂",
+              "type": "term",
+              "explanation": "这座工厂位于曼谷市区，负责把原油加工成燃油等产品。公布的日加工能力是设计规模，不等于停产后每天一定少供应同样数量的燃油。"
+            },
+            {
+              "term": "停产与复产",
+              "type": "concept",
+              "explanation": "工厂可以先暂停装置、扑灭火情，再检查哪里受损，评估何时允许重启。火已扑灭与产线已恢复是两个不同的状态。"
+            }
+          ]
+        },
+        {
+          "headline": "开罗环城公路油罐车火灾后，埃及宣布援助方案",
+          "summary": "埃及总理马德布利11月26日宣布，政府将为遇难者家属安排银行投资证书，并向车辆被烧毁的车主提供替代车辆。检方同日宣布已抓获一名涉事司机，仍在调查事故责任；金融监管部门已要求机动车强制保险机构加快办理理赔。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "www.shorouknews.com",
+              "url": "https://www.shorouknews.com/news/view.aspx?cdate=26112026&id=fd3bca40-5b51-4dcf-8760-c5bb962d4558"
+            },
+            {
+              "name": "gate.ahram.org.eg",
+              "url": "https://gate.ahram.org.eg/News/5991923.aspx"
+            },
+            {
+              "name": "fra.gov.eg",
+              "url": "https://fra.gov.eg/fra_news/%D8%AF-%D8%A5%D8%B3%D9%84%D8%A7%D9%85-%D8%B9%D8%B2%D8%A7%D9%85-%D8%B1%D8%A6%D9%8A%D8%B3-%D9%87%D9%8A%D8%A6%D8%A9-%D8%A7%D9%84%D8%B1%D9%82%D8%A7%D8%A8%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A%D8%A9-9/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Cairo_Ring_Road%2C_Giza%2C_GG%2C_EGY_%2846986464085%29.jpg/960px-Cairo_Ring_Road%2C_Giza%2C_GG%2C_EGY_%2846986464085%29.jpg",
+            "credit": "资料图：2019年5月吉萨的开罗环城公路，非事发路段或事故现场。Warren LeMay / Wikimedia Commons / CC0 1.0。"
+          },
+          "glossary": [
+            {
+              "term": "机动车强制保险",
+              "type": "term",
+              "explanation": "埃及金融监管部门要求办理的是统一保险法下的法定赔偿，须核实事故材料和保单状态。它与总理另行宣布的银行投资证书及车辆援助不是同一笔支持。"
+            },
+            {
+              "term": "银行投资证书",
+              "type": "term",
+              "explanation": "在这项援助方案中，政府拟通过银行投资证书给遇难者家属提供持续收入。已核实的公告没有公布金额，也没有说证书已经发放。"
+            }
+          ]
+        },
+        {
+          "headline": "越南要求中部和西原提前防洪，部署高风险区疏散",
+          "summary": "越南政府11月26日下发应急指令，要求中部和西原部分地方排查山洪、滑坡及深水内涝风险，并组织高风险区域居民转移。当地气象预报称，11月27日至30日相关地区降雨可能达200至400毫米，局部超过600毫米；这并非已测得的雨量。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "越南政府指令（越南国家门户转载）",
+              "url": "https://www.vietnam.vn/en/cong-dien-cua-thu-tuong-ve-ung-pho-voi-mua-lu-tai-khu-vuc-nam-trung-bo-tay-nguyen"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Inundo-Quang_Ngai-3.jpg",
+            "credit": "2013年越南广义积水资料图，非本轮降雨。 RG72 / Wikimedia Commons，CC BY-SA 3.0，https://creativecommons.org/licenses/by-sa/3.0/。"
+          },
+          "glossary": [
+            {
+              "term": "西原",
+              "type": "term",
+              "explanation": "西原是越南中南部内陆的高原区域，和中部沿海地带之间有山地相隔。这份指令涉及部分高原和沿海地区，预警范围不是全越南。"
+            },
+            {
+              "term": "山洪",
+              "type": "term",
+              "explanation": "山洪是在短时间内急速上涨的小河或山沟洪水，往往与持续城市积水的表现不同。越南这次同时预警山洪、城市内涝和斜坡滑坡。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科学与体育",
+      "items": [
+        {
+          "headline": "广西四颗古人类牙齿，为岭南丹尼索瓦近亲提供化石证据",
+          "summary": "中科院团队在《自然》报告了广西隆安穿山洞、鹿寨龙船洞的四颗古人类牙齿。牙齿形态和牙釉质蛋白都支持龙船洞样本属于丹尼索瓦人的近缘种群；穿山洞样本则可能来自另一支古人类，具体归属尚未厘清。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "《自然》论文（标注11月25日）",
+              "url": "https://www.nature.com/articles/s41586-026-11341-6"
+            },
+            {
+              "name": "中科院11月26日通报",
+              "url": "https://www.cas.cn/syky/202611/t20261126_5125118.shtml"
+            },
+            {
+              "name": "中科院古脊椎所",
+              "url": "https://www.ivpp.cas.cn/xwdt/ttyw/202611/t20261126_8316617.html"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/%D0%A2%D0%B0%D0%B8%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D0%BF%D0%B5%D1%89%D0%B5%D1%80%D0%B0.jpg/960px-%D0%A2%D0%B0%D0%B8%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D0%BF%D0%B5%D1%89%D0%B5%D1%80%D0%B0.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "俄罗斯阿尔泰地区丹尼索瓦洞入口，2013年资料图。广西的四颗牙齿并非出土于此。 Xenochka / Wikimedia Commons / CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "丹尼索瓦人",
+              "type": "term",
+              "explanation": "与尼安德特人和现代人同属人属的一支古人类，得名于俄罗斯阿尔泰地区的丹尼索瓦洞。广西龙船洞样本提供了这一近缘种群曾在岭南活动的化石证据，但尚不足以确定迁徙路线。"
+            },
+            {
+              "term": "古蛋白质组学",
+              "type": "term",
+              "explanation": "通过分析古代遗骸中留下的蛋白质，比对不同样本的氨基酸差异，推断它们之间的亲缘关系。牙釉质蛋白能为某些难以取得古 DNA 的材料提供线索，但蛋白证据不等于获得了完整基因组。"
+            }
+          ]
+        },
+        {
+          "headline": "英国双打赢下决胜场，七年来首次闯进戴维斯杯四强",
+          "summary": "英国队11月26日在博洛尼亚以2比1淘汰德国队，亨利·帕滕和尼尔·斯库普斯基以6比2、7比6赢下决胜双打。英国将与同日以2比0战胜奥地利的西班牙争夺决赛席位。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "戴维斯杯：英国对德国",
+              "url": "https://www.daviscup.com/en/news/2026-gb-germany-qf"
+            },
+            {
+              "name": "路透社：两场四分之一决赛",
+              "url": "https://www.reuters.com/sports/tennis/norrie-gives-britain-early-lead-over-germany-davis-cup-quarter-final-2026-11-26/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Neal_Skupski_%2849981894227%29.jpg",
+            "credit": "英国网球选手尼尔·斯库普斯基资料图，非本场比赛。 Carine06 / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "戴维斯杯",
+              "type": "term",
+              "explanation": "这是男子网球的国家或地区队团体赛，不给单个球员颁发这个冠军。八强阶段每组对阵最多打两场单打和一场双打，先赢两场的队伍晋级。"
+            },
+            {
+              "term": "抢七",
+              "type": "term",
+              "explanation": "一盘打到6比6时通常进入抢七，比分不再按普通一局的计分方式计算。最先拿到至少7分且领先两分的一方赢下那盘。"
+            }
+          ]
+        },
+        {
+          "headline": "十人伯恩茅斯客场2比1逆转塞尔塔，欧联杯联赛阶段五连胜",
+          "summary": "伯恩茅斯11月26日客场以2比1击败塞尔塔，在欧联杯本赛季联赛阶段连赢五场。伊亚戈·阿斯帕斯先为塞尔塔进球，少打一人的伯恩茅斯在下半场反超，由拉扬打进制胜球。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "塞尔塔俱乐部：比赛战报",
+              "url": "https://rccelta.es/en/equipo/actualidad/celta-beaten-by-afc-bournemouth-1-2/"
+            },
+            {
+              "name": "欧足联：赛程与赛果",
+              "url": "https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-results/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Estadio_de_Bala%C3%ADdos.jpg",
+            "credit": "2007年塞尔塔主场巴莱多斯球场资料图。 Alfonso Fontán / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "欧联杯联赛阶段",
+              "type": "term",
+              "explanation": "各队要与不同对手踢八场，而不是分成传统的四队小组。前八名直接进十六强，第九到第二十四名需要打附加赛。"
+            },
+            {
+              "term": "红牌",
+              "type": "term",
+              "explanation": "足球比赛中球员被出示红牌必须离场，不能由队友替补进来。少打一人改变的是场上人数，并不直接改变比分。"
+            }
+          ]
+        },
+        {
+          "headline": "日本公开日印联合探月车的地面测试",
+          "summary": "日本宇宙航空研究开发机构11月25日在东京调布展示了日印联合探月任务 LUPEX 的月球车地面试验样机。日本负责月球车与H3火箭，印度负责着陆器；JAXA目前列出的发射目标是日本2028财年，任务拟在月球南极区域调查水资源。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "www.jaxa.jp",
+              "url": "https://www.jaxa.jp/press/exploration/index_j.html"
+            },
+            {
+              "name": "日本宇宙航空研究开发机构",
+              "url": "https://humans-in-space.jaxa.jp/en/biz-lab/tech/lupex/"
+            },
+            {
+              "name": "日本宇宙航空研究开发机构",
+              "url": "https://humans-in-space.jaxa.jp/future/lupex/mission/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Near_Shackleton_Crater_%283929167797%29.jpg/500px-Near_Shackleton_Crater_%283929167797%29.jpg",
+            "credit": "2009年月球南极附近沙克尔顿陨坑边缘资料图，非本次测试现场或选定的着陆点。NASA／GSFC／ASU，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "LUPEX／月船五号",
+              "type": "term",
+              "explanation": "这是同一个日印联合月球极区探测项目在两国使用的名字。着陆器负责把设备送到月面，月球车再移动到不同地点测量；这次公开演示的是地面试验样机，不代表已经发射或登陆。"
+            },
+            {
+              "term": "永久阴影区",
+              "type": "term",
+              "explanation": "在月球南极附近，有些坑底因太阳角度很低且被坑壁挡住，长期没有阳光直射。那里可能保存水冰，但各地点的含量和分布不能从阴影本身得知，仍要靠仪器实地测量。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "影视与明星",
+      "items": [
+        {
+          "headline": "三部法国经典动画《阿斯泰里克斯》修复版将重返部分欧洲影院",
+          "summary": "行业媒体11月26日报道，StudioCanal与Mediatoon签署欧洲发行协议，计划让《高卢人阿斯泰里克斯》《阿斯泰里克斯与克娄巴特拉》和《阿斯泰里克斯的十二项任务》三部修复版在法国、德国、波兰和荷兰发行。发行安排因各地而异，不是四国已经同时上映。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "Señal News：发行协议及片单",
+              "url": "https://senalnews.com/en/content/studiocanal-and-mediatoon-to-bring-asterix-classics-back-across-europe"
+            },
+            {
+              "name": "Le Film Français：法国行业报道",
+              "url": "https://lefilmfrancais.com/cinema/178431/studiocanal-et-mediatoon-distribution-snunissent-autour-dnasterix-en-europe"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Parc_Ast%C3%A9rix.jpg",
+            "credit": "2024年法国阿斯泰里克斯主题公园资料图，不是电影剧照。 Mathious Ier / Wikimedia Commons，CC0 1.0，https://creativecommons.org/publicdomain/zero/1.0/。"
+          },
+          "glossary": [
+            {
+              "term": "阿斯泰里克斯",
+              "type": "person",
+              "explanation": "这个人物出自勒内·戈西尼和阿尔贝·乌德佐创作的法国漫画。故事常以一个抵抗罗马统治的高卢村落为起点，再发展为历史戏仿。"
+            },
+            {
+              "term": "电影修复",
+              "type": "concept",
+              "explanation": "修复通常从现存电影素材出发，处理画面的破损、褪色或声音问题，以便后续放映。它不是重拍，也不必然意味着作品剧情或原有造型有所改变。"
+            }
+          ]
+        },
+        {
+          "headline": "香港运动片《大分瓶》公映，昔日保龄球宿敌再次并肩",
+          "summary": "汤仲星执导的《大分瓶》11月26日在香港公映，此前已在香港国际电影节和夏威夷国际电影节展映。邓丽欣和周秀娜饰演两名退役保龄球手，多年后重逢，从对手变为队友。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "高先电影院排期",
+              "url": "https://goldenscene.com/"
+            },
+            {
+              "name": "MCL 影院排期",
+              "url": "https://m.mclcinema.com/Ticketing/Cinema?cid=017&lang=2&uid=78dccdff-076f-46d2-9bff-efb75df655f0"
+            },
+            {
+              "name": "香港电影发展局：资助、编导、情节与公映",
+              "url": "https://www.fdc.gov.hk/tc/whatson_detail.php?id=2026102610565067017"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Asbury_Lanes_Interior.jpg",
+            "credit": "美国新泽西州 Asbury Lanes 保龄球馆，2021年资料图，非电影剧照或拍摄地。 Baron Maddock / Wikimedia Commons / CC BY 4.0 https://creativecommons.org/licenses/by/4.0/"
+          },
+          "glossary": [
+            {
+              "term": "大分瓶（7–10 split）",
+              "type": "term",
+              "explanation": "十瓶保龄球第一球过后，如果只剩最后一排左右两端的7号和10号瓶，就叫7–10分瓶。两只瓶离得很远，下一球很难把两只都击倒，也是这部电影片名的由来。"
+            },
+            {
+              "term": "补中（spare）",
+              "type": "term",
+              "explanation": "十瓶保龄球一格的第一球没能全倒，第二球又把剩下的瓶全部击倒，就叫补中，记分表通常写成斜杠。该格得分是10分，再加下一球击倒的瓶数。"
+            }
+          ]
+        },
+        {
+          "headline": "加德满都将放映纪录片，讲述尼瓦尔商人在拉萨的往事",
+          "summary": "尼泊尔加德满都的 Taragaon Next 计划于11月27日当地时间17时（北京时间19时15分）免费放映40分钟纪录片《Himalayan Dreams: Tales of Lhasa Newar Traders》，并安排主创问答。影片让曾在拉萨经商的尼瓦尔人及其家人讲述往事，从家庭记忆看喜马拉雅两侧的贸易如何连起信仰与日常生活。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "Taragaon Next 主办方",
+              "url": "https://taragaonnext.com/events/free-film-screening-himalayan-dreams-tales-of-lhasa-newar-traders-qa-with-the-filmmakers/"
+            },
+            {
+              "name": "niff.org.np",
+              "url": "https://niff.org.np/film/detail?film_id=6260"
+            },
+            {
+              "name": "www.jstage.jst.go.jp",
+              "url": "https://www.jstage.jst.go.jp/article/ibk1952/54/1/54_1_414/_article/-char/en"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/The_Taragaon_Museum.jpg",
+            "credit": "2014年摄于加德满都 Taragaon Museum 庭院，非放映现场或剧照。 Nms2014，CC BY-SA 3.0，未修改 https://creativecommons.org/licenses/by-sa/3.0/"
+          },
+          "glossary": [
+            {
+              "term": "尼瓦尔商人",
+              "type": "term",
+              "explanation": "尼瓦尔人是加德满都谷地的传统居民；片中讲述的是其中曾往来拉萨经商的一群人。吉崎一美在尼泊尔阿沙档案馆的馆藏中辨认出37份由曾在西藏生活的尼瓦尔商人或工匠委托抄写的手稿，其中有些是在拉萨抄写的。这个例子来自档案研究，并非片中情节。"
+            },
+            {
+              "term": "口述史",
+              "type": "term",
+              "explanation": "口述史通过访谈保存当事人或亲历者的回忆。这部片让商人和家属说自己的故事，补足贸易记录不容易写下的家庭经历。"
+            }
+          ]
+        },
+        {
+          "headline": "第99届奥斯卡国际影片资格名单有104部，尚未产生提名",
+          "summary": "美国电影艺术与科学学院11月23日公布，第99届奥斯卡共有104部电影获国际影片类别的参评资格，其中100部由国家或地区报送，4部通过电影节获奖渠道入围。资格名单不等于提名；学院计划12月15日公布15部初选短名单。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "美国电影艺术与科学学院公告",
+              "url": "https://press.oscars.org/news/animated-documentary-and-international-feature-films-eligible-99th-oscarsr-announced"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Dolby_Theatre.jpg",
+            "credit": "2013年好莱坞杜比剧院资料图，非本届颁奖礼。 Adam Fagen / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "奥斯卡国际影片",
+              "type": "term",
+              "explanation": "学院把在美国以外制作、时长超过40分钟且一半以上对白为非英语的电影纳入这个类别的基本定义。符合定义只是第一步，还必须满足具体的送选或获奖资格。"
+            },
+            {
+              "term": "初选短名单",
+              "type": "term",
+              "explanation": "短名单是从获准参评的作品中筛出的下一轮选择，不是最终提名。第99届正式提名计划在2027年1月21日公布。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "书籍与作家",
+      "items": [
+        {
+          "headline": "多哈翻译奖揭晓，《悬诗疏评》获阿译汉组一等奖",
+          "summary": "第12届哈马德翻译与国际理解奖11月24日在卡塔尔多哈颁发，北京大学11月26日确认，由林丰民主持译注、十余位译者合作完成的《悬诗疏评》获阿拉伯语译汉语组一等奖。汉语译阿拉伯语组的三项并列二等奖中，包括穆罕默德·安瓦尔·迈达尼·谢赫译周大新的小说《21大厦》，以及王有勇译《孟子公开课》。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "哈马德奖组委会",
+              "url": "https://www.hta.qa/media-center/topic/2878"
+            },
+            {
+              "name": "北京大学外国语学院",
+              "url": "https://sfl.pku.edu.cn/xyxw/8ff0078b272c4050b5f1829b627e74de.htm"
+            },
+            {
+              "name": "北京大学新闻网",
+              "url": "https://news.pku.edu.cn/info/7921/2781341.htm"
+            },
+            {
+              "name": "卡塔尔国家图书馆：历史译本及版权",
+              "url": "https://ediscovery.qnl.qa/islandora/object/QNL%3A00014980"
+            }
+          ],
+          "image": {
+            "url": "https://ediscovery.qnl.qa/islandora/object/QNL%3A00014980-0007/datastream/JPG/view",
+            "credit": "威廉·琼斯1783年刊行的《悬诗》七首英译本扉页（资料图，非本次获奖译本）。卡塔尔国家图书馆藏，无已知版权。"
+          },
+          "glossary": [
+            {
+              "term": "悬诗",
+              "type": "term",
+              "explanation": "《悬诗》是早期阿拉伯长诗的经典选集，流传下来的编本有七首、十首等不同规模。北京大学出版社2025年出版的《悬诗疏评》收十首，除了中阿对照，还逐篇解释诗中的地名和意象。"
+            },
+            {
+              "term": "哈马德翻译与国际理解奖",
+              "type": "term",
+              "explanation": "这一奖项2015年在卡塔尔多哈设立，表彰阿拉伯语与其他语言之间的翻译。单本书奖针对具体译作，另设成就奖，表彰长期推动翻译的个人或机构。"
+            }
+          ]
+        },
+        {
+          "headline": "Waterstones年度图书揭晓，《台湾漫游录》获小说类奖",
+          "summary": "英国书店Waterstones在11月26日揭晓年度图书，帕特里克·拉登·基夫追查伦敦少年坠亡案的非虚构作品《London Falling》获总奖。杨双子写、金翎英译的《台湾漫游录》获得年度小说类奖，两者不是同一奖项。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "《卫报》：获奖名单",
+              "url": "https://www.theguardian.com/books/2026/nov/26/patrick-radden-keefes-london-falling-named-waterstones-book-of-the-year"
+            },
+            {
+              "name": "布克奖官网：《台湾漫游录》节选",
+              "url": "https://thebookerprizes.com/the-booker-library/features/an-extract-from-taiwan-travelogue"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Patrick_Radden_Keefe.jpg",
+            "credit": "帕特里克·拉登·基夫2009年资料照，非本次颁奖现场。 New America / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "Waterstones年度图书",
+              "type": "award",
+              "explanation": "这项评选由英国连锁书店Waterstones的书商提名和选择。年度总奖和小说、童书等类别奖分开，获奖作品会得到门店推广。"
+            },
+            {
+              "term": "《台湾漫游录》",
+              "type": "term",
+              "explanation": "杨双子把作品写成一部仿佛由后人翻译出来的1930年代游记，主人公是一位到台湾的日本女作家。译者金翎把这套虚构的翻译框架和正文一起带入英文版。"
+            }
+          ]
+        },
+        {
+          "headline": "诗集《Figure Eight》出版，从多伦多一处被拆的住处写起",
+          "summary": "佐伊·伊马尼·夏普的诗集《Figure Eight》由Wendy’s Subway出版，美国文学杂志与小型出版社协会的本月书单将其列为11月24日发行。作品从诗人童年住过的多伦多公共住宅被拆除写起，借城市空间和个体记忆来观察失去怎样改变一个人的欲望与归属。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "美国文学杂志与小型出版社协会：出版信息",
+              "url": "https://www.clmp.org/news/books-launching-in-november-2026/"
+            },
+            {
+              "name": "作者网站",
+              "url": "https://zoeimani.info/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Regent_Park_001.JPG",
+            "credit": "多伦多公共住宅区Regent Park改建资料图，不指认为诗中那栋住宅。 Secondarywaltz / Wikimedia Commons，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "公共住宅",
+              "type": "term",
+              "explanation": "公共住宅一般由政府或公共机构提供或管理，旨在缓解市场租金对居民造成的负担。住宅拆除或改建不仅改变楼房，也会打乱长期形成的邻里联系。"
+            },
+            {
+              "term": "Wendy’s Subway",
+              "type": "org",
+              "explanation": "这是位于纽约布鲁克林的非营利出版和阅读机构，支持实验写作和独立出版。它与同名快餐品牌无关，本书是其出版项目的一部分。"
+            }
+          ]
+        },
+        {
+          "headline": "当石头遇上印刷术：巴黎雨果故居重读《巴黎圣母院》",
+          "summary": "巴黎雨果故居11月28日将为「雨果与建筑：从石头到笔尖」展举办导览，展览持续至12月13日。《巴黎圣母院》中谈论印刷如何取代建筑、成为记录思想的主要媒介的那一章，并不在1831年初版里，而是在1832年版才收入。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "雨果故居11月28日日程",
+              "url": "https://www.maisonsvictorhugo.paris.fr/paris/agenda?date=28-11-2026"
+            },
+            {
+              "name": "巴黎市展览页",
+              "url": "https://www.paris.fr/evenements/hugo-et-l-architecture-de-la-pierre-a-la-plume-113749"
+            },
+            {
+              "name": "法国国家图书馆：初版、增补版和插图版",
+              "url": "https://www.bnf.fr/fr/le-manuscrit-de-notre-dame-de-paris-presente-lors-de-festival-de-la-bnf-2019"
+            }
+          ],
+          "image": {
+            "url": "https://www.parismuseescollections.paris.fr/sites/default/files/styles/pm_diaporama/public/atoms/images/MVH/mvhpd00037_1.jpg?itok=mrHM4t_W",
+            "credit": "维克多·雨果《Le gai château》，约1847年；以莱茵地区景观为灵感的虚构城堡，并非巴黎圣母院或小说插图。 维克多·雨果 / Paris Musées – Maisons de Victor Hugo / CC0 https://creativecommons.org/publicdomain/zero/1.0/"
+          },
+          "glossary": [
+            {
+              "term": "「这个将杀死那个」（Ceci tuera cela）",
+              "type": "term",
+              "explanation": "《巴黎圣母院》第五卷第二章，雨果从弗罗洛把印刷书与大教堂并置的一句话谈开。他认为在印刷术普及之前，建筑能像书一样保存时代的思想和信仰；当书可以被大量复制，这项功能便不再主要由建筑承担。这里说的是传播媒介的改变，不是教堂从此消失。"
+            },
+            {
+              "term": "1832年版《巴黎圣母院》",
+              "type": "term",
+              "explanation": "1831年3月由戈斯兰出版的初版缺了三章。1832年由朗迪埃出版的版本补入三章，其中包括「这个将杀死那个」；法国国家图书馆将其列为定本。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "美女与野兽",
+      "gallery": [
+        {
+          "kind": "person",
+          "caption": "英国演员阿拉娜·布卢尔，2026年9月出席第83届威尼斯电影节。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Alanah_Bloor_at_the_83rd_Venice_International_Film_Festival.jpg/960px-Alanah_Bloor_at_the_83rd_Venice_International_Film_Festival.jpg",
+            "credit": "威尼斯电影节公开活动，2026年9月6日。 Ondine Goat / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "source": {
+            "name": "图片资料",
+            "url": "https://commons.wikimedia.org/wiki/File:Alanah_Bloor_at_the_83rd_Venice_International_Film_Festival.jpg"
+          }
+        },
+        {
+          "kind": "person",
+          "caption": "演员凯莉·考恩，2026年9月出席威尼斯电影节《Company》公开活动。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Caylee_Cowan_at_83rd_Venice_International_Film_Festival-26.jpg",
+            "credit": "威尼斯电影节公开活动，2026年9月8日。 Luca Fazzolari（LucaFazPhoto） / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "source": {
+            "name": "威尼斯电影节：《Company》",
+            "url": "https://www.labiennale.org/en/cinema/2026/venezia-83-competition/company"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "中华穿山甲。印度纳加兰邦近日将一只未受伤个体放归；图为同种动物，并非那只获救的穿山甲。",
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Manis_pentadactyla_pentadactyla_462300623.jpg",
+            "credit": "2024年在台湾拍摄的中华穿山甲资料图，与被放归的印度个体属同一物种，并非本次救助照片。 Yung-Lun Lin / Wikimedia Commons / CC BY 4.0 https://creativecommons.org/licenses/by/4.0/"
+          },
+          "source": {
+            "name": "印度野生动物信托基金会放归通报，正文电头11月24日",
+            "url": "https://www.wti.org.in/news/pochury-naga-community-safely-releases-chinese-pangolin-back-into-the-forest/"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "紫冠细尾鹩莺，摄于澳大利亚昆士兰州布贾穆拉国家公园。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Purple-crowned_Fairy-wren_%22Malurus_coronatus%22.jpg/960px-Purple-crowned_Fairy-wren_%22Malurus_coronatus%22.jpg",
+            "credit": "2016年7月摄于昆士兰。 Graham Winterflood / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/。"
+          },
+          "source": {
+            "name": "图片资料",
+            "url": "https://commons.wikimedia.org/wiki/File:Purple-crowned_Fairy-wren_%22Malurus_coronatus%22.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "name": "天涯海角",
+      "place": {
+        "name": "日本·金泽近江町市场",
+        "paragraphs": [
+          "日本海一带入冬，金泽的近江町市场仍是一座做日常生意的市场。一边是海产店的水槽和冰台，一边是冬菜摊上的萝卜、金泽春菊和红皮甘薯。对旅人来说，这里可能是一顿海鲜饭开始的地方；对附近居民来说，同一条有顶棚的通道，也是买几样菜、回家做晚饭的地方。",
+          "金泽冬菜里有一种源助大根，形状粗短，煮久了也不容易散。有的摊位把它和其他加贺蔬菜分开放，方便顾客认品种。买回家可以切上厚片放进关东煮，也可以和鰤鱼同炖。汤汁渗进去，萝卜才是这盘菜最费时间、也最让人愿意等的一部分。",
+          "另一种常见的地方食材是五郎岛金时甘薯，产在金泽沿海的沙地。当地介绍它时，会用「こっぼこぼ」这个词，说的是煮熟后偏干、粉糯松软的口感。它也能和猪肉、萝卜一起煮进当地称作「めった汁」的味噌汤；金泽学校的午餐资料里也有这道菜，不只是节庆时才吃。",
+          "同样是端上桌的一碗热食，治部煮的场合又有些不同：石川的乡土料理资料把这道以裹粉禽肉和蔬菜煮成的菜与待客相联。一个市场让人认识地方菜，不只是因为摊上摆了什么，也因为顺着这些食材，能分辨哪些滋味来自一日三餐，哪些多见于招待客人。"
+        ],
+        "photos": [
+          {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Vegetable_stall_in_Omicho_Market%2C_Kanazawa.jpg/960px-Vegetable_stall_in_Omicho_Market%2C_Kanazawa.jpg",
+            "credit": "金泽近江町市场的蔬菜摊，资料图。 NevinThompson / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。",
+            "caption": "近江町市场，在海产店之间也有日常采购的蔬菜摊。"
+          }
+        ]
+      }
+    }
+  ]
+}
