@@ -1,0 +1,1029 @@
+{
+  "date": "2026-11-28",
+  "title": "2026年11月28日 · 海外资讯简报",
+  "sections": [
+    {
+      "name": "每日一图",
+      "photo": {
+        "title": "手推车上的颜色",
+        "interpretation": "纽约大都会艺术博物馆把这张《手推车工人》定为约1860年，由费利斯·比托拍摄。馆藏记录写明，它是从玻璃底片印出的蛋白照片，颜色后来才加上去。相机拍下人物和手推车的轮廓，上色的人再决定哪些部位带上颜色。\n\n东京富士胶片广场的摄影历史博物馆安排从11月27日换展，把注意力从各地名胜转向风俗和日常生活。展方介绍的「横滨写真」曾被装成相册，作为纪念品卖给海外来客。有些相册还配上描金漆面或螺钿封面，照片与装帧都是可以带回去的纪念物。\n\n比托的这张作品藏在纽约，不是东京展品，却能让人看见同类工艺如何把一幕日常劳动变成收藏品。后来涂上的颜色是制作人的判断，不能单凭它们确认当时衣物或手推车的真实色彩。",
+        "image": {
+          "url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/291982/1316669/main-image",
+          "credit": "费利斯·比托《手推车工人》，约1860年。纽约大都会艺术博物馆藏，公有领域。为工艺参照，非东京展品。"
+        },
+        "sources": [
+          {
+            "name": "纽约大都会艺术博物馆：藏品记录",
+            "url": "https://www.metmuseum.org/art/collection/search/291982"
+          },
+          {
+            "name": "东京富士胶片广场：展期与横滨写真",
+            "url": "https://fujifilmsquare.jp/exhibition/261101_05.html"
+          }
+        ]
+      }
+    },
+    {
+      "name": "国际政治与时事",
+      "items": [
+        {
+          "headline": "新西兰大选正式计票出炉，执政联盟距过半差一席",
+          "summary": "新西兰选举委员会11月27日公布正式计票，国家党从初步结果的42席降至40席，与行动党、新西兰优先党合计65席，距130席议会的过半门槛差一席。工党、绿党和毛利党合计58席，即便加上机会党的7席也只有65席，正式计票并不等于组阁已有结果。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "新西兰选举委员会：正式计票",
+              "url": "https://electionresults.govt.nz/electionresults_2026/"
+            },
+            {
+              "name": "新西兰选举委员会：初步与正式结果对照",
+              "url": "https://elections.nz/assets/pagecomponent-file-files/Attachment-C-Preliminary-and-official-result-comparison.pdf"
+            },
+            {
+              "name": "新西兰选举委员会：初步计票",
+              "url": "https://elections.nz/media-and-news/2026/2026-general-election-preliminary-results"
+            },
+            {
+              "name": "美联社：组阁仍待协商",
+              "url": "https://apnews.com/article/a19a838d8256a0762703ff0572aca3e6"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Beehive_and_Parliament_House_-_Wellington_-_New_Zealand_-_DSC00165.jpg/1280px-Beehive_and_Parliament_House_-_Wellington_-_New_Zealand_-_DSC00165.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "新西兰惠灵顿的蜂巢大厦与国会大厦，2024年资料图。Daderot / Wikimedia Commons，CC0 1.0，https://creativecommons.org/publicdomain/zero/1.0/。"
+          },
+          "glossary": [
+            {
+              "term": "混合成员比例代表制",
+              "type": "concept",
+              "explanation": "新西兰选民分别投一票给本地选区候选人、一票给政党。政党若赢得的选区席超过按政党票分配的席数，仍能保留多出的席位，所以工党这次虽拿到更多政党票，议席仍少于国家党。"
+            },
+            {
+              "term": "特别选票",
+              "type": "term",
+              "explanation": "在海外投票，或在本选区以外投票的部分选民，可使用特别选票。选举委员会会核验资格，把符合条件的票计入正式结果；选举夜公布的初步数据不包含这些票。"
+            }
+          ]
+        },
+        {
+          "headline": "扎波罗热核电站外部电源再中断，国际原子能机构斡旋抢修",
+          "summary": "国际原子能机构11月26日通报，核电站仅存的一条外部供电线路于25日中断，站内改用柴油发电机维持安全功能。该机构正与俄罗斯、乌克兰协调电站附近的临时停火以便抢修，通报未称停火已经达成。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "国际原子能机构第377号通报（全文转载）",
+              "url": "https://www.publicnow.com/view/8F4773C9BB8CBFD000AE92A795DD056FB05D551B"
+            },
+            {
+              "name": "路透社：供电中断与抢修斡旋",
+              "url": "https://theprint.in/world/iaea-working-with-russia-ukraine-on-ceasefire-to-repair-power-link-at-zaporizhzhia-nuclear-plant/3110404/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Zaporizhzia_nuclear_power_plant_aerial.svg/960px-Zaporizhzia_nuclear_power_plant_aerial.svg.png?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "扎波罗热核电站卫星资料图，2022年2月，带原图注释。Cmglee、Landsat、USGS / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "外部供电",
+              "type": "term",
+              "explanation": "核电站即使停止发电，也需要电力维持燃料冷却等功能。外部输电线路中断后，可暂用柴油发电机，但备用电源依赖燃料和设备状态。"
+            },
+            {
+              "term": "局部停火",
+              "type": "term",
+              "explanation": "这里指为维修人员进入电站周边作业而协调的临时安排。它只涉及限定区域和时段，不是双方达成全面停火。"
+            }
+          ]
+        },
+        {
+          "headline": "土耳其完成麦加防务协定国内批准，三国在伊斯兰堡会商",
+          "summary": "据土耳其官方公报及三国联合声明，土耳其11月27日完成与沙特阿拉伯、巴基斯坦签订的麦加防务协定国内批准程序。同日三方在伊斯兰堡重申按协定支持沙特应对胡塞武装袭击，声明未宣布具体部署。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "巴基斯坦外交部：三国联合声明",
+              "url": "https://www.mofa.gov.pk/press-releases/second-meeting-of-the-strategic-political-and-defence-committee-s-pdc-of-the-makkah-alliance-for-defence-joint-statement"
+            },
+            {
+              "name": "美联社：土耳其官方公报及会议",
+              "url": "https://apnews.com/article/6c17e4827e5aef3e69f78cdb01d597dc"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Faisal_Mosque.png/960px-Faisal_Mosque.png?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "巴基斯坦伊斯兰堡费萨尔清真寺，2023年城市资料图，非会场。Omerr001 / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "麦加联合防务协定",
+              "type": "term",
+              "explanation": "沙特、巴基斯坦与土耳其于2026年8月在麦加签署的防务协定。它以集体防御为原则，具体支持方式要结合各国程序和后续决定。"
+            },
+            {
+              "term": "战略、政治与防务委员会",
+              "type": "org",
+              "explanation": "这是三国在该协定框架下设置的协调机制，讨论如何落实防务承诺。三方表示正推进在沙特设秘书处，以便持续协调。"
+            }
+          ]
+        },
+        {
+          "headline": "欧盟24国支持对乌追加贷款提案，12月续议",
+          "summary": "欧洲理事会主席科斯塔在特别峰会后说，24个成员国支持欧委会提出的2027年对乌追加贷款提案，金额最高450亿欧元；保加利亚仅参与非军事部分，领导人将于12月续议。欧盟2028至2034年长期预算也未谈拢，领导人将再议总额和支出优先项。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "欧洲理事会：特别会议结果",
+              "url": "https://www.consilium.europa.eu/en/meetings/european-council/2026/11/26-27/"
+            },
+            {
+              "name": "欧盟委员会：追加贷款提案",
+              "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_2454/IP_26_2454_EN.pdf"
+            },
+            {
+              "name": "欧盟官方公报：现有贷款的2027年额度",
+              "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ%3AL_202602623"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Europa_building_in_July_2017.jpg/960px-Europa_building_in_July_2017.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "布鲁塞尔欧罗巴大厦，2017年资料图。Guy Delsaut / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "对乌支持贷款",
+              "type": "term",
+              "explanation": "欧盟已有一项覆盖2026至2027年的900亿欧元贷款，其中2027年额度上限为450亿欧元，拨付仍有条件。此次峰会讨论的是另一项同为最高450亿欧元的追加贷款提案，不是重复批准同一笔款。"
+            },
+            {
+              "term": "欧盟多年期财政框架",
+              "type": "concept",
+              "explanation": "欧盟用它规定通常为期七年的支出上限，年度预算须在这个范围内编制。新一轮框架从2028年开始，本次会议仍未就总额和优先项目达成一致。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "经济与市场",
+      "items": [
+        {
+          "headline": "诺斯大西洋航空挪威运营子公司申请破产，航班取消",
+          "summary": "诺斯大西洋航空11月27日公布，旗下挪威运营公司的董事会决定向阿格德地区法院申请破产，美联社随后报道申请已提交。公司收到全部12架客机的租约终止通知，已取消航班并停止售票；此次申请不涉及上市母公司及英国子公司。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "诺斯大西洋航空：上市公司公告",
+              "url": "https://mfn.se/cis/a/norse-atlantic/norse-atlantic-asa-norwegian-operating-subsidiary-filing-for-bankruptcy-feed0d82.iframe"
+            },
+            {
+              "name": "美联社：申请已提交",
+              "url": "https://apnews.com/article/2f1a37f73da17c47aa38e48a8e381896"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Norse_Atlantic_Airways_Boeing_787_LN-FND_Oslo_Gardermoen_2024_%2801%29.jpg/960px-Norse_Atlantic_Airways_Boeing_787_LN-FND_Oslo_Gardermoen_2024_%2801%29.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "诺斯大西洋航空波音787-9，2024年摄于奥斯陆机场，资料图。Bahnfrend / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "运营子公司",
+              "type": "term",
+              "explanation": "航空集团可以由不同法人分别运营航班。挪威运营公司申请破产，不等于上市母公司或其他国家的子公司也已申请。"
+            },
+            {
+              "term": "飞机租赁",
+              "type": "term",
+              "explanation": "航空公司可付费租用客机，不必买下飞机。租约终止后，即使航班原有排班，也可能没有客机可执飞。"
+            }
+          ]
+        },
+        {
+          "headline": "欧洲理事会提名德科斯出任下任欧洲央行行长",
+          "summary": "欧洲理事会11月26日推举现任国际清算银行总经理埃尔南德斯·德科斯接替拉加德，并提出另两名欧洲央行执行委员会人选。提名仍须征询欧洲议会和央行管理委员会的意见，理事会希望在12月正式决定；拉加德任期于2027年2月7日届满。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "欧洲理事会：提名公告",
+              "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/26/european-council-puts-forward-pablo-hernandez-de-cos-as-next-president-of-the-european-central-bank/"
+            },
+            {
+              "name": "国际清算银行：德科斯履历",
+              "url": "https://www.bis.org/author/pablo-hernandez-de-cos"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Frankfurt_am_Main%2C_Seat_of_the_European_Central_Bank_%28Skytower_%28ECB%29%29.jpg/1280px-Frankfurt_am_Main%2C_Seat_of_the_European_Central_Bank_%28Skytower_%28ECB%29%29.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "欧洲央行法兰克福总部，2026年9月资料图。Dr. Thomas Liptak / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "欧洲央行管理委员会",
+              "type": "org",
+              "explanation": "它由欧洲央行执行委员会成员和欧元区各国央行行长组成，负责制定欧元区货币政策。它将就候选人给出意见，但不负责最终任命。"
+            },
+            {
+              "term": "国际清算银行",
+              "type": "org",
+              "explanation": "总部位于瑞士巴塞尔，为各国央行提供合作平台与银行服务。德科斯目前担任该机构总经理，这不是制定欧元区利率的职务。"
+            }
+          ]
+        },
+        {
+          "headline": "台湾上调2026年经济增速预测，三季度实际出口增21.65%",
+          "summary": "台湾主计总处11月27日把今年实际GDP增长预测从11.05%上调至13.28%，预计明年增长6.51%。同日公布的三季度初步统计显示，实际GDP同比增长14.39%，货品与服务实际出口增长21.65%，统计部门把AI等新兴技术需求列为出口增长的原因。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "主计总处：11月发布稿",
+              "url": "https://ws.dgbas.gov.tw/001/Upload/463/relfile/10980/236908/news11511.pdf"
+            },
+            {
+              "name": "主计总处：季度数据及全年预测",
+              "url": "https://eng.dgbas.gov.tw/News_Content.aspx?n=4438&s=236907"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/TSMC_factory_in_Taichung%27s_Central_Taiwan_Science_Park.jpg/960px-TSMC_factory_in_Taichung%27s_Central_Taiwan_Science_Park.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "台积电台中厂区，2020年资料图。Briáxis F. Mendes（孟必思）/ Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "实际GDP",
+              "type": "term",
+              "explanation": "它扣除价格变动，衡量一个经济体生产的货品与服务总量变化。这里的全年数字是预测，第三季度数字是已过季度的初步统计。"
+            },
+            {
+              "term": "实际出口",
+              "type": "term",
+              "explanation": "它扣除价格变动，衡量销往境外的货品和服务数量的变化。这里采用整体出口口径，并不是某一家公司或某一类芯片的销量。"
+            }
+          ]
+        },
+        {
+          "headline": "CPTPP为阿联酋、菲律宾和印度尼西亚设立加入工作组",
+          "summary": "《全面与进步跨太平洋伙伴关系协定》成员11月27日在河内决定，分别为阿联酋、菲律宾和印度尼西亚设立加入工作组。哥斯达黎加虽已基本谈妥加入条件，但此次没有签署议定书；乌拉圭的谈判仍在进行。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "成员部长联合声明",
+              "url": "https://www.gov.uk/government/publications/cptpp-joint-ministerial-statement-from-the-11th-commission-meeting-27-november-2026/joint-ministerial-statement-for-the-11th-commission-meeting-of-the-comprehensive-and-progressive-agreement-for-trans-pacific-partnership-cptpp-27-no"
+            },
+            {
+              "name": "英国议会：部长书面说明",
+              "url": "https://questions-statements.parliament.uk/written-statements/detail/2026-11-27/hcws511"
+            },
+            {
+              "name": "越南政府：河内会议结果",
+              "url": "https://baochinhphu.vn/cptpp-se-dam-phan-ve-viec-gia-nhap-cua-uae-indonesia-va-philippines-102261127172652896.htm"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Vietnam%2C_Hanoi%2C_Panoramic_view_of_Red_River.jpg/960px-Vietnam%2C_Hanoi%2C_Panoramic_view_of_Red_River.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "从河内龙边桥望向红河，2008年资料图，非会场。Vyacheslav Argenberg / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "加入工作组",
+              "type": "org",
+              "explanation": "现有成员通过工作组审查申请方能否遵守协定规则，并讨论关税、服务等市场准入承诺。成立工作组只是开始正式谈条件，不等于申请方取得成员资格。"
+            },
+            {
+              "term": "加入议定书",
+              "type": "term",
+              "explanation": "这是记录双方谈妥的条件与承诺的正式文件。谈判结束、签署议定书和实际取得成员资格，是不同的步骤。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科技与人工智能",
+      "items": [
+        {
+          "headline": "美国批准SpaceX建轨道计算卫星星座，天文学界担忧观测干扰",
+          "summary": "美国联邦通信委员会11月25日批准SpaceX部署最多100万颗Starmind低轨计算卫星，并要求首颗最迟于2033年11月投入运行；数量是许可上限，不代表已经部署。欧洲南方天文台随后指出，卫星反光可能在光学观测图像中留下亮线，也提醒留意无线电干扰。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "美国联邦通信委员会批文 DA 26-1273",
+              "url": "https://docs.fcc.gov/public/attachments/DA-26-1273A1.pdf"
+            },
+            {
+              "name": "欧洲南方天文台：对批文的回应",
+              "url": "https://www.eso.org/public/news/eso2614/"
+            },
+            {
+              "name": "FCC 批文：可读备份",
+              "url": "https://eu-assets.contentstack.com/v3/assets/blt23eb5bbc4124baa6/bltf4cdf2af47159e12/6b071c5f5506bb38bca5b0ec/FCC_report_and_order_on_SpaceX_Starmind_AI_constellation_11-25-2026.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://cdn.eso.org/images/screen/eso2607a.jpg",
+            "credit": "2025年10月15日智利阿塔卡马沙漠北部的一小时叠加影像，多数亮线是当时过境卫星，并非Starmind。F. Kamphues, ESO/M. Kornmesser，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "轨道数据中心",
+              "type": "concept",
+              "explanation": "把计算设备装在卫星上，使计算不局限于地面机房。SpaceX拟主要用激光在卫星间传输数据，批文涉及的无线电频段供备用和应急通信。"
+            },
+            {
+              "term": "卫星光迹",
+              "type": "term",
+              "explanation": "卫星经过时反射的阳光可在长曝光照片上形成亮线。若亮线与观测目标重叠，研究人员可能要剔除受影响的区域。"
+            }
+          ]
+        },
+        {
+          "headline": "加拿大扩大中小企业AI算力资助，新增7亿加元",
+          "summary": "加拿大政府11月26日宣布向AI算力获取基金追加7亿加元，开放新一轮申请，并公布上一轮另有45家企业获得支持。基金帮助符合条件的加拿大中小企业负担研发用算力费用，并鼓励更多使用本国的算力供应。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "加拿大创新、科学与经济发展部：扩充基金",
+              "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/11/government-of-canada-boosts-the-ai-compute-access-fund-with-700-million-expansion.html"
+            },
+            {
+              "name": "加拿大政府：计划指南",
+              "url": "https://ised-isde.canada.ca/site/ised/en/canadian-sovereign-ai-compute-strategy/ai-compute-access-fund/program-guide-ai-compute-access-fund"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Toronto_-_ON_-_Skyline10.jpg/960px-Toronto_-_ON_-_Skyline10.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "宣布地点加拿大多伦多的天际线，2008年资料图。Taxiarchos228 / Wikimedia Commons，Free Art License，https://artlibre.org/licence/lal/en/。"
+          },
+          "glossary": [
+            {
+              "term": "AI算力获取基金",
+              "type": "term",
+              "explanation": "加拿大的补助项目，初始投入上限为3亿加元。它补贴企业使用算力的相关费用，不是要求每一家企业自建数据中心。"
+            },
+            {
+              "term": "本国算力供应",
+              "type": "concept",
+              "explanation": "这项计划对供应商的所在地、所有权和数据处理条件有具体区分。补助比例取决于所选供应商及合规成本，并非申报的所有支出都能报销。"
+            }
+          ]
+        },
+        {
+          "headline": "特斯拉拟收购德国机床商埃马克资产，已向德方申报",
+          "summary": "德国联邦卡特尔局公开记录显示，特斯拉11月23日申报拟收购埃马克集团资产，涉及精密制造、电化学加工和激光加工设备。埃马克在江苏常州金坛设有面向亚洲市场的生产基地，但公告没有说明中国业务是否纳入交易，亦未披露价格。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "德国联邦卡特尔局：并购审查记录（转载）",
+              "url": "https://www.finanznachrichten.de/nachrichten-2026-11/70243411-laufende-fusionskontrollverfahren-tesla-emag-gruppe-vermoegenserwerb-019.htm"
+            },
+            {
+              "name": "埃马克集团：公司沿革",
+              "url": "https://www.emag.com/company/about-us/history/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/EMAG_Werkzeugmaschinenfabrik_in_Jintan%2C_China.jpg",
+            "credit": "埃马克江苏金坛机床工厂的2011年建筑效果图，不是现状照片。Neugebauer + Rösch Architekten，CC BY-SA 3.0，https://creativecommons.org/licenses/by-sa/3.0/。"
+          },
+          "glossary": [
+            {
+              "term": "资产收购",
+              "type": "term",
+              "explanation": "买方取得协议列明的设备、技术或业务等资产，不等于买下公司的全部股权。公开申报只列交易类型与产品市场，不能由此判断哪些工厂会易主。"
+            },
+            {
+              "term": "电化学加工",
+              "type": "term",
+              "explanation": "它利用电解去除金属表层，让工件形成需要的形状。与刀具切削不同，工具和工件之间可留有间隙。"
+            }
+          ]
+        },
+        {
+          "headline": "三季度全球手机销量下滑，鸿蒙占中国大陆新机销量22%",
+          "summary": "Counterpoint Research估算，2026年第三季度全球智能手机销量同比减少16%，新机按系统分为安卓74%、iOS 21%、鸿蒙5%。中国大陆整体销量同比降10%，华为手机销量同比增12%；鸿蒙占当地当季销量22%，低于二季度的24%。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "Counterpoint Research：各地区智能手机系统销量份额",
+              "url": "https://counterpointresearch.com/default.htm/insights/global-smartphone-os-market-share"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Huawei_Mate_80_series.jpg/960px-Huawei_Mate_80_series.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "华为Mate 80系列手机，2025年12月资料图。茅野ふたば / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "销量份额",
+              "type": "term",
+              "explanation": "按一个季度售出的新机台数计算，反映当季买家的选择。存量份额还包括往年买来、如今仍在使用的手机。"
+            },
+            {
+              "term": "出货量",
+              "type": "term",
+              "explanation": "通常按厂商向渠道交付的台数统计，并不表示设备已经卖给用户。渠道库存变化会让出货量与终端销量不同步。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "社会与荒诞",
+      "items": [
+        {
+          "headline": "美国东海岸风暴后仍有大范围停电，多地清理积水",
+          "summary": "感恩节风暴带来的强降水11月27日在美东多地减弱，沿岸部分社区仍须防备高潮积水。美联社援引停电追踪数据称，超过90万个用电账户一度断电，周五下午已减少约一半；弗吉尼亚州诺福克一名市议员说，当地救援人员救出39人。",
+          "importance": "major",
+          "sources": [
+            {
+              "name": "美国联邦应急管理署：11月26日风暴简报",
+              "url": "https://content.govdelivery.com/attachments/USDHSFEMA/2026/11/26/file_attachments/3873168/FEMA%20Daily%20Ops%20Briefing%2011-26-2026.pdf"
+            },
+            {
+              "name": "美联社：停电与救援更新",
+              "url": "https://apnews.com/article/bbf9dad3076a69b9bd18b7c0c80490ad"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Hurricane_Sandy_New_Jersey_Pier.jpg/960px-Hurricane_Sandy_New_Jersey_Pier.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "2012年飓风桑迪后新泽西海岸的资料图，并非本次风暴现场。Mark C. Olsen / 美国空军、新泽西州国民警卫队，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "沿海洪水警报",
+              "type": "term",
+              "explanation": "它针对潮水或风把海水推上岸所造成的淹水风险，和河流因上游降雨漫堤不同。即使当地雨势减弱，下一轮高潮仍可能让低处重新进水。"
+            },
+            {
+              "term": "停电账户",
+              "type": "term",
+              "explanation": "停电追踪网站按电力公司的客户账户汇总，不是逐个人计数。一个账户可能是一户住宅，也可能对应一间商铺或其他用电地点。"
+            }
+          ]
+        },
+        {
+          "headline": "肯尼亚沙卡霍拉案再有定罪，涉及123人死亡",
+          "summary": "肯尼亚蒙巴萨一家法院11月27日裁定，保罗·麦肯齐在涉及123名追随者死亡的案件中构成非谋杀类非法致死罪（manslaughter）。他的律师表示将在量刑后上诉；此前他已在涉及190名儿童和一名成年人的另一宗谋杀案中被判200年监禁。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "路透社：庭审结果及律师回应",
+              "url": "https://www.investing.com/news/world-news/kenyan-starvation-cult-leader-guilty-of-manslaughter-for-123-deaths-in-latest-conviction-5053596"
+            },
+            {
+              "name": "肯尼亚通讯社：此前谋杀案判决",
+              "url": "https://www.kenyanews.go.ke/mackenzie-jailed-for-200-years-over-shakahola-massacre/"
+            }
+          ],
+          "image": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Aerial_View_of_Mombasa.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+            "credit": "肯尼亚蒙巴萨，2009年城市资料照，非案发地或法院。Victor Ochieng / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "沙卡霍拉案",
+              "type": "term",
+              "explanation": "肯尼亚警方2023年开始在东部沿海基利菲郡的沙卡霍拉森林发现遇难者遗体。调查引出了不同的刑事案件，所涉指控包括谋杀、非法致死和虐待儿童。"
+            },
+            {
+              "term": "定罪与量刑",
+              "type": "concept",
+              "explanation": "定罪决定某项犯罪指控是否成立，量刑决定罪名成立后如何处罚。这次非法致死案的量刑须与较早的谋杀案判刑分开看。"
+            }
+          ]
+        },
+        {
+          "headline": "澳大利亚议会通过网络安全新规，AI聊天机器人也纳入",
+          "summary": "澳大利亚主管部门说，议会11月25日通过数字照护义务法案，把社交媒体、游戏、应用和AI聊天机器人等纳入新的网络安全义务。法案要求有关服务主动识别并降低严重伤害风险，规则在获得御准12个月后生效，不是即刻实施。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "澳大利亚主管部门：数字照护义务",
+              "url": "https://www.infrastructure.gov.au/media-communications/internet/online-safety/digital-duty-care"
+            },
+            {
+              "name": "澳大利亚网络安全专员：提交议会的说明",
+              "url": "https://www.esafety.gov.au/sites/default/files/2026-11/eSafety_submission_Digital_Duty_of_Care_Bill_Senate_Committee_Inquiry.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Exterior_of_Parliament_House%2C_Canberra%2C_2022%2C_01.jpg/960px-Exterior_of_Parliament_House%2C_Canberra%2C_2022%2C_01.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "澳大利亚国会大厦外景，2022年资料图。Kgbo / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "数字照护义务",
+              "type": "concept",
+              "explanation": "它把一部分防范网络伤害的责任放到服务提供方，而不是仅靠用户事后举报。该立法要求服务商评估风险并采取合理措施。"
+            },
+            {
+              "term": "御准",
+              "type": "term",
+              "explanation": "澳大利亚联邦法案获议会通过后，通常由总督代表君主批准。该法把御准作为12个月过渡期的起点，不能简单从议会表决当天起算。"
+            }
+          ]
+        },
+        {
+          "headline": "河内失踪宠物主人到市场寻猫狗，当地救助团体接到线索",
+          "summary": "路透社11月27日报道，越南河内一些宠物主人会到市场寻找失踪的猫狗，当地收容机构也接到疑似动物被运往屠宰点的线索。越南警方今年报告拘留多名宠物盗窃嫌疑人；报道指出，盗窃与当地法律仍允许的猫狗肉买卖是不同问题。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "路透社：河内寻宠与救助者采访",
+              "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/27/the-search-for-vietnam-s-stolen-pets-at-wet-markets-and-slaughterhouses"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Street_market_-_Hanoi%2C_Vietnam_-_DSC03457.JPG/960px-Street_market_-_Hanoi%2C_Vietnam_-_DSC03457.JPG?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "河内街头日常市场，2014年资料图，不是报道所指的宠物市场。Daderot / Wikimedia Commons，CC0 1.0，https://creativecommons.org/publicdomain/zero/1.0/。"
+          },
+          "glossary": [
+            {
+              "term": "SNNC猫狗救助中心",
+              "type": "org",
+              "explanation": "它是河内收容遭遗弃和疑似被盗宠物的救助机构。志愿者有时接到动物运输的线索，也照护等待认领或安置的猫狗。"
+            },
+            {
+              "term": "财产盗窃",
+              "type": "concept",
+              "explanation": "路透报道指出，越南将偷走他人宠物归入财产盗窃。这与猫狗肉买卖本身是否合法是两个不同层面，市场中出售的动物也不能一概当作赃物。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "科学与体育",
+      "items": [
+        {
+          "headline": "136个近邻星系提出暗物质新问题，中国天眼数据参与检验",
+          "summary": "11月26日刊于《自然·天文学》的研究中，中国科学院上海天文台领衔团队用恒星和气体的运动推算136个近邻星系的暗物质分布，所用观测包括中国天眼FAST的中性氢数据。样本中恒星总质量约100亿个太阳质量以上的星系，内侧暗物质密度往往低于几种主流模拟；质量越大，差异延伸得越远，原因仍待研究。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "《自然·天文学》：原始研究",
+              "url": "https://www.nature.com/articles/s41550-026-03017-y"
+            },
+            {
+              "name": "中国科学院上海天文台：观测与研究结果",
+              "url": "https://shao.cas.cn/2020Ver/xwdt/ttxw/202611/t20261127_8317391.html"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/202508_FAST_%28Five-hundred-meter_Aperture_Spherical_radio_Telescope%29.jpg/960px-202508_FAST_%28Five-hundred-meter_Aperture_Spherical_radio_Telescope%29.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "贵州平塘的500米口径球面射电望远镜FAST，2025年资料图。SCJiang / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "暗物质密度",
+              "type": "term",
+              "explanation": "它描述某一空间范围内平均分布多少暗物质，不等于整个星系的暗物质总量。这里通过恒星和气体的运动推断引力，而不是直接看见暗物质。"
+            },
+            {
+              "term": "中性氢21厘米谱线",
+              "type": "term",
+              "explanation": "中性氢能发出波长约21厘米的射电信号。分析频率的偏移能推算气体的视线速度，并把运动观测延伸到可见恒星盘之外。"
+            }
+          ]
+        },
+        {
+          "headline": "马克·马尔克斯宣布离开MotoGP，瓦伦西亚站将是告别赛",
+          "summary": "马克·马尔克斯11月27日在瓦伦西亚站周末宣布，2026年是他在MotoGP的最后一个赛季，本站按计划将是他的告别赛。他本季已拿到第八个最高级别年度冠军；杜卡迪此前与他续约至2028年，这次决定改变了车队原定阵容。",
+          "importance": "notable",
+          "sources": [
+            {
+              "name": "MotoGP：退役消息",
+              "url": "https://www.motogp.com/de/news/2026/11/27/marc-marquez-gibt-seinen-abschied-aus-der-motogp-bekannt/1268528"
+            },
+            {
+              "name": "RTVE：杜卡迪的回应",
+              "url": "https://www.rtve.es/deportes/20261127/marc-marquez-retirada-motogp/17333525.shtml"
+            },
+            {
+              "name": "杜卡迪：此前续约公告",
+              "url": "https://www.ducati.com/us/en/news/he-s-red-marc-marquez-confirmed-with-the-ducati-lenovo-team-for-the-2027-2028-seasons"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/MotoGP_2026_Austria_Nr._93_M%C3%A1rquez_%282%29.jpg/1280px-MotoGP_2026_Austria_Nr._93_M%C3%A1rquez_%282%29.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "2026年奥地利大奖赛的93号杜卡迪赛车，非瓦伦西亚现场。Lukas Raich / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "MotoGP最高级别",
+              "type": "term",
+              "explanation": "MotoGP既是赛事品牌，也是世界摩托车公路锦标赛最高组别的名称。马尔克斯的第八个年度冠军只计算最高组别，不包含他在低级别赛事取得的头衔。"
+            },
+            {
+              "term": "厂队席位",
+              "type": "term",
+              "explanation": "这是制造商直接经营或支持的主力车队的车手席位。厂队车手不但竞争积分，也向制造商提供赛车调校和研发反馈。"
+            }
+          ]
+        },
+        {
+          "headline": "意大利赢下决胜双打，连续第四次打进戴维斯杯决赛",
+          "summary": "11月27日，三届卫冕冠军意大利在博洛尼亚以2比1击败捷克。两场单打各赢一场后，穆塞蒂和瓦瓦索里在决胜盘抢七击败莱赫奇卡和马哈奇，为意大利拿下最后一分。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "戴维斯杯：半决赛对阵与赛况",
+              "url": "https://www.daviscup.com/en/news/italy-v-czechia-semifinal-recap"
+            },
+            {
+              "name": "《阿斯报》：决胜双打与最终比分",
+              "url": "https://as.com/tenis/italia-tiene-siete-vidas-y-cuatro-finales-seguidas-f202611-n/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Ji%C5%99%C3%AD_Lehe%C4%8Dka_ABN_AMRO_Open_2024.jpg/960px-Ji%C5%99%C3%AD_Lehe%C4%8Dka_ABN_AMRO_Open_2024.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "捷克球员伊日·莱赫奇卡在2024年鹿特丹公开赛，非本场半决赛。Flic’s Pics Experiment / Wikimedia Commons，CC BY 2.0，https://creativecommons.org/licenses/by/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "戴维斯杯",
+              "type": "term",
+              "explanation": "这项赛事是男子网球国家队团体赛，而非个人巡回赛。在本次八强决赛阶段，双方先打两场单打；若各赢一场，再由双打决胜。"
+            },
+            {
+              "term": "抢七",
+              "type": "term",
+              "explanation": "网球一盘打到六比六时，通常通过抢七决定该盘胜负。标准抢七先得至少七分且领先两分的一方获胜；本场双打的抢七为七比四。"
+            }
+          ]
+        },
+        {
+          "headline": "旧标本重新鉴定，中国、缅甸和越南的蕨类归为同一新种",
+          "summary": "中国科学院11月27日介绍，中国西藏墨脱、缅甸北部和越南北部的部分蕨类标本被鉴定为同一新种 Drynaria lineatisora，其中一些历史标本曾被当成另一种蕨。论文10月29日发表，研究团队结合形态与叶绿体DNA进行鉴定，新种叶背的孢子囊群呈连续长条，最长约20毫米。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "中国科学院：11月27日研究介绍",
+              "url": "https://english.cas.ac.cn/newsroom/research-news/202611/t20261127_1220931.shtml"
+            },
+            {
+              "name": "Phytotaxa：新种论文",
+              "url": "https://phytotaxa.mapress.com/pt/article/view/phytotaxa.782.2.6"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Pseudodrynaria_coronans_kz01.jpg/960px-Pseudodrynaria_coronans_kz01.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "柏林植物园种植的近缘种 Drynaria coronans，供对照，并非报道中的新种。Krzysztof Ziarnek, Kenraiz / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "孢子囊群",
+              "type": "term",
+              "explanation": "许多蕨类叶片背面有一簇簇产生孢子的结构。它们有的呈点状，有的呈线状，排列和长度可帮助研究者区分相似的物种。"
+            },
+            {
+              "term": "叶绿体DNA",
+              "type": "term",
+              "explanation": "叶绿体是植物细胞中负责光合作用的结构，也含有自身的遗传信息。研究人员可以比较这部分DNA，把亲缘关系的线索与孢子及叶片等形态特征一起判断。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "影视与明星",
+      "items": [
+        {
+          "headline": "邹静《无名女孩》获多哈电影节最佳剧情片奖",
+          "summary": "据《Screen》报道，11月27日，中法合拍片《无名女孩》在多哈电影节国际长片竞赛获得最佳剧情片奖，奖金7.5万美元。这是邹静的首部长片，讲述一名女孩在三个家庭中长大、先后有过三个名字的经历，成片今年在戛纳影评人周首映。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "《Screen》：多哈获奖结果",
+              "url": "https://www.screendaily.com/news/doha-film-festival-awards-prizes-worth-over-300000-at-second-edition/5222873.article"
+            },
+            {
+              "name": "多哈电影节：竞赛及奖金",
+              "url": "https://www.dohafilm.com/en/press/press-releases/15-films-four-continents-set-doha-film-festivals-2026-international-feature"
+            },
+            {
+              "name": "戛纳影评人周：影片档案",
+              "url": "https://www.semainedelacritique.com/en/edition/2026/movie/a-girl-unknown_1147"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Doha_Katara_Cultural_Village_Plaza_1.jpg/960px-Doha_Katara_Cultural_Village_Plaza_1.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "多哈卡塔拉文化村广场，2023年资料图，非颁奖现场。Zairon / Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "多哈电影节国际长片竞赛",
+              "type": "award",
+              "explanation": "本届设有来自四大洲的15部竞赛长片。剧情片和纪录片分设奖项，《无名女孩》获评最佳剧情片。"
+            },
+            {
+              "term": "影评人周Next Step",
+              "type": "org",
+              "explanation": "这是戛纳影评人周支持短片导演发展首部长片的项目。本片曾在开发阶段获得该项目2024年的Hildegarde奖，和成片后来在影评人周亮相是两件事。"
+            }
+          ]
+        },
+        {
+          "headline": "马拉喀什电影节排映《符号之人》，从画展回望摩洛哥童年",
+          "summary": "马拉喀什电影节将佐尔·法西-菲赫里的《符号之人》列入11月27日的摩洛哥电影展映，官方节目将其标为世界首映。影片以画家在巴黎的一次回顾展为起点，回望他在摩洛哥的童年，创作灵感来自画家迈赫迪·科特比。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "马拉喀什电影节：影片介绍与放映日程",
+              "url": "https://marrakech-festival.com/films/lhomme-des-signes-man-of-signs/"
+            },
+            {
+              "name": "电影节：官方选片册",
+              "url": "https://marrakech-festival.com/wp-content/uploads/2026/11/FIFM26_-_CP_SELECTION_OFFICIELLE_ENG_c-1.pdf"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/%D9%82%D8%B5%D8%B1_%D8%A7%D9%84%D9%85%D8%A4%D8%AA%D9%85%D8%B1%D8%A7%D8%AA_%D9%85%D8%B1%D8%A7%D9%83%D8%B4.jpg/960px-%D9%82%D8%B5%D8%B1_%D8%A7%D9%84%D9%85%D8%A4%D8%AA%D9%85%D8%B1%D8%A7%D8%AA_%D9%85%D8%B1%D8%A7%D9%83%D8%B4.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "马拉喀什会议宫，2026年5月资料图，非首映现场。راشراش / Wikimedia Commons，CC BY-SA 3.0，https://creativecommons.org/licenses/by-sa/3.0/。"
+          },
+          "glossary": [
+            {
+              "term": "摩洛哥电影展映",
+              "type": "term",
+              "explanation": "这是电影节为了解摩洛哥电影而设的专题单元，包含剧情片和纪录片。入选该单元并不表示参加主竞赛或已经获奖。"
+            },
+            {
+              "term": "艺术家回顾展",
+              "type": "term",
+              "explanation": "这类展览把艺术家多个阶段的作品摆在一起，供观众看创作如何改变。电影用这种展览作叙事框架，画作把故事带回主人公的童年。"
+            }
+          ]
+        },
+        {
+          "headline": "香港电影资料馆重映4K版《野玫瑰之恋》，映后谈胶片修复",
+          "summary": "香港电影资料馆11月28日将重映王天林执导、葛兰和张扬主演的1960年歌舞片《野玫瑰之恋》，随后举行修复座谈；影片把比才的《卡门》移到香港夜总会。资料馆从新加坡国泰机构取得的拷贝反差过强，修复时通过数字处理和明暗调整找回暗部细节，这一版曾于2024年在北京国际电影节放映。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "香港电影资料馆：周年放映及座谈",
+              "url": "https://www.filmarchive.gov.hk/en/web/hkfa/2026/25a-fa-exhib/pe-event-2026-25a-fa-exhib.html"
+            },
+            {
+              "name": "香港电影资料馆：修复经过",
+              "url": "https://www.filmarchive.gov.hk/sc/web/hkfa/pe-event-2023-wr.html"
+            },
+            {
+              "name": "北京国际电影节：2024年内地首映",
+              "url": "https://www.bjiff.com/bannergdtp/202404/t20240419_176224_ext.html"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Hong_Kong_Film_Archive01.jpg/960px-Hong_Kong_Film_Archive01.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "香港西湾河的香港电影资料馆，2006年资料图。Cara Chow（Charlotte1125）/ Wikimedia Commons，CC BY-SA 2.5，https://creativecommons.org/licenses/by-sa/2.5/。"
+          },
+          "glossary": [
+            {
+              "term": "葛兰",
+              "type": "person",
+              "explanation": "香港国语歌舞片演员，常被称作「曼波女郎」。她在片中饰演夜总会歌手，把歌剧中卡门的角色带进当时的香港。"
+            },
+            {
+              "term": "4K数字修复",
+              "type": "term",
+              "explanation": "4K说的是影像的分辨率，修复却不只是把画面放大。修复团队还处理旧胶片上的划痕和斑点，重新调整明暗，让原本不易看见的夜景细节显出来。"
+            }
+          ]
+        },
+        {
+          "headline": "东京12月经典电影展映以成濑巳喜男《浮云》开场",
+          "summary": "日本国立电影资料馆把成濑巳喜男1955年的《浮云》排在12月1日专题首场，以35毫米黑白拷贝放映。影片由水木洋子改编自林芙美子小说，用两个人战后重逢的经历写那一代人的困顿；本次不是首次修复或首映。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "日本国立电影资料馆：专题日程",
+              "url": "https://www.nfaj.go.jp/film-program/carteblanche202612/"
+            },
+            {
+              "name": "日本国立电影资料馆：《浮云》节目条目",
+              "url": "https://www.nfaj.go.jp/program/carteblanche202612-1/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/National_Film_Archive_of_Japan_2024-03_ac_%284%29.jpg/960px-National_Film_Archive_of_Japan_2024-03_ac_%284%29.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "日本国立电影资料馆，2024年3月资料图。Asturio Cantabrio / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "水木洋子",
+              "type": "person",
+              "explanation": "她是日本编剧，曾与成濑巳喜男合作。她将林芙美子的长篇小说改编成剧本，成片长122分钟。"
+            },
+            {
+              "term": "35毫米放映",
+              "type": "term",
+              "explanation": "35毫米指实体胶片的宽度。场馆用胶片放映，与播放数字修复版的文件不同，也不等于此次放映使用了当年的原始底片。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "书籍与作家",
+      "items": [
+        {
+          "headline": "苏黎世乔伊斯基金会新展厅重访《尤利西斯》的出版过程",
+          "summary": "苏黎世乔伊斯基金会把新展厅的开放活动安排在当地11月27日晚。首个特展回顾美国书商西尔维娅·比奇如何与第戎的印刷商合作、筹措印刷资金，并在1922年于巴黎出版《尤利西斯》。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "乔伊斯基金会：新展厅开放安排",
+              "url": "https://joycefoundation.ch/27-11-2026-opening-of-new-exhibition-space/"
+            },
+            {
+              "name": "乔伊斯基金会：西尔维娅·比奇专题",
+              "url": "https://joycefoundation.ch/about-us/exhibitions/sylvia-beach-the-woman-who-brought-ulysses-to-the-world/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/James_Joyce_Ulysses_1st_Edition_1922_GB.jpg/1280px-James_Joyce_Ulysses_1st_Edition_1922_GB.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "《尤利西斯》1922年初版首印，第302号，澳大利亚新南威尔士州立图书馆藏，非苏黎世展品。Geoffrey Barker / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "glossary": [
+            {
+              "term": "西尔维娅·比奇",
+              "type": "person",
+              "explanation": "她是美国书商，在巴黎创办英文书店。她不仅决定出版《尤利西斯》，还参与校样和印刷，借预订筹措书款。"
+            },
+            {
+              "term": "莎士比亚书店",
+              "type": "org",
+              "explanation": "这里指比奇创办的巴黎英文书店，也是《尤利西斯》初版的出版方。书店接受预订，让部分购书款在印刷前到位。"
+            }
+          ]
+        },
+        {
+          "headline": "香港艺术馆更换展品：傅抱石把苏轼的赤壁画进折扇",
+          "summary": "香港艺术馆「由重读到重逢」书画展第二期从11月27日开始，新展品包括傅抱石1947年的设色成扇《赤壁泛舟》。这次轮换还展出朱耷《临河序》和金琮《洛神赋》，让同一展览同时呈现古典文章如何进入绘画与书法。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "香港艺术馆：展期及作品列表",
+              "url": "https://hk.art.museum/sc/web/ma/exhibitions-and-events/reading-and-rereading.html"
+            },
+            {
+              "name": "大都会艺术博物馆：同题材古画",
+              "url": "https://www.metmuseum.org/art/collection/search/44451"
+            }
+          ],
+          "image": {
+            "url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/44451/148032/main-image",
+            "credit": "元末明初佚名《后赤壁赋图》团扇，大都会艺术博物馆藏，公有领域。为同题材参照，不是傅抱石作品或本次香港展品。"
+          },
+          "glossary": [
+            {
+              "term": "赤壁赋",
+              "type": "term",
+              "explanation": "苏轼前后两次夜游赤壁，写成通常分别称为《前赤壁赋》和《后赤壁赋》的散文。后世画家常借泛舟、江水、山石等形象表现文章中的场景。"
+            },
+            {
+              "term": "成扇",
+              "type": "term",
+              "explanation": "成扇指已经装配成形的扇子。傅抱石一件是折扇，而配图中的团扇不折叠，不能把两者当成同一件作品。"
+            }
+          ]
+        },
+        {
+          "headline": "都柏林小型出版书展把独立书商带进公共图书馆",
+          "summary": "第二届都柏林小型出版书展按活动安排于11月27日至28日在珀斯街图书馆举办，小出版社、书籍制作者和文学杂志可以在这里直接与读者见面。书展免费开放，另一些在珀斯中心举行的活动则需要预先领票。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "书展主办方：日期、场地及参展者",
+              "url": "https://dublinsmallpressfair.com/"
+            },
+            {
+              "name": "都柏林文学之都：活动介绍",
+              "url": "https://www.dublincityofliterature.ie/whats-on/dublin-small-press-fair"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Dublin_City_Library_%26_Archive.jpg/960px-Dublin_City_Library_%26_Archive.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "都柏林珀斯街图书馆外观，2007年已上传的资料图，非书展现场。Dublin City Public Libraries / Wikimedia Commons，CC BY-SA 2.0，https://creativecommons.org/licenses/by-sa/2.0/。"
+          },
+          "glossary": [
+            {
+              "term": "小型出版",
+              "type": "concept",
+              "explanation": "小规模出版者往往用较小印量制作书籍、杂志或小册子，从选稿到销售的人手也较少。书展让读者有机会接触平常在大型书店不一定容易找到的作品。"
+            },
+            {
+              "term": "珀斯街图书馆",
+              "type": "org",
+              "explanation": "它是都柏林公共图书馆体系的一处场馆，也是这次书展的展示地点。主办方把部分专门活动放在另一地点珀斯中心，两者的入场方式不同。"
+            }
+          ]
+        },
+        {
+          "headline": "台北故宫展出两部数学古籍：一本经朝鲜翻刊，一本从拉丁文译来",
+          "summary": "台北故宫博物院11月25日推出「数理乾坤」古籍展，展出的南宋《杨辉算法》在1433年于朝鲜庆州翻刊，后来传到日本，馆藏这部由清末藏书家杨守敬在日本购得。另一件展品是明崇祯年间的《几何原本》刊本，利玛窦与徐光启合译的前六卷最早于1607年刊行。",
+          "importance": "routine",
+          "sources": [
+            {
+              "name": "台北故宫博物院：展期和展览介绍",
+              "url": "https://www.npm.edu.tw/Exhibition-Content.aspx?l=1&sno=04014685"
+            },
+            {
+              "name": "台北故宫博物院：策展与古籍介绍",
+              "url": "https://south.npm.gov.tw/ActivitiesDetailC006110.aspx?Cond=65b1f8aa-782a-4734-ab42-bae5ee1d920d"
+            },
+            {
+              "name": "台北故宫博物院：线上展览",
+              "url": "https://theme.npm.edu.tw/MathematicsandtheUniverse/"
+            }
+          ],
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/NLC892-411999025241-85279_%E5%B9%BE%E4%BD%95%E5%8E%9F%E6%9C%AC_%E7%AC%AC1%E5%86%8A.pdf/page1-960px-NLC892-411999025241-85279_%E5%B9%BE%E4%BD%95%E5%8E%9F%E6%9C%AC_%E7%AC%AC1%E5%86%8A.pdf.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "中国国家图书馆藏《几何原本》1607年刊本扫描，非本次展出的崇祯刊本。Wikimedia Commons，公有领域。"
+          },
+          "glossary": [
+            {
+              "term": "纵横图",
+              "type": "concept",
+              "explanation": "也叫幻方，把数字排进正方形格子，使每行、每列和两条主对角线上的数字之和相等。《杨辉算法》收有多种格数的例子。"
+            },
+            {
+              "term": "口译笔受",
+              "type": "term",
+              "explanation": "这里指利玛窦口述译文、徐光启以中文记录成文。他们根据克拉维乌斯校注的拉丁文《几何原本》合作译出前六卷。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "美女与野兽",
+      "gallery": [
+        {
+          "kind": "person",
+          "caption": "法国演员克拉拉·帕西尼，2026年9月10日出席第83届威尼斯电影节。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Clara_Pacini-0460.jpg/960px-Clara_Pacini-0460.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "威尼斯电影节公开活动资料图。Harald Krichel / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "source": {
+            "name": "图片档案",
+            "url": "https://commons.wikimedia.org/wiki/File:Clara_Pacini-0460.jpg"
+          }
+        },
+        {
+          "kind": "person",
+          "caption": "波兰网球选手伊加·斯维亚特克在2026年法国网球公开赛与玛尔塔·科斯秋克的比赛中。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Iga_%C5%9Awi%C4%85tek_2026_Roland_Garros_%28154%29_%28cropped%29.jpg/960px-Iga_%C5%9Awi%C4%85tek_2026_Roland_Garros_%28154%29_%28cropped%29.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "2026年5月31日比赛照片，作者原图裁切版。Like tears in rain / Wikimedia Commons，CC BY-SA 4.0，https://creativecommons.org/licenses/by-sa/4.0/。"
+          },
+          "source": {
+            "name": "图片档案",
+            "url": "https://commons.wikimedia.org/wiki/File:Iga_%C5%9Awi%C4%85tek_2026_Roland_Garros_(154)_(cropped).jpg"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "沃格特动胸龟头上有醒目的黄色斑纹。荷兰监管部门11月27日通报，史基浦机场截获的26只同种龟均存活，现由专业机构照护。",
+          "image": {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Kinosternon_vogti.jpg/960px-Kinosternon_vogti.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "2018年同种资料图，并非截获个体。Agencia Informativa Conacyt / UdeG，经 Wikimedia Commons，CC BY 4.0，https://creativecommons.org/licenses/by/4.0/。"
+          },
+          "source": {
+            "name": "荷兰食品和消费品安全管理局：通报全文转载",
+            "url": "https://pubt.io/view/19EBB39A292E83525555779B37D93E8A72F74015"
+          }
+        },
+        {
+          "kind": "animal",
+          "caption": "旧金山袜带蛇的蓝色、黑色和橙红色条纹沿背延伸。旧金山动物园11月通报，今年秋季在圣马特奥县野外放归了62条由园方育成的幼蛇。",
+          "image": {
+            "url": "https://www.fws.gov/sites/default/files/styles/max_1300x1300/public/2022-03/SFGS_SheilaLarsenUSFWS%20%2834%29.jpg?itok=TF9ToA_L",
+            "credit": "2022年同种资料图，非放归现场。Sheila Larsen / USFWS，公有领域。"
+          },
+          "source": {
+            "name": "旧金山动物园：放归项目",
+            "url": "https://www.sfzoo.org/a-new-generation-of-san-francisco-garter-snakes-returns-to-the-wild/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "天涯海角",
+      "place": {
+        "name": "赫尔辛基卡利奥｜蒸完桑拿，坐到街边",
+        "paragraphs": [
+          "赫尔辛基卡利奥街区的科蒂哈尔尤桑拿馆（Kotiharjun Sauna）建于1928年。过去，城里的公寓还没普及现代浴室，居民就到街坊桑拿洗澡。如今公共浴室仍不用预约，进门在柜台买票，可以租毛巾、买一束轻拍身体用的桦树枝。每逢周四和周六，馆里还有专人给客人搓洗。",
+          "水浇上热石，腾起的那阵热汽，芬兰语叫 löyly。在这里想多浇一勺水，得先问同室的人。男浴室有条老规矩：要不要再添蒸汽，由坐在最热一层的人拿主意。想凉快一点就往下坐。长凳上有人和街坊闲聊，也有人从头到尾安静地坐着。",
+          "蒸热了，有人裹上毛巾走出门，到人行道边的长凳上坐一会儿。这不是专为游客安排的体验，芬兰旅游局说，这家馆子一年四季都能看到这样的场景。海边桑拿的客人有时下水降温；而在卡利奥，从炉边到街边，不过是一道门的距离。",
+          "参议院广场的圣诞市集今年也把木柴桑拿排进了节日节目，市集日期是11月27日至12月22日。广场上的桑拿随市集而来；卡利奥这间则有自己一年到头的节奏。馆方说，开门的日子从早晨就开始烧炉子，得预热三到五个小时，随当天情况和季节而变。"
+        ],
+        "photos": [
+          {
+            "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Kotiharjun_sauna_-_Marit_Henriksson.jpg/960px-Kotiharjun_sauna_-_Marit_Henriksson.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+            "credit": "卡利奥街区的科蒂哈尔尤桑拿馆，2024 年 1 月。Marit Henriksson / Wikimedia Commons，CC BY-SA 4.0。 https://creativecommons.org/licenses/by-sa/4.0/。"
+          }
+        ]
+      }
+    }
+  ]
+}
