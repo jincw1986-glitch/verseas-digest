@@ -60,6 +60,40 @@ struct FlowLayout: Layout {
     }
 }
 
+extension NewsImportance {
+    var color: Color {
+        switch self {
+        case .major: Color(red: 0.55, green: 0.32, blue: 0.43)
+        case .notable: Color(red: 0.67, green: 0.40, blue: 0.17)
+        case .routine: Color(red: 0.40, green: 0.51, blue: 0.61)
+        }
+    }
+}
+
+struct NewsImportanceBadge: View {
+    let importance: NewsImportance?
+
+    var body: some View {
+        let color = importance?.color ?? .secondary
+        let label = importance?.label ?? "未评级"
+
+        HStack(spacing: 6) {
+            RoundedRectangle(cornerRadius: 2)
+                .fill(color)
+                .frame(width: 9, height: 9)
+                .accessibilityHidden(true)
+            Text(label)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.primary)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 5)
+        .background(color.opacity(0.16), in: Capsule())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("重要程度，\(label)")
+    }
+}
+
 struct GlossaryPill: View {
     let title: String
     let action: () -> Void
@@ -194,6 +228,7 @@ struct DigestPhoto: View {
     var symbol: String = "photo"
     var fillsFrame: Bool = false
     var framing: PhotoFraming = .hero
+    var isInteractive = true
     @State private var phase: Phase = .idle
     @State private var showViewer = false
     @State private var loadToken = LoadToken()
@@ -223,7 +258,7 @@ struct DigestPhoto: View {
         }
         .clipped()
         .contentShape(Rectangle())
-        .simultaneousGesture(TapGesture().onEnded { handleTap() })
+        .simultaneousGesture(TapGesture().onEnded { if isInteractive { handleTap() } })
         .onAppear { beginLoad(force: false) }
         .onChange(of: picture?.cacheKey) { _, _ in
             phase = .idle
@@ -231,7 +266,7 @@ struct DigestPhoto: View {
         }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(accessibilityText)
-        .accessibilityAddTraits(hasPicture ? .isButton : AccessibilityTraits())
+        .accessibilityAddTraits(hasPicture && isInteractive ? .isButton : AccessibilityTraits())
         .fullScreenCover(isPresented: $showViewer) {
             if case .loaded(let image, _) = phase {
                 ImageViewer(image: image, credit: picture?.credit ?? "")
@@ -242,9 +277,9 @@ struct DigestPhoto: View {
     private var accessibilityText: String {
         switch phase {
         case .failed:
-            return "图片没有载入，轻点重试"
+            return isInteractive ? "图片没有载入，轻点重试" : "图片没有载入"
         case .loaded:
-            return "查看大图。\(picture?.credit ?? "")"
+            return isInteractive ? "查看大图。\(picture?.credit ?? "")" : picture?.credit ?? "图片"
         case .loading:
             return "正在载入图片"
         case .idle:
@@ -258,7 +293,7 @@ struct DigestPhoto: View {
         case .loaded(let image, let faces):
             FittedPhoto(image: image, faces: faces, framing: framing)
         case .failed:
-            statusFill(title: "图片没有载入", detail: "轻点重试", spinning: false)
+            statusFill(title: "图片没有载入", detail: isInteractive ? "轻点重试" : nil, spinning: false)
         case .loading where hasPicture:
             statusFill(title: "正在载入图片", detail: nil, spinning: true)
         default:

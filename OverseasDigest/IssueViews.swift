@@ -2,21 +2,22 @@ import SwiftUI
 
 struct IssueBody: View {
     let issue: DigestIssue
+    let section: DigestSection
+    let onReading: (() -> Void)?
+    let onPageOpened: ((Int) -> Void)?
     @EnvironmentObject private var model: DigestModel
-    @State private var selectedSection = ""
-    @State private var showDirectory = false
-    @State private var page = 0
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var page: Int
     @State private var sheet: PresentedSheet?
+    @State private var qualifiedPages: Set<Int> = []
 
-    private var activeSection: String {
-        if issue.sections.contains(where: { $0.name == selectedSection }) {
-            return selectedSection
-        }
-        return issue.sections.first?.name ?? ""
-    }
-
-    private var current: DigestSection? {
-        issue.sections.first { $0.name == activeSection }
+    init(issue: DigestIssue, section: DigestSection, page: Int = 0, onReading: (() -> Void)? = nil,
+         onPageOpened: ((Int) -> Void)? = nil) {
+        self.issue = issue
+        self.section = section
+        self.onReading = onReading
+        self.onPageOpened = onPageOpened
+        _page = State(initialValue: page)
     }
 
     var body: some View {
@@ -30,120 +31,60 @@ struct IssueBody: View {
                     .padding(.vertical, 8)
                     .background(Color.orange.opacity(0.18))
             }
-            if let section = current {
-                SectionPager(
-                    section: section,
-                    dateLine: ChineseDate.string(from: issue.date),
-                    page: pageBinding(for: section),
-                    accent: SectionAccent.color(for: section.name),
-                    onWeb: { url in
-                        sheet = .web(WebLink(url: url))
-                    },
-                    onGlossary: { entry in
-                        sheet = .glossary(entry)
-                    }
-                )
-                .id(section.name)
-            }
+            SectionPager(
+                section: section,
+                dateLine: ChineseDate.string(from: issue.date),
+                page: pageBinding,
+                accent: SectionAccent.color(for: section.name),
+                onWeb: { url in
+                    sheet = .web(WebLink(url: url))
+                },
+                onGlossary: { entry in
+                    sheet = .glossary(entry)
+                },
+                onReadingScroll: onReading == nil ? nil : qualifyReading
+            )
+            .id(section.name)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(current?.name ?? "今日")
+        .navigationTitle(section.displayName)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    showDirectory = true
-                } label: {
-                    Label("栏目", systemImage: "line.3.horizontal")
-                }
-            }
-        }
+        .toolbar(.visible, for: .navigationBar)
         .refreshable { await model.refresh() }
-        .overlay {
-            if showDirectory {
-                sectionDirectory
-            }
-        }
-        .animation(.easeInOut(duration: 0.28), value: showDirectory)
         .sheet(item: $sheet) { presented in
             SheetContent(presented: presented)
         }
+        .onChange(of: page, initial: true) { _, page in
+            if (0..<section.entryCount).contains(page) { onPageOpened?(page) }
+        }
+        .task(id: readingPage) {
+            guard let page = readingPage, !qualifiedPages.contains(page) else { return }
+            do {
+                try await Task.sleep(for: .seconds(8))
+                if !Task.isCancelled { qualifyReading() }
+            } catch {
+                return
+            }
+        }
     }
 
-    private func pageBinding(for section: DigestSection) -> Binding<Int> {
+    private var readingPage: Int? {
+        guard onReading != nil, scenePhase == .active, sheet == nil,
+              section.items.indices.contains(page) else { return nil }
+        return page
+    }
+
+    private func qualifyReading() {
+        guard let page = readingPage, qualifiedPages.insert(page).inserted else { return }
+        onReading?()
+    }
+
+    private var pageBinding: Binding<Int> {
         Binding(
             get: { min(page, max(section.entryCount - 1, 0)) },
             set: { page = $0 }
         )
-    }
-
-    private var sectionDirectory: some View {
-        let accent = SectionAccent.color(for: activeSection)
-        return ZStack(alignment: .leading) {
-            Color.black.opacity(0.38)
-                .ignoresSafeArea()
-                .onTapGesture { showDirectory = false }
-                .accessibilityLabel("关闭栏目目录")
-                .accessibilityAddTraits(.isButton)
-            VStack(alignment: .leading, spacing: 0) {
-                Text(ChineseDate.string(from: issue.date))
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(accent)
-                    .padding(.horizontal, 20)
-                    .padding(.top, 28)
-                Text("栏目目录")
-                    .font(.title2.weight(.bold))
-                    .padding(.horizontal, 20)
-                    .padding(.top, 4)
-                    .padding(.bottom, 12)
-                ScrollView {
-                    VStack(spacing: 4) {
-                        ForEach(issue.sections) { section in
-                            let selected = activeSection == section.name
-                            let tint = SectionAccent.color(for: section.name)
-                            Button {
-                                page = 0
-                                selectedSection = section.name
-                                showDirectory = false
-                            } label: {
-                                HStack(spacing: 10) {
-                                    RoundedRectangle(cornerRadius: 2, style: .continuous)
-                                        .fill(tint)
-                                        .frame(width: 4, height: 22)
-                                    Text(section.name)
-                                        .font(.body.weight(selected ? .semibold : .regular))
-                                        .foregroundStyle(.primary)
-                                        .multilineTextAlignment(.leading)
-                                    Spacer(minLength: 8)
-                                    Text("\(section.entryCount)")
-                                        .font(.subheadline.weight(.semibold))
-                                        .foregroundStyle(selected ? Color.white : Color.secondary)
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 2)
-                                        .background(selected ? tint : Color.secondary.opacity(0.15), in: Capsule())
-                                }
-                                .padding(.horizontal, 12)
-                                .frame(minHeight: 48)
-                                .background(
-                                    selected ? tint.opacity(0.14) : Color.clear,
-                                    in: RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityHint("只显示这一栏")
-                        }
-                    }
-                    .padding(.horizontal, 8)
-                }
-            }
-            .frame(maxWidth: 320, maxHeight: .infinity, alignment: .top)
-            .frame(width: 300)
-            .background(.regularMaterial)
-            .ignoresSafeArea(edges: .bottom)
-            .accessibilityAddTraits(.isModal)
-        }
-        .transition(.opacity)
     }
 }
 
@@ -218,6 +159,7 @@ private struct SectionPager: View {
     let accent: Color
     let onWeb: (URL) -> Void
     let onGlossary: (GlossaryEntry) -> Void
+    var onReadingScroll: (() -> Void)?
 
     var body: some View {
         TabView(selection: $page) {
@@ -245,20 +187,22 @@ private struct SectionPager: View {
         } else if let wiki = section.wiki {
             wikiPage(wiki, label: label)
         } else if section.items.indices.contains(index) {
-            newsPage(section.items[index], label: label)
+            newsPage(section.items[index], label: label, isSelected: index == page)
         }
     }
 
-    private func newsPage(_ item: DigestItem, label: String) -> some View {
+    private func newsPage(_ item: DigestItem, label: String, isSelected: Bool) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: item.headline,
             dateLine: dateLine,
             picture: item.image,
             accent: accent,
             symbol: SectionAccent.symbol(for: section.name),
-            pageLabel: label
+            pageLabel: label,
+            onReadingScroll: isSelected ? onReadingScroll : nil
         ) {
+            NewsImportanceBadge(importance: item.importance)
             Text(item.summary)
                 .font(.body)
                 .fixedSize(horizontal: false, vertical: true)
@@ -274,7 +218,7 @@ private struct SectionPager: View {
 
     private func photoPage(_ photo: PhotoOfDay, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: photo.title,
             dateLine: dateLine,
             picture: photo.image,
@@ -295,7 +239,7 @@ private struct SectionPager: View {
 
     private func placePage(_ place: PlaceEssay, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: place.name,
             dateLine: dateLine,
             picture: place.photos.first?.picture,
@@ -357,7 +301,7 @@ private struct SectionPager: View {
 
     private func wikiPage(_ wiki: WikiArticle, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: wiki.title,
             dateLine: dateLine,
             picture: wiki.images.first,
@@ -401,7 +345,7 @@ private struct SectionPager: View {
 
     private func jokePage(_ joke: JokeItem, label: String) -> some View {
         MagazineCard(
-            kicker: section.name,
+            kicker: section.displayName,
             title: joke.authorName,
             dateLine: dateLine,
             picture: nil,
@@ -438,7 +382,7 @@ private struct SectionPager: View {
                 .buttonStyle(.plain)
                 .accessibilityLabel("打开 \(joke.authorName) 的帖子")
             }
-            footnote("笑话是 X 上的原帖。点作者名字可打开帖子。")
+            footnote("这些段子来自 X。点作者名字可打开原帖。")
         }
     }
 
@@ -471,6 +415,7 @@ private struct MagazineCard<Content: View>: View {
     let pageLabel: String
     var framing: PhotoFraming = .hero
     var jokeStyle: Bool = false
+    var onReadingScroll: (() -> Void)? = nil
     @ViewBuilder var content: () -> Content
 
     var body: some View {
@@ -531,6 +476,19 @@ private struct MagazineCard<Content: View>: View {
                     .padding(18)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .background(alignment: .top) {
+                    if onReadingScroll != nil {
+                        GeometryReader { geometry in
+                            Color.clear.preference(key: ReadingOffset.self,
+                                                   value: geometry.frame(in: .named("articleScroll")).minY)
+                        }
+                        .frame(height: 0)
+                    }
+                }
+            }
+            .coordinateSpace(name: "articleScroll")
+            .onPreferenceChange(ReadingOffset.self) { offset in
+                if offset < -12 { onReadingScroll?() }
             }
             .scrollBounceBehavior(.basedOnSize)
             .background(jokeStyle ? Color.jokePaper : Color(.secondarySystemGroupedBackground))
@@ -549,6 +507,14 @@ private struct MagazineCard<Content: View>: View {
     }
 }
 
+private struct ReadingOffset: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = min(value, nextValue())
+    }
+}
+
 struct ItemDetailView: View {
     let sectionName: String
     let item: DigestItem
@@ -563,6 +529,7 @@ struct ItemDetailView: View {
                 Text(item.headline)
                     .font(.largeTitle.weight(.bold))
                     .fixedSize(horizontal: false, vertical: true)
+                NewsImportanceBadge(importance: item.importance)
                 if let picture = item.image {
                     DigestPhoto(picture: picture, framing: .full)
                         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -600,62 +567,169 @@ struct ItemDetailView: View {
 
 struct ArchiveView: View {
     @EnvironmentObject private var model: DigestModel
+    @State private var grouping = Grouping.date
+    @State private var category: String?
+    @State private var scanAttempt = 0
+    @State private var completedScan: Scan?
+
+    private enum Grouping: String, CaseIterable {
+        case date = "按日期"
+        case category = "按栏目"
+    }
+
+    private struct Scan: Equatable {
+        let entries: [IndexEntry]
+        let attempt: Int
+    }
+
+    private var entries: [IndexEntry] { model.index?.issues ?? [] }
+
+    private var categories: [String] {
+        var seen: Set<String> = []
+        return entries.flatMap { model.sectionNames(in: $0) ?? [] }
+            .map(archiveCategoryName)
+            .filter { seen.insert($0).inserted }
+    }
+
+    private var filteredEntries: [IndexEntry] {
+        if grouping == .date { return entries }
+        guard let category else { return [] }
+        return entries.filter { entry in
+            model.sectionNames(in: entry)?.contains { archiveCategoryName($0) == category } == true
+        }
+    }
 
     var body: some View {
-        Group {
-            if let index = model.index, !index.issues.isEmpty {
-                List(index.issues) { entry in
-                    NavigationLink(value: entry.date) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            HStack(alignment: .firstTextBaseline, spacing: 8) {
-                                Text(ChineseDate.string(from: entry.date))
-                                    .font(.headline)
-                                if entry.date == index.issues.first?.date {
-                                    Text("最新")
-                                        .font(.caption.weight(.semibold))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 3)
-                                        .background(Color.accentColor.opacity(0.16), in: Capsule())
-                                        .foregroundStyle(Color.accentColor)
-                                }
-                            }
-                            Text(entry.title)
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                        }
-                        .padding(.vertical, 6)
-                    }
+        let scan = Scan(entries: entries, attempt: scanAttempt)
+
+        List {
+            Picker("查看方式", selection: $grouping) {
+                ForEach(Grouping.allCases, id: \.self) { mode in
+                    Text(mode.rawValue).tag(mode)
                 }
-            } else {
+            }
+            .pickerStyle(.segmented)
+
+            if entries.isEmpty {
                 ContentUnavailableView(
                     "还没有往期",
                     systemImage: "books.vertical",
                     description: Text("下拉可重新获取目录。")
                 )
+            } else {
+                if grouping == .category {
+                    categoryControls(scan: scan)
+                }
+                Section {
+                    ForEach(filteredEntries) { entry in
+                        NavigationLink(value: ArchiveDestination(
+                            date: entry.date,
+                            category: grouping == .category ? category : nil
+                        )) {
+                            editionRow(entry)
+                        }
+                    }
+                }
             }
         }
         .navigationTitle("往期")
-        .navigationDestination(for: String.self) { date in
-            ArchivedIssueView(date: date)
+        .navigationDestination(for: ArchiveDestination.self) { destination in
+            ArchivedIssueView(date: destination.date, category: destination.category)
         }
-        .refreshable { await model.refresh() }
+        .task(id: grouping == .category ? scan : nil) {
+            guard grouping == .category else { return }
+            await model.loadArchiveSections(scan.entries)
+            if !Task.isCancelled { completedScan = scan }
+        }
+        .onChange(of: categories, initial: true) { _, available in
+            if let category, available.contains(category) { return }
+            category = available.first
+        }
+        .refreshable {
+            await model.refresh()
+            scanAttempt += 1
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 RefreshButton()
             }
         }
     }
+
+    private func categoryControls(scan: Scan) -> some View {
+        let unavailable = entries.count { model.sectionNames(in: $0) == nil }
+        return Section {
+            if !categories.isEmpty {
+                Picker("栏目", selection: $category) {
+                    ForEach(categories, id: \.self) { name in
+                        Text(name).tag(Optional(name))
+                    }
+                }
+                .pickerStyle(.menu)
+            }
+
+            if unavailable > 0 {
+                if completedScan == scan {
+                    Button {
+                        scanAttempt += 1
+                    } label: {
+                        Label("\(unavailable) 期的栏目暂不可用，重试", systemImage: "arrow.clockwise")
+                    }
+                } else {
+                    ProgressView("正在查找各期栏目")
+                }
+            }
+        }
+    }
+
+    private func editionRow(_ entry: IndexEntry) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Text(ChineseDate.string(from: entry.date)).font(.headline)
+                if entry.date == entries.first?.date {
+                    Text("最新")
+                        .font(.caption.weight(.semibold))
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(Color.accentColor.opacity(0.16), in: Capsule())
+                        .foregroundStyle(Color.accentColor)
+                }
+            }
+            Text(entry.title)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+        }
+        .padding(.vertical, 6)
+    }
+}
+
+private struct ArchiveDestination: Hashable {
+    let date: String
+    let category: String?
+}
+
+private func archiveCategoryName(_ name: String) -> String {
+    name == "社会资讯" ? "社会与荒诞" : DigestSection.displayName(for: name)
 }
 
 struct ArchivedIssueView: View {
     let date: String
+    let category: String?
     @EnvironmentObject private var model: DigestModel
     @State private var attempted = false
 
     var body: some View {
         Group {
             if let issue = model.issues[date] {
-                IssueBody(issue: issue)
+                if let category {
+                    if let section = issue.sections.first(where: { archiveCategoryName($0.name) == category }) {
+                        IssueBody(issue: issue, section: section)
+                    } else {
+                        ContentUnavailableView("这一期没有该栏目", systemImage: "newspaper")
+                    }
+                } else {
+                    DigestOverview(issue: issue)
+                }
             } else if !attempted {
                 ProgressView("正在载入这一期")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

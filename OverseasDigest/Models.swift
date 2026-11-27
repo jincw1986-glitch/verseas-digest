@@ -4,7 +4,7 @@ struct IssueIndex: Codable, Equatable {
     var issues: [IndexEntry]
 }
 
-struct IndexEntry: Codable, Equatable, Identifiable {
+struct IndexEntry: Codable, Hashable, Identifiable, Sendable {
     var id: String { date }
     var date: String
     var title: String
@@ -16,17 +16,32 @@ struct DigestIssue: Codable, Equatable, Identifiable {
     var date: String
     var title: String
     var sections: [DigestSection]
+
+    var readingSections: [DigestSection] { sections.filter { $0.name != "每日一图" } }
 }
 
 struct DigestSection: Codable, Equatable, Identifiable {
     var id: String { name }
     var name: String
+    var displayName: String { Self.displayName(for: name) }
     var items: [DigestItem]
     var jokes: [JokeItem]
     var photo: PhotoOfDay?
     var place: PlaceEssay?
     var gallery: [GalleryItem]
     var wiki: WikiArticle?
+
+    static func displayName(for name: String) -> String {
+        name == "笑话" ? "段子" : name
+    }
+
+    var importanceCounts: [NewsImportance: Int] {
+        items.reduce(into: [:]) { counts, item in
+            if let level = item.importance {
+                counts[level, default: 0] += 1
+            }
+        }
+    }
 
     var entryCount: Int {
         switch name {
@@ -159,6 +174,27 @@ struct DigestItem: Codable, Equatable, Identifiable {
     var sources: [SourceLink]
     var image: DigestPicture?
     var glossary: [GlossaryEntry]
+    var importance: NewsImportance? = nil
+}
+
+enum NewsImportance: String, Codable, CaseIterable, Hashable {
+    case major, notable, routine
+
+    var label: String {
+        switch self {
+        case .major: "重大"
+        case .notable: "重点"
+        case .routine: "常规"
+        }
+    }
+
+    var rank: Int {
+        switch self {
+        case .major: 3
+        case .notable: 2
+        case .routine: 1
+        }
+    }
 }
 
 struct SourceLink: Codable, Equatable, Identifiable {
